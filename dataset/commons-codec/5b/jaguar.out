@@ -1,0 +1,9 @@
+18:48:48.145 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:48:48.216 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
+18:48:50.872 [main] INFO  JaguarDF - Test testCodec98NPE(org.apache.commons.codec.binary.Base64InputStreamTest) : Failed
+18:48:51.865 [main] INFO  JaguarDF - Test testCodec98NPE(org.apache.commons.codec.binary.Base64OutputStreamTest) : Failed
+18:49:15.573 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m28.105s
+user	0m37.514s
+sys	0m3.750s

@@ -1,0 +1,67 @@
+19:45:41.416 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+19:45:41.482 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+19:45:43.358 [main] INFO  JaguarDF - Test testReadZip(org.apache.commons.compress.IOMethodsTest) : Failed
+19:45:44.309 [main] INFO  JaguarDF - Test testReadAr(org.apache.commons.compress.IOMethodsTest) : Failed
+19:45:44.506 [main] INFO  JaguarDF - Test testReadCpio(org.apache.commons.compress.IOMethodsTest) : Failed
+19:45:44.671 [main] INFO  JaguarDF - Test testReadJar(org.apache.commons.compress.IOMethodsTest) : Failed
+19:45:44.835 [main] INFO  JaguarDF - Test testReadTar(org.apache.commons.compress.IOMethodsTest) : Failed
+19:45:44.968 [main] INFO  JaguarDF - Test testArArchiveCreation(org.apache.commons.compress.archivers.ArTestCase) : Failed
+19:45:45.098 [main] INFO  JaguarDF - Test testArUnarchive(org.apache.commons.compress.archivers.ArTestCase) : Failed
+19:45:45.217 [main] INFO  JaguarDF - Test testArDelete(org.apache.commons.compress.archivers.ArTestCase) : Failed
+19:45:45.540 [main] INFO  JaguarDF - Test testCpioArchiveCreation(org.apache.commons.compress.archivers.CpioTestCase) : Failed
+19:45:45.697 [main] INFO  JaguarDF - Test testCpioUnarchive(org.apache.commons.compress.archivers.CpioTestCase) : Failed
+19:45:45.840 [main] INFO  JaguarDF - Test testJarArchiveCreation(org.apache.commons.compress.archivers.JarTestCase) : Failed
+19:45:45.987 [main] INFO  JaguarDF - Test testJarUnarchive(org.apache.commons.compress.archivers.JarTestCase) : Failed
+19:45:46.186 [main] INFO  JaguarDF - Test testJarUnarchiveAll(org.apache.commons.compress.archivers.JarTestCase) : Failed
+19:45:46.300 [main] INFO  JaguarDF - Test testTarArchiveCreation(org.apache.commons.compress.archivers.TarTestCase) : Failed
+19:45:46.406 [main] INFO  JaguarDF - Test testTarArchiveLongNameCreation(org.apache.commons.compress.archivers.TarTestCase) : Failed
+19:45:46.514 [main] INFO  JaguarDF - Test testTarUnarchive(org.apache.commons.compress.archivers.TarTestCase) : Failed
+19:45:46.623 [main] INFO  JaguarDF - Test testListAllFilesWithNestedArchive(org.apache.commons.compress.archivers.ZipTestCase) : Failed
+19:45:46.734 [main] INFO  JaguarDF - Test testZipArchiveCreation(org.apache.commons.compress.archivers.ZipTestCase) : Failed
+19:45:46.833 [main] INFO  JaguarDF - Test testZipUnarchive(org.apache.commons.compress.archivers.ZipTestCase) : Failed
+19:45:46.931 [main] INFO  JaguarDF - Test testCpioUnarchive(org.apache.commons.compress.archivers.cpio.CpioArchiveInputStreamTest) : Failed
+19:45:47.033 [main] INFO  JaguarDF - Test testJarMarker(org.apache.commons.compress.archivers.jar.JarArchiveOutputStreamTest) : Failed
+19:45:49.760 [main] INFO  JaguarDF - Test testUtf8FileRoundtripExplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:49.889 [main] INFO  JaguarDF - Test testUtf8FileRoundtripNoEFSExplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.016 [main] INFO  JaguarDF - Test testCP437FileRoundtripExplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.140 [main] INFO  JaguarDF - Test testASCIIFileRoundtripExplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.268 [main] INFO  JaguarDF - Test testUtf8FileRoundtripImplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.413 [main] INFO  JaguarDF - Test testUtf8FileRoundtripNoEFSImplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.540 [main] INFO  JaguarDF - Test testCP437FileRoundtripImplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:50.663 [main] INFO  JaguarDF - Test testASCIIFileRoundtripImplicitUnicodeExtra(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:51.463 [main] INFO  JaguarDF - Test testZipArchiveInputStreamReadsUnicodeFields(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:51.589 [main] INFO  JaguarDF - Test testUtf8Interoperability(org.apache.commons.compress.archivers.zip.UTF8ZipFilesTest) : Failed
+19:45:54.793 [main] INFO  JaguarDF - Test testAddChangeTwice(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:54.967 [main] INFO  JaguarDF - Test testAddChangeTwiceWithoutReplace(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.157 [main] INFO  JaguarDF - Test testDeleteDir(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.306 [main] INFO  JaguarDF - Test testDeleteDir2(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.465 [main] INFO  JaguarDF - Test testDeleteDir3(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.602 [main] INFO  JaguarDF - Test testDeleteFile(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.763 [main] INFO  JaguarDF - Test testDeleteFile2(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:55.892 [main] INFO  JaguarDF - Test testDeletePlusAddSame(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.013 [main] INFO  JaguarDF - Test testChangeSetResults(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.133 [main] INFO  JaguarDF - Test testDeletePlusAdd(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.250 [main] INFO  JaguarDF - Test testDeleteFromAndAddToZip(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.368 [main] INFO  JaguarDF - Test testAddDeleteAdd(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.486 [main] INFO  JaguarDF - Test testDeleteAddDelete(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.607 [main] INFO  JaguarDF - Test testDeleteFromZip(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.736 [main] INFO  JaguarDF - Test testDeleteFromTar(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.860 [main] INFO  JaguarDF - Test testDeleteFromJar(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:56.991 [main] INFO  JaguarDF - Test testDeleteFromAndAddToTar(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:57.138 [main] INFO  JaguarDF - Test testDeleteFromAndAddToJar(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:57.266 [main] INFO  JaguarDF - Test testDeleteFromAr(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:57.388 [main] INFO  JaguarDF - Test testDeleteFromAndAddToAr(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:57.847 [main] INFO  JaguarDF - Test testAddToEmptyArchive(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:57.994 [main] INFO  JaguarDF - Test testDeleteAddToOneFileArchive(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:58.115 [main] INFO  JaguarDF - Test testAddDeleteToOneFileArchive(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:58.241 [main] INFO  JaguarDF - Test testAddAllreadyExistingWithReplaceTrue(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:58.361 [main] INFO  JaguarDF - Test testAddAllreadyExistingWithReplaceFalse(org.apache.commons.compress.changes.ChangeSetTestCase) : Failed
+19:45:58.605 [main] INFO  JaguarDF - Test testBzipCreation(org.apache.commons.compress.compressors.BZip2TestCase) : Failed
+19:45:58.900 [main] INFO  JaguarDF - Test testBzip2Unarchive(org.apache.commons.compress.compressors.BZip2TestCase) : Failed
+19:45:59.177 [main] INFO  JaguarDF - Test testGzipCreation(org.apache.commons.compress.compressors.GZipTestCase) : Failed
+19:45:59.388 [main] INFO  JaguarDF - Test testGzipUnarchive(org.apache.commons.compress.compressors.GZipTestCase) : Failed
+19:46:00.201 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m19.328s
+user	0m36.338s
+sys	0m2.693s

@@ -1,0 +1,7 @@
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,54, this)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,(51,51), compressionLevel)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,(51,52), compressionLevel)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,52, compressionLevel)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,(51,52), compressionLevel)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,(51,54), compressionLevel)
+org.apache.commons.compress.compressors.gzip.GzipParameters#setCompressionLevel:(51,54, compressionLevel)

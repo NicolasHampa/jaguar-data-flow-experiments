@@ -1,0 +1,8 @@
+18:46:05.633 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:46:05.709 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
+18:46:20.005 [main] INFO  JaguarDF - Test testDoubleMetaphoneAlternate(org.apache.commons.codec.language.DoubleMetaphone2Test) : Failed
+18:46:33.696 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m28.643s
+user	0m40.169s
+sys	0m3.892s

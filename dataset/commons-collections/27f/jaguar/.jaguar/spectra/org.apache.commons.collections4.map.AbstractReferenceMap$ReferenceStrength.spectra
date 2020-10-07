@@ -1,0 +1,7 @@
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,(100,108), value)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,(100,102), value)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,(100,104), value)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,(100,106), value)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,102, HARD)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,104, SOFT)
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceStrength#resolve:(100,106, WEAK)

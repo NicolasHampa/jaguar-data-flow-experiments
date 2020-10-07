@@ -1,0 +1,9 @@
+23:34:02.398 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+23:34:02.460 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+23:34:32.416 [main] INFO  JaguarDF - Test testIterateDOM(org.apache.commons.jxpath.ri.model.AliasedNamespaceIterationTest) : Failed
+23:34:32.806 [main] INFO  JaguarDF - Test testIterateJDOM(org.apache.commons.jxpath.ri.model.AliasedNamespaceIterationTest) : Failed
+23:36:12.845 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m10.918s
+user	2m27.790s
+sys	0m9.665s

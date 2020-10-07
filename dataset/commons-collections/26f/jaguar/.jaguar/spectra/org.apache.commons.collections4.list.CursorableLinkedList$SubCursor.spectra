@@ -1,0 +1,8 @@
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this.sub)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this.sub)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this.size)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasNext:(592,(592,592), this.size)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasPrevious:(597,(597,597), this)
+org.apache.commons.collections4.list.CursorableLinkedList$SubCursor#hasPrevious:(597,(597,597), this)

@@ -1,0 +1,3 @@
+org.apache.commons.compress.archivers.jar.JarArchiveInputStream#getNextJarEntry:(40,(41,41), entry)
+org.apache.commons.compress.archivers.jar.JarArchiveInputStream#getNextJarEntry:(40,(41,41), entry)
+org.apache.commons.compress.archivers.jar.JarArchiveInputStream#getNextJarEntry:(40,41, entry)

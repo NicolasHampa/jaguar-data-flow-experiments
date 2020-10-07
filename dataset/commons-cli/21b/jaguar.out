@@ -1,0 +1,24 @@
+18:07:25.069 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:07:25.144 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Unexpected value "src/test/org/apache/commons/cli2/bug/BugCLI144Test.java"      
+found while processing  -f                                                      
+Usage:                                                                          
+ [-f <file-name1> [<file-name2> ...]]                                           
+-f (--file-name) file-name [file-name ...]    name of an existing file          
+18:07:31.486 [main] INFO  JaguarDF - Test testFileValidator(org.apache.commons.cli2.bug.BugCLI144Test) : Failed
+18:07:31.765 [main] INFO  JaguarDF - Test testNegativeNumber(org.apache.commons.cli2.bug.BugCLI150Test) : Failed
+18:07:49.153 [main] INFO  JaguarDF - Test testNoCyclesPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:07:49.244 [main] INFO  JaguarDF - Test testApiIndependance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:07:49.326 [main] INFO  JaguarDF - Test testJUnitNotPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:07:49.410 [main] INFO  JaguarDF - Test testAcceptableDistance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:08:10.662 [main] INFO  JaguarDF - Test testValidate_Directory(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:10.836 [main] INFO  JaguarDF - Test testValidate_HiddenFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:10.923 [main] INFO  JaguarDF - Test testValidate_WritableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:11.010 [main] INFO  JaguarDF - Test testValidate_Existing(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:11.096 [main] INFO  JaguarDF - Test testValidate_File(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:11.182 [main] INFO  JaguarDF - Test testValidate_ReadableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:08:12.174 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m47.630s
+user	0m56.582s
+sys	0m5.827s

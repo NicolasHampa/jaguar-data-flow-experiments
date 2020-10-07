@@ -1,0 +1,7 @@
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,(77,79), queue)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,(77,85), queue)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,79, queue)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,80, queue)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,82, transformer)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,85, decorated)
+org.apache.commons.collections4.queue.TransformedQueue#transformedQueue:(76,82, decorated)

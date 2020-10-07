@@ -1,0 +1,20 @@
+02:21:56.985 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+02:21:57.092 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+02:22:20.496 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+02:22:22.005 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+02:22:23.234 [main] INFO  JaguarDF - Test detectsAndThrowsFor7z(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+02:22:23.608 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+02:23:26.968 [main] INFO  JaguarDF - Test initializationError(org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest) : Failed
+02:24:33.782 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+02:24:34.357 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+02:24:34.923 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+02:24:35.495 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+02:24:36.054 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+02:24:36.706 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+02:27:28.884 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	5m32.794s
+user	5m41.651s
+sys	0m24.655s

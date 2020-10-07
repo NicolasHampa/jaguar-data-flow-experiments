@@ -1,0 +1,4 @@
+Analyzing output/commons-jxpath/7f/jaguar
+org.apache.commons.jxpath.ri.JXPathContextReferenceImpl
+- BA-DUA covered: 185, Jaguar covered: 183
+Total DUAs: 20300, Covered DUAs: 11816

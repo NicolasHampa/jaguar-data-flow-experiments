@@ -1,0 +1,13 @@
+22:18:14.245 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:18:14.310 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+22:18:58.470 [main] INFO  JaguarDF - Test testPreserveDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:18:58.845 [main] INFO  JaguarDF - Test testNestedDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:18:59.209 [main] INFO  JaguarDF - Test testNestedWithCommentsDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:19:00.427 [main] INFO  JaguarDF - Test testPreserveJDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:19:00.814 [main] INFO  JaguarDF - Test testNestedJDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:19:01.196 [main] INFO  JaguarDF - Test testNestedWithCommentsJDOM(org.apache.commons.jxpath.ri.model.XMLSpaceTest) : Failed
+22:20:19.960 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m6.195s
+user	2m21.836s
+sys	0m8.795s

@@ -1,0 +1,123 @@
+04:09:21.097 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+04:09:21.234 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+04:09:50.085 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+04:09:51.771 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+04:09:53.030 [main] INFO  JaguarDF - Test detectsAndThrowsFor7z(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+04:09:53.470 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+04:11:05.411 [main] INFO  JaguarDF - Test initializationError(org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest) : Failed
+04:12:20.231 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+04:12:20.832 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+04:12:21.402 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+04:12:21.982 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+04:12:22.564 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+04:12:23.182 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+test.txt written, uncompressed bytes: 369, compressed bytes: 53 after 8ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 971 after 5ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4068310 after 305ms
+bigChunkTest written, uncompressed bytes: 131072, compressed bytes: 131128 after 7ms
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+Configuration: default
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4082684 after 594ms
+COMPRESS-256.7z.block.lz4 read after 26ms
+Configuration: default
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38231 after 3ms
+lorem-ipsum.txt.gz.block.lz4 read after 0ms
+Configuration: default
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 594 after 3ms
+bla.tar.block.lz4 read after 1ms
+Configuration: tuned for speed
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4082689 after 446ms
+COMPRESS-256.7z.block.lz4 read after 25ms
+Configuration: tuned for speed
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38231 after 2ms
+lorem-ipsum.txt.gz.block.lz4 read after 1ms
+Configuration: tuned for speed
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 600 after 2ms
+bla.tar.block.lz4 read after 1ms
+Configuration: tuned for compression ratio
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4082684 after 561ms
+COMPRESS-256.7z.block.lz4 read after 25ms
+Configuration: tuned for compression ratio
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38231 after 4ms
+lorem-ipsum.txt.gz.block.lz4 read after 0ms
+Configuration: tuned for compression ratio
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 594 after 3ms
+bla.tar.block.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 594 after 2ms
+bla.tar.lz4-block.lz4 read after 1ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 4ms
+bla.tar.lz4-framed.lz4 read after 2ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4068227 after 298ms
+COMPRESS-256.7z.framed.lz4 read after 13ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 2ms
+lorem-ipsum.txt.gz.framed.lz4 read after 1ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 0ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4068760 after 385ms
+COMPRESS-256.7z.framed.lz4 read after 11ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 2ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 1ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4069873 after 425ms
+COMPRESS-256.7z.framed.lz4 read after 10ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 2ms
+lorem-ipsum.txt.gz.framed.lz4 read after 1ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 1ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4069861 after 439ms
+COMPRESS-256.7z.framed.lz4 read after 9ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 3ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 1ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4069857 after 448ms
+COMPRESS-256.7z.framed.lz4 read after 7ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38095 after 3ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 606 after 1ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4069865 after 553ms
+COMPRESS-256.7z.framed.lz4 read after 15ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38103 after 3ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 614 after 1ms
+bla.tar.framed.lz4 read after 2ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4068221 after 437ms
+COMPRESS-256.7z.framed.lz4 read after 16ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 3ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 610 after 1ms
+bla.tar.framed.lz4 read after 0ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4069861 after 314ms
+COMPRESS-256.7z.framed.lz4 read after 8ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38099 after 3ms
+lorem-ipsum.txt.gz.framed.lz4 read after 0ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 616 after 1ms
+bla.tar.framed.lz4 read after 1ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4067498 after 316ms
+COMPRESS-256.7z.raw.sz read after 8ms
+Configuration: tuned for compression ratio
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 949 after 4ms
+bla.tar.raw.sz read after 1ms
+reallyBigLiteralTest written, uncompressed bytes: 524288, compressed bytes: 524315 after 48ms
+reallyBigLiteralTest.raw.sz read after 1ms
+reallyBigOffsetTest written, uncompressed bytes: 2097160, compressed bytes: 2097309 after 233ms
+reallyBigOffsetTest.raw.sz read after 5ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38089 after 2ms
+lorem-ipsum.txt.gz.raw.sz read after 0ms
+Configuration: default
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 955 after 5ms
+bla.tar.raw.sz read after 1ms
+Configuration: tuned for speed
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 960 after 5ms
+bla.tar.raw.sz read after 0ms
+04:18:06.864 [main] INFO  JaguarDF - Test testClassInstantiationWithParameterBeingNullThrowsNullPointerExceptionOne(org.apache.commons.compress.utils.ChecksumCalculatingInputStreamTest) : Failed
+04:18:07.598 [main] INFO  JaguarDF - Test testClassInstantiationWithParameterBeingNullThrowsNullPointerExceptionTwo(org.apache.commons.compress.utils.ChecksumCalculatingInputStreamTest) : Failed
+04:18:09.076 [main] INFO  JaguarDF - Test testClassInstantiationWithParameterBeingNullThrowsNullPointerExceptionThree(org.apache.commons.compress.utils.ChecksumCalculatingInputStreamTest) : Failed
+04:18:37.551 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	9m17.513s
+user	8m52.089s
+sys	0m55.689s

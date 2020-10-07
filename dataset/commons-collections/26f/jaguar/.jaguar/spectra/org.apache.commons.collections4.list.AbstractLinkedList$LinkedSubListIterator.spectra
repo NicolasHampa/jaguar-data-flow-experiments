@@ -1,0 +1,8 @@
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this.sub)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this.sub)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this.size)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasNext:(906,(906,906), this.size)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasPrevious:(911,(911,911), this)
+org.apache.commons.collections4.list.AbstractLinkedList$LinkedSubListIterator#hasPrevious:(911,(911,911), this)

@@ -1,0 +1,13 @@
+18:23:35.975 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:23:36.045 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Exception found converting v to desired type: Unable to parse the URL: foo://commons.apache.org
+Exception found converting d to desired type: Unable to find the class: System.DateTime
+Exception found converting x to desired type: For input string: "3,5"
+Exception found converting i to desired type: java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+Exception found converting n to desired type: Unable to find the class: System.DateTime
+18:23:53.484 [main] INFO  JaguarDF - Test testOptionComparatorInsertedOrder(org.apache.commons.cli.bug.BugCLI266Test) : Failed
+18:23:54.493 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m19.010s
+user	0m27.967s
+sys	0m3.157s

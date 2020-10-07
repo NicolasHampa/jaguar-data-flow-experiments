@@ -1,0 +1,5 @@
+org.apache.commons.compress.utils.CountingOutputStream#count:(60,61, this)
+org.apache.commons.compress.utils.CountingOutputStream#count:(60,(60,61), written)
+org.apache.commons.compress.utils.CountingOutputStream#count:(60,(60,63), written)
+org.apache.commons.compress.utils.CountingOutputStream#count:(60,61, written)
+org.apache.commons.compress.utils.CountingOutputStream#count:(60,61, this.bytesWritten)

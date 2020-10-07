@@ -1,0 +1,15 @@
+JUnit version 3.8.1
+............................................................................................For input string: "3,5"
+.Unable to find: System.DateTime
+.java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+Unable to find the class: System.DateTime
+.Unable to parse the URL: foo://commons.apache.org
+.....................................................
+Time: 0.06
+
+OK (148 tests)
+
+
+real	0m0.228s
+user	0m0.322s
+sys	0m0.053s

@@ -1,0 +1,8 @@
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#<init>:(54,55, this)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#<init>:(54,55, inputStream)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#<init>:(54,(55,55), parameters)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#<init>:(54,(55,55), parameters)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#read:(61,62, this)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#read:(61,(62,62), ret)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#read:(61,(62,62), ret)
+org.apache.commons.compress.compressors.deflate.DeflateCompressorInputStream#read:(61,63, ret)

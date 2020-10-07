@@ -1,0 +1,21 @@
+21:15:01.652 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:15:01.769 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:15:14.230 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:15:14.510 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:15:15.065 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:16:48.963 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/archives/imploding-4Kdict-2trees.zip
+21:16:49.481 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+21:16:50.048 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/moby-imploded.zip
+21:16:50.578 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/archives/imploding-8Kdict-3trees.zip
+21:16:51.090 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+21:16:51.594 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+21:18:45.968 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m45.177s
+user	3m55.739s
+sys	0m16.183s

@@ -1,0 +1,4 @@
+Analyzing output/commons-csv/16b/jaguar
+org.apache.commons.csv.CSVFormat
+- BA-DUA covered: 763, Jaguar covered: 761
+Total DUAs: 1876, Covered DUAs: 1606

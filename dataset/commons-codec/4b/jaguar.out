@@ -1,0 +1,9 @@
+18:47:24.146 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:47:24.236 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
+18:47:26.488 [main] INFO  JaguarDF - Test testEncoder(org.apache.commons.codec.binary.Base64Codec13Test) : Failed
+18:47:26.611 [main] INFO  JaguarDF - Test testBinaryEncoder(org.apache.commons.codec.binary.Base64Codec13Test) : Failed
+18:47:50.512 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m27.081s
+user	0m38.513s
+sys	0m3.997s

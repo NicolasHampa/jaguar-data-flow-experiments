@@ -1,0 +1,4 @@
+org.apache.commons.codec.net.Utils#digit16:(43,45, b)
+org.apache.commons.codec.net.Utils#digit16:(43,(44,45), i)
+org.apache.commons.codec.net.Utils#digit16:(43,(44,47), i)
+org.apache.commons.codec.net.Utils#digit16:(43,47, i)

@@ -1,0 +1,22 @@
+03:06:02.555 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+03:06:02.644 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+03:06:26.314 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:06:27.878 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:06:29.083 [main] INFO  JaguarDF - Test detectsAndThrowsFor7z(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:06:29.472 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:07:31.522 [main] INFO  JaguarDF - Test initializationError(org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest) : Failed
+03:08:40.053 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:08:40.647 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:08:41.266 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:08:41.933 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:08:42.556 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:08:43.143 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+03:11:25.483 [main] INFO  JaguarDF - Test littleEndianWithOverflow(org.apache.commons.compress.utils.BitInputStreamTest) : Failed
+03:11:28.185 [main] INFO  JaguarDF - Test bigEndianWithOverflow(org.apache.commons.compress.utils.BitInputStreamTest) : Failed
+03:11:39.771 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	5m37.949s
+user	5m45.299s
+sys	0m25.238s

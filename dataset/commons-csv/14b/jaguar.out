@@ -1,0 +1,13 @@
+11:35:25.036 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+11:35:25.107 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-csv, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+11:35:34.362 [main] INFO  JaguarDF - Test testEscapeNull1(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:34.593 [main] INFO  JaguarDF - Test testEscapeNull4(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:34.671 [main] INFO  JaguarDF - Test testEscapeNull5(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:37.670 [main] INFO  JaguarDF - Test testEscapeBackslash1(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:37.851 [main] INFO  JaguarDF - Test testEscapeBackslash4(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:37.910 [main] INFO  JaguarDF - Test testEscapeBackslash5(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:35:42.944 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m18.480s
+user	0m36.839s
+sys	0m3.882s

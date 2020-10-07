@@ -1,0 +1,4 @@
+Analyzing output/commons-compress/14b/jaguar
+org.apache.commons.compress.compressors.pack200.StreamBridge
+- BA-DUA covered: 12, Jaguar covered: 10
+Total DUAs: 11546, Covered DUAs: 4783

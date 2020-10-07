@@ -1,0 +1,30 @@
+03:32:49.858 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+03:32:49.952 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+03:33:14.769 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:33:16.449 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:33:17.628 [main] INFO  JaguarDF - Test detectsAndThrowsFor7z(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:33:18.014 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+03:34:25.623 [main] INFO  JaguarDF - Test initializationError(org.apache.commons.compress.archivers.sevenz.SevenZNativeHeapTest) : Failed
+03:35:40.039 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:35:40.728 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:35:41.415 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:35:42.070 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:35:42.731 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:35:43.413 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+03:36:25.346 [main] INFO  JaguarDF - Test isUnixSymlinkIsFalseIfMoreThanOneFlagIsSet(org.apache.commons.compress.archivers.zip.ZipArchiveEntryTest) : Failed
+test.txt written, uncompressed bytes: 369, compressed bytes: 53 after 11ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 965 after 88ms
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4068305 after 207ms
+bigChunkTest written, uncompressed bytes: 131072, compressed bytes: 131127 after 5ms
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+COMPRESS-256.7z written, uncompressed bytes: 4069842, compressed bytes: 4067499 after 234ms
+reallyBigLiteralTest written, uncompressed bytes: 524288, compressed bytes: 524309 after 21ms
+reallyBigOffsetTest written, uncompressed bytes: 2097160, compressed bytes: 2097340 after 139ms
+lorem-ipsum.txt.gz written, uncompressed bytes: 38080, compressed bytes: 38089 after 2ms
+bla.tar written, uncompressed bytes: 10240, compressed bytes: 949 after 55ms
+03:39:47.250 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	6m58.158s
+user	6m47.651s
+sys	0m38.028s

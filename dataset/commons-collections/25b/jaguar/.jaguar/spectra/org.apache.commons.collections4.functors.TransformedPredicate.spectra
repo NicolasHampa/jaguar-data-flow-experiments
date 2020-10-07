@@ -1,0 +1,6 @@
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,(53,54), transformer)
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,(53,56), transformer)
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,59, transformer)
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,(56,57), predicate)
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,(56,59), predicate)
+org.apache.commons.collections4.functors.TransformedPredicate#transformedPredicate:(53,59, predicate)

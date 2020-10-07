@@ -1,0 +1,3 @@
+org.apache.commons.collections4.functors.CloneTransformer#transform:(66,(66,67), input)
+org.apache.commons.collections4.functors.CloneTransformer#transform:(66,(66,69), input)
+org.apache.commons.collections4.functors.CloneTransformer#transform:(66,69, input)

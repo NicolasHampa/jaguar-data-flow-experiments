@@ -1,0 +1,12 @@
+18:58:42.815 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:58:42.880 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
+18:59:32.559 [main] INFO  JaguarDF - Test testSkipNotEncodedCRLF(org.apache.commons.codec.net.QuotedPrintableCodecTest) : Failed
+18:59:32.711 [main] INFO  JaguarDF - Test testSoftLineBreakDecode(org.apache.commons.codec.net.QuotedPrintableCodecTest) : Failed
+18:59:32.867 [main] INFO  JaguarDF - Test testSoftLineBreakEncode(org.apache.commons.codec.net.QuotedPrintableCodecTest) : Failed
+18:59:33.777 [main] INFO  JaguarDF - Test testUltimateSoftBreak(org.apache.commons.codec.net.QuotedPrintableCodecTest) : Failed
+18:59:34.102 [main] INFO  JaguarDF - Test testTrailingSpecial(org.apache.commons.codec.net.QuotedPrintableCodecTest) : Failed
+18:59:38.118 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m55.919s
+user	1m4.130s
+sys	0m6.477s

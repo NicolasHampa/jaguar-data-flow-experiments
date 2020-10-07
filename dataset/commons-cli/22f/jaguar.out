@@ -1,0 +1,12 @@
+18:09:46.904 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:09:46.973 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Unable to parse the URL: foo://commons.apache.org
+Unable to find the class: System.DateTime
+For input string: "3,5"
+java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+Unable to find the class: System.DateTime
+18:09:56.004 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m9.618s
+user	0m21.624s
+sys	0m1.784s

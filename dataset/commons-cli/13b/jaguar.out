@@ -1,0 +1,18 @@
+17:56:01.171 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+17:56:01.336 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+17:56:08.478 [main] INFO  JaguarDF - Test testLoopingOptionLookAlike2(org.apache.commons.cli2.bug.BugLoopingOptionLookAlikeTest) : Failed
+17:56:25.193 [main] INFO  JaguarDF - Test testNoCyclesPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+17:56:25.433 [main] INFO  JaguarDF - Test testApiIndependance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+17:56:25.556 [main] INFO  JaguarDF - Test testJUnitNotPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+17:56:25.649 [main] INFO  JaguarDF - Test testAcceptableDistance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+17:56:46.231 [main] INFO  JaguarDF - Test testValidate_Directory(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:46.417 [main] INFO  JaguarDF - Test testValidate_HiddenFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:46.511 [main] INFO  JaguarDF - Test testValidate_WritableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:46.637 [main] INFO  JaguarDF - Test testValidate_Existing(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:46.741 [main] INFO  JaguarDF - Test testValidate_File(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:46.846 [main] INFO  JaguarDF - Test testValidate_ReadableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+17:56:48.290 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m47.965s
+user	0m57.477s
+sys	0m6.026s

@@ -1,0 +1,4 @@
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$Values#iterator:(836,838, this)
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$Values#iterator:(836,838, this.this$0)
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$Values#iterator:(836,840, chain)
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$Values#iterator:(836,838, chain)

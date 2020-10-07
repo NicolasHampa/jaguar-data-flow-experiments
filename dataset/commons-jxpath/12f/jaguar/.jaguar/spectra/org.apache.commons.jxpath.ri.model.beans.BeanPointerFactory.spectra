@@ -1,0 +1,8 @@
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,60, parent)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,56, parent)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,60, name)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,56, name)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,(55,56), bean)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,(55,59), bean)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,59, bean)
+org.apache.commons.jxpath.ri.model.beans.BeanPointerFactory#createNodePointer:(55,60, bean)

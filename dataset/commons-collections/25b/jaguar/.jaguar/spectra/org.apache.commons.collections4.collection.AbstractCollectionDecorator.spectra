@@ -1,0 +1,4 @@
+org.apache.commons.collections4.collection.AbstractCollectionDecorator#<init>:(78,82, this)
+org.apache.commons.collections4.collection.AbstractCollectionDecorator#<init>:(78,(79,80), coll)
+org.apache.commons.collections4.collection.AbstractCollectionDecorator#<init>:(78,(79,82), coll)
+org.apache.commons.collections4.collection.AbstractCollectionDecorator#<init>:(78,82, coll)

@@ -1,0 +1,22 @@
+21:10:44.280 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:10:44.372 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:10:57.433 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:10:57.714 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:10:58.374 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+21:12:32.050 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/archives/imploding-4Kdict-2trees.zip
+21:12:32.773 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+21:12:33.379 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/moby-imploded.zip
+21:12:33.936 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+21:12:34.471 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+21:12:34.997 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+Cleaning up unclosed ZipFile for archive /Users/mario.concilio/workspace/ppgsi_docker/target/test-classes/archives/imploding-8Kdict-3trees.zip
+21:13:05.271 [main] INFO  JaguarDF - Test testReadingOfFirstStoredEntry(org.apache.commons.compress.archivers.zip.ZipArchiveInputStreamTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+21:14:30.533 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m47.119s
+user	3m57.104s
+sys	0m16.380s

@@ -1,0 +1,4 @@
+org.apache.commons.collections4.functors.PrototypeFactory$PrototypeSerializationFactory#create:(176,199, baos)
+org.apache.commons.collections4.functors.PrototypeFactory$PrototypeSerializationFactory#create:(182,(192,193), bais)
+org.apache.commons.collections4.functors.PrototypeFactory$PrototypeSerializationFactory#create:(182,(192,197), bais)
+org.apache.commons.collections4.functors.PrototypeFactory$PrototypeSerializationFactory#create:(182,193, bais)

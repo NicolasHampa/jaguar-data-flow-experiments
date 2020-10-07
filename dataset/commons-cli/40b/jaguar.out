@@ -1,0 +1,17 @@
+18:27:43.298 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:27:43.379 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Exception found converting g to desired type: Unable to find file: src/test/resources/existing-readable.file
+18:27:57.864 [main] INFO  JaguarDF - Test testExistingFilePattern(org.apache.commons.cli.PatternOptionBuilderTest) : Failed
+Exception found converting v to desired type: Unable to parse the URL: foo://commons.apache.org
+Exception found converting d to desired type: Unable to find the class: System.DateTime
+Exception found converting f to desired type: Unable to find file: non-existing.file
+Exception found converting x to desired type: For input string: "3,5"
+Exception found converting i to desired type: java.lang.IllegalAccessException; Unable to create an instance of: java.util.Calendar
+Exception found converting n to desired type: Unable to find the class: System.DateTime
+18:28:01.950 [main] INFO  JaguarDF - Test testCreateValueExistingFile(org.apache.commons.cli.TypeHandlerTest) : Failed
+18:28:02.458 [main] INFO  JaguarDF - Test testCreateValueInteger_failure(org.apache.commons.cli.TypeHandlerTest) : Failed
+18:28:06.818 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m24.034s
+user	0m34.057s
+sys	0m3.865s

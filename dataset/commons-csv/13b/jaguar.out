@@ -1,0 +1,9 @@
+11:34:20.181 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+11:34:20.244 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-csv, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+11:34:31.866 [main] INFO  JaguarDF - Test testMySqlNullOutput(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:34:31.924 [main] INFO  JaguarDF - Test testMySqlNullStringDefault(org.apache.commons.csv.CSVPrinterTest) : Failed
+11:34:35.525 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m15.880s
+user	0m29.686s
+sys	0m3.189s

@@ -1,0 +1,138 @@
+Analyzing output/commons-collections/26b/jaguar
+org.apache.commons.collections4.MapUtils
+- BA-DUA covered: 185, Jaguar covered: 159
+org.apache.commons.collections4.ClosureUtils
+- BA-DUA covered: 19, Jaguar covered: 16
+org.apache.commons.collections4.ComparatorUtils
+- BA-DUA covered: 45, Jaguar covered: 35
+org.apache.commons.collections4.SetUtils
+- BA-DUA covered: 61, Jaguar covered: 58
+org.apache.commons.collections4.CollectionUtils
+- BA-DUA covered: 495, Jaguar covered: 440
+org.apache.commons.collections4.IterableUtils
+- BA-DUA covered: 150, Jaguar covered: 126
+org.apache.commons.collections4.TransformerUtils
+- BA-DUA covered: 17, Jaguar covered: 14
+org.apache.commons.collections4.ListUtils
+- BA-DUA covered: 139, Jaguar covered: 124
+org.apache.commons.collections4.bidimap.TreeBidiMap$Inverse
+- BA-DUA covered: 41, Jaguar covered: 38
+org.apache.commons.collections4.bidimap.TreeBidiMap
+- BA-DUA covered: 1062, Jaguar covered: 1048
+org.apache.commons.collections4.bidimap.AbstractDualBidiMap
+- BA-DUA covered: 95, Jaguar covered: 92
+org.apache.commons.collections4.collection.IndexedCollection
+- BA-DUA covered: 56, Jaguar covered: 44
+org.apache.commons.collections4.collection.SynchronizedCollection
+- BA-DUA covered: 23, Jaguar covered: 21
+org.apache.commons.collections4.collection.CompositeCollection
+- BA-DUA covered: 115, Jaguar covered: 85
+org.apache.commons.collections4.collection.PredicatedCollection
+- BA-DUA covered: 24, Jaguar covered: 18
+org.apache.commons.collections4.collection.PredicatedCollection$Builder
+- BA-DUA covered: 47, Jaguar covered: 44
+org.apache.commons.collections4.collection.TransformedCollection
+- BA-DUA covered: 26, Jaguar covered: 13
+org.apache.commons.collections4.functors.ChainedClosure
+- BA-DUA covered: 32, Jaguar covered: 19
+org.apache.commons.collections4.functors.PrototypeFactory$PrototypeSerializationFactory
+- BA-DUA covered: 4, Jaguar covered: 3
+org.apache.commons.collections4.functors.AnyPredicate
+- BA-DUA covered: 24, Jaguar covered: 14
+org.apache.commons.collections4.functors.AllPredicate
+- BA-DUA covered: 26, Jaguar covered: 16
+org.apache.commons.collections4.functors.SwitchTransformer
+- BA-DUA covered: 77, Jaguar covered: 74
+org.apache.commons.collections4.functors.FunctorUtils
+- BA-DUA covered: 73, Jaguar covered: 70
+org.apache.commons.collections4.functors.SwitchClosure
+- BA-DUA covered: 75, Jaguar covered: 72
+org.apache.commons.collections4.functors.NonePredicate
+- BA-DUA covered: 20, Jaguar covered: 10
+org.apache.commons.collections4.functors.OnePredicate
+- BA-DUA covered: 23, Jaguar covered: 12
+org.apache.commons.collections4.functors.ChainedTransformer
+- BA-DUA covered: 25, Jaguar covered: 15
+org.apache.commons.collections4.comparators.FixedOrderComparator
+- BA-DUA covered: 106, Jaguar covered: 93
+org.apache.commons.collections4.splitmap.TransformedSplitMap
+- BA-DUA covered: 15, Jaguar covered: 12
+org.apache.commons.collections4.trie.AbstractBitwiseTrie
+- BA-DUA covered: 37, Jaguar covered: 34
+org.apache.commons.collections4.trie.AbstractPatriciaTrie
+- BA-DUA covered: 1004, Jaguar covered: 1003
+org.apache.commons.collections4.trie.AbstractPatriciaTrie$RangeEntryMap
+- BA-DUA covered: 66, Jaguar covered: 65
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceKeySet
+- BA-DUA covered: 6, Jaguar covered: 3
+org.apache.commons.collections4.map.StaticBucketMap
+- BA-DUA covered: 326, Jaguar covered: 311
+org.apache.commons.collections4.map.MultiKeyMap
+- BA-DUA covered: 659, Jaguar covered: 656
+org.apache.commons.collections4.map.StaticBucketMap$EntrySet
+- BA-DUA covered: 45, Jaguar covered: 41
+org.apache.commons.collections4.map.PredicatedMap
+- BA-DUA covered: 41, Jaguar covered: 38
+org.apache.commons.collections4.map.StaticBucketMap$BaseIterator
+- BA-DUA covered: 57, Jaguar covered: 55
+org.apache.commons.collections4.map.PassiveExpiringMap
+- BA-DUA covered: 42, Jaguar covered: 39
+org.apache.commons.collections4.map.MultiValueMap
+- BA-DUA covered: 91, Jaguar covered: 79
+org.apache.commons.collections4.map.MultiValueMap$Values
+- BA-DUA covered: 7, Jaguar covered: 4
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceEntrySet
+- BA-DUA covered: 6, Jaguar covered: 3
+org.apache.commons.collections4.map.AbstractHashedMap
+- BA-DUA covered: 476, Jaguar covered: 453
+org.apache.commons.collections4.map.CompositeMap
+- BA-DUA covered: 192, Jaguar covered: 189
+org.apache.commons.collections4.map.StaticBucketMap$KeySet
+- BA-DUA covered: 21, Jaguar covered: 19
+org.apache.commons.collections4.map.AbstractReferenceMap$ReferenceValues
+- BA-DUA covered: 6, Jaguar covered: 3
+org.apache.commons.collections4.map.ListOrderedMap
+- BA-DUA covered: 133, Jaguar covered: 124
+org.apache.commons.collections4.map.TransformedMap
+- BA-DUA covered: 35, Jaguar covered: 32
+org.apache.commons.collections4.keyvalue.MultiKey
+- BA-DUA covered: 38, Jaguar covered: 27
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap
+- BA-DUA covered: 92, Jaguar covered: 83
+org.apache.commons.collections4.multimap.TransformedMultiValuedMap
+- BA-DUA covered: 49, Jaguar covered: 43
+org.apache.commons.collections4.multimap.AbstractMultiValuedMap$Values
+- BA-DUA covered: 7, Jaguar covered: 4
+org.apache.commons.collections4.list.PredicatedList
+- BA-DUA covered: 15, Jaguar covered: 12
+org.apache.commons.collections4.list.AbstractLinkedList
+- BA-DUA covered: 306, Jaguar covered: 294
+org.apache.commons.collections4.list.SetUniqueList
+- BA-DUA covered: 87, Jaguar covered: 81
+org.apache.commons.collections4.list.TransformedList
+- BA-DUA covered: 24, Jaguar covered: 14
+org.apache.commons.collections4.queue.CircularFifoQueue
+- BA-DUA covered: 148, Jaguar covered: 145
+org.apache.commons.collections4.queue.TransformedQueue
+- BA-DUA covered: 16, Jaguar covered: 6
+org.apache.commons.collections4.set.MapBackedSet
+- BA-DUA covered: 29, Jaguar covered: 26
+org.apache.commons.collections4.set.CompositeSet
+- BA-DUA covered: 158, Jaguar covered: 109
+org.apache.commons.collections4.set.TransformedSet
+- BA-DUA covered: 24, Jaguar covered: 14
+org.apache.commons.collections4.set.ListOrderedSet
+- BA-DUA covered: 89, Jaguar covered: 80
+org.apache.commons.collections4.sequence.EditScript
+- BA-DUA covered: 4, Jaguar covered: 1
+org.apache.commons.collections4.bag.TransformedBag
+- BA-DUA covered: 24, Jaguar covered: 14
+org.apache.commons.collections4.bag.AbstractMapBag
+- BA-DUA covered: 233, Jaguar covered: 224
+org.apache.commons.collections4.iterators.ZippingIterator
+- BA-DUA covered: 45, Jaguar covered: 35
+org.apache.commons.collections4.iterators.CollatingIterator
+- BA-DUA covered: 155, Jaguar covered: 152
+org.apache.commons.collections4.iterators.PermutationIterator
+- BA-DUA covered: 164, Jaguar covered: 161
+Total DUAs: 18055, Covered DUAs: 14578

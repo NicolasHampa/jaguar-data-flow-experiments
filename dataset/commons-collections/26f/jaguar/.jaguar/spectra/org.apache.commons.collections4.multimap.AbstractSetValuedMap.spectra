@@ -1,0 +1,8 @@
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(98,99), this)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(98,101), this)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,102, this)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(98,99), obj)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(98,101), obj)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(101,102), obj)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,(101,104), obj)
+org.apache.commons.collections4.multimap.AbstractSetValuedMap#equals:(98,102, obj)

@@ -1,0 +1,145 @@
+00:56:06.043 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+00:56:06.132 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Cannot find encoding in class ZipArchiveInputStream
+Cannot find encoding in class CpioArchiveInputStream
+Cannot find encoding in class TarArchiveInputStream
+Cannot find encoding in class JarArchiveInputStream
+Cannot find encoding in class DumpArchiveInputStream
+00:56:20.740 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+Cannot find encoding in class CpioArchiveInputStream
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 7. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 8. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 9. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 10. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class DumpArchiveInputStream
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 12. expected: UTF-8 actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 13. expected: ASCII actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 14. expected: UTF-8 actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 15. expected: ASCII actual: ?? type: dump
+Cannot find encoding in class TarArchiveInputStream
+Cannot find encoding in class TarArchiveInputStream
+Failed test 17. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 18. expected: ASCII actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 19. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 20. expected: ASCII actual: ?? type: tar
+Cannot find encoding in class JarArchiveInputStream
+Cannot find encoding in class JarArchiveInputStream
+Failed test 22. expected: UTF-8 actual: ?? type: jar
+Cannot find encoding in class JarArchiveInputStream
+Failed test 23. expected: ASCII actual: ?? type: jar
+Cannot find encoding in class JarArchiveInputStream
+Failed test 24. expected: UTF-8 actual: ?? type: jar
+Cannot find encoding in class JarArchiveInputStream
+Failed test 25. expected: ASCII actual: ?? type: jar
+Cannot find encoding in class ZipArchiveInputStream
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 27. expected: UTF-8 actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 28. expected: ASCII actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 29. expected: UTF-8 actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 30. expected: ASCII actual: ?? type: zip
+00:56:21.411 [main] INFO  JaguarDF - Test testEncodingInputStream(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+Failed test 2. expected: UTF-8 actual: CP437 type: arj
+Failed test 3. expected: ASCII actual: CP437 type: arj
+Failed test 4. expected: UTF-8 actual: CP437 type: arj
+Failed test 5. expected: ASCII actual: CP437 type: arj
+Cannot find encoding in class CpioArchiveInputStream
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 7. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 8. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 9. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveInputStream
+Failed test 10. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class DumpArchiveInputStream
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 12. expected: UTF-8 actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 13. expected: ASCII actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 14. expected: UTF-8 actual: ?? type: dump
+Cannot find encoding in class DumpArchiveInputStream
+Failed test 15. expected: ASCII actual: ?? type: dump
+Cannot find encoding in class TarArchiveInputStream
+Cannot find encoding in class TarArchiveInputStream
+Failed test 17. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 18. expected: ASCII actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 19. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveInputStream
+Failed test 20. expected: ASCII actual: ?? type: tar
+Cannot find encoding in class ZipArchiveInputStream
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 22. expected: UTF-8 actual: ?? type: jar
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 23. expected: ASCII actual: ?? type: jar
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 24. expected: UTF-8 actual: ?? type: jar
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 25. expected: ASCII actual: ?? type: jar
+Cannot find encoding in class ZipArchiveInputStream
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 27. expected: UTF-8 actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 28. expected: ASCII actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 29. expected: UTF-8 actual: ?? type: zip
+Cannot find encoding in class ZipArchiveInputStream
+Failed test 30. expected: ASCII actual: ?? type: zip
+00:56:21.771 [main] INFO  JaguarDF - Test testEncodingInputStreamAutodetect(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+00:56:22.115 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+00:56:23.133 [main] INFO  JaguarDF - Test detectsAndThrowsFor7z(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+00:56:23.481 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+Cannot find encoding in class CpioArchiveOutputStream
+Cannot find encoding in class CpioArchiveOutputStream
+Failed test 7. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveOutputStream
+Failed test 8. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveOutputStream
+Failed test 9. expected: UTF-8 actual: ?? type: cpio
+Cannot find encoding in class CpioArchiveOutputStream
+Failed test 10. expected: ASCII actual: ?? type: cpio
+Cannot find encoding in class TarArchiveOutputStream
+Cannot find encoding in class TarArchiveOutputStream
+Failed test 17. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveOutputStream
+Failed test 18. expected: ASCII actual: ?? type: tar
+Cannot find encoding in class TarArchiveOutputStream
+Failed test 19. expected: UTF-8 actual: ?? type: tar
+Cannot find encoding in class TarArchiveOutputStream
+Failed test 20. expected: ASCII actual: ?? type: tar
+Failed test 21. expected: ?? actual: UTF8 type: jar
+Failed test 22. expected: UTF-8 actual: UTF8 type: jar
+Failed test 23. expected: ASCII actual: UTF8 type: jar
+Failed test 24. expected: UTF-8 actual: UTF8 type: jar
+Failed test 25. expected: ASCII actual: UTF8 type: jar
+Failed test 26. expected: ?? actual: UTF8 type: zip
+00:56:24.178 [main] INFO  JaguarDF - Test testEncodingOutputStream(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+00:58:17.645 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+00:58:18.180 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+00:58:18.713 [main] INFO  JaguarDF - Test testTikaTestArchive(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+00:58:19.241 [main] INFO  JaguarDF - Test testArchiveWithImplodeCompression8K3Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+00:58:19.781 [main] INFO  JaguarDF - Test testZipStreamWithImplodeCompression4K2Trees(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+00:58:20.316 [main] INFO  JaguarDF - Test testTikaTestStream(org.apache.commons.compress.archivers.zip.ExplodeSupportTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+Attempt to read the whole thing in, should throw ...
+01:00:48.540 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	4m43.238s
+user	4m46.625s
+sys	0m20.776s

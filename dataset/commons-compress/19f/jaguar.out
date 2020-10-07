@@ -1,0 +1,12 @@
+20:27:45.497 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:27:45.589 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-compress, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:27:57.994 [main] INFO  JaguarDF - Test skipsPK00Prefix(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+20:27:58.313 [main] INFO  JaguarDF - Test aiffFilesAreNoTARs(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+20:27:58.871 [main] INFO  JaguarDF - Test testCOMPRESS209(org.apache.commons.compress.archivers.ArchiveStreamFactoryTest) : Failed
+20:28:35.549 [main] INFO  JaguarDF - Test testCount(org.apache.commons.compress.archivers.tar.TarArchiveOutputStreamTest) : Failed
+XZTestCase: HeapMax=3817865216 bytes 3641.0 MB
+20:30:10.232 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m25.505s
+user	2m41.809s
+sys	0m12.361s

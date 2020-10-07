@@ -1,0 +1,23 @@
+18:01:40.443 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:01:40.521 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Unexpected value "src/test/org/apache/commons/cli2/bug/BugCLI144Test.java"      
+found while processing  -f                                                      
+Usage:                                                                          
+ [-f <file-name1> [<file-name2> ...]]                                           
+-f (--file-name) file-name [file-name ...]    name of an existing file          
+18:01:46.341 [main] INFO  JaguarDF - Test testFileValidator(org.apache.commons.cli2.bug.BugCLI144Test) : Failed
+18:02:03.298 [main] INFO  JaguarDF - Test testNoCyclesPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:02:03.393 [main] INFO  JaguarDF - Test testApiIndependance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:02:03.484 [main] INFO  JaguarDF - Test testJUnitNotPresent(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:02:03.577 [main] INFO  JaguarDF - Test testAcceptableDistance(org.apache.commons.cli2.jdepend.JDependTest) : Failed
+18:02:24.592 [main] INFO  JaguarDF - Test testValidate_Directory(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:24.788 [main] INFO  JaguarDF - Test testValidate_HiddenFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:24.877 [main] INFO  JaguarDF - Test testValidate_WritableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:24.965 [main] INFO  JaguarDF - Test testValidate_Existing(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:25.053 [main] INFO  JaguarDF - Test testValidate_File(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:25.144 [main] INFO  JaguarDF - Test testValidate_ReadableFile(org.apache.commons.cli2.validation.FileValidatorTest) : Failed
+18:02:26.173 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m46.329s
+user	0m55.800s
+sys	0m5.652s

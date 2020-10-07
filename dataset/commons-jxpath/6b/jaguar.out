@@ -1,0 +1,8 @@
+22:28:11.044 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:28:11.147 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+22:28:38.519 [main] INFO  JaguarDF - Test testIterateVariable(org.apache.commons.jxpath.ri.compiler.VariableTest) : Failed
+22:30:27.561 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m17.071s
+user	2m31.855s
+sys	0m9.921s
