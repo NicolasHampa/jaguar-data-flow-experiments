@@ -14,7 +14,6 @@ def line_to_array(line):
 
 if __name__ == '__main__':
 	project_name = sys.argv[1]
-	#print("Analyzing %s" % project_name)
 
 	matrix_folder = os.path.join(project_name, ".jaguar", "matrix")
 
@@ -57,13 +56,6 @@ if __name__ == '__main__':
 
 				if badua_covered != jaguar_covered:
 					same_coverage = False
-					print(clazz)
-					print("- BA-DUA covered: %s, Jaguar covered: %s" % (badua_covered, jaguar_covered))
-
-	if same_coverage:
-		print("Ba-Dua and Jaguar have the same coverage for %s" % project_name)
-
-	print("Total DUAs: %s, Covered DUAs By Jaguar: %s" % (total_duas, jaguar_covered_duas))
 
 	fieldnames = ['project_name', 'project_version', 'total_duas', 'jaguar_covered_duas', 'badua_covered_duas']
 	writemode = 'a' if os.path.exists(os.path.join(os.getcwd(), "assert_coverage.csv")) else 'w'
@@ -71,6 +63,8 @@ if __name__ == '__main__':
 	project_name = path_split[len(path_split)-3]
 	project_version = path_split[len(path_split)-2]
 
+	if not same_coverage:
+		print("Ba-Dua and Jaguar have different coverage rates for %s %s" % (project_name, project_version))
 
 	with open('assert_coverage.csv', mode=writemode) as coverage_file:
 		csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
@@ -82,41 +76,3 @@ if __name__ == '__main__':
 			'jaguar_covered_duas':jaguar_covered_duas,
 			'badua_covered_duas':badua_covered_duas
 		})
-	#coverage_writer = csv.writer(coverage_file, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
-	#coverage_writer.writerow([project_name, total_duas, covered_duas])
-
-	# n_files = len([name for name in os.listdir(matrix_folder)])
-
-	# total_duas = 0
-	# covered_duas = 0
-	# i = 0;
-
-	# bar = progressbar.ProgressBar(maxval=n_files)
-	# bar.start()
-
-	# for file in os.listdir(matrix_folder):
-	# 	total = None
-
-	# 	i += 1
-	# 	j = 0
-	# 	with open(os.path.join(matrix_folder, file), "r") as f:
-	# 		for line in f:
-	# 			j += 1
-	# 			if line.startswith("=0"): continue
-
-	# 			a = line_to_array(line)
-	# 			if total is None:
-	# 				total = a
-	# 			else:
-	# 				total |= a
-
-	# 	if total is None: continue
-
-	# 	total_duas += total.size
-	# 	covered_duas += np.count_nonzero(total)
-		
-		# bar.update(i)
-
-	# bar.finish()
-	# print("Total files: %s" % i)
-	# print("Total DUAs: %s, Covered DUAs: %s" % (total_duas, covered_duas))
