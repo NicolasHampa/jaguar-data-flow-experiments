@@ -39,7 +39,11 @@ for line in Lines:
         failing_test = class_name + '::' + test_name
         jaguar_failing_tests.append(failing_test)
 
-fieldnames = ['project_name', 'project_version', 'jaguar_failing_tests', 'defects4j_failing_tests']
+jaguar_failing_tests.sort()
+defects4j_failing_tests.sort()
+same_failing_tests = jaguar_failing_tests == defects4j_failing_tests
+
+fieldnames = ['project_name', 'project_version', 'same_failing_tests',  'jaguar_failing_tests', 'defects4j_failing_tests']
 writemode = 'a' if os.path.exists(project_report_path) else 'w'
 path_split = project_version_path.split("/")
 project_name = path_split[len(path_split)-2]
@@ -51,6 +55,7 @@ with open(project_report_path, mode=writemode) as coverage_file:
     csv_writer.writerow({
         'project_name':project_name,
 		'project_version':project_version,
+        'same_failing_tests':same_failing_tests,
 		'jaguar_failing_tests':jaguar_failing_tests,
 		'defects4j_failing_tests':defects4j_failing_tests
 	}
