@@ -1,17 +1,18 @@
 #! /bin/bash
 
 if [ -z "$1" ] ; then
-    echo "Defects4J dataset path is missing! Execution has been stopped."
+    echo "Repository root path is missing! Execution has been stopped."
     exit 1
 fi
 
-dataset_base_path=$1
+dataset_path="$1/dataset"
+scripts_path="$1/scripts"
 
-for project_base_path in `find $dataset_base_path -maxdepth 1 -mindepth 1 -type d`
+for project_path in `find $dataset_path -maxdepth 1 -mindepth 1 -type d`
 do
-    for project_version in `find $project_base_path -maxdepth 1 -mindepth 1 -type d`
+    for project_version_path in `find $project_path -maxdepth 1 -mindepth 1 -type d`
     do
-        python3 assert_jaguar.py "$project_version/jaguar"
+        python3 $scripts_path/assert_jaguar.py "$project_version_path/jaguar"
     done
 done
 

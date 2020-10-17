@@ -1,11 +1,12 @@
 #! /bin/bash
 
 if [ -z "$1" ] ; then
-    echo "Defects4J dataset path is missing! Execution has been stopped."
+    echo "Repository root path is missing! Execution has been stopped."
     exit 1
 fi
 
-dataset_path=$1
+dataset_path="$1/dataset"
+scripts_path="$1/scripts"
 
 for project_path in `find $dataset_path -maxdepth 1 -mindepth 1 -type d`
 do
@@ -17,7 +18,7 @@ do
         strlen=${#project_version}
         project_version_type=${project_version: -1}
         if [ $project_version_type = "b" ]; then
-            python3 assert_failing_tests.py $project_version_path
+            python3 $scripts_path/assert_failing_tests.py $project_version_path
         fi
     done
 done
