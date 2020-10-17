@@ -6,6 +6,7 @@ import progressbar
 import sys
 import xml.etree.ElementTree as ET
 import csv
+from pathlib import Path
 
 def line_to_array(line):
 	line = line[:-2].split()
@@ -14,9 +15,8 @@ def line_to_array(line):
 
 if __name__ == '__main__':
 	project_name = sys.argv[1]
-
+	project_report_path = os.path.join(Path(project_name).parent.parent.parent.parent, "reports", 'assert_coverage.csv')
 	matrix_folder = os.path.join(project_name, ".jaguar", "matrix")
-
 	tree = ET.parse(os.path.join(project_name, "badua_report.xml"))
 	badua_root = tree.getroot()
 
@@ -57,8 +57,8 @@ if __name__ == '__main__':
 				if badua_covered != jaguar_covered:
 					same_coverage = False
 
-	fieldnames = ['project_name', 'project_version', 'total_duas', 'jaguar_covered_duas', 'badua_covered_duas']
-	writemode = 'a' if os.path.exists(os.path.join(os.getcwd(), "assert_coverage.csv")) else 'w'
+	fieldnames = ['project_name', 'project_version', 'total_duas', 'jaguar_covered_duas', 'badua_covered_duas', 'same_coverage']
+	writemode = 'a' if os.path.exists(project_report_path) else 'w'
 	path_split = project_name.split("/")
 	project_name = path_split[len(path_split)-3]
 	project_version = path_split[len(path_split)-2]
@@ -66,7 +66,7 @@ if __name__ == '__main__':
 	if not same_coverage:
 		print("Ba-Dua and Jaguar have different coverage rates for %s %s" % (project_name, project_version))
 
-	with open('assert_coverage.csv', mode=writemode) as coverage_file:
+	with open(project_report_path, mode=writemode) as coverage_file:
 		csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
 		if writemode == 'w': csv_writer.writeheader()
 		csv_writer.writerow({
@@ -74,5 +74,6 @@ if __name__ == '__main__':
 			'project_version':project_version,
 			'total_duas':total_duas,
 			'jaguar_covered_duas':jaguar_covered_duas,
-			'badua_covered_duas':badua_covered_duas
+			'badua_covered_duas':badua_covered_duas,
+			'same_coverage':same_coverage
 		})
