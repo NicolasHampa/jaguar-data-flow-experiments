@@ -21,8 +21,8 @@ for line in Lines:
             root_cause = False
         else:
             if line_str.startswith('- '):
-                #print(line_str)
-                defects4j_failing_tests.append(line_str)
+                line_str_array = line_str.split('.')
+                defects4j_failing_tests.append(line_str_array[-1])
     if line_str.startswith('Root cause in triggering tests:'):
         root_cause = True
 
@@ -32,8 +32,12 @@ jaguar_failing_tests = []
 for line in Lines:
     line_str = line.strip()
     if 'JaguarDF - Test' in line_str:
-        #print(line_str)
-        jaguar_failing_tests.append(line_str)
+        line_str_array = line_str.split('JaguarDF - Test')
+        line_str_array = (line_str_array[1]).split(':')
+        class_name = (line_str_array[0]).split('.')[-1].strip()[:-1]
+        test_name = (line_str_array[0]).split('(')[0].strip()
+        failing_test = class_name + '::' + test_name
+        jaguar_failing_tests.append(failing_test)
 
 fieldnames = ['project_name', 'project_version', 'jaguar_failing_tests', 'defects4j_failing_tests']
 writemode = 'a' if os.path.exists(project_report_path) else 'w'
