@@ -5,9 +5,15 @@ if [ -z "$1" ] ; then
     exit 1
 fi
 
-dataset_path="$1/dataset"
-scripts_path="$1/scripts"
-reports_path="$1/reports"
+repository_root_path=$1
+root_path_last_char=${repository_root_path: -1}
+if [ $root_path_last_char = "/" ]; then
+    repository_root_path=${repository_root_path::-1}
+fi
+
+dataset_path="$repository_root_path/dataset"
+scripts_path="$repository_root_path/scripts"
+reports_path="$repository_root_path/reports"
 
 if [ -f $reports_path/assert_tests.csv ] ; then
     rm $reports_path/assert_tests.csv
