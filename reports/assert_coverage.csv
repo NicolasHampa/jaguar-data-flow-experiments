@@ -1,4 +1,4 @@
-project_name,project_version,total_duas,jaguar_covered_duas,badua_covered_duas,same_coverage
+PROJECT_NAME,PROJECT_VERSION,TOTAL_DUAS,JAGUAR_COVERED_DUAS,BADUA_COVERED_DUAS,SAME_COVERAGE
 Cli,33f,1784,1633,1633,True
 Cli,9f,1336,1036,1036,True
 Cli,31f,1803,1644,1644,True

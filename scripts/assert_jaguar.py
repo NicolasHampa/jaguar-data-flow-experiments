@@ -57,7 +57,7 @@ if __name__ == '__main__':
 				if badua_covered != jaguar_covered:
 					same_coverage = False
 
-	fieldnames = ['project_name', 'project_version', 'total_duas', 'jaguar_covered_duas', 'badua_covered_duas', 'same_coverage']
+	fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'TOTAL_DUAS', 'JAGUAR_COVERED_DUAS', 'BADUA_COVERED_DUAS', 'SAME_COVERAGE']
 	writemode = 'a' if os.path.exists(project_report_path) else 'w'
 	path_split = project_name.split("/")
 	project_name = path_split[len(path_split)-3]
@@ -70,10 +70,10 @@ if __name__ == '__main__':
 		csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
 		if writemode == 'w': csv_writer.writeheader()
 		csv_writer.writerow({
-			'project_name':project_name,
-			'project_version':project_version,
-			'total_duas':total_duas,
-			'jaguar_covered_duas':jaguar_covered_duas,
-			'badua_covered_duas':badua_covered_duas,
-			'same_coverage':same_coverage
+			'PROJECT_NAME':project_name,
+			'PROJECT_VERSION':project_version,
+			'TOTAL_DUAS':total_duas,
+			'JAGUAR_COVERED_DUAS':jaguar_covered_duas,
+			'BADUA_COVERED_DUAS':badua_covered_duas,
+			'SAME_COVERAGE':same_coverage
 		})

@@ -43,7 +43,7 @@ jaguar_failing_tests.sort()
 defects4j_failing_tests.sort()
 same_failing_tests = jaguar_failing_tests == defects4j_failing_tests
 
-fieldnames = ['project_name', 'project_version', 'same_failing_tests',  'jaguar_failing_tests', 'defects4j_failing_tests']
+fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'SAME_FAILING_TESTS',  'JAGUAR_FAILING_TESTS', 'DEFECTS4J_FAILING_TESTS']
 writemode = 'a' if os.path.exists(project_report_path) else 'w'
 path_split = project_version_path.split("/")
 project_name = path_split[len(path_split)-2]
@@ -53,10 +53,10 @@ with open(project_report_path, mode=writemode) as coverage_file:
     csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
     if writemode == 'w': csv_writer.writeheader()
     csv_writer.writerow({
-        'project_name':project_name,
-		'project_version':project_version,
-        'same_failing_tests':same_failing_tests,
-		'jaguar_failing_tests':jaguar_failing_tests,
-		'defects4j_failing_tests':defects4j_failing_tests
+        'PROJECT_NAME':project_name,
+		'PROJECT_VERSION':project_version,
+        'SAME_FAILING_TESTS':same_failing_tests,
+		'JAGUAR_FAILING_TESTS':jaguar_failing_tests,
+		'DEFECTS4J_FAILING_TESTS':defects4j_failing_tests
 	}
 )
