@@ -7,6 +7,11 @@ fi
 
 dataset_path="$1/dataset"
 scripts_path="$1/scripts"
+reports_path="$1/reports"
+
+if [ -f $reports_path/assert_coverage.csv ] ; then
+    rm $reports_path/assert_coverage.csv
+fi
 
 for project_path in `find $dataset_path -maxdepth 1 -mindepth 1 -type d`
 do
