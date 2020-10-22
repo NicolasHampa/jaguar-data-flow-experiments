@@ -1,0 +1,4 @@
+org.jsoup.parser.ParseErrorList#canAddError:(20,(20,20), this)
+org.jsoup.parser.ParseErrorList#canAddError:(20,(20,20), this)
+org.jsoup.parser.ParseErrorList#canAddError:(20,(20,20), this.maxSize)
+org.jsoup.parser.ParseErrorList#canAddError:(20,(20,20), this.maxSize)

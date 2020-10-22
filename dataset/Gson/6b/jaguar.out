@@ -1,0 +1,9 @@
+12:27:25.632 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+12:27:25.740 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+12:30:34.746 [main] INFO  JaguarDF - Test testNullSafeBugSerialize(com.google.gson.regression.JsonAdapterNullSafeTest) : Failed
+12:30:35.052 [main] INFO  JaguarDF - Test testNullSafeBugDeserialize(com.google.gson.regression.JsonAdapterNullSafeTest) : Failed
+12:31:19.072 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m54.264s
+user	3m52.413s
+sys	0m28.207s

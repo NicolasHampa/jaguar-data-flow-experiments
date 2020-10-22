@@ -1,0 +1,8 @@
+00:24:46.814 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+00:24:47.087 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+00:56:58.960 [main] INFO  JaguarDF - Test testGetPaint(org.jfree.chart.renderer.junit.GrayPaintScaleTests) : Failed
+02:10:09.808 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	105m24.393s
+user	106m3.210s
+sys	0m46.375s

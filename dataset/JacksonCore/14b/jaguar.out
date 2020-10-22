@@ -1,0 +1,8 @@
+16:27:55.694 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+16:27:55.793 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+16:28:43.114 [main] INFO  JaguarDF - Test testAllocations(com.fasterxml.jackson.core.io.TestIOContext) : Failed
+16:31:43.917 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m48.975s
+user	3m52.022s
+sys	0m12.898s

@@ -1,0 +1,6 @@
+Analyzing output/gson/3f/jaguar
+com.google.gson.JsonStreamParser
+- BA-DUA covered: 11, Jaguar covered: 10
+com.google.gson.Gson
+- BA-DUA covered: 124, Jaguar covered: 123
+Total DUAs: 6614, Covered DUAs: 5117

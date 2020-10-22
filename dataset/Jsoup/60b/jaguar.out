@@ -1,0 +1,9 @@
+15:53:15.278 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:53:15.353 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:55:24.324 [main] INFO  JaguarDF - Test testParsesSingleQuoteInContains(org.jsoup.select.QueryParserTest) : Failed
+15:55:25.158 [main] INFO  JaguarDF - Test exceptionOnUncloseAttribute(org.jsoup.select.QueryParserTest) : Failed
+15:55:40.646 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m25.948s
+user	2m28.644s
+sys	0m16.260s

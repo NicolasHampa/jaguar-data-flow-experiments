@@ -1,0 +1,4 @@
+Analyzing output/jackson-core/25b/jaguar
+com.fasterxml.jackson.core.util.InternCache
+- BA-DUA covered: 14, Jaguar covered: 13
+Total DUAs: 34696, Covered DUAs: 22301

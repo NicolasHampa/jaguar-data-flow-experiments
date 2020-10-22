@@ -1,0 +1,8 @@
+14:57:33.443 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:57:33.509 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:57:37.804 [main] INFO  JaguarDF - Test sameHeadersCombineWithComma(org.jsoup.helper.HttpConnectionTest) : Failed
+14:59:24.586 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m51.701s
+user	2m0.378s
+sys	0m12.746s

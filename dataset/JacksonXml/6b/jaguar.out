@@ -1,0 +1,13 @@
+20:24:41.135 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:24:41.204 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-dataformat-xml, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+-> {"":"first","child":"4"}
+20:25:03.963 [main] INFO  JaguarDF - Test testWith0Bytes(com.fasterxml.jackson.dataformat.xml.ser.TestBinaryStreamToXMLSerialization) : Failed
+20:25:04.092 [main] INFO  JaguarDF - Test testWith2Bytes(com.fasterxml.jackson.dataformat.xml.ser.TestBinaryStreamToXMLSerialization) : Failed
+20:25:04.225 [main] INFO  JaguarDF - Test testWith3Bytes(com.fasterxml.jackson.dataformat.xml.ser.TestBinaryStreamToXMLSerialization) : Failed
+20:25:04.357 [main] INFO  JaguarDF - Test testWith4Bytes(com.fasterxml.jackson.dataformat.xml.ser.TestBinaryStreamToXMLSerialization) : Failed
+20:25:04.479 [main] INFO  JaguarDF - Test testWith1Byte(com.fasterxml.jackson.dataformat.xml.ser.TestBinaryStreamToXMLSerialization) : Failed
+20:25:11.709 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m31.241s
+user	0m51.286s
+sys	0m6.811s

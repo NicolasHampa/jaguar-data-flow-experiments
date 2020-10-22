@@ -1,0 +1,8 @@
+22:13:58.582 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:13:58.850 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+23:54:56.197 [main] INFO  JaguarDF - Test testGetMaxMiddleIndex(org.jfree.data.time.junit.TimePeriodValuesTests) : Failed
+00:23:11.657 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	129m15.304s
+user	130m25.935s
+sys	0m57.452s

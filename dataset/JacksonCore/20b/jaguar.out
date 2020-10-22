@@ -1,0 +1,9 @@
+17:11:49.253 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+17:11:49.317 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+17:12:04.852 [main] INFO  JaguarDF - Test testBinaryAsEmbeddedObject(com.fasterxml.jackson.core.base64.Base64GenerationTest) : Failed
+17:13:43.643 [main] INFO  JaguarDF - Test testAsEmbedded(com.fasterxml.jackson.core.main.TestGeneratorMisc) : Failed
+17:15:43.636 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m54.868s
+user	4m7.663s
+sys	0m9.785s

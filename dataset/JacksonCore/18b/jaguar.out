@@ -1,0 +1,8 @@
+16:57:54.028 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+16:57:54.091 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+16:59:06.180 [main] INFO  JaguarDF - Test testTooBigBigDecimal(com.fasterxml.jackson.core.json.TestJsonGeneratorFeatures) : Failed
+17:01:01.716 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m8.168s
+user	3m18.136s
+sys	0m9.120s

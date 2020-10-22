@@ -1,0 +1,4 @@
+com.fasterxml.jackson.core.type.TypeReference#<init>:(32,44, this)
+com.fasterxml.jackson.core.type.TypeReference#<init>:(33,(34,35), superClass)
+com.fasterxml.jackson.core.type.TypeReference#<init>:(33,(34,44), superClass)
+com.fasterxml.jackson.core.type.TypeReference#<init>:(33,44, superClass)

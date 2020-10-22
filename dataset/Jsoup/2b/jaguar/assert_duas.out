@@ -1,0 +1,4 @@
+Analyzing output/jsoup/2b/jaguar
+org.jsoup.parser.Tag
+- BA-DUA covered: 207, Jaguar covered: 206
+Total DUAs: 1942, Covered DUAs: 1632

@@ -1,0 +1,8 @@
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(121,122), this)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(121,124), this)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,127, this)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(121,122), obj)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(121,124), obj)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(124,125), obj)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,(124,127), obj)
+org.jfree.chart.labels.StandardCategoryToolTipGenerator#equals:(121,127, obj)

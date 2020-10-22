@@ -1,0 +1,5 @@
+org.jsoup.nodes.Element$2#head:(1062,1064, this)
+org.jsoup.nodes.Element$2#head:(1062,(1062,1063), node)
+org.jsoup.nodes.Element$2#head:(1062,(1062,1066), node)
+org.jsoup.nodes.Element$2#head:(1062,1063, node)
+org.jsoup.nodes.Element$2#head:(1062,1064, this.val$accum)

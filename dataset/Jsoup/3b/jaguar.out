@@ -1,0 +1,10 @@
+20:48:01.451 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:48:01.534 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:48:05.948 [main] INFO  JaguarDF - Test testAppendRowToTable(org.jsoup.nodes.ElementTest) : Failed
+20:48:06.027 [main] INFO  JaguarDF - Test testPrependRowToTable(org.jsoup.nodes.ElementTest) : Failed
+20:48:09.310 [main] INFO  JaguarDF - Test handlesNestedImplicitTable(org.jsoup.parser.ParserTest) : Failed
+20:48:16.738 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m15.894s
+user	0m31.153s
+sys	0m2.852s

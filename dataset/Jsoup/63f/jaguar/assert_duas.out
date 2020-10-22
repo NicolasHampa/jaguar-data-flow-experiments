@@ -1,0 +1,10 @@
+Analyzing output/jsoup/63f/jaguar
+org.jsoup.nodes.Attributes$Dataset
+- BA-DUA covered: 15, Jaguar covered: 14
+org.jsoup.parser.HtmlTreeBuilderState$16
+- BA-DUA covered: 61, Jaguar covered: 53
+org.jsoup.parser.HtmlTreeBuilderState$12
+- BA-DUA covered: 31, Jaguar covered: 26
+org.jsoup.parser.HtmlTreeBuilderState$19
+- BA-DUA covered: 23, Jaguar covered: 20
+Total DUAs: 10082, Covered DUAs: 7363

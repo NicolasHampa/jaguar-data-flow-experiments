@@ -1,0 +1,51 @@
+18:59:48.434 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:59:48.521 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/joda-time, --classesDir, build/classes, --testsDir, build/tests, --tests, tests.out, --logLevel, INFO]
+19:44:09.667 [main] INFO  JaguarDF - Test testSerializedMutableDateTime(org.joda.time.TestSerialization) : Failed
+19:44:10.841 [main] INFO  JaguarDF - Test testSerializedGJChronologyChangedInternals(org.joda.time.TestSerialization) : Failed
+19:44:12.022 [main] INFO  JaguarDF - Test testDuration(org.joda.time.TestSerialization) : Failed
+19:44:13.207 [main] INFO  JaguarDF - Test testSerializedISOChronology(org.joda.time.TestSerialization) : Failed
+19:44:15.566 [main] INFO  JaguarDF - Test testSerializedBuddhistChronology(org.joda.time.TestSerialization) : Failed
+19:44:16.744 [main] INFO  JaguarDF - Test testSerializedDateTimeProperty(org.joda.time.TestSerialization) : Failed
+19:44:17.929 [main] INFO  JaguarDF - Test testSerializedPeriodType(org.joda.time.TestSerialization) : Failed
+19:44:19.106 [main] INFO  JaguarDF - Test testSerializedJulianChronology(org.joda.time.TestSerialization) : Failed
+19:44:20.288 [main] INFO  JaguarDF - Test testSerializedDateTimeFieldType(org.joda.time.TestSerialization) : Failed
+19:44:21.472 [main] INFO  JaguarDF - Test testSerializedYearMonthDay(org.joda.time.TestSerialization) : Failed
+19:44:22.653 [main] INFO  JaguarDF - Test testSerializedMutableDateTimeProperty(org.joda.time.TestSerialization) : Failed
+19:44:23.833 [main] INFO  JaguarDF - Test testSerializedGregorianChronology(org.joda.time.TestSerialization) : Failed
+19:44:25.011 [main] INFO  JaguarDF - Test testSerializedDateTime(org.joda.time.TestSerialization) : Failed
+19:44:26.189 [main] INFO  JaguarDF - Test testSerializedLocalDate(org.joda.time.TestSerialization) : Failed
+19:44:27.370 [main] INFO  JaguarDF - Test testSerializedLocalTime(org.joda.time.TestSerialization) : Failed
+19:44:28.554 [main] INFO  JaguarDF - Test testSerializedUnsupportedDateTimeField(org.joda.time.TestSerialization) : Failed
+19:44:29.731 [main] INFO  JaguarDF - Test testSerializedDateTimeZone(org.joda.time.TestSerialization) : Failed
+19:44:30.914 [main] INFO  JaguarDF - Test testSerializedCopticChronology(org.joda.time.TestSerialization) : Failed
+19:44:32.143 [main] INFO  JaguarDF - Test testSerializedLocalDateBuddhist(org.joda.time.TestSerialization) : Failed
+19:44:33.378 [main] INFO  JaguarDF - Test testSerializedDateMidnight(org.joda.time.TestSerialization) : Failed
+19:44:34.617 [main] INFO  JaguarDF - Test testSerializedGJChronology(org.joda.time.TestSerialization) : Failed
+19:44:35.841 [main] INFO  JaguarDF - Test testSerializedDateTimeZoneUTC(org.joda.time.TestSerialization) : Failed
+19:44:37.070 [main] INFO  JaguarDF - Test testSerializedInstant(org.joda.time.TestSerialization) : Failed
+19:44:38.299 [main] INFO  JaguarDF - Test testSerializedLocalDateTime(org.joda.time.TestSerialization) : Failed
+19:44:39.529 [main] INFO  JaguarDF - Test testSerializedTimeOfDay(org.joda.time.TestSerialization) : Failed
+19:44:40.754 [main] INFO  JaguarDF - Test testSerializedDateMidnightProperty(org.joda.time.TestSerialization) : Failed
+
+TestBuddhistChronology.testCalendar
+
+TestCopticChronology.testCalendar
+
+TestEthiopicChronology.testCalendar
+
+TestIslamicChronology.testCalendar
+19:58:10.924 [main] INFO  JaguarDF - Test testSetInto_Object(org.joda.time.convert.TestReadableDurationConverter) : Failed
+20:07:09.340 [main] INFO  JaguarDF - Test testParseInto_monthOnly_baseStartYear(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:07:19.143 [main] INFO  JaguarDF - Test testParseInto_monthOnly_parseStartYear(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:07:29.170 [main] INFO  JaguarDF - Test testParseInto_monthOnly_baseEndYear(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:07:52.555 [main] INFO  JaguarDF - Test testParseInto_monthOnly(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:07:53.780 [main] INFO  JaguarDF - Test testParseInto_monthDay_withDefaultYear_feb29(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:07:58.671 [main] INFO  JaguarDF - Test testParseInto_monthDay_feb29(org.joda.time.format.TestDateTimeFormatter) : Failed
+20:08:19.496 [main] INFO  JaguarDF - Test testParseInto_monthOnly_parseEndYear(org.joda.time.format.TestDateTimeFormatter) : Failed
+Writing zoneinfo files
+Writing ZoneInfoMap
+20:14:41.432 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	74m53.643s
+user	76m45.179s
+sys	0m57.768s

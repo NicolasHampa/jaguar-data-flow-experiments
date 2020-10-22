@@ -1,0 +1,13 @@
+14:09:48.210 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:09:48.281 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:09:48.597 [main] INFO  JaguarDF - Test testQuotedCharset(org.jsoup.helper.DataUtilTest) : Failed
+14:09:50.328 [main] INFO  JaguarDF - Test shouldNotThrowExceptionOnEmptyCharset(org.jsoup.helper.DataUtilTest) : Failed
+14:09:50.666 [main] INFO  JaguarDF - Test shouldSelectFirstCharsetOnWeirdMultileCharsetsInMetaTags(org.jsoup.helper.DataUtilTest) : Failed
+14:09:50.936 [main] INFO  JaguarDF - Test shouldCorrectCharsetForDuplicateCharsetString(org.jsoup.helper.DataUtilTest) : Failed
+14:09:51.165 [main] INFO  JaguarDF - Test shouldReturnNullForIllegalCharsetNames(org.jsoup.helper.DataUtilTest) : Failed
+14:09:57.530 [main] INFO  JaguarDF - Test testBrokenHtml5CharsetWithASingleDoubleQuote(org.jsoup.integration.ParseTest) : Failed
+14:11:23.198 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m35.550s
+user	1m40.222s
+sys	0m11.415s

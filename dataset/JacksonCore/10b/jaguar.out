@@ -1,0 +1,11 @@
+15:56:20.546 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:56:20.617 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:59:25.962 [main] INFO  JaguarDF - Test testIssue207(com.fasterxml.jackson.core.sym.TestByteBasedSymbols) : Failed
+15:59:34.895 [main] INFO  JaguarDF - Test testCollisionsWithBytesNew187b(com.fasterxml.jackson.core.sym.TestSymbolTables) : Failed
+15:59:39.571 [main] INFO  JaguarDF - Test testSyntheticWithBytesNew(com.fasterxml.jackson.core.sym.TestSymbolTables) : Failed
+15:59:41.100 [main] INFO  JaguarDF - Test testShortNameCollisionsDirectNew(com.fasterxml.jackson.core.sym.TestSymbolTables) : Failed
+16:00:06.281 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m46.251s
+user	3m43.205s
+sys	0m12.830s

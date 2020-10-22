@@ -1,0 +1,8 @@
+org.joda.time.field.MillisDurationField#compareTo:(134,(137,138), otherMillis)
+org.joda.time.field.MillisDurationField#compareTo:(134,(137,140), otherMillis)
+org.joda.time.field.MillisDurationField#compareTo:(134,(140,141), otherMillis)
+org.joda.time.field.MillisDurationField#compareTo:(134,(140,143), otherMillis)
+org.joda.time.field.MillisDurationField#compareTo:(135,(137,138), thisMillis)
+org.joda.time.field.MillisDurationField#compareTo:(135,(137,140), thisMillis)
+org.joda.time.field.MillisDurationField#compareTo:(135,(140,141), thisMillis)
+org.joda.time.field.MillisDurationField#compareTo:(135,(140,143), thisMillis)

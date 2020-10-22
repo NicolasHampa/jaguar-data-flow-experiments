@@ -1,0 +1,9 @@
+20:48:51.548 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:48:51.617 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:48:57.750 [main] INFO  JaguarDF - Test escape(org.jsoup.nodes.EntitiesTest) : Failed
+20:48:57.953 [main] INFO  JaguarDF - Test caseSensitive(org.jsoup.nodes.EntitiesTest) : Failed
+20:49:10.062 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m19.044s
+user	0m29.303s
+sys	0m2.824s

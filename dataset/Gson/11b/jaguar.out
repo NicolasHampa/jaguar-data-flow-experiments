@@ -1,0 +1,8 @@
+13:14:10.544 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+13:14:10.634 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+13:16:14.700 [main] INFO  JaguarDF - Test testNumberAsStringDeserialization(com.google.gson.functional.PrimitiveTest) : Failed
+13:17:51.456 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m41.562s
+user	3m42.569s
+sys	0m24.866s

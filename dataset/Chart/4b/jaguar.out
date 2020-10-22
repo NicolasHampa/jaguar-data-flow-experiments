@@ -1,0 +1,29 @@
+22:15:35.302 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:15:35.646 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+22:18:54.113 [main] INFO  JaguarDF - Test testXYAutoRange1(org.jfree.chart.axis.junit.LogAxisTests) : Failed
+22:18:56.350 [main] INFO  JaguarDF - Test testXYAutoRange2(org.jfree.chart.axis.junit.LogAxisTests) : Failed
+22:20:04.233 [main] INFO  JaguarDF - Test testXYAutoRange1(org.jfree.chart.axis.junit.NumberAxisTests) : Failed
+22:20:06.606 [main] INFO  JaguarDF - Test testXYAutoRange2(org.jfree.chart.axis.junit.NumberAxisTests) : Failed
+22:22:59.743 [main] INFO  JaguarDF - Test testAxisMargins(org.jfree.chart.axis.junit.ValueAxisTests) : Failed
+22:28:49.256 [main] INFO  JaguarDF - Test testSerialization4(org.jfree.chart.junit.JFreeChartTests) : Failed
+22:29:57.181 [main] INFO  JaguarDF - Test testDrawWithNullInfo(org.jfree.chart.junit.ScatterPlotTests) : Failed
+22:30:00.616 [main] INFO  JaguarDF - Test testSetSeriesToolTipGenerator(org.jfree.chart.junit.ScatterPlotTests) : Failed
+22:30:04.154 [main] INFO  JaguarDF - Test testReplaceDataset(org.jfree.chart.junit.ScatterPlotTests) : Failed
+22:31:00.673 [main] INFO  JaguarDF - Test testDrawWithNullInfo(org.jfree.chart.junit.TimeSeriesChartTests) : Failed
+22:31:04.252 [main] INFO  JaguarDF - Test testSetSeriesToolTipGenerator(org.jfree.chart.junit.TimeSeriesChartTests) : Failed
+22:31:07.810 [main] INFO  JaguarDF - Test testReplaceDataset(org.jfree.chart.junit.TimeSeriesChartTests) : Failed
+22:31:22.351 [main] INFO  JaguarDF - Test testDrawWithNullInfo(org.jfree.chart.junit.XYAreaChartTests) : Failed
+22:31:25.962 [main] INFO  JaguarDF - Test testSetSeriesToolTipGenerator(org.jfree.chart.junit.XYAreaChartTests) : Failed
+22:31:29.597 [main] INFO  JaguarDF - Test testReplaceDataset(org.jfree.chart.junit.XYAreaChartTests) : Failed
+22:31:55.496 [main] INFO  JaguarDF - Test testDrawWithNullInfo(org.jfree.chart.junit.XYStepAreaChartTests) : Failed
+22:31:59.190 [main] INFO  JaguarDF - Test testSetSeriesToolTipGenerator(org.jfree.chart.junit.XYStepAreaChartTests) : Failed
+22:32:02.901 [main] INFO  JaguarDF - Test testReplaceDataset(org.jfree.chart.junit.XYStepAreaChartTests) : Failed
+22:32:06.617 [main] INFO  JaguarDF - Test testDrawWithNullInfo(org.jfree.chart.junit.XYStepChartTests) : Failed
+22:32:10.322 [main] INFO  JaguarDF - Test testSetSeriesToolTipGenerator(org.jfree.chart.junit.XYStepChartTests) : Failed
+22:32:14.029 [main] INFO  JaguarDF - Test testReplaceDataset(org.jfree.chart.junit.XYStepChartTests) : Failed
+22:52:52.264 [main] INFO  JaguarDF - Test testDrawRangeGridlines(org.jfree.chart.plot.junit.XYPlotTests) : Failed
+01:10:48.134 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	175m14.546s
+user	176m36.937s
+sys	1m13.448s

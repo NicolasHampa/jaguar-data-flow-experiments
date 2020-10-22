@@ -1,0 +1,14 @@
+15:14:54.541 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:14:54.619 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:15:12.512 [main] INFO  JaguarDF - Test testMetaCharsetUpdateXmlUtf8(org.jsoup.nodes.DocumentTest) : Failed
+15:15:12.742 [main] INFO  JaguarDF - Test testMetaCharsetUpdateXmlIso8859(org.jsoup.nodes.DocumentTest) : Failed
+15:15:12.969 [main] INFO  JaguarDF - Test testMetaCharsetUpdateXmlNoCharset(org.jsoup.nodes.DocumentTest) : Failed
+15:15:13.422 [main] INFO  JaguarDF - Test testMetaCharsetUpdateXmlDisabledNoChanges(org.jsoup.nodes.DocumentTest) : Failed
+15:16:16.066 [main] INFO  JaguarDF - Test handlesXmlDeclarationAsDeclaration(org.jsoup.parser.XmlTreeBuilderTest) : Failed
+15:16:17.016 [main] INFO  JaguarDF - Test testDetectCharsetEncodingDeclaration(org.jsoup.parser.XmlTreeBuilderTest) : Failed
+15:16:17.255 [main] INFO  JaguarDF - Test testParseDeclarationAttributes(org.jsoup.parser.XmlTreeBuilderTest) : Failed
+15:16:50.852 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m56.879s
+user	2m3.235s
+sys	0m13.053s

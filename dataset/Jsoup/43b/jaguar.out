@@ -1,0 +1,9 @@
+14:36:13.550 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:36:13.612 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:36:35.480 [main] INFO  JaguarDF - Test testGetSiblingsWithDuplicateContent(org.jsoup.nodes.ElementTest) : Failed
+14:36:36.182 [main] INFO  JaguarDF - Test testElementSiblingIndexSameContent(org.jsoup.nodes.ElementTest) : Failed
+14:38:07.955 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m54.924s
+user	2m1.751s
+sys	0m13.239s

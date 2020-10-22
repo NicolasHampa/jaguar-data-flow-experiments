@@ -1,0 +1,20 @@
+11:51:12.424 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+11:51:12.500 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+Sep 23, 2020 11:51:29 AM com.google.gson.ParameterizedTypeHandlerMap register
+WARNING: Overriding the existing type handler for class java.lang.String
+Sep 23, 2020 11:51:30 AM com.google.gson.ParameterizedTypeHandlerMap registerForTypeHierarchy
+WARNING: Overriding the existing type handler for class com.google.gson.common.TestTypes$Base
+11:51:48.375 [main] INFO  JaguarDF - Test testDefaultDateSerialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:48.495 [main] INFO  JaguarDF - Test testDefaultDateDeserialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:48.738 [main] INFO  JaguarDF - Test testDefaultJavaSqlDateDeserialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:48.848 [main] INFO  JaguarDF - Test testDefaultJavaSqlTimestampSerialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:48.962 [main] INFO  JaguarDF - Test testDefaultJavaSqlTimestampDeserialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:49.092 [main] INFO  JaguarDF - Test testDefaultJavaSqlTimeSerialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:49.212 [main] INFO  JaguarDF - Test testDefaultJavaSqlTimeDeserialization(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+11:51:49.338 [main] INFO  JaguarDF - Test testDefaultDateSerializationUsingBuilder(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
+{"someSField":"someString","someTField":1,"map":{"key1":[1,2],"key2":[]}}
+11:52:35.555 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m23.642s
+user	1m26.695s
+sys	0m13.145s

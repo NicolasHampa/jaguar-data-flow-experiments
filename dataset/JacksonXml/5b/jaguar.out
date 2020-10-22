@@ -1,0 +1,9 @@
+20:22:44.038 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:22:44.154 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-dataformat-xml, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:22:47.393 [main] INFO  JaguarDF - Test testCopyWith(com.fasterxml.jackson.dataformat.xml.MapperCopyTest) : Failed
+-> {"":"first","child":"4"}
+20:23:12.132 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m28.949s
+user	0m46.851s
+sys	0m6.335s

@@ -1,0 +1,4 @@
+com.google.gson.internal.bind.TypeAdapters$26#create:(592,597, this)
+com.google.gson.internal.bind.TypeAdapters$26#create:(592,596, gson)
+com.google.gson.internal.bind.TypeAdapters$26#create:(592,(592,593), typeToken)
+com.google.gson.internal.bind.TypeAdapters$26#create:(592,(592,596), typeToken)

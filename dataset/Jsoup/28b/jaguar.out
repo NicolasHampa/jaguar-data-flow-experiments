@@ -1,0 +1,13 @@
+21:38:58.824 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:38:58.950 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:39:23.305 [main] INFO  JaguarDF - Test unescape(org.jsoup.nodes.EntitiesTest) : Failed
+21:39:24.407 [main] INFO  JaguarDF - Test noSpuriousDecodes(org.jsoup.nodes.EntitiesTest) : Failed
+21:39:29.524 [main] INFO  JaguarDF - Test strictAttributeUnescapes(org.jsoup.parser.AttributeParseTest) : Failed
+21:39:29.725 [main] INFO  JaguarDF - Test moreAttributeUnescapes(org.jsoup.parser.AttributeParseTest) : Failed
+21:39:49.269 [main] INFO  JaguarDF - Test doesNotFindShortestMatchingEntity(org.jsoup.parser.HtmlParserTest) : Failed
+21:39:49.476 [main] INFO  JaguarDF - Test relaxedBaseEntityMatchAndStrictExtendedMatch(org.jsoup.parser.HtmlParserTest) : Failed
+21:40:16.356 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m18.359s
+user	1m30.463s
+sys	0m9.247s

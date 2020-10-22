@@ -1,0 +1,9 @@
+14:24:16.384 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:24:16.447 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:24:29.966 [main] INFO  JaguarDF - Test constructorValidationOkWithBlankName(org.jsoup.nodes.DocumentTypeTest) : Failed
+14:25:19.241 [main] INFO  JaguarDF - Test handlesInvalidDoctypes(org.jsoup.parser.HtmlParserTest) : Failed
+14:25:52.385 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m36.515s
+user	1m47.382s
+sys	0m11.486s

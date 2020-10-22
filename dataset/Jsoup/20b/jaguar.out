@@ -1,0 +1,8 @@
+21:14:53.147 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:14:53.210 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:14:54.523 [main] INFO  JaguarDF - Test discardsSpuriousByteOrderMark(org.jsoup.helper.DataUtilTest) : Failed
+21:15:58.705 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m6.060s
+user	1m12.629s
+sys	0m8.002s

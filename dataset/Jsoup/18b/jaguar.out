@@ -1,0 +1,10 @@
+21:10:09.363 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:10:09.435 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:10:31.856 [main] INFO  JaguarDF - Test handleCarriageReturnAsLineFeed(org.jsoup.parser.CharacterReaderTest) : Failed
+21:10:32.044 [main] INFO  JaguarDF - Test consumeToEnd(org.jsoup.parser.CharacterReaderTest) : Failed
+21:10:45.724 [main] INFO  JaguarDF - Test handlesNewlinesAndWhitespaceInTag(org.jsoup.parser.ParserTest) : Failed
+21:11:07.120 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m58.269s
+user	1m9.206s
+sys	0m7.258s

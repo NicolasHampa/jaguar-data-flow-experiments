@@ -1,0 +1,4 @@
+org.jfree.chart.entity.AxisLabelEntity#<init>:(70,74, this)
+org.jfree.chart.entity.AxisLabelEntity#<init>:(70,(71,72), axis)
+org.jfree.chart.entity.AxisLabelEntity#<init>:(70,(71,74), axis)
+org.jfree.chart.entity.AxisLabelEntity#<init>:(70,74, axis)

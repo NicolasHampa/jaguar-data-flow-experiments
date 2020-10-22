@@ -1,0 +1,9 @@
+12:01:19.964 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+12:01:20.056 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+12:02:52.845 [main] INFO  JaguarDF - Test testConcurrentMap(com.google.gson.functional.MapTest) : Failed
+12:02:53.242 [main] INFO  JaguarDF - Test testConcurrentNavigableMap(com.google.gson.functional.MapTest) : Failed
+12:04:59.214 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	3m39.945s
+user	3m23.213s
+sys	0m25.945s

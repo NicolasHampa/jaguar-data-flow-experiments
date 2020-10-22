@@ -1,0 +1,8 @@
+01:13:25.150 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+01:13:25.499 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+01:39:01.495 [main] INFO  JaguarDF - Test testConstructor(org.jfree.chart.plot.junit.MultiplePiePlotTests) : Failed
+03:20:54.479 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	127m30.257s
+user	128m48.624s
+sys	0m55.054s

@@ -1,0 +1,8 @@
+14:17:11.626 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:17:11.751 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:18:11.482 [main] INFO  JaguarDF - Test convertsImageToImg(org.jsoup.parser.HtmlParserTest) : Failed
+14:18:46.361 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m35.478s
+user	1m42.819s
+sys	0m11.310s

@@ -1,0 +1,4 @@
+org.jsoup.helper.HttpConnection$KeyVal#hasInputStream:(1234,(1234,1234), this)
+org.jsoup.helper.HttpConnection$KeyVal#hasInputStream:(1234,(1234,1234), this)
+org.jsoup.helper.HttpConnection$KeyVal#hasInputStream:(1234,(1234,1234), this.stream)
+org.jsoup.helper.HttpConnection$KeyVal#hasInputStream:(1234,(1234,1234), this.stream)

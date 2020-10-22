@@ -1,0 +1,9 @@
+15:38:53.252 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:38:53.325 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:39:10.838 [main] INFO  JaguarDF - Test testFailOnWritingStringNotFieldNameBytes(com.fasterxml.jackson.core.json.GeneratorFailTest) : Failed
+15:39:11.264 [main] INFO  JaguarDF - Test testFailOnWritingStringNotFieldNameChars(com.fasterxml.jackson.core.json.GeneratorFailTest) : Failed
+15:41:15.681 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m23.013s
+user	2m27.880s
+sys	0m7.546s

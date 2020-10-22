@@ -1,0 +1,42 @@
+17:53:05.257 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+17:53:05.715 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/joda-time, --classesDir, build/classes, --testsDir, build/tests, --tests, tests.out, --logLevel, INFO]
+17:58:49.938 [main] INFO  JaguarDF - Test test_DateTime_constructor_Moscow_Autumn(org.joda.time.TestDateTimeZoneCutover) : Failed
+17:59:44.522 [main] INFO  JaguarDF - Test test_getOffsetFromLocal_Moscow_Autumn_overlap_mins(org.joda.time.TestDateTimeZoneCutover) : Failed
+18:00:05.673 [main] INFO  JaguarDF - Test test_getOffsetFromLocal_Moscow_Autumn(org.joda.time.TestDateTimeZoneCutover) : Failed
+18:40:10.277 [main] INFO  JaguarDF - Test testSerializedMutableDateTime(org.joda.time.TestSerialization) : Failed
+18:40:11.542 [main] INFO  JaguarDF - Test testSerializedGJChronologyChangedInternals(org.joda.time.TestSerialization) : Failed
+18:40:12.829 [main] INFO  JaguarDF - Test testSerializedISOChronology(org.joda.time.TestSerialization) : Failed
+18:40:15.357 [main] INFO  JaguarDF - Test testSerializedBuddhistChronology(org.joda.time.TestSerialization) : Failed
+18:40:16.621 [main] INFO  JaguarDF - Test testSerializedDateTimeProperty(org.joda.time.TestSerialization) : Failed
+18:40:17.885 [main] INFO  JaguarDF - Test testSerializedPeriodType(org.joda.time.TestSerialization) : Failed
+18:40:19.185 [main] INFO  JaguarDF - Test testSerializedJulianChronology(org.joda.time.TestSerialization) : Failed
+18:40:20.450 [main] INFO  JaguarDF - Test testSerializedDateTimeFieldType(org.joda.time.TestSerialization) : Failed
+18:40:21.714 [main] INFO  JaguarDF - Test testSerializedYearMonthDay(org.joda.time.TestSerialization) : Failed
+18:40:22.977 [main] INFO  JaguarDF - Test testSerializedMutableDateTimeProperty(org.joda.time.TestSerialization) : Failed
+18:40:24.248 [main] INFO  JaguarDF - Test testSerializedGregorianChronology(org.joda.time.TestSerialization) : Failed
+18:40:25.512 [main] INFO  JaguarDF - Test testSerializedDateTime(org.joda.time.TestSerialization) : Failed
+18:40:26.775 [main] INFO  JaguarDF - Test testSerializedUnsupportedDateTimeField(org.joda.time.TestSerialization) : Failed
+18:40:28.059 [main] INFO  JaguarDF - Test testSerializedDateTimeZone(org.joda.time.TestSerialization) : Failed
+18:40:29.323 [main] INFO  JaguarDF - Test testSerializedCopticChronology(org.joda.time.TestSerialization) : Failed
+18:40:30.586 [main] INFO  JaguarDF - Test testSerializedDateMidnight(org.joda.time.TestSerialization) : Failed
+18:40:31.849 [main] INFO  JaguarDF - Test testSerializedGJChronology(org.joda.time.TestSerialization) : Failed
+18:40:33.156 [main] INFO  JaguarDF - Test testSerializedDateTimeZoneUTC(org.joda.time.TestSerialization) : Failed
+18:40:34.419 [main] INFO  JaguarDF - Test testSerializedInstant(org.joda.time.TestSerialization) : Failed
+18:40:35.682 [main] INFO  JaguarDF - Test testSerializedTimeOfDay(org.joda.time.TestSerialization) : Failed
+18:40:36.949 [main] INFO  JaguarDF - Test testSerializedDateMidnightProperty(org.joda.time.TestSerialization) : Failed
+
+TestBuddhistChronology.testCalendar
+
+TestCopticChronology.testCalendar
+
+TestEthiopicChronology.testCalendar
+
+TestIslamicChronology.testCalendar
+18:55:04.026 [main] INFO  JaguarDF - Test testSetInto_Object(org.joda.time.convert.TestReadableDurationConverter) : Failed
+Writing zoneinfo files
+Writing ZoneInfoMap
+19:11:59.057 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	78m55.657s
+user	79m4.219s
+sys	0m47.005s

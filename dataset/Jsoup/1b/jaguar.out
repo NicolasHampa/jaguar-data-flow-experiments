@@ -1,0 +1,8 @@
+20:46:14.838 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:46:15.022 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:46:20.972 [main] INFO  JaguarDF - Test createsStructureFromBodySnippet(org.jsoup.parser.ParserTest) : Failed
+20:46:28.405 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m14.324s
+user	0m29.307s
+sys	0m2.535s

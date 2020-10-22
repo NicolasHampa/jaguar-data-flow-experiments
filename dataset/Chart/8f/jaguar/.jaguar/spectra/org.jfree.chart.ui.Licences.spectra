@@ -1,0 +1,4 @@
+org.jfree.chart.ui.Licences#getInstance:(799,(799,800), singleton)
+org.jfree.chart.ui.Licences#getInstance:(799,(799,802), singleton)
+org.jfree.chart.ui.Licences#getInstance:(799,802, singleton)
+org.jfree.chart.ui.Licences#getInstance:(800,802, singleton)

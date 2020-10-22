@@ -1,0 +1,8 @@
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(181,182), this)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(181,184), this)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,187, this)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(181,182), obj)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(181,184), obj)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(184,185), obj)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,(184,187), obj)
+org.jfree.chart.labels.StandardXYToolTipGenerator#equals:(181,187, obj)

@@ -1,0 +1,11 @@
+20:15:38.440 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:15:38.526 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-dataformat-xml, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:15:51.127 [main] INFO  JaguarDF - Test testNestedUnwrappedLists180(com.fasterxml.jackson.dataformat.xml.lists.NestedUnwrappedLists180Test) : Failed
+20:15:51.423 [main] INFO  JaguarDF - Test testNestedWithEmpty2(com.fasterxml.jackson.dataformat.xml.lists.NestedUnwrappedListsTest) : Failed
+20:15:51.570 [main] INFO  JaguarDF - Test testNestedWithEmpty(com.fasterxml.jackson.dataformat.xml.lists.NestedUnwrappedListsTest) : Failed
+-> {"child":"4"}
+20:16:04.752 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m27.207s
+user	0m49.423s
+sys	0m5.856s

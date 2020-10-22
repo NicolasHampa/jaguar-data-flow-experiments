@@ -1,0 +1,9 @@
+14:02:06.291 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:02:06.371 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:02:42.107 [main] INFO  JaguarDF - Test nextIndexOfUnmatched(org.jsoup.parser.CharacterReaderTest) : Failed
+14:02:50.303 [main] INFO  JaguarDF - Test handlesUnclosedCdataAtEOF(org.jsoup.parser.HtmlParserTest) : Failed
+14:03:39.248 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m33.506s
+user	1m42.459s
+sys	0m10.870s

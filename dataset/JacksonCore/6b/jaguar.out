@@ -1,0 +1,8 @@
+15:34:23.703 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:34:23.771 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:34:26.756 [main] INFO  JaguarDF - Test testIZeroIndex(com.fasterxml.jackson.core.TestJsonPointer) : Failed
+15:36:13.632 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m50.439s
+user	2m1.488s
+sys	0m5.595s

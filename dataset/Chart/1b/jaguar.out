@@ -1,0 +1,8 @@
+22:12:44.404 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:12:44.576 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+22:50:49.992 [main] INFO  JaguarDF - Test test2947660(org.jfree.chart.renderer.category.junit.AbstractCategoryItemRendererTests) : Failed
+01:03:51.404 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	171m7.805s
+user	175m22.468s
+sys	1m34.588s

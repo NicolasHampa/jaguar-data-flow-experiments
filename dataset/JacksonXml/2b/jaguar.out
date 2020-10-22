@@ -1,0 +1,9 @@
+20:17:35.484 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:17:35.558 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-dataformat-xml, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+-> {"child":"4"}
+20:17:51.900 [main] INFO  JaguarDF - Test testMixedContent(com.fasterxml.jackson.dataformat.xml.misc.XmlTextTest) : Failed
+20:17:59.229 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m24.499s
+user	0m42.563s
+sys	0m5.336s

@@ -1,0 +1,9 @@
+14:07:28.473 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:07:28.587 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:07:33.205 [main] INFO  JaguarDF - Test testUnexpectedToken(com.google.gson.DefaultDateTypeAdapterTest) : Failed
+14:07:33.606 [main] INFO  JaguarDF - Test testNullValue(com.google.gson.DefaultDateTypeAdapterTest) : Failed
+14:11:49.051 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	4m21.305s
+user	4m6.952s
+sys	0m28.633s

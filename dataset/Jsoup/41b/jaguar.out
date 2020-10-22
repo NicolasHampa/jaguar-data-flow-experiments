@@ -1,0 +1,8 @@
+14:27:57.696 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:27:57.774 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:28:26.002 [main] INFO  JaguarDF - Test testHashAndEquals(org.jsoup.nodes.ElementTest) : Failed
+14:29:39.249 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m42.128s
+user	1m51.454s
+sys	0m11.504s

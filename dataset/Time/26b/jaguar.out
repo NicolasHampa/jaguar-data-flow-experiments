@@ -1,0 +1,47 @@
+18:56:39.231 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+18:56:39.325 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/joda-time, --classesDir, build/classes, --testsDir, build/tests, --tests, tests.out, --logLevel, INFO]
+19:01:39.067 [main] INFO  JaguarDF - Test testWithSecondOfMinuteInDstChange(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:01:53.503 [main] INFO  JaguarDF - Test testWithMinuteOfHourInDstChange(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:14.337 [main] INFO  JaguarDF - Test testWithMinuteOfHourInDstChange_mockZone(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:17.776 [main] INFO  JaguarDF - Test testBug2182444_usCentral(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:23.343 [main] INFO  JaguarDF - Test testWithMillisOfSecondInDstChange_Paris_summer(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:24.460 [main] INFO  JaguarDF - Test testWithHourOfDayInDstChange(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:43.067 [main] INFO  JaguarDF - Test testWithMillisOfSecondInDstChange_NewYork_winter(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:02:48.684 [main] INFO  JaguarDF - Test testBug2182444_ausNSW(org.joda.time.TestDateTimeZoneCutover) : Failed
+19:42:24.507 [main] INFO  JaguarDF - Test testSerializedMutableDateTime(org.joda.time.TestSerialization) : Failed
+19:42:25.744 [main] INFO  JaguarDF - Test testSerializedGJChronologyChangedInternals(org.joda.time.TestSerialization) : Failed
+19:42:26.981 [main] INFO  JaguarDF - Test testSerializedISOChronology(org.joda.time.TestSerialization) : Failed
+19:42:29.449 [main] INFO  JaguarDF - Test testSerializedBuddhistChronology(org.joda.time.TestSerialization) : Failed
+19:42:30.690 [main] INFO  JaguarDF - Test testSerializedDateTimeProperty(org.joda.time.TestSerialization) : Failed
+19:42:31.921 [main] INFO  JaguarDF - Test testSerializedPeriodType(org.joda.time.TestSerialization) : Failed
+19:42:33.149 [main] INFO  JaguarDF - Test testSerializedJulianChronology(org.joda.time.TestSerialization) : Failed
+19:42:34.381 [main] INFO  JaguarDF - Test testSerializedDateTimeFieldType(org.joda.time.TestSerialization) : Failed
+19:42:35.615 [main] INFO  JaguarDF - Test testSerializedYearMonthDay(org.joda.time.TestSerialization) : Failed
+19:42:36.847 [main] INFO  JaguarDF - Test testSerializedMutableDateTimeProperty(org.joda.time.TestSerialization) : Failed
+19:42:38.080 [main] INFO  JaguarDF - Test testSerializedGregorianChronology(org.joda.time.TestSerialization) : Failed
+19:42:39.315 [main] INFO  JaguarDF - Test testSerializedDateTime(org.joda.time.TestSerialization) : Failed
+19:42:40.551 [main] INFO  JaguarDF - Test testSerializedUnsupportedDateTimeField(org.joda.time.TestSerialization) : Failed
+19:42:41.781 [main] INFO  JaguarDF - Test testSerializedDateTimeZone(org.joda.time.TestSerialization) : Failed
+19:42:43.011 [main] INFO  JaguarDF - Test testSerializedCopticChronology(org.joda.time.TestSerialization) : Failed
+19:42:44.257 [main] INFO  JaguarDF - Test testSerializedDateMidnight(org.joda.time.TestSerialization) : Failed
+19:42:45.501 [main] INFO  JaguarDF - Test testSerializedGJChronology(org.joda.time.TestSerialization) : Failed
+19:42:46.733 [main] INFO  JaguarDF - Test testSerializedDateTimeZoneUTC(org.joda.time.TestSerialization) : Failed
+19:42:47.966 [main] INFO  JaguarDF - Test testSerializedInstant(org.joda.time.TestSerialization) : Failed
+19:42:49.197 [main] INFO  JaguarDF - Test testSerializedTimeOfDay(org.joda.time.TestSerialization) : Failed
+19:42:50.427 [main] INFO  JaguarDF - Test testSerializedDateMidnightProperty(org.joda.time.TestSerialization) : Failed
+
+TestBuddhistChronology.testCalendar
+
+TestCopticChronology.testCalendar
+
+TestEthiopicChronology.testCalendar
+
+TestIslamicChronology.testCalendar
+19:56:51.918 [main] INFO  JaguarDF - Test testSetInto_Object(org.joda.time.convert.TestReadableDurationConverter) : Failed
+Writing zoneinfo files
+Writing ZoneInfoMap
+20:13:12.715 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	76m34.145s
+user	78m18.220s
+sys	0m56.608s

@@ -1,0 +1,48 @@
+16:24:37.887 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+16:24:38.497 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/joda-time, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+16:57:44.647 [main] INFO  JaguarDF - Test testAdd_DurationFieldType_int_dstOverlapWinter_addZero(org.joda.time.TestMutableDateTime_Adds) : Failed
+16:57:49.861 [main] INFO  JaguarDF - Test testAddMonths_int_dstOverlapWinter_addZero(org.joda.time.TestMutableDateTime_Adds) : Failed
+16:57:57.684 [main] INFO  JaguarDF - Test testAddYears_int_dstOverlapWinter_addZero(org.joda.time.TestMutableDateTime_Adds) : Failed
+16:58:21.149 [main] INFO  JaguarDF - Test testAddDays_int_dstOverlapWinter_addZero(org.joda.time.TestMutableDateTime_Adds) : Failed
+16:58:23.762 [main] INFO  JaguarDF - Test testAddWeeks_int_dstOverlapWinter_addZero(org.joda.time.TestMutableDateTime_Adds) : Failed
+17:16:32.499 [main] INFO  JaguarDF - Test testSerializedDateTimeFieldType(org.joda.time.TestSerialization) : Failed
+17:16:33.828 [main] INFO  JaguarDF - Test testSerializedUnsupportedDateTimeField(org.joda.time.TestSerialization) : Failed
+17:16:35.162 [main] INFO  JaguarDF - Test testSerializedGJChronologyChangedInternals(org.joda.time.TestSerialization) : Failed
+17:16:36.501 [main] INFO  JaguarDF - Test testSerializedInstant(org.joda.time.TestSerialization) : Failed
+17:16:37.830 [main] INFO  JaguarDF - Test testSerializedMutableDateTimeProperty(org.joda.time.TestSerialization) : Failed
+17:16:39.186 [main] INFO  JaguarDF - Test testSerializedDateTimeZoneUTC(org.joda.time.TestSerialization) : Failed
+17:16:40.514 [main] INFO  JaguarDF - Test testSerializedDateTimeZone(org.joda.time.TestSerialization) : Failed
+17:16:41.857 [main] INFO  JaguarDF - Test testSerializedYearMonthDay(org.joda.time.TestSerialization) : Failed
+17:16:43.196 [main] INFO  JaguarDF - Test testSerializedTimeOfDay(org.joda.time.TestSerialization) : Failed
+17:16:44.524 [main] INFO  JaguarDF - Test testSerializedJulianChronology(org.joda.time.TestSerialization) : Failed
+17:16:45.868 [main] INFO  JaguarDF - Test testSerializedBuddhistChronology(org.joda.time.TestSerialization) : Failed
+17:16:47.195 [main] INFO  JaguarDF - Test testSerializedPeriodType(org.joda.time.TestSerialization) : Failed
+17:16:48.534 [main] INFO  JaguarDF - Test testSerializedGJChronology(org.joda.time.TestSerialization) : Failed
+17:16:49.871 [main] INFO  JaguarDF - Test testSerializedGregorianChronology(org.joda.time.TestSerialization) : Failed
+17:16:51.199 [main] INFO  JaguarDF - Test testSerializedLocalTime(org.joda.time.TestSerialization) : Failed
+17:16:52.538 [main] INFO  JaguarDF - Test testSerializedLocalDateBuddhist(org.joda.time.TestSerialization) : Failed
+17:16:53.872 [main] INFO  JaguarDF - Test testSerializedCopticChronology(org.joda.time.TestSerialization) : Failed
+17:16:55.200 [main] INFO  JaguarDF - Test testSerializedISOChronology(org.joda.time.TestSerialization) : Failed
+17:16:56.564 [main] INFO  JaguarDF - Test testSerializedDateMidnight(org.joda.time.TestSerialization) : Failed
+17:16:57.924 [main] INFO  JaguarDF - Test testSerializedLocalDateTime(org.joda.time.TestSerialization) : Failed
+17:16:59.256 [main] INFO  JaguarDF - Test testSerializedDateTimeProperty(org.joda.time.TestSerialization) : Failed
+17:17:00.625 [main] INFO  JaguarDF - Test testSerializedDateTime(org.joda.time.TestSerialization) : Failed
+17:17:01.954 [main] INFO  JaguarDF - Test testSerializedLocalDate(org.joda.time.TestSerialization) : Failed
+17:17:03.315 [main] INFO  JaguarDF - Test testSerializedMutableDateTime(org.joda.time.TestSerialization) : Failed
+17:17:04.643 [main] INFO  JaguarDF - Test testSerializedDateMidnightProperty(org.joda.time.TestSerialization) : Failed
+17:17:06.001 [main] INFO  JaguarDF - Test testDuration(org.joda.time.TestSerialization) : Failed
+
+TestBuddhistChronology.testCalendar
+
+TestCopticChronology.testCalendar
+
+TestEthiopicChronology.testCalendar
+
+TestIslamicChronology.testCalendar
+Writing zoneinfo files
+Writing ZoneInfoMap
+17:51:37.524 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	87m2.470s
+user	87m11.979s
+sys	0m52.330s

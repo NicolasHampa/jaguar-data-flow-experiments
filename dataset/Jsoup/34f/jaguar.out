@@ -1,0 +1,7 @@
+14:03:57.096 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:03:57.177 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:05:35.891 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m39.439s
+user	1m47.747s
+sys	0m11.776s

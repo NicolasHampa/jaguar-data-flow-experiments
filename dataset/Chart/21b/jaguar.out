@@ -1,0 +1,8 @@
+02:25:45.375 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+02:25:45.770 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+03:29:43.639 [main] INFO  JaguarDF - Test testGetRangeBounds(org.jfree.data.statistics.junit.DefaultBoxAndWhiskerCategoryDatasetTests) : Failed
+04:12:00.457 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	106m16.008s
+user	108m3.896s
+sys	0m52.721s

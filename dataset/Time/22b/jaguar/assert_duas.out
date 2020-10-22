@@ -1,0 +1,26 @@
+Analyzing output/joda-time/22b/jaguar
+org.joda.time.DateTimeZone
+- BA-DUA covered: 338, Jaguar covered: 337
+org.joda.time.chrono.IslamicChronology
+- BA-DUA covered: 125, Jaguar covered: 124
+org.joda.time.chrono.ISOChronology
+- BA-DUA covered: 58, Jaguar covered: 57
+org.joda.time.chrono.GJLocaleSymbols
+- BA-DUA covered: 166, Jaguar covered: 165
+org.joda.time.chrono.GregorianChronology
+- BA-DUA covered: 69, Jaguar covered: 68
+org.joda.time.chrono.JulianChronology
+- BA-DUA covered: 77, Jaguar covered: 76
+org.joda.time.chrono.EthiopicChronology
+- BA-DUA covered: 74, Jaguar covered: 73
+org.joda.time.chrono.CopticChronology
+- BA-DUA covered: 81, Jaguar covered: 80
+org.joda.time.format.DateTimeFormatterBuilder$TextField
+- BA-DUA covered: 125, Jaguar covered: 123
+org.joda.time.format.DateTimeFormat
+- BA-DUA covered: 260, Jaguar covered: 258
+org.joda.time.format.DateTimeFormat$StyleFormatter
+- BA-DUA covered: 41, Jaguar covered: 40
+org.joda.time.tz.ZoneInfoProvider
+- BA-DUA covered: 82, Jaguar covered: 81
+Total DUAs: 18694, Covered DUAs: 15063

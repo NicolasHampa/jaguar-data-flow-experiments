@@ -1,0 +1,15 @@
+17:55:43.164 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+17:55:43.232 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+17:58:17.373 [main] INFO  JaguarDF - Test testToLongFailing(com.fasterxml.jackson.core.json.async.AsyncNumberCoercionTest) : Failed
+17:58:18.709 [main] INFO  JaguarDF - Test testToIntFailing(com.fasterxml.jackson.core.json.async.AsyncNumberCoercionTest) : Failed
+18:00:20.800 [main] INFO  JaguarDF - Test testToLongFailing(com.fasterxml.jackson.core.read.NumberCoercionTest) : Failed
+18:00:22.206 [main] INFO  JaguarDF - Test testToIntFailing(com.fasterxml.jackson.core.read.NumberCoercionTest) : Failed
+18:00:27.212 [main] INFO  JaguarDF - Test testMaliciousLongOverflow(com.fasterxml.jackson.core.read.NumberOverflowTest) : Failed
+18:00:27.923 [main] INFO  JaguarDF - Test testSimpleLongOverflow(com.fasterxml.jackson.core.read.NumberOverflowTest) : Failed
+18:00:28.633 [main] INFO  JaguarDF - Test testMaliciousIntOverflow(com.fasterxml.jackson.core.read.NumberOverflowTest) : Failed
+18:00:29.343 [main] INFO  JaguarDF - Test testSimpleLong(com.fasterxml.jackson.core.read.NumberParsingTest) : Failed
+18:02:08.812 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	6m26.147s
+user	6m38.611s
+sys	0m16.525s

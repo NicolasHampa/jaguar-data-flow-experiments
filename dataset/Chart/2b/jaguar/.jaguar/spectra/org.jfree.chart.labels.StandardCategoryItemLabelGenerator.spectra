@@ -1,0 +1,8 @@
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(141,142), this)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(141,144), this)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,147, this)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(141,142), obj)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(141,144), obj)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(144,145), obj)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,(144,147), obj)
+org.jfree.chart.labels.StandardCategoryItemLabelGenerator#equals:(141,147, obj)

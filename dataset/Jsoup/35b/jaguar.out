@@ -1,0 +1,8 @@
+14:05:53.274 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+14:05:53.451 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+14:06:48.505 [main] INFO  JaguarDF - Test handlesUnclosedAnchors(org.jsoup.parser.HtmlParserTest) : Failed
+14:07:34.640 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m42.107s
+user	1m47.650s
+sys	0m12.087s

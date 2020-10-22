@@ -1,0 +1,8 @@
+15:01:50.795 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:01:50.859 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+15:02:25.850 [main] INFO  JaguarDF - Test appendMustCorrectlyMoveChildrenInsideOneParentElement(org.jsoup.nodes.ElementTest) : Failed
+15:03:45.341 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m55.061s
+user	2m4.335s
+sys	0m12.877s

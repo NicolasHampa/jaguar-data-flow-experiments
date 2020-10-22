@@ -1,0 +1,19 @@
+17:30:35.152 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+17:30:35.220 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+17:31:04.241 [main] INFO  JaguarDF - Test testSingleMatchFilteringWithPath(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:04.787 [main] INFO  JaguarDF - Test testAllowMultipleMatchesWithPath1(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:05.327 [main] INFO  JaguarDF - Test testAllowMultipleMatchesWithPath2(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:05.882 [main] INFO  JaguarDF - Test testMultipleMatchFilteringWithPath1(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:06.432 [main] INFO  JaguarDF - Test testMultipleMatchFilteringWithPath2(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:06.991 [main] INFO  JaguarDF - Test testMultipleMatchFilteringWithPath3(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:08.105 [main] INFO  JaguarDF - Test testSingleMatchFilteringWithoutPath(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:08.660 [main] INFO  JaguarDF - Test testNotAllowMultipleMatchesWithoutPath1(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:09.197 [main] INFO  JaguarDF - Test testNotAllowMultipleMatchesWithoutPath2(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:11.354 [main] INFO  JaguarDF - Test testIndexMatchWithPath1(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:11.906 [main] INFO  JaguarDF - Test testIndexMatchWithPath2(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:31:12.437 [main] INFO  JaguarDF - Test testAllowMultipleMatchesWithoutPath(com.fasterxml.jackson.core.filter.BasicParserFilteringTest) : Failed
+17:35:45.138 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	5m10.471s
+user	5m20.992s
+sys	0m12.389s

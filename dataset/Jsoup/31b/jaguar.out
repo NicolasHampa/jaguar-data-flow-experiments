@@ -1,0 +1,8 @@
+21:47:49.029 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:47:49.092 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:48:41.342 [main] INFO  JaguarDF - Test handlesXmlDeclarationAsDeclaration(org.jsoup.parser.XmlTreeBuilderTest) : Failed
+21:49:03.295 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	1m14.766s
+user	1m23.738s
+sys	0m8.841s

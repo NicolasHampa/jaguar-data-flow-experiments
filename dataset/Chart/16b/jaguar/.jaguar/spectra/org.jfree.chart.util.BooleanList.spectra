@@ -1,0 +1,4 @@
+org.jfree.chart.util.BooleanList#equals:(93,94, this)
+org.jfree.chart.util.BooleanList#equals:(93,(93,94), obj)
+org.jfree.chart.util.BooleanList#equals:(93,(93,96), obj)
+org.jfree.chart.util.BooleanList#equals:(93,94, obj)

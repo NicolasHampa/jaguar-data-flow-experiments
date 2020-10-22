@@ -1,0 +1,5 @@
+com.google.gson.TypeInfoCollection#<init>:(32,40, this)
+com.google.gson.TypeInfoCollection#<init>:(32,(33,34), collectionType)
+com.google.gson.TypeInfoCollection#<init>:(32,(33,38), collectionType)
+com.google.gson.TypeInfoCollection#<init>:(32,38, collectionType)
+com.google.gson.TypeInfoCollection#<init>:(32,40, collectionType)

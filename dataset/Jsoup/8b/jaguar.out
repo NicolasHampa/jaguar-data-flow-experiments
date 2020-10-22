@@ -1,0 +1,8 @@
+20:53:16.529 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:53:16.622 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:53:24.638 [main] INFO  JaguarDF - Test parentlessToString(org.jsoup.nodes.ElementTest) : Failed
+20:53:39.174 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m23.211s
+user	0m34.638s
+sys	0m3.586s

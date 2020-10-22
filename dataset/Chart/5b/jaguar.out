@@ -1,0 +1,8 @@
+22:13:50.901 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+22:13:51.721 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+00:42:19.324 [main] INFO  JaguarDF - Test testBug1955483(org.jfree.data.xy.junit.XYSeriesTests) : Failed
+00:45:00.888 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	151m12.040s
+user	152m20.180s
+sys	1m6.670s

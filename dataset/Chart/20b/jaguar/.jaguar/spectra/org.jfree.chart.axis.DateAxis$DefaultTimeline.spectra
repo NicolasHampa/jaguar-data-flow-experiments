@@ -1,0 +1,8 @@
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(298,299), this)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(298,301), this)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(295,296), object)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(295,298), object)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(298,299), object)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(298,301), object)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(301,302), object)
+org.jfree.chart.axis.DateAxis$DefaultTimeline#equals:(295,(301,304), object)

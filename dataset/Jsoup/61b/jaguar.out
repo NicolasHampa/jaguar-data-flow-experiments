@@ -1,0 +1,9 @@
+15:58:43.356 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+15:58:43.446 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+16:00:54.020 [main] INFO  JaguarDF - Test hasClassCaseInsensitive(org.jsoup.select.ElementsTest) : Failed
+16:01:00.884 [main] INFO  JaguarDF - Test testByClassCaseInsensitive(org.jsoup.select.SelectorTest) : Failed
+16:01:15.148 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	2m32.420s
+user	2m34.303s
+sys	0m16.982s

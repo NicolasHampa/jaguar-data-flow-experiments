@@ -1,0 +1,9 @@
+21:01:06.696 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+21:01:06.757 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+21:01:27.556 [main] INFO  JaguarDF - Test parsesUnterminatedTextarea(org.jsoup.parser.ParserTest) : Failed
+21:01:38.903 [main] INFO  JaguarDF - Test handlesUnclosedTitle(org.jsoup.parser.ParserTest) : Failed
+21:01:59.368 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m53.192s
+user	1m4.299s
+sys	0m6.700s

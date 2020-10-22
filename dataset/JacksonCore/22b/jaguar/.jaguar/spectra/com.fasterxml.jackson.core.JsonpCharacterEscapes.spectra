@@ -1,0 +1,5 @@
+com.fasterxml.jackson.core.JsonpCharacterEscapes#getEscapeSequence:(32,(32,38), ch)
+com.fasterxml.jackson.core.JsonpCharacterEscapes#getEscapeSequence:(32,(32,34), ch)
+com.fasterxml.jackson.core.JsonpCharacterEscapes#getEscapeSequence:(32,(32,36), ch)
+com.fasterxml.jackson.core.JsonpCharacterEscapes#getEscapeSequence:(32,34, escapeFor2028)
+com.fasterxml.jackson.core.JsonpCharacterEscapes#getEscapeSequence:(32,36, escapeFor2029)

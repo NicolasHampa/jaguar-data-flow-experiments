@@ -1,0 +1,8 @@
+20:55:32.141 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+20:55:32.207 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
+20:55:40.343 [main] INFO  JaguarDF - Test absHandlesRelativeQuery(org.jsoup.nodes.NodeTest) : Failed
+20:55:53.809 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	0m22.181s
+user	0m32.564s
+sys	0m3.295s

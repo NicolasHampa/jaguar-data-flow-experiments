@@ -1,0 +1,7 @@
+01:18:48.053 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
+01:18:48.317 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
+03:25:53.775 [main] INFO  JaguarDF - Jaguar-DF has finished!
+
+real	127m6.695s
+user	128m14.169s
+sys	0m57.054s
