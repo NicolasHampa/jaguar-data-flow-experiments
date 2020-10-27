@@ -340,3 +340,100 @@ Chart,21b,True,['DefaultBoxAndWhiskerCategoryDatasetTests::testGetRangeBounds'],
 Chart,5b,True,['XYSeriesTests::testBug1955483'],['XYSeriesTests::testBug1955483']
 Chart,9b,True,['TimeSeriesTests::testBug1864222'],['TimeSeriesTests::testBug1864222']
 Chart,15b,True,['PiePlot3DTests::testDrawWithNullDataset'],['PiePlot3DTests::testDrawWithNullDataset']
+Math,28b,True,['SimplexSolverTest::testMath828Cycle'],['SimplexSolverTest::testMath828Cycle']
+Math,10b,True,['DerivativeStructureTest::testAtan2SpecialCases'],['DerivativeStructureTest::testAtan2SpecialCases']
+Math,11b,True,['MultivariateNormalDistributionTest::testUnivariateDistribution'],['MultivariateNormalDistributionTest::testUnivariateDistribution']
+Math,12b,True,"['GammaDistributionTest::testDistributionClone', 'LogNormalDistributionTest::testDistributionClone', 'NormalDistributionTest::testDistributionClone']","['GammaDistributionTest::testDistributionClone', 'LogNormalDistributionTest::testDistributionClone', 'NormalDistributionTest::testDistributionClone']"
+Math,13b,True,['PolynomialFitterTest::testLargeSample'],['PolynomialFitterTest::testLargeSample']
+Math,14b,True,['PolynomialFitterTest::testLargeSample'],['PolynomialFitterTest::testLargeSample']
+Math,15b,True,['FastMathTest::testMath904'],['FastMathTest::testMath904']
+Math,16b,True,"['FastMathTest::testMath905LargeNegative', 'FastMathTest::testMath905LargePositive']","['FastMathTest::testMath905LargeNegative', 'FastMathTest::testMath905LargePositive']"
+Math,17b,True,['DfpTest::testMultiply'],['DfpTest::testMultiply']
+Math,18b,True,['CMAESOptimizerTest::testFitAccuracyDependsOnBoundary'],['CMAESOptimizerTest::testFitAccuracyDependsOnBoundary']
+Math,19b,True,['CMAESOptimizerTest::testBoundaryRangeTooLarge'],['CMAESOptimizerTest::testBoundaryRangeTooLarge']
+Math,1b,True,"['BigFractionTest::testDigitLimitConstructor', 'FractionTest::testDigitLimitConstructor']","['BigFractionTest::testDigitLimitConstructor', 'FractionTest::testDigitLimitConstructor']"
+Math,20b,True,['CMAESOptimizerTest::testMath864'],['CMAESOptimizerTest::testMath864']
+Math,21b,True,"['RectangularCholeskyDecompositionTest::testFullRank', 'RectangularCholeskyDecompositionTest::testMath789']","['RectangularCholeskyDecompositionTest::testFullRank', 'RectangularCholeskyDecompositionTest::testMath789']"
+Math,22b,True,"['FDistributionTest::testIsSupportLowerBoundInclusive', 'UniformRealDistributionTest::testIsSupportUpperBoundInclusive']","['FDistributionTest::testIsSupportLowerBoundInclusive', 'UniformRealDistributionTest::testIsSupportUpperBoundInclusive']"
+Math,23b,True,['BrentOptimizerTest::testKeepInitIfBest'],['BrentOptimizerTest::testKeepInitIfBest']
+Math,24b,True,['BrentOptimizerTest::testMath855'],['BrentOptimizerTest::testMath855']
+Math,25b,True,['HarmonicFitterTest::testMath844'],['HarmonicFitterTest::testMath844']
+Math,26b,True,['FractionTest::testIntegerOverflow'],['FractionTest::testIntegerOverflow']
+Math,27b,True,['FractionTest::testMath835'],['FractionTest::testMath835']
+Math,29b,True,"['SparseRealVectorTest::testEbeDivideMixedTypes', 'SparseRealVectorTest::testEbeMultiplyMixedTypes', 'SparseRealVectorTest::testEbeMultiplySameType']","['SparseRealVectorTest::testEbeDivideMixedTypes', 'SparseRealVectorTest::testEbeMultiplyMixedTypes', 'SparseRealVectorTest::testEbeMultiplySameType']"
+Math,2b,True,['HypergeometricDistributionTest::testMath1021'],['HypergeometricDistributionTest::testMath1021']
+Math,30b,True,['MannWhitneyUTestTest::testBigDataSet'],['MannWhitneyUTestTest::testBigDataSet']
+Math,31b,True,"['BinomialDistributionTest::testMath718', 'FDistributionTest::testMath785']","['BinomialDistributionTest::testMath718', 'FDistributionTest::testMath785']"
+Math,32b,True,['PolyhedronsSetTest::testIssue780'],['PolyhedronsSetTest::testIssue780']
+Math,33b,True,['SimplexSolverTest::testMath781'],['SimplexSolverTest::testMath781']
+Math,34b,True,['ListPopulationTest::testIterator'],['ListPopulationTest::testIterator']
+Math,35b,True,"['ElitisticListPopulationTest::testChromosomeListConstructorTooHigh', 'ElitisticListPopulationTest::testChromosomeListConstructorTooLow', 'ElitisticListPopulationTest::testConstructorTooHigh', 'ElitisticListPopulationTest::testConstructorTooLow']","['ElitisticListPopulationTest::testChromosomeListConstructorTooHigh', 'ElitisticListPopulationTest::testChromosomeListConstructorTooLow', 'ElitisticListPopulationTest::testConstructorTooHigh', 'ElitisticListPopulationTest::testConstructorTooLow']"
+Math,36b,True,"['BigFractionTest::testDoubleValueForLargeNumeratorAndDenominator', 'BigFractionTest::testFloatValueForLargeNumeratorAndDenominator']","['BigFractionTest::testDoubleValueForLargeNumeratorAndDenominator', 'BigFractionTest::testFloatValueForLargeNumeratorAndDenominator']"
+Math,37b,True,"['ComplexTest::testTan', 'ComplexTest::testTanInf', 'ComplexTest::testTanh', 'ComplexTest::testTanhInf']","['ComplexTest::testTan', 'ComplexTest::testTanInf', 'ComplexTest::testTanh', 'ComplexTest::testTanhInf']"
+Math,38b,True,['BOBYQAOptimizerTest::testConstrainedRosenWithMoreInterpolationPoints'],['BOBYQAOptimizerTest::testConstrainedRosenWithMoreInterpolationPoints']
+Math,39b,True,['DormandPrince853IntegratorTest::testTooLargeFirstStep'],['DormandPrince853IntegratorTest::testTooLargeFirstStep']
+Math,3b,True,['MathArraysTest::testLinearCombinationWithSingleElementArray'],['MathArraysTest::testLinearCombinationWithSingleElementArray']
+Math,40b,True,['BracketingNthOrderBrentSolverTest::testIssue716'],['BracketingNthOrderBrentSolverTest::testIssue716']
+Math,4b,True,"['SubLineTest::testIntersectionNotIntersecting', 'SubLineTest::testIntersectionParallel']","['SubLineTest::testIntersectionNotIntersecting', 'SubLineTest::testIntersectionParallel']"
+Math,5b,True,['ComplexTest::testReciprocalZero'],['ComplexTest::testReciprocalZero']
+Math,6b,True,"['CMAESOptimizerTest::testAckley', 'CMAESOptimizerTest::testCigTab', 'CMAESOptimizerTest::testCigar', 'CMAESOptimizerTest::testCigarWithBoundaries', 'CMAESOptimizerTest::testConstrainedRosen', 'CMAESOptimizerTest::testDiagonalRosen', 'CMAESOptimizerTest::testDiffPow', 'CMAESOptimizerTest::testElliRotated', 'CMAESOptimizerTest::testEllipse', 'CMAESOptimizerTest::testMaximize', 'CMAESOptimizerTest::testRastrigin', 'CMAESOptimizerTest::testRosen', 'CMAESOptimizerTest::testSphere', 'CMAESOptimizerTest::testSsDiffPow', 'CMAESOptimizerTest::testTablet', 'CMAESOptimizerTest::testTwoAxes', 'GaussNewtonOptimizerTest::testGetIterations', 'LevenbergMarquardtOptimizerTest::testGetIterations', 'NonLinearConjugateGradientOptimizerTest::testTrivial', 'PowellOptimizerTest::testSumSinc', 'SimplexOptimizerMultiDirectionalTest::testMaximize1', 'SimplexOptimizerMultiDirectionalTest::testMaximize2', 'SimplexOptimizerMultiDirectionalTest::testMinimize1', 'SimplexOptimizerMultiDirectionalTest::testMinimize2', 'SimplexOptimizerNelderMeadTest::testMaximize1', 'SimplexOptimizerNelderMeadTest::testMaximize2', 'SimplexOptimizerNelderMeadTest::testMinimize1', 'SimplexOptimizerNelderMeadTest::testMinimize2']","['CMAESOptimizerTest::testAckley', 'CMAESOptimizerTest::testCigTab', 'CMAESOptimizerTest::testCigar', 'CMAESOptimizerTest::testCigarWithBoundaries', 'CMAESOptimizerTest::testConstrainedRosen', 'CMAESOptimizerTest::testDiagonalRosen', 'CMAESOptimizerTest::testDiffPow', 'CMAESOptimizerTest::testElliRotated', 'CMAESOptimizerTest::testEllipse', 'CMAESOptimizerTest::testMaximize', 'CMAESOptimizerTest::testRastrigin', 'CMAESOptimizerTest::testRosen', 'CMAESOptimizerTest::testSphere', 'CMAESOptimizerTest::testSsDiffPow', 'CMAESOptimizerTest::testTablet', 'CMAESOptimizerTest::testTwoAxes', 'GaussNewtonOptimizerTest::testGetIterations', 'LevenbergMarquardtOptimizerTest::testGetIterations', 'NonLinearConjugateGradientOptimizerTest::testTrivial', 'PowellOptimizerTest::testSumSinc', 'SimplexOptimizerMultiDirectionalTest::testMaximize1', 'SimplexOptimizerMultiDirectionalTest::testMaximize2', 'SimplexOptimizerMultiDirectionalTest::testMinimize1', 'SimplexOptimizerMultiDirectionalTest::testMinimize2', 'SimplexOptimizerNelderMeadTest::testMaximize1', 'SimplexOptimizerNelderMeadTest::testMaximize2', 'SimplexOptimizerNelderMeadTest::testMinimize1', 'SimplexOptimizerNelderMeadTest::testMinimize2']"
+Math,7b,True,['DormandPrince853IntegratorTest::testEventsScheduling'],['DormandPrince853IntegratorTest::testEventsScheduling']
+Math,8b,True,['DiscreteRealDistributionTest::testIssue942'],['DiscreteRealDistributionTest::testIssue942']
+Math,9b,True,['LineTest::testRevert'],['LineTest::testRevert']
+Math,49b,True,['SparseRealVectorTest::testConcurrentModification'],['SparseRealVectorTest::testConcurrentModification']
+Math,50b,True,['RegulaFalsiSolverTest::testIssue631'],['RegulaFalsiSolverTest::testIssue631']
+Math,51b,True,['RegulaFalsiSolverTest::testIssue631'],['RegulaFalsiSolverTest::testIssue631']
+Math,52b,True,['RotationTest::testIssue639'],['RotationTest::testIssue639']
+Math,53b,True,['ComplexTest::testAddNaN'],['ComplexTest::testAddNaN']
+Math,54b,True,['DfpTest::testIssue567'],['DfpTest::testIssue567']
+Math,55b,True,['Vector3DTest::testCrossProductCancellation'],['Vector3DTest::testCrossProductCancellation']
+Math,56b,True,['MultidimensionalCounterTest::testIterationConsistency'],['MultidimensionalCounterTest::testIterationConsistency']
+Math,57b,True,['KMeansPlusPlusClustererTest::testSmallDistances'],['KMeansPlusPlusClustererTest::testSmallDistances']
+Math,58b,True,['GaussianFitterTest::testMath519'],['GaussianFitterTest::testMath519']
+Math,59b,True,['FastMathTest::testMinMaxFloat'],['FastMathTest::testMinMaxFloat']
+Math,60b,True,['NormalDistributionTest::testExtremeValues'],['NormalDistributionTest::testExtremeValues']
+Math,61b,True,['PoissonDistributionTest::testMean'],['PoissonDistributionTest::testMean']
+Math,63b,True,['MathUtilsTest::testArrayEquals'],['MathUtilsTest::testArrayEquals']
+Math,64b,True,"['MinpackTest::testMinpackFreudensteinRoth', 'MinpackTest::testMinpackJennrichSampson']","['MinpackTest::testMinpackFreudensteinRoth', 'MinpackTest::testMinpackJennrichSampson']"
+Math,65b,True,['LevenbergMarquardtOptimizerTest::testCircleFitting'],['LevenbergMarquardtOptimizerTest::testCircleFitting']
+Math,66b,True,"['BrentOptimizerTest::testQuinticMinStatistics', 'BrentOptimizerTest::testSinMin', 'MultiStartUnivariateRealOptimizerTest::testQuinticMin', 'MultiStartUnivariateRealOptimizerTest::testSinMin']","['BrentOptimizerTest::testQuinticMinStatistics', 'BrentOptimizerTest::testSinMin', 'MultiStartUnivariateRealOptimizerTest::testQuinticMin', 'MultiStartUnivariateRealOptimizerTest::testSinMin']"
+Math,67b,True,['MultiStartUnivariateRealOptimizerTest::testQuinticMin'],['MultiStartUnivariateRealOptimizerTest::testQuinticMin']
+Math,68b,True,"['MinpackTest::testMinpackFreudensteinRoth', 'MinpackTest::testMinpackJennrichSampson']","['MinpackTest::testMinpackFreudensteinRoth', 'MinpackTest::testMinpackJennrichSampson']"
+Math,69b,True,"['PearsonsCorrelationTest::testPValueNearZero', 'SpearmansRankCorrelationTest::testPValueNearZero']","['PearsonsCorrelationTest::testPValueNearZero', 'SpearmansRankCorrelationTest::testPValueNearZero']"
+Math,70b,True,['BisectionSolverTest::testMath369'],['BisectionSolverTest::testMath369']
+Math,71b,True,"['ClassicalRungeKuttaIntegratorTest::testMissedEndEvent', 'DormandPrince853IntegratorTest::testMissedEndEvent']","['ClassicalRungeKuttaIntegratorTest::testMissedEndEvent', 'DormandPrince853IntegratorTest::testMissedEndEvent']"
+Math,72b,True,['BrentSolverTest::testRootEndpoints'],['BrentSolverTest::testRootEndpoints']
+Math,73b,True,['BrentSolverTest::testBadEndpoints'],['BrentSolverTest::testBadEndpoints']
+Math,74b,True,['AdamsMoultonIntegratorTest::polynomial'],['AdamsMoultonIntegratorTest::polynomial']
+Math,75b,True,['FrequencyTest::testPcts'],['FrequencyTest::testPcts']
+Math,76b,True,"['SingularValueSolverTest::testMath320A', 'SingularValueSolverTest::testMath320B']","['SingularValueSolverTest::testMath320A', 'SingularValueSolverTest::testMath320B']"
+Math,77b,True,"['ArrayRealVectorTest::testBasicFunctions', 'SparseRealVectorTest::testBasicFunctions']","['ArrayRealVectorTest::testBasicFunctions', 'SparseRealVectorTest::testBasicFunctions']"
+Math,78b,True,['EventStateTest::closeEvents'],['EventStateTest::closeEvents']
+Math,79b,True,['KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate'],['KMeansPlusPlusClustererTest::testPerformClusterAnalysisDegenerate']
+Math,80b,True,['EigenDecompositionImplTest::testMathpbx02'],['EigenDecompositionImplTest::testMathpbx02']
+Math,100b,True,['GaussNewtonEstimatorTest::testBoundParameters'],['GaussNewtonEstimatorTest::testBoundParameters']
+Math,101b,True,"['ComplexFormatTest::testForgottenImaginaryCharacter', 'FrenchComplexFormatTest::testForgottenImaginaryCharacter']","['ComplexFormatTest::testForgottenImaginaryCharacter', 'FrenchComplexFormatTest::testForgottenImaginaryCharacter']"
+Math,102b,True,"['ChiSquareFactoryTest::testChiSquare', 'ChiSquareFactoryTest::testChiSquareLargeTestStatistic', 'ChiSquareTestTest::testChiSquare', 'ChiSquareTestTest::testChiSquareLargeTestStatistic', 'TestUtilsTest::testChiSquare', 'TestUtilsTest::testChiSquareLargeTestStatistic']","['ChiSquareFactoryTest::testChiSquare', 'ChiSquareFactoryTest::testChiSquareLargeTestStatistic', 'ChiSquareTestTest::testChiSquare', 'ChiSquareTestTest::testChiSquareLargeTestStatistic', 'TestUtilsTest::testChiSquare', 'TestUtilsTest::testChiSquareLargeTestStatistic']"
+Math,103b,True,['NormalDistributionTest::testExtremeValues'],['NormalDistributionTest::testExtremeValues']
+Math,104b,True,['GammaTest::testRegularizedGammaPositivePositive'],['GammaTest::testRegularizedGammaPositivePositive']
+Math,105b,True,['SimpleRegressionTest::testSSENonNegative'],['SimpleRegressionTest::testSSENonNegative']
+Math,106b,True,['FractionFormatTest::testParseProperInvalidMinus'],['FractionFormatTest::testParseProperInvalidMinus']
+Math,81b,True,['EigenDecompositionImplTest::testMath308'],['EigenDecompositionImplTest::testMath308']
+Math,82b,True,['SimplexSolverTest::testMath288'],['SimplexSolverTest::testMath288']
+Math,83b,True,['SimplexSolverTest::testMath286'],['SimplexSolverTest::testMath286']
+Math,84b,True,"['MultiDirectionalTest::testMath283', 'MultiDirectionalTest::testMinimizeMaximize']","['MultiDirectionalTest::testMath283', 'MultiDirectionalTest::testMinimizeMaximize']"
+Math,85b,True,['NormalDistributionTest::testMath280'],['NormalDistributionTest::testMath280']
+Math,86b,True,"['CholeskyDecompositionImplTest::testMath274', 'CholeskyDecompositionImplTest::testNotPositiveDefinite']","['CholeskyDecompositionImplTest::testMath274', 'CholeskyDecompositionImplTest::testNotPositiveDefinite']"
+Math,87b,True,['SimplexSolverTest::testSingleVariableAndConstraint'],['SimplexSolverTest::testSingleVariableAndConstraint']
+Math,88b,True,['SimplexSolverTest::testMath272'],['SimplexSolverTest::testMath272']
+Math,89b,True,['FrequencyTest::testAddNonComparable'],['FrequencyTest::testAddNonComparable']
+Math,90b,True,['FrequencyTest::testAddNonComparable'],['FrequencyTest::testAddNonComparable']
+Math,91b,True,['FractionTest::testCompareTo'],['FractionTest::testCompareTo']
+Math,92b,True,['MathUtilsTest::testBinomialCoefficientLarge'],['MathUtilsTest::testBinomialCoefficientLarge']
+Math,93b,True,['MathUtilsTest::testFactorial'],['MathUtilsTest::testFactorial']
+Math,94b,True,['MathUtilsTest::testGcd'],['MathUtilsTest::testGcd']
+Math,95b,True,['FDistributionTest::testSmallDegreesOfFreedom'],['FDistributionTest::testSmallDegreesOfFreedom']
+Math,96b,True,['ComplexTest::testMath221'],['ComplexTest::testMath221']
+Math,97b,True,['BrentSolverTest::testRootEndpoints'],['BrentSolverTest::testRootEndpoints']
+Math,98b,True,"['BigMatrixImplTest::testMath209', 'RealMatrixImplTest::testMath209']","['BigMatrixImplTest::testMath209', 'RealMatrixImplTest::testMath209']"
+Math,99b,True,"['MathUtilsTest::testGcd', 'MathUtilsTest::testLcm']","['MathUtilsTest::testGcd', 'MathUtilsTest::testLcm']"
