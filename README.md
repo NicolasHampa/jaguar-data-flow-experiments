@@ -15,7 +15,7 @@ Repositório com cobertura de data flow das ferramentas Jaguar e Ba-Dua gerados 
   Git >= 1.9
   SVN >= 1.8
   Perl >= 5.0.12
-  Defects4J
+  Defects4J >= 2.0.0
   ```
 
 #### Repositórios base.
