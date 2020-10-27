@@ -19,6 +19,6 @@ Repositório com cobertura de data flow das ferramentas Jaguar e Ba-Dua gerados 
   ```
 
 #### Repositórios base.
-  https://github.com/rjust/defects4j
-  https://github.com/saeg/jaguar
-  https://github.com/saeg/ba-dua
+  - https://github.com/rjust/defects4j
+  - https://github.com/saeg/jaguar
+  - https://github.com/saeg/ba-dua
