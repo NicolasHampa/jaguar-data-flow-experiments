@@ -1,5 +1,4 @@
 # jaguar-data-flow-experiments
-======================
 
 ## Informações gerais.
 Repositório com cobertura de data flow das ferramentas Jaguar e Ba-Dua gerados para programas do Dataset do Defects4J
