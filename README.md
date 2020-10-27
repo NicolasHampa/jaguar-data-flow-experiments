@@ -5,7 +5,7 @@ Repositório com cobertura de data flow das ferramentas Jaguar e Ba-Dua gerados 
 
 #### Organização dos diretórios.
   - **dataset**: Diretório com o conjunto de informaçes de critério data-flow dos programas do dataset do Defects4J. Os dados foram gerados à partir da execução das ferramentas Jaguar e Ba-Dua:      
-  - **scripts**: Diretório com os scripts de comparação executados em cima do conjunto de dados presente no dataset. O objetivo dos scripts consiste em validar a consistência dos dados coletados à partir da execução das ferramentas de coleta de dados.
+  - **scripts**: Diretório com os scripts de comparação executados em cima do conjunto de dados presente no dataset. O objetivo dos scripts consiste em validar a consistência dos dados coletados à partir da execução das ferramentas citadas acima.
   - **reports**: Arquivos com resultados obtidos à partir da execução dos scripts de comparação.
   
 #### Pré-requisitos para execução dos scripts.
