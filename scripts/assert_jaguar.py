@@ -35,7 +35,7 @@ def count_jaguar_covered_duas(jaguar_matrix_folder_path, matrix_file_name):
 	return total
 
 def write_csv(project_report_path, project_name, project_version, total_duas, jaguar_covered_duas, badua_covered_duas):
-	fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'TOTAL_DUAS', 'JAGUAR_COVERED_DUAS', 'BADUA_COVERED_DUAS', 'SAME_COVERAGE']
+	fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'TOTAL_DUAS', 'JAGUAR_COVERED_DUAS', 'BADUA_COVERED_DUAS', 'DUA_COVERAGE_DIFFERENCE', 'SAME_COVERAGE']
 	writemode = 'a' if os.path.exists(project_report_path) else 'w'
 	with open(project_report_path, mode=writemode) as coverage_file:
 		csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
@@ -46,7 +46,8 @@ def write_csv(project_report_path, project_name, project_version, total_duas, ja
 			'TOTAL_DUAS':total_duas,
 			'JAGUAR_COVERED_DUAS':jaguar_covered_duas,
 			'BADUA_COVERED_DUAS':badua_covered_duas,
-			'SAME_COVERAGE':(badua_covered_duas == jaguar_covered_duas)
+			'DUA_COVERAGE_DIFFERENCE':(abs(jaguar_covered_duas - badua_covered_duas)),
+			'SAME_COVERAGE':(jaguar_covered_duas == badua_covered_duas)
 		}
 	)
 
@@ -80,9 +81,7 @@ if __name__ == '__main__':
 				jaguar_covered = np.count_nonzero(dua_coverage_array)
 				jaguar_missed = dua_coverage_array.size - jaguar_covered
 				jaguar_covered_duas += jaguar_covered
-
 				badua_covered_duas += badua_covered
-
 				total_duas += dua_coverage_array.size
 
 	if not (badua_covered_duas == jaguar_covered_duas):

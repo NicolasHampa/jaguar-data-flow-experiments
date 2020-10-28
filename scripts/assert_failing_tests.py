@@ -48,16 +48,18 @@ def populate_jaguar_failling_tests_vector(jaguar_output_file_path):
             jaguar_failing_tests.append(failing_test)
     return jaguar_failing_tests
 
-def write_csv(project_report_path, project_name, project_version, same_failing_tests, jaguar_failing_tests, defects4j_failing_tests):
+def write_csv(project_report_path, project_name, project_version, jaguar_failing_tests, defects4j_failing_tests):
+    jaguar_contains_all_defects4j_failing_tests =  all(elem in jaguar_failing_tests  for elem in defects4j_failing_tests)
     writemode = 'a' if os.path.exists(project_report_path) else 'w'
-    fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'SAME_FAILING_TESTS',  'JAGUAR_FAILING_TESTS', 'DEFECTS4J_FAILING_TESTS']
+    fieldnames = ['PROJECT_NAME', 'PROJECT_VERSION', 'SAME_FAILING_TESTS', 'JAGUAR_CONTAINS_DEFECTS4J',  'JAGUAR_FAILING_TESTS', 'DEFECTS4J_FAILING_TESTS']
     with open(project_report_path, mode=writemode) as coverage_file:
         csv_writer = csv.DictWriter(coverage_file, fieldnames=fieldnames)
         if writemode == 'w': csv_writer.writeheader()
         csv_writer.writerow({
             'PROJECT_NAME':project_name,
             'PROJECT_VERSION':project_version,
-            'SAME_FAILING_TESTS':same_failing_tests,
+            'SAME_FAILING_TESTS':(jaguar_failing_tests == defects4j_failing_tests),
+            'JAGUAR_CONTAINS_DEFECTS4J':jaguar_contains_all_defects4j_failing_tests,
             'JAGUAR_FAILING_TESTS':jaguar_failing_tests,
             'DEFECTS4J_FAILING_TESTS':defects4j_failing_tests
         }
@@ -75,8 +77,6 @@ if __name__ == '__main__':
     jaguar_output_file_path = os.path.join(project_version_path, 'jaguar.out')
     jaguar_failing_tests = populate_jaguar_failling_tests_vector(jaguar_output_file_path)
     jaguar_failing_tests.sort()
-    
-    same_failing_tests = jaguar_failing_tests == defects4j_failing_tests
 
     project_report_path = os.path.join(Path(project_version_path).parent.parent.parent, "reports", 'assert_tests.csv')
-    write_csv(project_report_path, project_name, project_version, same_failing_tests, jaguar_failing_tests, defects4j_failing_tests)
+    write_csv(project_report_path, project_name, project_version, jaguar_failing_tests, defects4j_failing_tests)
