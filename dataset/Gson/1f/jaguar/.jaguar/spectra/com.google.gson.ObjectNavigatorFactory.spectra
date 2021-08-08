@@ -1,6 +1,0 @@
-com.google.gson.ObjectNavigatorFactory#<init>:(39,41, this)
-com.google.gson.ObjectNavigatorFactory#<init>:(39,42, this)
-com.google.gson.ObjectNavigatorFactory#<init>:(39,(41,41), strategy)
-com.google.gson.ObjectNavigatorFactory#<init>:(39,(41,41), strategy)
-com.google.gson.ObjectNavigatorFactory#<init>:(39,41, strategy)
-com.google.gson.ObjectNavigatorFactory#<init>:(39,42, fieldNamingPolicy)

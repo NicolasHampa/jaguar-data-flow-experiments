@@ -1,9 +1,0 @@
-15:17:20.860 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:17:20.977 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:18:04.640 [main] INFO  JaguarDF - Test testMangledNumbersBytes(com.fasterxml.jackson.core.json.TestParserErrorHandling) : Failed
-15:18:05.288 [main] INFO  JaguarDF - Test testMangledNumbersChars(com.fasterxml.jackson.core.json.TestParserErrorHandling) : Failed
-15:19:10.249 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m50.024s
-user	1m56.369s
-sys	0m6.045s

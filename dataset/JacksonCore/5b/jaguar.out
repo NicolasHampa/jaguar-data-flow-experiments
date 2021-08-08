@@ -1,8 +1,0 @@
-15:29:48.593 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:29:48.667 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:29:51.611 [main] INFO  JaguarDF - Test testWonkyNumber173(com.fasterxml.jackson.core.TestJsonPointer) : Failed
-15:31:41.878 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m53.794s
-user	2m5.923s
-sys	0m5.739s

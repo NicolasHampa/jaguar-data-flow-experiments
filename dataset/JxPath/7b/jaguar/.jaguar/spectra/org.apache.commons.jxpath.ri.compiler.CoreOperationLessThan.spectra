@@ -1,6 +1,0 @@
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(34,36, FALSE)
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(34,36, TRUE)
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(34,(36,36), l)
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(34,(36,36), l)
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(35,(36,36), r)
-org.apache.commons.jxpath.ri.compiler.CoreOperationLessThan#computeValue:(35,(36,36), r)

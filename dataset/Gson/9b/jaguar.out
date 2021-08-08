@@ -1,8 +1,0 @@
-12:56:58.858 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-12:56:58.945 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-13:01:08.981 [main] INFO  JaguarDF - Test testBoxedBooleans(com.google.gson.stream.JsonWriterTest) : Failed
-13:01:13.168 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	4m14.910s
-user	3m58.280s
-sys	0m29.444s

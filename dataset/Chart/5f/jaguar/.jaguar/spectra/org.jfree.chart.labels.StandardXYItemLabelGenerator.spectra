@@ -1,8 +1,0 @@
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(193,194), this)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(193,196), this)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,199, this)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(193,194), obj)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(193,196), obj)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(196,197), obj)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,(196,199), obj)
-org.jfree.chart.labels.StandardXYItemLabelGenerator#equals:(193,199, obj)

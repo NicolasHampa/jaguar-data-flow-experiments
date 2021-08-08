@@ -1,6 +1,0 @@
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,91, this)
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,92, this)
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,91, dataset)
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,(88,89), info)
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,(88,91), info)
-org.jfree.data.event.DatasetChangeEvent#<init>:(87,92, info)

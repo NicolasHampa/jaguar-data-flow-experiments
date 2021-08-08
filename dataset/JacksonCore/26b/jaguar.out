@@ -1,8 +1,0 @@
-18:23:35.545 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-18:23:35.609 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-18:26:05.020 [main] INFO  JaguarDF - Test testLocationOffsets(com.fasterxml.jackson.core.json.async.AsyncLocationTest) : Failed
-18:29:49.173 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	6m14.114s
-user	6m29.378s
-sys	0m15.603s

@@ -1,6 +1,0 @@
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,(115,116), this)
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,(115,118), this)
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,118, this)
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,(115,116), this.entry)
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,(115,118), this.entry)
-org.apache.commons.collections4.map.EntrySetToMapIteratorAdapter#current:(115,118, this.entry)

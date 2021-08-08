@@ -1,8 +1,0 @@
-org.jsoup.parser.TokeniserState$14#read:(256,260, t)
-org.jsoup.parser.TokeniserState$14#read:(256,261, t)
-org.jsoup.parser.TokeniserState$14#read:(256,257, t)
-org.jsoup.parser.TokeniserState$14#read:(256,258, t)
-org.jsoup.parser.TokeniserState$14#read:(256,(256,257), r)
-org.jsoup.parser.TokeniserState$14#read:(256,(256,260), r)
-org.jsoup.parser.TokeniserState$14#read:(256,258, RawtextEndTagOpen)
-org.jsoup.parser.TokeniserState$14#read:(256,261, Rawtext)

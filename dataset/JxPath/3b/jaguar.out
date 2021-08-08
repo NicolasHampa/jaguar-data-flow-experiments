@@ -1,8 +1,0 @@
-22:13:33.708 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-22:13:33.785 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-22:14:18.670 [main] INFO  JaguarDF - Test testBadFactoryImplementation(org.apache.commons.jxpath.ri.model.beans.BadlyImplementedFactoryTest) : Failed
-22:15:35.128 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m1.945s
-user	2m19.276s
-sys	0m8.014s

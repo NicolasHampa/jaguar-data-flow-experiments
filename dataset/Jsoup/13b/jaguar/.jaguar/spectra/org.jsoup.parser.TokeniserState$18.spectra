@@ -1,8 +1,0 @@
-org.jsoup.parser.TokeniserState$18#read:(365,369, t)
-org.jsoup.parser.TokeniserState$18#read:(365,370, t)
-org.jsoup.parser.TokeniserState$18#read:(365,366, t)
-org.jsoup.parser.TokeniserState$18#read:(365,367, t)
-org.jsoup.parser.TokeniserState$18#read:(365,(365,366), r)
-org.jsoup.parser.TokeniserState$18#read:(365,(365,369), r)
-org.jsoup.parser.TokeniserState$18#read:(365,367, ScriptDataEndTagName)
-org.jsoup.parser.TokeniserState$18#read:(365,370, ScriptData)

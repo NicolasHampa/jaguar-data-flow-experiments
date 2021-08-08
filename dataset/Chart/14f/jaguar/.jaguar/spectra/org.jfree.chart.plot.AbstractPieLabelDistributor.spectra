@@ -1,5 +1,0 @@
-org.jfree.chart.plot.AbstractPieLabelDistributor#addPieLabelRecord:(81,84, this)
-org.jfree.chart.plot.AbstractPieLabelDistributor#addPieLabelRecord:(81,(81,82), record)
-org.jfree.chart.plot.AbstractPieLabelDistributor#addPieLabelRecord:(81,(81,84), record)
-org.jfree.chart.plot.AbstractPieLabelDistributor#addPieLabelRecord:(81,84, record)
-org.jfree.chart.plot.AbstractPieLabelDistributor#addPieLabelRecord:(81,84, this.labels)

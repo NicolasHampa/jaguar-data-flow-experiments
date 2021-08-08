@@ -1,7 +1,0 @@
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,(524,525), this)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,(524,527), this)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,525, this)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,(524,525), this.values)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,(524,527), this.values)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,525, this.this$0)
-org.apache.commons.collections4.map.MultiValueMap$ValuesIterator#remove:(523,525, this.key)

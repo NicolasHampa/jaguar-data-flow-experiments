@@ -1,8 +1,0 @@
-20:57:48.312 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-20:57:48.371 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-20:58:12.014 [main] INFO  JaguarDF - Test testByAttributeRegexCombined(org.jsoup.select.SelectorTest) : Failed
-20:58:13.213 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	0m25.393s
-user	0m35.218s
-sys	0m3.805s

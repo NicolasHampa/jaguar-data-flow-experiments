@@ -1,8 +1,0 @@
-org.jsoup.parser.TokeniserState$11#read:(215,221, t)
-org.jsoup.parser.TokeniserState$11#read:(215,222, t)
-org.jsoup.parser.TokeniserState$11#read:(215,216, t)
-org.jsoup.parser.TokeniserState$11#read:(215,217, t)
-org.jsoup.parser.TokeniserState$11#read:(215,(215,216), r)
-org.jsoup.parser.TokeniserState$11#read:(215,(215,221), r)
-org.jsoup.parser.TokeniserState$11#read:(215,217, RCDATAEndTagOpen)
-org.jsoup.parser.TokeniserState$11#read:(215,222, Rcdata)

@@ -1,8 +1,0 @@
-12:18:31.852 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-12:18:31.974 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-12:18:36.613 [main] INFO  JaguarDF - Test testDateDeserializationISO8601(com.google.gson.DefaultDateTypeAdapterTest) : Failed
-12:22:35.975 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	4m4.953s
-user	3m53.894s
-sys	0m28.453s

@@ -1,8 +1,0 @@
-Analyzing output/commons-compress/38b/jaguar
-org.apache.commons.compress.archivers.sevenz.SevenZFile
-- BA-DUA covered: 1111, Jaguar covered: 1110
-org.apache.commons.compress.archivers.zip.ZipFile
-- BA-DUA covered: 289, Jaguar covered: 288
-org.apache.commons.compress.compressors.pack200.StreamBridge
-- BA-DUA covered: 17, Jaguar covered: 15
-Total DUAs: 18504, Covered DUAs: 13866

@@ -1,6 +1,0 @@
-org.apache.commons.collections4.functors.TransformerPredicate#transformerPredicate:(48,(48,49), transformer)
-org.apache.commons.collections4.functors.TransformerPredicate#transformerPredicate:(48,(48,51), transformer)
-org.apache.commons.collections4.functors.TransformerPredicate#transformerPredicate:(48,51, transformer)
-org.apache.commons.collections4.functors.TransformerPredicate#evaluate:(73,(74,75), result)
-org.apache.commons.collections4.functors.TransformerPredicate#evaluate:(73,(74,78), result)
-org.apache.commons.collections4.functors.TransformerPredicate#evaluate:(73,78, result)

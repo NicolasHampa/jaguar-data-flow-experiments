@@ -1,8 +1,0 @@
-org.apache.commons.collections4.functors.NullIsFalsePredicate#nullIsFalsePredicate:(46,(46,47), predicate)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#nullIsFalsePredicate:(46,(46,49), predicate)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#nullIsFalsePredicate:(46,49, predicate)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#evaluate:(71,74, this)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#evaluate:(71,(71,72), object)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#evaluate:(71,(71,74), object)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#evaluate:(71,74, object)
-org.apache.commons.collections4.functors.NullIsFalsePredicate#evaluate:(71,74, this.iPredicate)

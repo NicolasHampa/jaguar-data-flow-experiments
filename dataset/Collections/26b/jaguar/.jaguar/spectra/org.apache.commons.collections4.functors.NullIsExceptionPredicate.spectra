@@ -1,8 +1,0 @@
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#nullIsExceptionPredicate:(47,(47,48), predicate)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#nullIsExceptionPredicate:(47,(47,50), predicate)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#nullIsExceptionPredicate:(47,50, predicate)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#evaluate:(73,76, this)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#evaluate:(73,(73,74), object)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#evaluate:(73,(73,76), object)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#evaluate:(73,76, object)
-org.apache.commons.collections4.functors.NullIsExceptionPredicate#evaluate:(73,76, this.iPredicate)

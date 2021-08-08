@@ -1,8 +1,0 @@
-22:58:20.167 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-22:58:20.230 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-22:58:50.582 [main] INFO  JaguarDF - Test testElementDOM(org.apache.commons.jxpath.ri.model.ExternalXMLNamespaceTest) : Failed
-23:00:27.664 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m7.998s
-user	2m24.042s
-sys	0m8.993s

@@ -1,7 +1,0 @@
-org.jsoup.parser.TokeniserState$20#read:(420,424, t)
-org.jsoup.parser.TokeniserState$20#read:(420,421, t)
-org.jsoup.parser.TokeniserState$20#read:(420,422, t)
-org.jsoup.parser.TokeniserState$20#read:(420,(420,421), r)
-org.jsoup.parser.TokeniserState$20#read:(420,(420,424), r)
-org.jsoup.parser.TokeniserState$20#read:(420,422, ScriptDataEscapeStartDash)
-org.jsoup.parser.TokeniserState$20#read:(420,424, ScriptData)

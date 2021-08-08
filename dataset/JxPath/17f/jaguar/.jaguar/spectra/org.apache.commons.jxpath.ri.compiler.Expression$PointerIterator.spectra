@@ -1,6 +1,0 @@
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,162, this)
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,162, this.qname)
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,162, this.locale)
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,(162,162), o)
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,(162,162), o)
-org.apache.commons.jxpath.ri.compiler.Expression$PointerIterator#next:(161,162, o)

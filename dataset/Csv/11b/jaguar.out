@@ -1,9 +1,0 @@
-11:32:27.892 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-11:32:27.968 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-csv, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-11:32:29.463 [main] INFO  JaguarDF - Test initializationError(org.apache.commons.csv.CSVFileParserTest) : Failed
-11:32:34.025 [main] INFO  JaguarDF - Test testHeaderMissingWithNull(org.apache.commons.csv.CSVParserTest) : Failed
-11:32:40.377 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	0m13.084s
-user	0m31.582s
-sys	0m2.872s

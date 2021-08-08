@@ -1,8 +1,0 @@
-14:49:07.116 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-14:49:07.184 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-14:49:24.164 [main] INFO  JaguarDF - Test testShiftJisRoundtrip(org.jsoup.nodes.DocumentTest) : Failed
-14:50:56.736 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m50.160s
-user	1m55.547s
-sys	0m12.404s

@@ -1,8 +1,0 @@
-22:13:21.277 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-22:13:21.366 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
-22:20:57.798 [main] INFO  JaguarDF - Test testGenerateURLFragment(org.jfree.chart.imagemap.junit.StandardToolTipTagFragmentGeneratorTests) : Failed
-00:16:02.572 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	122m41.929s
-user	125m21.911s
-sys	1m15.255s

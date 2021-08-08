@@ -1,7 +1,0 @@
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,76, this)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,(73,73), compressionLevel)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,(73,74), compressionLevel)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,74, compressionLevel)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,(73,74), compressionLevel)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,(73,76), compressionLevel)
-org.apache.commons.compress.compressors.deflate.DeflateParameters#setCompressionLevel:(73,76, compressionLevel)

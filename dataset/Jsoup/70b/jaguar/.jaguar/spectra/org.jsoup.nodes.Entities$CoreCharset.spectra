@@ -1,7 +1,0 @@
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,(306,307), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,(306,308), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,(308,309), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,(308,310), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,307, ascii)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,309, utf)
-org.jsoup.nodes.Entities$CoreCharset#byName:(306,310, fallback)

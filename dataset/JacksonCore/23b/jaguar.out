@@ -1,8 +1,0 @@
-17:41:57.701 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-17:41:57.773 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-17:47:38.378 [main] INFO  JaguarDF - Test testInvalidSubClass(com.fasterxml.jackson.core.util.TestDefaultPrettyPrinter) : Failed
-17:48:04.443 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	6m7.323s
-user	6m22.343s
-sys	0m15.210s

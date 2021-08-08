@@ -1,7 +1,0 @@
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1470,1475, this)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1470,1475, this.iInstant)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1470,(1472,1473), millis)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1470,(1472,1475), millis)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1470,1475, millis)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1471,(1472,1473), rounded)
-org.joda.time.LocalTime$Property#addNoWrapToCopy:(1471,(1472,1475), rounded)

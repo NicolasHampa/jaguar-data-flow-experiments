@@ -1,6 +1,0 @@
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,62, this)
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,(56,57), field)
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,(56,59), field)
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,(59,60), field)
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,(59,62), field)
-org.joda.time.field.DecoratedDateTimeField#<init>:(55,62, field)

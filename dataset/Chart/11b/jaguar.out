@@ -1,8 +1,0 @@
-22:12:53.898 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-22:12:53.996 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
-23:06:24.643 [main] INFO  JaguarDF - Test testEqualGeneralPaths(org.jfree.chart.util.junit.ShapeUtilitiesTests) : Failed
-00:13:48.546 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	120m55.282s
-user	123m41.626s
-sys	1m12.199s

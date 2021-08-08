@@ -1,9 +1,0 @@
-20:19:21.096 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-20:19:21.162 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-dataformat-xml, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
--> {"child":"4"}
-20:19:39.643 [main] INFO  JaguarDF - Test testXmlAttributesWithNextTextValue(com.fasterxml.jackson.dataformat.xml.stream.XmlParserNextXxxTest) : Failed
-20:19:41.047 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	0m20.669s
-user	0m34.495s
-sys	0m4.408s

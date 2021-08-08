@@ -1,7 +1,0 @@
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,(200,201), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,(200,202), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,(202,203), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,(202,204), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,201, ascii)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,203, utf)
-org.jsoup.nodes.Entities$CoreCharset#byName:(200,204, fallback)

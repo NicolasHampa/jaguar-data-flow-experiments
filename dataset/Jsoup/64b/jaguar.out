@@ -1,9 +1,0 @@
-16:16:28.555 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-16:16:28.628 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-16:17:57.551 [main] INFO  JaguarDF - Test handlesKnownEmptyStyle(org.jsoup.parser.HtmlParserTest) : Failed
-16:18:06.706 [main] INFO  JaguarDF - Test handlesKnownEmptyNoFrames(org.jsoup.parser.HtmlParserTest) : Failed
-16:19:16.989 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m48.946s
-user	2m51.079s
-sys	0m18.047s

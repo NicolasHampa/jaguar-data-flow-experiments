@@ -1,7 +1,0 @@
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,(95,96), map)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,(95,100), map)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,96, map)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,100, decorated)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,96, decorated)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,97, decorated)
-org.apache.commons.collections4.map.TransformedSortedMap#transformedSortedMap:(93,98, decorated)

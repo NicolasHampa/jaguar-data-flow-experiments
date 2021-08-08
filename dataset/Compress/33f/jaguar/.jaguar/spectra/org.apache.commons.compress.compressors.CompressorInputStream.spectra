@@ -1,5 +1,0 @@
-org.apache.commons.compress.compressors.CompressorInputStream#count:(45,46, this)
-org.apache.commons.compress.compressors.CompressorInputStream#count:(45,(45,46), read)
-org.apache.commons.compress.compressors.CompressorInputStream#count:(45,(45,48), read)
-org.apache.commons.compress.compressors.CompressorInputStream#count:(45,46, read)
-org.apache.commons.compress.compressors.CompressorInputStream#count:(45,46, this.bytesRead)

@@ -1,8 +1,0 @@
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,(136,137), this)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,(136,141), this)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,141, this)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,137, this)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,(136,137), this.iCloneMethod)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,(136,141), this.iCloneMethod)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,141, this.iCloneMethod)
-org.apache.commons.collections4.functors.PrototypeFactory$PrototypeCloneFactory#create:(136,141, this.iPrototype)

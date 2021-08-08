@@ -1,8 +1,0 @@
-org.jsoup.parser.TokeniserState$15#read:(301,305, t)
-org.jsoup.parser.TokeniserState$15#read:(301,306, t)
-org.jsoup.parser.TokeniserState$15#read:(301,302, t)
-org.jsoup.parser.TokeniserState$15#read:(301,303, t)
-org.jsoup.parser.TokeniserState$15#read:(301,(301,302), r)
-org.jsoup.parser.TokeniserState$15#read:(301,(301,305), r)
-org.jsoup.parser.TokeniserState$15#read:(301,303, RawtextEndTagName)
-org.jsoup.parser.TokeniserState$15#read:(301,306, Rawtext)

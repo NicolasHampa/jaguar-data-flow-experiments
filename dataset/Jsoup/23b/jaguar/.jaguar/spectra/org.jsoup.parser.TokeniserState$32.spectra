@@ -1,8 +1,0 @@
-org.jsoup.parser.TokeniserState$32#read:(708,713, t)
-org.jsoup.parser.TokeniserState$32#read:(708,709, t)
-org.jsoup.parser.TokeniserState$32#read:(708,710, t)
-org.jsoup.parser.TokeniserState$32#read:(708,711, t)
-org.jsoup.parser.TokeniserState$32#read:(708,(708,709), r)
-org.jsoup.parser.TokeniserState$32#read:(708,(708,713), r)
-org.jsoup.parser.TokeniserState$32#read:(708,711, ScriptDataDoubleEscapeEnd)
-org.jsoup.parser.TokeniserState$32#read:(708,713, ScriptDataDoubleEscaped)

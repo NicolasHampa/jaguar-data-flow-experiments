@@ -1,8 +1,0 @@
-17:47:44.206 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-17:47:44.301 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-17:47:51.804 [main] INFO  JaguarDF - Test test(org.apache.commons.cli.bug.BugCLI51Test) : Failed
-17:47:51.869 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	0m8.364s
-user	0m20.330s
-sys	0m1.541s

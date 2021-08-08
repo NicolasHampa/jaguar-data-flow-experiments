@@ -1,8 +1,0 @@
-19:12:57.752 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-19:12:57.841 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
-19:14:24.740 [main] INFO  JaguarDF - Test testHWRuleEx1(org.apache.commons.codec.language.SoundexTest) : Failed
-19:14:55.147 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m58.044s
-user	2m3.876s
-sys	0m12.593s

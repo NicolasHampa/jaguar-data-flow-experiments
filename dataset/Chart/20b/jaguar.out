@@ -1,8 +1,0 @@
-02:18:23.364 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-02:18:23.470 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
-02:39:27.647 [main] INFO  JaguarDF - Test test1808376(org.jfree.chart.plot.junit.ValueMarkerTests) : Failed
-04:06:41.287 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	108m18.613s
-user	111m7.676s
-sys	1m7.631s

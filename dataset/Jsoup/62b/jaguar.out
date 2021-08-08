@@ -1,8 +1,0 @@
-16:04:26.823 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-16:04:26.937 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-16:05:44.571 [main] INFO  JaguarDF - Test caseSensitiveParseTree(org.jsoup.parser.HtmlParserTest) : Failed
-16:06:59.799 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m33.696s
-user	2m36.283s
-sys	0m17.150s

@@ -1,6 +1,0 @@
-Analyzing output/jsoup/59b/jaguar
-org.jsoup.nodes.Attributes$Dataset
-- BA-DUA covered: 15, Jaguar covered: 14
-org.jsoup.helper.DataUtil
-- BA-DUA covered: 126, Jaguar covered: 125
-Total DUAs: 9886, Covered DUAs: 7204

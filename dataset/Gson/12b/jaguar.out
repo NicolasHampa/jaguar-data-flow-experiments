@@ -1,9 +1,0 @@
-13:22:18.416 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-13:22:18.493 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-13:25:09.891 [main] INFO  JaguarDF - Test testSkipValue_filledJsonObject(com.google.gson.internal.bind.JsonTreeReaderTest) : Failed
-13:25:10.125 [main] INFO  JaguarDF - Test testSkipValue_emptyJsonObject(com.google.gson.internal.bind.JsonTreeReaderTest) : Failed
-13:25:56.909 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	3m39.018s
-user	3m38.281s
-sys	0m25.212s

@@ -1,6 +1,0 @@
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,(47,48), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,(47,50), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,(50,52), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,(50,55), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,55, iterator)
-org.apache.commons.collections4.iterators.UnmodifiableMapIterator#unmodifiableMapIterator:(47,52, iterator)

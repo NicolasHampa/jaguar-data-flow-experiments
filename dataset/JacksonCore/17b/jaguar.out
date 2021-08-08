@@ -1,8 +1,0 @@
-16:51:23.079 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-16:51:23.148 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-16:52:09.226 [main] INFO  JaguarDF - Test testRawWithSurrogatesString(com.fasterxml.jackson.core.json.RawValueWithSurrogatesTest) : Failed
-16:54:16.226 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m53.632s
-user	3m7.464s
-sys	0m7.645s

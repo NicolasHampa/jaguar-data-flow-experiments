@@ -1,8 +1,0 @@
-16:04:28.898 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-16:04:28.982 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-16:07:06.173 [main] INFO  JaguarDF - Test testSymbolTableExpansionBytes(com.fasterxml.jackson.core.sym.SymbolsViaParserTest) : Failed
-16:07:35.789 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	3m7.534s
-user	3m20.803s
-sys	0m9.950s

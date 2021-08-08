@@ -1,8 +1,0 @@
-16:19:14.117 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-16:19:14.245 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-16:20:36.018 [main] INFO  JaguarDF - Test testFieldNameQuotingEnabled(com.fasterxml.jackson.core.json.TestJsonGeneratorFeatures) : Failed
-16:22:35.601 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	3m22.356s
-user	3m35.363s
-sys	0m11.393s

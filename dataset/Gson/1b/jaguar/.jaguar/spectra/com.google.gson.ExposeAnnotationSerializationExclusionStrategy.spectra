@@ -1,4 +1,0 @@
-com.google.gson.ExposeAnnotationSerializationExclusionStrategy#shouldSkipField:(34,(35,36), annotation)
-com.google.gson.ExposeAnnotationSerializationExclusionStrategy#shouldSkipField:(34,(35,38), annotation)
-com.google.gson.ExposeAnnotationSerializationExclusionStrategy#shouldSkipField:(34,(38,38), annotation)
-com.google.gson.ExposeAnnotationSerializationExclusionStrategy#shouldSkipField:(34,(38,38), annotation)

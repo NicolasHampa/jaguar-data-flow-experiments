@@ -1,8 +1,0 @@
-15:23:48.750 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:23:48.823 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:23:59.073 [main] INFO  JaguarDF - Test handlesInvalidAttributeNames(org.jsoup.helper.W3CDomTest) : Failed
-15:25:48.534 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m0.303s
-user	2m7.178s
-sys	0m13.635s

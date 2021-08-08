@@ -1,8 +1,0 @@
-15:28:22.801 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:28:22.869 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:29:12.892 [main] INFO  JaguarDF - Test dropsSlashFromAttributeName(org.jsoup.parser.AttributeParseTest) : Failed
-15:30:26.776 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m4.484s
-user	2m10.583s
-sys	0m12.914s

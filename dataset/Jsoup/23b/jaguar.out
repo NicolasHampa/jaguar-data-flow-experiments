@@ -1,8 +1,0 @@
-21:23:42.441 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-21:23:42.513 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-21:24:06.892 [main] INFO  JaguarDF - Test letterDigitEntities(org.jsoup.nodes.EntitiesTest) : Failed
-21:24:57.704 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m15.843s
-user	1m32.868s
-sys	0m9.311s

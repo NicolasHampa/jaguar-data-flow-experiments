@@ -1,9 +1,0 @@
-23:28:45.431 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-23:28:45.508 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-jxpath, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-23:30:10.853 [main] INFO  JaguarDF - Test testAxisAttribute(org.apache.commons.jxpath.ri.model.dom.DOMModelTest) : Failed
-23:30:51.342 [main] INFO  JaguarDF - Test testAxisAttribute(org.apache.commons.jxpath.ri.model.jdom.JDOMModelTest) : Failed
-23:31:03.685 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m18.770s
-user	2m36.907s
-sys	0m9.624s

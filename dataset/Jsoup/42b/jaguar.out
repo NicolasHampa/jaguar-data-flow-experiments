@@ -1,9 +1,0 @@
-14:32:00.963 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-14:32:01.043 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-14:32:34.293 [main] INFO  JaguarDF - Test createsFormData(org.jsoup.nodes.FormElementTest) : Failed
-14:32:35.703 [main] INFO  JaguarDF - Test usesOnForCheckboxValueIfNoValueSet(org.jsoup.nodes.FormElementTest) : Failed
-14:33:50.275 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m49.955s
-user	2m1.926s
-sys	0m12.796s

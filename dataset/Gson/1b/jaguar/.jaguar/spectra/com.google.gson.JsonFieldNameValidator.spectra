@@ -1,8 +1,0 @@
-com.google.gson.JsonFieldNameValidator#validate:(47,(48,48), fieldName)
-com.google.gson.JsonFieldNameValidator#validate:(47,(48,48), fieldName)
-com.google.gson.JsonFieldNameValidator#validate:(47,50, fieldName)
-com.google.gson.JsonFieldNameValidator#validate:(47,54, fieldName)
-com.google.gson.JsonFieldNameValidator#validate:(47,52, fieldName)
-com.google.gson.JsonFieldNameValidator#validate:(47,50, JSON_FIELD_NAME_PATTERN)
-com.google.gson.JsonFieldNameValidator#validate:(50,(51,52), matcher)
-com.google.gson.JsonFieldNameValidator#validate:(50,(51,54), matcher)

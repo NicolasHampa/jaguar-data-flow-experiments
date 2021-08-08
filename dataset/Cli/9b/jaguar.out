@@ -1,9 +1,0 @@
-17:53:15.087 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-17:53:15.177 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-cli, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-17:53:20.478 [main] INFO  JaguarDF - Test testMissingOptionsException(org.apache.commons.cli.OptionsTest) : Failed
-17:53:20.608 [main] INFO  JaguarDF - Test testMissingRequiredOptions(org.apache.commons.cli.ParseRequiredTest) : Failed
-17:53:22.996 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	0m8.486s
-user	0m19.251s
-sys	0m1.442s

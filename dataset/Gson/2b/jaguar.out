@@ -1,8 +1,0 @@
-11:53:07.903 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-11:53:08.110 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-11:54:03.102 [main] INFO  JaguarDF - Test testJsonElementTypeMismatch(com.google.gson.functional.DefaultTypeAdaptersTest) : Failed
-11:56:40.779 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	3m33.991s
-user	3m16.393s
-sys	0m26.817s

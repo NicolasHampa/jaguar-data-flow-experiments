@@ -1,6 +1,0 @@
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,(48,49), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,(48,51), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,(51,53), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,(51,56), iterator)
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,56, iterator)
-org.apache.commons.collections4.iterators.UnmodifiableIterator#unmodifiableIterator:(48,53, iterator)

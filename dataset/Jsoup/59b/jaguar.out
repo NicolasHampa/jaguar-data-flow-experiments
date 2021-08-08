@@ -1,9 +1,0 @@
-15:47:38.035 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:47:38.098 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:48:53.378 [main] INFO  JaguarDF - Test handlesControlCodeInAttributeName(org.jsoup.parser.HtmlParserTest) : Failed
-15:49:18.710 [main] INFO  JaguarDF - Test handlesControlCharactersAfterTagName(org.jsoup.safety.CleanerTest) : Failed
-15:49:52.811 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	2m15.293s
-user	2m17.731s
-sys	0m14.495s

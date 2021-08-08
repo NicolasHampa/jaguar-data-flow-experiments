@@ -1,8 +1,0 @@
-org.apache.commons.codec.binary.StringUtils#getBytesUnchecked:(152,(152,153), string)
-org.apache.commons.codec.binary.StringUtils#getBytesUnchecked:(152,(152,156), string)
-org.apache.commons.codec.binary.StringUtils#getBytesUnchecked:(152,156, string)
-org.apache.commons.codec.binary.StringUtils#getBytesUnchecked:(152,156, charsetName)
-org.apache.commons.codec.binary.StringUtils#newString:(186,(186,187), bytes)
-org.apache.commons.codec.binary.StringUtils#newString:(186,(186,190), bytes)
-org.apache.commons.codec.binary.StringUtils#newString:(186,190, bytes)
-org.apache.commons.codec.binary.StringUtils#newString:(186,190, charsetName)

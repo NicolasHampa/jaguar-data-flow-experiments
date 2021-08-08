@@ -1,8 +1,0 @@
-19:08:35.836 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-19:08:35.923 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/commons-codec, --classesDir, target/classes, --testsDir, target/tests, --tests, tests.out, --logLevel, INFO]
-19:10:03.493 [main] INFO  JaguarDF - Test testCompatibilityWithOriginalVersion(org.apache.commons.codec.language.bm.PhoneticEngineRegressionTest) : Failed
-19:10:18.454 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m43.328s
-user	1m50.171s
-sys	0m11.334s

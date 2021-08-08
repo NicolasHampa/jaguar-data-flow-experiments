@@ -1,9 +1,0 @@
-21:17:51.062 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-21:17:51.140 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-21:19:00.437 [main] INFO  JaguarDF - Test mixCombinatorGroup(org.jsoup.select.SelectorTest) : Failed
-21:19:05.033 [main] INFO  JaguarDF - Test handlesCommasInSelector(org.jsoup.select.SelectorTest) : Failed
-21:19:05.264 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m14.855s
-user	1m18.522s
-sys	0m8.581s

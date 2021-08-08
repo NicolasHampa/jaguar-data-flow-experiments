@@ -1,8 +1,0 @@
-14:53:18.088 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-14:53:18.159 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jsoup, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-14:53:53.240 [main] INFO  JaguarDF - Test escapesGtInXmlAttributesButNotInHtml(org.jsoup.nodes.EntitiesTest) : Failed
-14:55:08.237 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m50.671s
-user	2m2.114s
-sys	0m12.469s

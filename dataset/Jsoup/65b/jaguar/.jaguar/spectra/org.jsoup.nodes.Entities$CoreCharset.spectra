@@ -1,7 +1,0 @@
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,(285,286), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,(285,287), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,(287,288), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,(287,289), name)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,286, ascii)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,288, utf)
-org.jsoup.nodes.Entities$CoreCharset#byName:(285,289, fallback)

@@ -1,8 +1,0 @@
-01:16:40.124 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-01:16:40.401 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jfreechart, --classesDir, build, --testsDir, build-tests, --tests, tests.out, --logLevel, INFO]
-01:23:12.467 [main] INFO  JaguarDF - Test testSizingWithWidthConstraint(org.jfree.chart.block.junit.BorderArrangementTests) : Failed
-03:27:28.411 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	130m49.312s
-user	132m19.464s
-sys	0m54.873s

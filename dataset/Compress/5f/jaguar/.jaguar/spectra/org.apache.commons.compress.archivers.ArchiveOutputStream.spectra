@@ -1,5 +1,0 @@
-org.apache.commons.compress.archivers.ArchiveOutputStream#count:(122,123, this)
-org.apache.commons.compress.archivers.ArchiveOutputStream#count:(122,(122,123), read)
-org.apache.commons.compress.archivers.ArchiveOutputStream#count:(122,(122,125), read)
-org.apache.commons.compress.archivers.ArchiveOutputStream#count:(122,123, read)
-org.apache.commons.compress.archivers.ArchiveOutputStream#count:(122,123, this.bytesRead)

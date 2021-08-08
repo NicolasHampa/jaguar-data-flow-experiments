@@ -1,9 +1,0 @@
-12:47:06.830 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-12:47:06.929 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/gson, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-12:50:37.462 [main] INFO  JaguarDF - Test testInterfaceInstantiation(com.google.gson.internal.UnsafeAllocatorInstantiationTest) : Failed
-12:50:37.740 [main] INFO  JaguarDF - Test testAbstractClassInstantiation(com.google.gson.internal.UnsafeAllocatorInstantiationTest) : Failed
-12:51:44.338 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	4m38.189s
-user	4m7.507s
-sys	0m33.325s

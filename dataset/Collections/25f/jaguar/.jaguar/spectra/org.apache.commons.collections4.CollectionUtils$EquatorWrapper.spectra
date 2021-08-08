@@ -1,6 +1,0 @@
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,602, this)
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,(597,598), obj)
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,(597,601), obj)
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,601, obj)
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,602, this.equator)
-org.apache.commons.collections4.CollectionUtils$EquatorWrapper#equals:(597,602, this.object)

@@ -1,8 +1,0 @@
-15:21:27.547 [main] INFO  JaguarDF - Welcome to Jaguar-DF CLI!
-15:21:27.615 [main] DEBUG JaguarDF - CLI Arguments: [--projectDir, d4jprojects/jackson-core, --classesDir, target/classes, --testsDir, target/test-classes, --tests, tests.out, --logLevel, INFO]
-15:22:03.419 [main] INFO  JaguarDF - Test testOffsetWithInputOffset(com.fasterxml.jackson.core.json.TestLocation) : Failed
-15:23:05.133 [main] INFO  JaguarDF - Jaguar-DF has finished!
-
-real	1m38.066s
-user	1m49.452s
-sys	0m5.087s
