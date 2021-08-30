@@ -1,3 +1,5 @@
+#! /bin/bash
+
 if [ -z "$1" ] ; then
     echo "Repository root path is missing! Execution has been stopped."
     exit 1
