@@ -79,8 +79,6 @@ parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
 args = parser.parse_args()
 
-sys.stdout.write('ENTROU NO SCORE!')
-
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
   writer.writeheader()
