@@ -1,0 +1,50 @@
+#!/bin/bash
+
+HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
+PATH="$HERE:$PATH"
+
+USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES"
+die() {
+  echo "$@" >&2
+  exit 1
+}
+
+if [ "$#" != 4 ]; then echo "usage: $USAGE" >&2; exit 1; fi
+PROJECT=$1
+BUG=$2
+COVERAGE_MATRIX="$(readlink --canonicalize "$3")"; if [ ! -f "$COVERAGE_MATRIX" ]; then echo "given coverage matrix does not exist" >&2; exit 1; fi
+STATEMENT_NAMES="$(readlink --canonicalize "$4")"; if [ ! -f "$STATEMENT_NAMES" ]; then echo "given statement-names file does not exist" >&2; exit 1; fi
+
+mkdir -p ../../reports/$PROJECT/$BUG/sbfl
+pushd ../../reports/$PROJECT/$BUG/sbfl >/dev/null
+
+DIR="neural-network"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
+
+STMT_SUSPS_FILE="$(pwd)/stmt-susps.txt"
+echo $HERE
+python3 $HERE/neural-network-fl-analysis.py --matrix "$COVERAGE_MATRIX" \
+                                            --element-names "$STATEMENT_NAMES" \
+                                            --output "$STMT_SUSPS_FILE" || exit 1
+
+LINE_SUSPS_FILE=$(pwd)/line-susps.txt
+stmt-susps-to-line-susps --stmt-susps "$STMT_SUSPS_FILE" \
+                         --source-code-lines "$HERE/source-code-lines/$PROJECT-${BUG}b.source-code.lines" \
+                         --output "$LINE_SUSPS_FILE"
+                             
+DEST="$(pwd)/score.txt"
+score-ranking --project "$PROJECT" --bug "$BUG" \
+              --line-susps <(tail -n +2 "$LINE_SUSPS_FILE") \
+              --scoring-scheme "first" \
+              --sloc-csv "$HERE/buggy-lines/sloc.csv" \
+              --buggy-lines "$HERE/buggy-lines/$PROJECT-$BUG.buggy.lines" \
+              --output "$DEST"
+
+popd >/dev/null
+
+#find ../../reports/$PROJECT/$BUG/sbfl -name score.txt | \
+#  python3 "$HERE/gather-scores-into-master-scoring-file.py" \
+#    --project "$PROJECT" --bug "$BUG" --test-suite "developer" \
+#  > "../../reports/$PROJECT/$BUG/scores.csv" || exit 1
+
+echo "DONE!"
+exit 0
