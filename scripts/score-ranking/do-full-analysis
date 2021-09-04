@@ -54,6 +54,12 @@ mkdir -p sbfl
 pushd sbfl >/dev/null
 if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family sbfl; then
   do-sbfl-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
+fi
+popd >/dev/null
+
+mkdir -p mlfl
+pushd mlfl >/dev/null
+if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family mlfl; then
   do-mlfl-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
 fi
 popd >/dev/null
