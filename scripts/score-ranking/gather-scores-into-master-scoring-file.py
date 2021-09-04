@@ -56,6 +56,12 @@ failover_path_matcher = re.compile(r'''
     scoring-(?P<ScoringScheme>first|last|mean|median)/
     score.txt
   ''', re.X)
+mlfl_path_matcher = re.compile(r'''
+    (.*/|^)
+    mlfl/
+    model-(?P<Formula>.*)/
+    score.txt
+  ''', re.X)
 
 CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'KillDefn', 'HybridScheme', 'AggregationDefn', 'Score', 'ScoreWRTLoadedClasses']
 def match_to_csv_row(project, bug, test_suite, match):
@@ -67,8 +73,10 @@ def match_to_csv_row(project, bug, test_suite, match):
     KillDefn='', AggregationDefn='', HybridScheme='none',
     Score=score, ScoreWRTLoadedClasses=score_for_loaded)
   result.update(match.groupdict())
+
   result.setdefault('Family',
-    'sbfl' if result['KillDefn'] == '' else
+    'sbfl' if (result['KillDefn'] == '' and result.get('ScoringScheme') != None) else
+    'mlfl' if (result['KillDefn'] == '' and result.get('ScoringScheme') == None) else
     'mbfl' if result['HybridScheme'] == 'none' else
     'hybrid')
   return result
@@ -86,6 +94,7 @@ with sys.stdout as f:
     m = sbfl_path_matcher.match(line)
     if m is None: m = mbfl_path_matcher.match(line)
     if m is None: m = failover_path_matcher.match(line)
+    if m is None: m = mlfl_path_matcher.match(line)
 
     if m:
       writer.writerow(match_to_csv_row(args.project, args.bug, args.test_suite, m))

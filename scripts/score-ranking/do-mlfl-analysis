@@ -15,7 +15,7 @@ BUG=$2
 COVERAGE_MATRIX="$(readlink --canonicalize "$3")"; if [ ! -f "$COVERAGE_MATRIX" ]; then echo "given coverage matrix does not exist" >&2; exit 1; fi
 STATEMENT_NAMES="$(readlink --canonicalize "$4")"; if [ ! -f "$STATEMENT_NAMES" ]; then echo "given statement-names file does not exist" >&2; exit 1; fi
 
-DIR="neural-network"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
+DIR="model-neural-network"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
 
 STMT_SUSPS_FILE="$(pwd)/stmt-susps.txt"
 echo $HERE
