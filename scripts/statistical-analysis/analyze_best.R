@@ -21,7 +21,7 @@ if (length(args)<2) {
 N <- ifelse(length(args)==3, as.numeric(args[3]), 25)
 
 # Collection of helper functions
-source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/statistical-analysis/util.R")
+source("util.R")
 require("effsize")
 
 #
@@ -40,6 +40,9 @@ sanityCheck <- function(col, t) {
 # Generate a table for the top-n FL techniques:
 # for each tuple (scoring scheme x scoring metric x agg_function)
 get_top_n <- function(data_long, n, prefix="") {
+    print(scoring_schemes)
+    print(agg_functions)
+    print(scoring_metrics)
     for (scheme in scoring_schemes) {
         for (agg in agg_functions) {
             for (val in scoring_metrics) {
@@ -172,6 +175,10 @@ data_long$KillDefn  <- "none"
 data_long$AggregationDefn  <- "none"
 data_long$KillDefnMacro  <- "none"
 
+#top_n <- getTopN(data_long, N, "first", "ScoreWRTLoadedClasses", "mean")
+top_n <- getTopN(data_long, N, "first", "Score", "mean")
+write.csv(top_n, paste(out_dir, "/score-ranking.csv", sep=""), row.names = FALSE)
+
 # Compute best technique for all families
 #get_top_n(data_long, N)
 #compare_best(data_long)
@@ -182,6 +189,6 @@ data_long$KillDefnMacro  <- "none"
 #compare_best(data_long, "sbfl_mbfl_")
 
 # Compute best technique for sbfl
-data_long <- data_long[Family=='sbfl']
-get_top_n(data_long, N, "sbfl")
-compare_best(data_long, "sbfl")
+#data_long <- data_long[Family=='sbfl']
+#get_top_n(data_long, N, "sbfl")
+#compare_best(data_long, "sbfl")
