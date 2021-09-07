@@ -40,9 +40,6 @@ sanityCheck <- function(col, t) {
 # Generate a table for the top-n FL techniques:
 # for each tuple (scoring scheme x scoring metric x agg_function)
 get_top_n <- function(data_long, n, prefix="") {
-    print(scoring_schemes)
-    print(agg_functions)
-    print(scoring_metrics)
     for (scheme in scoring_schemes) {
         for (agg in agg_functions) {
             for (val in scoring_metrics) {
