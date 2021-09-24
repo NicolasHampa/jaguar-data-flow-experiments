@@ -29,6 +29,8 @@ import re
 import csv
 import os
 import argparse
+import logging
+import pandas as pd
 
 sbfl_path_matcher = re.compile(r'''
     (.*/|^)
@@ -87,6 +89,10 @@ parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
 args = parser.parse_args()
 
+#format='%(asctime)s - %(message)s',
+logging.basicConfig(level = logging.INFO,
+                    filename = 'fl-score.log')
+
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
   writer.writeheader()
@@ -100,3 +106,7 @@ with sys.stdout as f:
       writer.writerow(match_to_csv_row(args.project, args.bug, args.test_suite, m))
     else:
       sys.stderr.write('Unable to parse line {!r}\n'.format(line))
+
+fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores.csv', sep=",")
+fl_scores.sort_values('Score')
+logging.info(format(fl_scores.to_string()))
