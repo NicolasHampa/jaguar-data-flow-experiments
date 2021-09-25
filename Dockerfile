@@ -6,6 +6,7 @@ RUN apt-get update && \
 	apt-get install -y python3-pandas && \
 	apt-get install -y python3-sklearn && \
 	apt-get install -y r-base && \
+	apt-get install -y vim && \
 	apt-get install -y maven && \
 	apt-get install -y build-essential && \
 	apt-get install -y libxml2-utils && \
@@ -13,10 +14,6 @@ RUN apt-get update && \
 
 WORKDIR /PPgSI
 
-RUN R -e "install.packages('effsize',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-RUN R -e "install.packages('data.table',dependencies=TRUE, repos='http://cran.rstudio.com/')"
-
-RUN apt install vim -y
 RUN git clone https://github.com/nicolashampa/jaguar-data-flow-experiments.git
 
 WORKDIR /PPgSI/jaguar-data-flow-experiments
