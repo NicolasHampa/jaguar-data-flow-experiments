@@ -91,7 +91,7 @@ args = parser.parse_args()
 
 #format='%(asctime)s - %(message)s',
 logging.basicConfig(level = logging.INFO,
-                    filename = 'fl-score.log')
+                    filename = '/var/log/fl-score.log')
 
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
