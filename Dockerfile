@@ -5,7 +5,6 @@ RUN apt-get update && \
 	apt-get install -y python3-numpy && \
 	apt-get install -y python3-pandas && \
 	apt-get install -y python3-sklearn && \
-	apt-get install -y r-base && \
 	apt-get install -y vim && \
 	apt-get install -y maven && \
 	apt-get install -y build-essential && \
