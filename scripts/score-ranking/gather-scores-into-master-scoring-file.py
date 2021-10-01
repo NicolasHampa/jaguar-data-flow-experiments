@@ -116,4 +116,4 @@ sorted_scores = sorted_scores.drop(columns='KillDefn')
 sorted_scores = sorted_scores.drop(columns='HybridScheme')
 sorted_scores = sorted_scores.drop(columns='AggregationDefn')
 
-logging.info(format(sorted_scores.to_string()))
+logging.info(format(sorted_scores.to_string(index=False)))
