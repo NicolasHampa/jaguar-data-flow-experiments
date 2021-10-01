@@ -89,8 +89,8 @@ parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
 args = parser.parse_args()
 
-#format='%(asctime)s - %(message)s',
-logging.basicConfig(level = logging.INFO,
+logging.basicConfig(format='%(message)s',
+                    level = logging.INFO,
                     filename = '/var/log/fl-score.log')
 
 with sys.stdout as f:
@@ -108,5 +108,12 @@ with sys.stdout as f:
       sys.stderr.write('Unable to parse line {!r}\n'.format(line))
 
 fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores.csv', sep=",")
-fl_scores.sort_values('Score')
-logging.info(format(fl_scores.to_string()))
+sorted_scores = fl_scores.sort_values(by=['Score'], ascending=True)
+
+sorted_scores = sorted_scores.drop(columns='TestSuite')
+sorted_scores = sorted_scores.drop(columns='TotalDefn')
+sorted_scores = sorted_scores.drop(columns='KillDefn')
+sorted_scores = sorted_scores.drop(columns='HybridScheme')
+sorted_scores = sorted_scores.drop(columns='AggregationDefn')
+
+logging.info(format(sorted_scores.to_string()))

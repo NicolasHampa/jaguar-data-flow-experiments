@@ -31,12 +31,12 @@ if __name__ == '__main__':
   test_execution_results = coverage_matrix.iloc[:, total_elements].values
 
   classifier = MLPClassifier(verbose=True,
-                            max_iter=100,
-                            tol=0.000001,
+                            max_iter=500,
+                            tol=0.0001,
                             solver='adam',
-                            learning_rate_init=0.001,
+                            learning_rate_init=0.01,
                             hidden_layer_sizes=(3),
-                            activation='logistic')
+                            activation='relu')
 
   classifier.fit(test_coverage_data, test_execution_results)
 
