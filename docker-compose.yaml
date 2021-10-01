@@ -28,7 +28,7 @@ services:
             ELASTICSEARCH_URL: http://es01:9200
             ELASTICSEARCH_HOSTS: '["http://es01:9200"]'
 
-    nginx:
+    fl-platform:
         image: fl-platform:0.1
-        #ports: 
-            #- 9000:80
+        ports: 
+            - 9000:80
