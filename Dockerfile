@@ -22,11 +22,11 @@ RUN curl -L -O https://artifacts.elastic.co/downloads/beats/filebeat/filebeat-7.
 COPY filebeat.yml /etc/filebeat/filebeat.yml
 RUN chmod go-w /etc/filebeat/filebeat.yml
 
-WORKDIR /PPgSI
+WORKDIR /PPgSI/fl-platform
 
-RUN git clone https://github.com/nicolashampa/jaguar-data-flow-experiments.git
-
-WORKDIR /PPgSI/jaguar-data-flow-experiments
+RUN mkdir -p ./reports
+COPY sample ./sample
+COPY scripts ./scripts
 
 RUN chmod +x scripts/coverage-comparison/*.sh
 RUN chmod +x scripts/score-ranking/*.sh
