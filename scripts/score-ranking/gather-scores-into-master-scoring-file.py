@@ -70,8 +70,7 @@ args = parser.parse_args()
 
 logging.basicConfig(format='%(message)s',
                     level = logging.INFO,
-                    filename = 'fl-score.log')
-                    #filename = '/var/log/fl-score.log')
+                    filename = '/var/log/fl-score.log')
 
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
@@ -87,6 +86,6 @@ with sys.stdout as f:
 
 fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores.csv', sep=",")
 sorted_scores = fl_scores.sort_values(by=['Score'], ascending=True)
-#df_sorted_scores = pd.DataFrame(list(sorted_scores))
+sorted_scores.to_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores-sorted.csv', sep=',', index=False)
 
 logging.info(format(sorted_scores.to_string(index=False)))
