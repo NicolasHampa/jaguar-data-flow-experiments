@@ -27,7 +27,6 @@ script.
 import sys
 import re
 import csv
-import os
 import argparse
 import logging
 import pandas as pd
@@ -40,24 +39,6 @@ sbfl_path_matcher = re.compile(r'''
     scoring-(?P<ScoringScheme>first|last|mean|median)/
     score.txt
   ''', re.X)
-mbfl_path_matcher = re.compile(r'''
-    (.*/|^)
-    mbfl/
-    killdefn-(?P<KillDefn>passfail|all|type|type\+message|type\+message\+location|exact)/
-    formula-(?P<Formula>.*)/
-    totaldefn-(?P<TotalDefn>tests|elements)/
-    hybrid-(?P<HybridScheme>none|constant|mirror|numerator)/
-    aggregator-(?P<AggregationDefn>max|avg)/
-    scoring-(?P<ScoringScheme>first|last|mean|median)/
-    score.txt
-  ''', re.X)
-failover_path_matcher = re.compile(r'''
-    (.*/|^)
-    experimental/
-    (?P<Family>mbfl-coverage-only|mcbfl|failover|susp-averaging|susp-maxing|mrsbfl-failover|mrsbfl-susp-averaging|mrsbfl-susp-maxing)/
-    scoring-(?P<ScoringScheme>first|last|mean|median)/
-    score.txt
-  ''', re.X)
 mlfl_path_matcher = re.compile(r'''
     (.*/|^)
     mlfl/
@@ -65,22 +46,20 @@ mlfl_path_matcher = re.compile(r'''
     score.txt
   ''', re.X)
 
-CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'KillDefn', 'HybridScheme', 'AggregationDefn', 'Score', 'ScoreWRTLoadedClasses']
+#CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'KillDefn', 'HybridScheme', 'AggregationDefn', 'Score', 'ScoreWRTLoadedClasses']
+CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'Score', 'ScoreWRTLoadedClasses']
 def match_to_csv_row(project, bug, test_suite, match):
   with open(match.group()) as f:
     score, score_for_loaded = f.read().strip().split(',')
 
   result = dict(
     Project=project, Bug=bug, TestSuite=test_suite,
-    KillDefn='', AggregationDefn='', HybridScheme='none',
     Score=score, ScoreWRTLoadedClasses=score_for_loaded)
   result.update(match.groupdict())
 
   result.setdefault('Family',
-    'sbfl' if (result['KillDefn'] == '' and result.get('ScoringScheme') != None) else
-    'mlfl' if (result['KillDefn'] == '' and result.get('ScoringScheme') == None) else
-    'mbfl' if result['HybridScheme'] == 'none' else
-    'hybrid')
+    'sbfl' if (result.get('ScoringScheme') != None) else
+    'mlfl')
   return result
 
 parser = argparse.ArgumentParser()
@@ -91,15 +70,14 @@ args = parser.parse_args()
 
 logging.basicConfig(format='%(message)s',
                     level = logging.INFO,
-                    filename = '/var/log/fl-score.log')
+                    filename = 'fl-score.log')
+                    #filename = '/var/log/fl-score.log')
 
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
   writer.writeheader()
   for line in sys.stdin:
     m = sbfl_path_matcher.match(line)
-    if m is None: m = mbfl_path_matcher.match(line)
-    if m is None: m = failover_path_matcher.match(line)
     if m is None: m = mlfl_path_matcher.match(line)
 
     if m:
@@ -109,11 +87,6 @@ with sys.stdout as f:
 
 fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores.csv', sep=",")
 sorted_scores = fl_scores.sort_values(by=['Score'], ascending=True)
-
-sorted_scores = sorted_scores.drop(columns='TestSuite')
-sorted_scores = sorted_scores.drop(columns='TotalDefn')
-sorted_scores = sorted_scores.drop(columns='KillDefn')
-sorted_scores = sorted_scores.drop(columns='HybridScheme')
-sorted_scores = sorted_scores.drop(columns='AggregationDefn')
+#df_sorted_scores = pd.DataFrame(list(sorted_scores))
 
 logging.info(format(sorted_scores.to_string(index=False)))
