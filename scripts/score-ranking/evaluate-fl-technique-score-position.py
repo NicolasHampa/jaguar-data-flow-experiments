@@ -9,16 +9,16 @@ if __name__ == '__main__':
   import pandas as pd
 
   parser = argparse.ArgumentParser()
-  parser.add_argument('--family', required=True, help='fault localiation family to be analyzed')
-  parser.add_argument('--reports_path', required=True, help='file enumerating names for matrix columns')
+  parser.add_argument('--technique', required=True, help='fault localization technique to be analyzed')
+  parser.add_argument('--reports_path', required=True, help='path containing the scores')
 
   args = parser.parse_args()
 
   reports_path = args.reports_path
-  family = args.family
+  technique = args.technique
 
   with open(os.path.join(reports_path, 'fl-evaluate.csv'), mode='w') as csv_file:
-    fieldnames = ['Project', 'Family', 'Position']
+    fieldnames = ['Project', 'Technique', 'Position']
     writer = csv.DictWriter(csv_file, fieldnames=fieldnames)
     writer.writeheader()
 
@@ -28,8 +28,8 @@ if __name__ == '__main__':
         #row = df_scores_sorted.loc[df_scores_sorted['Family'] == family].iloc[0]
 
         for index, row in df_scores_sorted.iterrows():
-          if row['Family'] == family:
-            writer.writerow({'Project':root, 'Family':family, 'Position': str(index+1)})
+          if row['Formula'] == technique:
+            writer.writerow({'Project':root, 'Technique':technique, 'Position': str(index+1)})
         
       if root[len(reports_path):].count(os.sep) > 2:
         continue
