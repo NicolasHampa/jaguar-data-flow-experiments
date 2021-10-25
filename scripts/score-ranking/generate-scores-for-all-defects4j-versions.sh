@@ -18,6 +18,6 @@ do
         project_name=${project_version_path_array[((index-2))]}
         project_version=${project_version_path_array[((index-1))]}
 
-        ./do-sbfl-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra
+        ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra ../../reports/
     done
 done
