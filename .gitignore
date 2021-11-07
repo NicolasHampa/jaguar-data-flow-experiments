@@ -9,6 +9,7 @@ __pycache__/
 # Distribution / packaging
 es01/
 reports/
+sample/
 .Python
 build/
 develop-eggs/
