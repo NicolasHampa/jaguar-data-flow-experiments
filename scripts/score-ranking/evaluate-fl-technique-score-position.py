@@ -25,11 +25,11 @@ if __name__ == '__main__':
     for root, dirs, files in os.walk(reports_path):
       if root[len(reports_path):].count(os.sep) == 2:
         df_scores_sorted = pd.read_csv(os.path.join(root, 'scores-sorted.csv'), sep=",")
-        #row = df_scores_sorted.loc[df_scores_sorted['Family'] == family].iloc[0]
 
         for index, row in df_scores_sorted.iterrows():
           if row['Formula'] == technique:
             writer.writerow({'Project':root, 'Technique':technique, 'Position': str(index+1)})
+            break
         
       if root[len(reports_path):].count(os.sep) > 2:
         continue
