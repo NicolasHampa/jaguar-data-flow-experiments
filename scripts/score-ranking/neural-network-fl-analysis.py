@@ -31,8 +31,9 @@ if __name__ == '__main__':
   test_execution_results = coverage_matrix.iloc[:, total_elements].values
 
   classifier = MLPClassifier(verbose=True,
-                            max_iter=500,
+                            max_iter=300,
                             tol=0.0001,
+                            alpha=1.5,
                             solver='adam',
                             learning_rate_init=0.01,
                             hidden_layer_sizes=(3),
