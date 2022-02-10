@@ -1,0 +1,80 @@
+#!/bin/bash
+
+HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
+PATH="$HERE:$PATH"
+
+USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX"
+die() {
+  echo "$@" >&2
+  exit 1
+}
+
+RESTRICTIONS_FILE=''
+while [[ "$1" = --* ]]; do
+  OPTION=$1; shift
+  case $OPTION in
+    (--restrictions-file)
+      RESTRICTIONS_FILE=$1; shift;;
+    (*)
+      die "usage: $USAGE";;
+  esac
+done
+
+if [ "$#" != 3 ]; then echo "usage: $USAGE" >&2; exit 1; fi
+PROJECT=$1
+BUG=$2
+COVERAGE_MATRIX_PATH=$3"/jaguar/.jaguar/matrix/relevant"
+#STATEMENT_NAMES="$(readlink --canonicalize "$4")"; if [ ! -f "$STATEMENT_NAMES" ]; then echo "given statement-names file does not exist" >&2; exit 1; fi
+
+#for FORMULA in tarantula ochiai ochiai2 opt1 opt2 barinel dstar2 muse jaccard gp02 gp03 gp13 gp19 anderberg dice sorensen_dice goodman qe cbi_inc cbi_sqrt cbi_log wong1 wong2 wong3 hamann simple_matching sokal rogers_tanimoto hamming euclid russell_rao binary scott rogot1 rogot2 kulczynski1 kulczynski2 m1 m2 ample ample2 arithmetic_mean geometric_mean harmonic_mean cohen fleiss braun_banquet mountford gower michael pierce baroni_urbani_buser zoltar overlap; do
+for FORMULA in tarantula; do
+  if [ "$RESTRICTIONS_FILE" ]; then check-restrictions "$RESTRICTIONS_FILE" --formula "$FORMULA" || continue; fi
+  DIR="formula-$FORMULA"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
+
+  for TOTAL_DEFN in tests elements; do
+    if [ "$RESTRICTIONS_FILE" ]; then check-restrictions "$RESTRICTIONS_FILE" --total-defn "$TOTAL_DEFN" || continue; fi
+    DIR="totaldefn-$TOTAL_DEFN"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
+
+    for matrix_file_path in `find $COVERAGE_MATRIX_PATH -maxdepth 1 -mindepth 1 -type f`; do
+      IFS='/' read -ra matrix_file_path_array <<< "$matrix_file_path"
+      index=${#matrix_file_path_array[@]}
+      filename=${matrix_file_path_array[((index-1))]}
+      filename=${filename%".matrix"}
+
+      STATEMENT_NAMES=$3"/jaguar/.jaguar/spectra/relevant/"$filename".spectra"
+
+      STMT_SUSPS_FILE="$(pwd)/"$filename"-stmt-susps.txt"
+
+      # echo $matrix_file_path
+      # echo $STATEMENT_NAMES
+      # echo $STMT_SUSPS_FILE
+      crush-matrix --formula "$FORMULA" --matrix "$matrix_file_path" \
+                  --element-type 'Statement' \
+                  --element-names "$STATEMENT_NAMES" \
+                  --total-defn "$TOTAL_DEFN" \
+                  --output "$STMT_SUSPS_FILE" || exit 1
+    done
+
+    # LINE_SUSPS_FILE=$(pwd)/line-susps.txt
+    # stmt-susps-to-line-susps --stmt-susps "$STMT_SUSPS_FILE" \
+    #                          --source-code-lines "$HERE/source-code-lines/$PROJECT-${BUG}b.source-code.lines" \
+    #                          --output "$LINE_SUSPS_FILE"
+
+    # for SCORING_SCHEME in last mean median; do
+    #   if [ "$RESTRICTIONS_FILE" ]; then check-restrictions "$RESTRICTIONS_FILE" --scoring-scheme "$SCORING_SCHEME" || continue; fi
+    #   DIR="scoring-$SCORING_SCHEME"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
+    #   DEST="$(pwd)/score.txt"
+    #   score-ranking --project "$PROJECT" --bug "$BUG" \
+    #                 --line-susps <(tail -n +2 "$LINE_SUSPS_FILE") \
+    #                 --scoring-scheme "$SCORING_SCHEME" \
+    #                 --sloc-csv "$HERE/buggy-lines/sloc.csv" \
+    #                 --buggy-lines "$HERE/buggy-lines/$PROJECT-$BUG.buggy.lines" \
+    #                 --output "$DEST"
+    #   popd >/dev/null
+    # done
+
+    popd >/dev/null
+  done
+
+  popd >/dev/null
+done
