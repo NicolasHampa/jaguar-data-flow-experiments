@@ -4,18 +4,22 @@ import argparse
 import csv
 import re
 
+def retrieve_dua_lines(dua):
+  dua_lines = dua.rsplit(':')[1].rsplit(' ')[0]
+  return re.findall("\d+", dua_lines)
+def dua_lines_list(classname, dua_lines):
+  lines = list()
+  for lineno in dua_lines:
+    lines.append('{}#{}'.format(classname_to_filename(classname), lineno))
+  return lines
 def classname_to_filename(classname):
   if '$' in classname:
     classname = classname[:classname.find('$')]
   return classname.replace('.', '/') + '.java'
 def dua_to_lines(classdua):
   classname, dua = classdua.rsplit('#', 1)
-  dua = dua.rsplit(':')[1].rsplit(' ')[0]
-  dua_lines = re.findall("\d+", dua)
-  lines = list()
-  for lineno in dua_lines:
-    lines.append('{}#{}'.format(classname_to_filename(classname), lineno))
-  return lines
+  dua_lines = retrieve_dua_lines(dua)
+  return dua_lines_list(classname, dua_lines)
 
 #assert classname_to_filename('org.apache.MyClass$Inner') == 'org/apache/MyClass.java'
 #assert dua_to_line('org.apache.MyClass$Inner#123') == 'org/apache/MyClass.java#123'
