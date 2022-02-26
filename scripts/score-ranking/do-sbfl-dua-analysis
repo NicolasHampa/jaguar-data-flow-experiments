@@ -69,9 +69,8 @@ for FORMULA in tarantula; do
     done
 
     LINE_SUSPS_FILE=$(pwd)/line-susps.txt
-    stmt-susps-to-line-susps --stmt-susps "$STMT_SUSPS_FILE_UNIFIED" \
-                             --source-code-lines "$HERE/source-code-lines/$PROJECT-${BUG}b.source-code.lines" \
-                             --output "$LINE_SUSPS_FILE"
+    dua-susps-to-line-susps --dua-susps "$STMT_SUSPS_FILE_UNIFIED" \
+                            --output "$LINE_SUSPS_FILE"
 
     for SCORING_SCHEME in first last mean median; do
       if [ "$RESTRICTIONS_FILE" ]; then check-restrictions "$RESTRICTIONS_FILE" --scoring-scheme "$SCORING_SCHEME" || continue; fi
