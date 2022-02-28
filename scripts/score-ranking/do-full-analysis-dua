@@ -1,0 +1,65 @@
+#!/bin/bash
+
+HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
+PATH="$HERE:$PATH"
+
+ensure-file-exists() {
+  if [ ! -f "$1" ]; then
+    die "'$1' is not a file" >&2
+  fi
+}
+
+USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX RESULT_DIR"
+die() {
+  echo "$@" >&2
+  exit 1
+}
+
+RESTRICTIONS_FILE=''
+RESTRICTIONS_FILE_SUBARGS=()
+while [[ "$1" = --* ]]; do
+  OPTION=$1; shift
+  case $OPTION in
+    '--help' )
+      echo "usage: $USAGE"
+      exit 0 ;;
+    '--restrictions-file' )
+      RESTRICTIONS_FILE=$(readlink --canonicalize "$1")
+      RESTRICTIONS_FILE_SUBARGS+=('--restrictions-file' "$RESTRICTIONS_FILE")
+      shift;;
+    * )
+      die "usage: $USAGE";;
+  esac
+done
+
+if [ "$#" != 4 ]; then die "usage: $USAGE"; fi
+export PROJECT=$1
+export BUG=$2
+COVERAGE_MATRIX=$3
+RESULT_DIR=$4
+
+if [ ! -d "$HERE/source-code-lines" ]; then
+  tar -zxf "$HERE/source-code-lines.tar.gz" -d "$HERE"
+fi
+
+#mkdir -p "$WORKING_DIR"
+#pushd "$WORKING_DIR" >/dev/null
+mkdir -p "$RESULT_DIR/$PROJECT/$BUG/"
+pushd "$RESULT_DIR/$PROJECT/$BUG/" >/dev/null
+
+mkdir -p sbfl-dua
+pushd sbfl-dua >/dev/null
+if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family sbfl; then
+  do-sbfl-dua-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
+fi
+popd >/dev/null
+
+popd >/dev/null
+
+find ../../reports/$PROJECT/$BUG/sbfl-dua -name score.txt | \
+  python3 "$HERE/gather-scores-into-master-scoring-file.py" \
+    --project "$PROJECT" --bug "$BUG" --test-suite "developer" \
+  > "../../reports/$PROJECT/$BUG/scores.csv" || exit 1
+
+echo "DONE!"
+exit 0
