@@ -54,9 +54,16 @@ if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTION
 fi
 popd >/dev/null
 
+mkdir -p mlfl-dua
+pushd mlfl-dua >/dev/null
+if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family mlfl; then
+  do-mlfl-dua-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
+fi
 popd >/dev/null
 
-find ../../reports/$PROJECT/$BUG/sbfl-dua -name score.txt | \
+popd >/dev/null
+
+find ../../reports/$PROJECT/$BUG/{sbfl-dua,mlfl-dua} -name score.txt | \
   python3 "$HERE/gather-scores-into-master-scoring-file.py" \
     --project "$PROJECT" --bug "$BUG" --test-suite "developer" \
   > "../../reports/$PROJECT/$BUG/scores.csv" || exit 1
