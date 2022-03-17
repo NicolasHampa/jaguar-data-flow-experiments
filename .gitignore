@@ -10,6 +10,7 @@ __pycache__/
 es01/
 reports*/
 sample/
+.vscode
 .Python
 build/
 develop-eggs/
