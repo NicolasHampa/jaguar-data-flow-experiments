@@ -33,7 +33,7 @@ import pandas as pd
 
 sbfl_path_matcher = re.compile(r'''
     (.*/|^)
-    sbfl/
+    sbfl[^\/]*/
     formula-(?P<Formula>.*)/
     totaldefn-(?P<TotalDefn>tests|elements)/
     scoring-(?P<ScoringScheme>first|last|mean|median)/
@@ -41,14 +41,14 @@ sbfl_path_matcher = re.compile(r'''
   ''', re.X)
 mlfl_path_matcher = re.compile(r'''
     (.*/|^)
-    mlfl/
+    mlfl[^\/]*/
     model-(?P<Formula>.*)/
     score.txt
   ''', re.X)
 
 #CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'KillDefn', 'HybridScheme', 'AggregationDefn', 'Score', 'ScoreWRTLoadedClasses']
 CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'Score', 'ScoreWRTLoadedClasses']
-def match_to_csv_row(project, bug, test_suite, match):
+def match_to_csv_row(project, bug, test_suite, coverage_tool, match):
   with open(match.group()) as f:
     score, score_for_loaded = f.read().strip().split(',')
 
@@ -57,15 +57,18 @@ def match_to_csv_row(project, bug, test_suite, match):
     Score=score, ScoreWRTLoadedClasses=score_for_loaded)
   result.update(match.groupdict())
 
+  sbfl = 'sbfl' if (args.coverage_tool == 'gzoltar') else 'sbfl-dua'
+  mlfl = 'mlfl' if (args.coverage_tool == 'gzoltar') else 'mlfl-dua'
   result.setdefault('Family',
-    'sbfl' if (result.get('ScoringScheme') != None) else
-    'mlfl')
+    sbfl if (result.get('ScoringScheme') != None) else
+    mlfl)
   return result
 
 parser = argparse.ArgumentParser()
 parser.add_argument('--project', required=True, choices=['Chart', 'Closure', 'Lang', 'Math', 'Mockito', 'Time', 'ToyExample'])
 parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
+parser.add_argument('--coverage_tool', required=True, choices=['gzoltar', 'jaguar'])
 args = parser.parse_args()
 
 logging.basicConfig(format='%(message)s',
@@ -80,7 +83,7 @@ with sys.stdout as f:
     if m is None: m = mlfl_path_matcher.match(line)
 
     if m:
-      writer.writerow(match_to_csv_row(args.project, args.bug, args.test_suite, m))
+      writer.writerow(match_to_csv_row(args.project, args.bug, args.test_suite, args.coverage_tool, m))
     else:
       sys.stderr.write('Unable to parse line {!r}\n'.format(line))
 
