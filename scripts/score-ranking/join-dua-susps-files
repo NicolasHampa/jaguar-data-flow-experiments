@@ -1,0 +1,27 @@
+#!/usr/bin/python2.7
+
+import os
+import csv
+import argparse
+
+parser = argparse.ArgumentParser()
+parser.add_argument('--dua-susps-path', required=True, help='path containing data-flow suspiciousness files for each class')
+
+args = parser.parse_args()
+
+dua_susps_path = args.dua_susps_path.rsplit("/", 1)[0]
+dua_susps_filename = args.dua_susps_path.split("/")[-1]
+
+dua_susps_unified_file=""
+for filename in os.listdir(dua_susps_path):
+    file = os.path.join(dua_susps_path, filename)
+    
+    with open(file) as dua_susps_file:
+        next(dua_susps_file)
+        for line in dua_susps_file:
+            dua_susps_unified_file += line
+    
+with open(os.path.join(dua_susps_path, dua_susps_filename), 'w') as output_file:
+    writer = csv.DictWriter(output_file, ['Statement','Suspiciousness'])
+    writer.writeheader()
+    output_file.write(dua_susps_unified_file)

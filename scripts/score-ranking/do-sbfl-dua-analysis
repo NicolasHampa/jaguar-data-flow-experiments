@@ -35,7 +35,6 @@ for FORMULA in tarantula; do
     if [ "$RESTRICTIONS_FILE" ]; then check-restrictions "$RESTRICTIONS_FILE" --total-defn "$TOTAL_DEFN" || continue; fi
     DIR="totaldefn-$TOTAL_DEFN"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
 
-    first_file=1
     for matrix_file_path in `find $COVERAGE_MATRIX_PATH -maxdepth 1 -mindepth 1 -type f`; do
       IFS='/' read -ra matrix_file_path_array <<< "$matrix_file_path"
       index=${#matrix_file_path_array[@]}
@@ -52,21 +51,9 @@ for FORMULA in tarantula; do
                   --element-names "$STATEMENT_NAMES" \
                   --total-defn "$TOTAL_DEFN" \
                   --output "$STMT_SUSPS_FILE" || exit 1
-
-      first_line=1      
-      while read line; do
-        if [ $first_line == 1 ]; then
-          first_line=0
-          if [ $first_file == 1 ]; then
-            first_file=0
-          else
-            continue
-          fi
-        fi
-
-        echo $line >> $STMT_SUSPS_FILE_UNIFIED
-      done < $STMT_SUSPS_FILE
     done
+
+    join-dua-susps-files --dua-susps-path "$STMT_SUSPS_FILE_UNIFIED"
 
     LINE_SUSPS_FILE=$(pwd)/line-susps.txt
     dua-susps-to-line-susps --dua-susps "$STMT_SUSPS_FILE_UNIFIED" \
