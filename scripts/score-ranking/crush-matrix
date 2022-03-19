@@ -5,7 +5,7 @@
     crush-matrix \
       --formula (tarantula|ochiai|dstar2|barinel|opt2|muse|jaccard) \
       --matrix FILE \
-      --element-type (Statement|Mutant) \
+      --element-type (Statement|DUA) \
       --element-names FILE \
       --total-defn (tests|mutants) \
       [--hybrid-scheme (numerator|constant|mirror|coverage-only) \
@@ -131,7 +131,7 @@ if __name__ == '__main__':
   parser.add_argument('--matrix', required=True, help='path to the coverage/kill-matrix')
   parser.add_argument('--hybrid-scheme', choices=['numerator', 'constant', 'mirror', 'coverage-only'])
   parser.add_argument('--hybrid-coverage-matrix', help='optional coverage matrix for hybrid techniques')
-  parser.add_argument('--element-type', required=True, choices=['Statement', 'Mutant'], help='file enumerating names for matrix columns')
+  parser.add_argument('--element-type', required=True, choices=['Statement', 'DUA'], help='file enumerating names for matrix columns')
   parser.add_argument('--element-names', required=True, help='file enumerating names for matrix columns')
   parser.add_argument('--total-defn', required=True, choices=['tests', 'elements'], help='whether totalpassed/totalfailed should counts tests or covered/killed elements')
   parser.add_argument('--output', required=True, help='file to write suspiciousness vector to')

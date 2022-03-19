@@ -3,7 +3,7 @@
 HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
 PATH="$HERE:$PATH"
 
-USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX"
 die() {
   echo "$@" >&2
   exit 1
@@ -27,25 +27,25 @@ for FORMULA in tarantula; do
       filename=${matrix_file_path_array[((index-1))]}
       filename=${filename%".matrix"}
 
-      STATEMENT_NAMES=$3"/jaguar/.jaguar/spectra/relevant/"$filename".spectra"
+      DUA_NAMES=$3"/jaguar/.jaguar/spectra/relevant/"$filename".spectra"
 
-      STMT_SUSPS_FILE="$(pwd)/"$filename"-stmt-susps.txt"
-      STMT_SUSPS_FILE_UNIFIED="$(pwd)/stmt-susps.txt"
+      DUA_SUSPS_FILE="$(pwd)/"$filename"-dua-susps.txt"
+      DUA_SUSPS_FILE_UNIFIED="$(pwd)/dua-susps.txt"
 
       crush-matrix --formula "$FORMULA" --matrix "$matrix_file_path" \
-                  --element-type 'Statement' \
-                  --element-names "$STATEMENT_NAMES" \
+                  --element-type 'DUA' \
+                  --element-names "$DUA_NAMES" \
                   --total-defn "$TOTAL_DEFN" \
-                  --output "$STMT_SUSPS_FILE" || exit 1
+                  --output "$DUA_SUSPS_FILE" || exit 1
     done
 
-    join-dua-susps-files --dua-susps-path "$STMT_SUSPS_FILE_UNIFIED"
+    join-dua-susps-files --dua-susps-path "$DUA_SUSPS_FILE_UNIFIED"
 
     LINE_SUSPS_FILE=$(pwd)/line-susps.txt
-    dua-susps-to-line-susps --dua-susps "$STMT_SUSPS_FILE_UNIFIED" \
+    dua-susps-to-line-susps --dua-susps "$DUA_SUSPS_FILE_UNIFIED" \
                             --output "$LINE_SUSPS_FILE"
 
-    for SCORING_SCHEME in first last mean median; do
+    for SCORING_SCHEME in first; do #last mean median; do
       DIR="scoring-$SCORING_SCHEME"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
       DEST="$(pwd)/score.txt"
       score-ranking --project "$PROJECT" --bug "$BUG" \

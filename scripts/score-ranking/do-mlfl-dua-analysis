@@ -22,20 +22,21 @@ for matrix_file_path in `find $COVERAGE_MATRIX -maxdepth 1 -mindepth 1 -type f`;
   filename=${matrix_file_path_array[((index-1))]}
   filename=${filename%".matrix"}
 
-  STATEMENT_NAMES=$3"/jaguar/.jaguar/spectra/relevant/"$filename".spectra"
+  DUA_NAMES=$3"/jaguar/.jaguar/spectra/relevant/"$filename".spectra"
 
-  STMT_SUSPS_FILE="$(pwd)/"$filename"-stmt-susps.txt"
-  STMT_SUSPS_FILE_UNIFIED="$(pwd)/stmt-susps.txt"
+  DUA_SUSPS_FILE="$(pwd)/"$filename"-dua-susps.txt"
+  DUA_SUSPS_FILE_UNIFIED="$(pwd)/dua-susps.txt"
 
   python3 $HERE/neural-network-fl-analysis.py --matrix "$matrix_file_path" \
-                                              --element-names "$STATEMENT_NAMES" \
-                                              --output "$STMT_SUSPS_FILE" || exit 1
+                                              --element-names "$DUA_NAMES" \
+                                              --element-type "DUA" \
+                                              --output "$DUA_SUSPS_FILE" || exit 1
 done
 
-join-dua-susps-files --dua-susps-path "$STMT_SUSPS_FILE_UNIFIED"
+join-dua-susps-files --dua-susps-path "$DUA_SUSPS_FILE_UNIFIED"
 
 LINE_SUSPS_FILE=$(pwd)/line-susps.txt
-dua-susps-to-line-susps --dua-susps "$STMT_SUSPS_FILE_UNIFIED" \
+dua-susps-to-line-susps --dua-susps "$DUA_SUSPS_FILE_UNIFIED" \
                         --output "$LINE_SUSPS_FILE"
                               
 DEST="$(pwd)/score.txt"

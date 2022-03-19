@@ -22,6 +22,6 @@ for filename in os.listdir(dua_susps_path):
             dua_susps_unified_file += line
     
 with open(os.path.join(dua_susps_path, dua_susps_filename), 'w') as output_file:
-    writer = csv.DictWriter(output_file, ['Statement','Suspiciousness'])
+    writer = csv.DictWriter(output_file, ['DUA','Suspiciousness'])
     writer.writeheader()
     output_file.write(dua_susps_unified_file)

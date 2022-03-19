@@ -12,6 +12,7 @@ if __name__ == '__main__':
   parser = argparse.ArgumentParser()
   parser.add_argument('--matrix', required=True, help='path to the coverage/kill-matrix')
   parser.add_argument('--element-names', required=True, help='file enumerating names for matrix columns')
+  parser.add_argument('--element-type', required=True, choices=['Statement', 'DUA'], help='file enumerating names for matrix columns')
   parser.add_argument('--output', required=True, help='file to write suspiciousness vector to')
 
   args = parser.parse_args()
@@ -19,7 +20,7 @@ if __name__ == '__main__':
   coverage_matrix = pd.read_csv(args.matrix, sep=" ", header=None)
 
   with open(args.element_names) as name_file:
-      statement_names = {i: name.strip() for i, name in enumerate(name_file)}
+      element_names = {i: name.strip() for i, name in enumerate(name_file)}
 
   total_elements = len(coverage_matrix.columns) - 1
   virtual_coverage_matrix = np.zeros((total_elements, total_elements), dtype=int)
@@ -45,9 +46,9 @@ if __name__ == '__main__':
   predictions_proba = classifier.predict_proba(virtual_coverage_matrix)
 
   with open(args.output, 'w') as output_file:
-      writer = csv.DictWriter(output_file, ['Statement','Suspiciousness'])
+      writer = csv.DictWriter(output_file, [args.element_type,'Suspiciousness'])
       writer.writeheader()
       for element in range(total_elements):
         writer.writerow({
-          'Statement': statement_names[element],
+          args.element_type: element_names[element],
           'Suspiciousness': predictions_proba[element][1]})

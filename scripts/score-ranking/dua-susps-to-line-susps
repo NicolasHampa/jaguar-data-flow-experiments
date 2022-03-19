@@ -33,12 +33,12 @@ args = parser.parse_args()
 lines_susps = dict()
 
 #
-# Collect and convert all statements into lines
+# Collect and convert all DUAs into lines
 #
 with open(args.dua_susps) as fin:
   reader = csv.DictReader(fin)
   for row in reader:
-    lines = dua_to_lines(row['Statement'])
+    lines = dua_to_lines(row['DUA'])
     susps = row['Suspiciousness']
     for line in lines:
       if line in lines_susps: # TODO can the stmts file have repetitions?
