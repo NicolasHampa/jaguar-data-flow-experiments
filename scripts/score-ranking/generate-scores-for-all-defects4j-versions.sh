@@ -17,8 +17,6 @@ for project_path in `find $repository_root_path -maxdepth 1 -mindepth 1 -type d`
 do
     for project_version_path in `find $project_path -maxdepth 1 -mindepth 1 -type d`
     do
-        #echo $project_version_path
-
         IFS='/' read -ra project_version_path_array <<< "$project_version_path"
         index=${#project_version_path_array[@]}
         project_name=${project_version_path_array[((index-2))]}

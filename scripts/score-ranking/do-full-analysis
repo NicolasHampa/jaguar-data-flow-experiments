@@ -9,28 +9,11 @@ ensure-file-exists() {
   fi
 }
 
-USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL RESULT_DIR"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL RESULT_DIR"
 die() {
   echo "$@" >&2
   exit 1
 }
-
-RESTRICTIONS_FILE=''
-RESTRICTIONS_FILE_SUBARGS=()
-while [[ "$1" = --* ]]; do
-  OPTION=$1; shift
-  case $OPTION in
-    '--help' )
-      echo "usage: $USAGE"
-      exit 0 ;;
-    '--restrictions-file' )
-      RESTRICTIONS_FILE=$(readlink --canonicalize "$1")
-      RESTRICTIONS_FILE_SUBARGS+=('--restrictions-file' "$RESTRICTIONS_FILE")
-      shift;;
-    * )
-      die "usage: $USAGE";;
-  esac
-done
 
 if [ "$#" != 6 ]; then die "usage: $USAGE"; fi
 export PROJECT=$1
@@ -53,16 +36,16 @@ pushd "$RESULT_DIR/$PROJECT/$BUG/" >/dev/null
 
 mkdir -p sbfl
 pushd sbfl >/dev/null
-if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family sbfl; then
-  do-sbfl-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
-fi
+
+do-sbfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
+
 popd >/dev/null
 
 mkdir -p mlfl
 pushd mlfl >/dev/null
-if [ ! "$RESTRICTIONS_FILE" ] || python "$HERE/check-restrictions" "$RESTRICTIONS_FILE" --family mlfl; then
-  do-mlfl-analysis "${RESTRICTIONS_FILE_SUBARGS[@]}" "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
-fi
+
+do-mlfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
+
 popd >/dev/null
 
 popd >/dev/null
