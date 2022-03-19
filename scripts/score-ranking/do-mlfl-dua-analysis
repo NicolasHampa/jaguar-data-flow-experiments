@@ -3,7 +3,7 @@
 HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
 PATH="$HERE:$PATH"
 
-USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX"
 die() {
   echo "$@" >&2
   exit 1
@@ -13,8 +13,6 @@ if [ "$#" != 3 ]; then echo "usage: $USAGE" >&2; exit 1; fi
 PROJECT=$1
 BUG=$2
 COVERAGE_MATRIX=$3"/jaguar/.jaguar/matrix/relevant/filtered"
-#COVERAGE_MATRIX="$(readlink --canonicalize "$3")"; if [ ! -f "$COVERAGE_MATRIX" ]; then echo "given coverage matrix does not exist" >&2; exit 1; fi
-#STATEMENT_NAMES="$(readlink --canonicalize "$4")"; if [ ! -f "$STATEMENT_NAMES" ]; then echo "given statement-names file does not exist" >&2; exit 1; fi
 
 DIR="model-neural-network"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
 
@@ -29,7 +27,6 @@ for matrix_file_path in `find $COVERAGE_MATRIX -maxdepth 1 -mindepth 1 -type f`;
   STMT_SUSPS_FILE="$(pwd)/"$filename"-stmt-susps.txt"
   STMT_SUSPS_FILE_UNIFIED="$(pwd)/stmt-susps.txt"
 
-  #echo $HERE
   python3 $HERE/neural-network-fl-analysis.py --matrix "$matrix_file_path" \
                                               --element-names "$STATEMENT_NAMES" \
                                               --output "$STMT_SUSPS_FILE" || exit 1

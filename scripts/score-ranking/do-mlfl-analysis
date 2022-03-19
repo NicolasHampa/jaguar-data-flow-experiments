@@ -3,7 +3,7 @@
 HERE=$(readlink --canonicalize "$(dirname "${BASH_SOURCE[0]}")")
 PATH="$HERE:$PATH"
 
-USAGE="$0 [--restrictions-file FILE] PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES"
 die() {
   echo "$@" >&2
   exit 1
