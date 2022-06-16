@@ -26,7 +26,7 @@ do
             ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra gzoltar ../../reports/
         fi
 
-        if [ ${coverage_tool} == "jaguar" ]; then
+        if [ ${coverage_tool} == "jaguar" ] && [ "${project_version: -1}" == "b" ]; then
             project_version=${project_version%"b"}
             ./do-full-analysis-dua $project_name $project_version $project_version_path jaguar ../../reports/
         fi
