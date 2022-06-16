@@ -46,19 +46,19 @@ mlfl_path_matcher = re.compile(r'''
     score.txt
   ''', re.X)
 
-#CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'KillDefn', 'HybridScheme', 'AggregationDefn', 'Score', 'ScoreWRTLoadedClasses']
-CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'Score', 'ScoreWRTLoadedClasses']
+CSV_COLUMNS = ['Project', 'Bug', 'TestSuite', 'ScoringScheme', 'Family', 'Formula', 'TotalDefn', 'Score', 'ScoreWRTLoadedClasses', 'RankPosition']
 def match_to_csv_row(project, bug, test_suite, coverage_tool, match):
   with open(match.group()) as f:
-    score, score_for_loaded = f.read().strip().split(',')
+    score, score_for_loaded, rank_position = f.read().strip().split(',')
 
   result = dict(
     Project=project, Bug=bug, TestSuite=test_suite,
-    Score=score, ScoreWRTLoadedClasses=score_for_loaded)
+    Score=score, ScoreWRTLoadedClasses=score_for_loaded,
+    RankPosition=rank_position)
   result.update(match.groupdict())
 
-  sbfl = 'sbfl' if (args.coverage_tool == 'gzoltar') else 'sbfl-dua'
-  mlfl = 'mlfl' if (args.coverage_tool == 'gzoltar') else 'mlfl-dua'
+  sbfl = 'sbfl' if (coverage_tool == 'gzoltar') else 'sbfl-dua'
+  mlfl = 'mlfl' if (coverage_tool == 'gzoltar') else 'mlfl-dua'
   result.setdefault('Family',
     sbfl if (result.get('ScoringScheme') != None) else
     mlfl)
