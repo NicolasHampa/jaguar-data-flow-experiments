@@ -179,6 +179,7 @@ if ($DEBUG) {
 
 # Determine the rank for each buggy line and the overall min and max rank
 my @ranks_buggy_lines = ();
+# [print] open(FH, ">>", '/home/nicolas/GitRepo/jaguar-data-flow-experiments/reports/line-not-match.txt') or die $!;
 for my $key(keys(%buggy_lines)) {
     my $type=$buggy_lines{$key};
 
@@ -196,6 +197,7 @@ for my $key(keys(%buggy_lines)) {
         # Ranking doesn't contain any candidate line
         if ($current_rank < 0) {
             print(STDERR "WARNING: Fault of omission ($key) not found in ranking! None of the candidate lines matches!\n");
+            # [print] print(FH "WARNING: Fault of omission ($PID) ($BID) ($key) not found in ranking! None of the candidate lines matches!\n");
         }
     } else {
         $current_rank = _get_rank($key);
@@ -212,6 +214,7 @@ for my $key(keys(%buggy_lines)) {
             # Ranking doesn't contain any candidate line -> print error message and continue
             if ($current_rank < 0) {
                 print(STDERR "WARNING: Fault ($key) not found in ranking! None of the candidate lines matches!\n");
+                # [print] print(FH "WARNING: Fault ($PID) ($BID) ($key) not found in ranking! None of the candidate lines matches!\n");
             }
         }
     }
@@ -224,6 +227,7 @@ for my $key(keys(%buggy_lines)) {
     # Add current rank to list of ranks for all buggy lines
     push(@ranks_buggy_lines, $current_rank);
 }
+# [print] close(FH);
 
 # Sort the list of all ranks, and determine min, max, mean, median
 @ranks_buggy_lines = sort { $a <=> $b } @ranks_buggy_lines;
@@ -244,18 +248,23 @@ if ($DEBUG) {
 # classes (loaded classes vs. all classes)
 my $score_loaded;
 my $score_all;
+my $rank_position;
 if ($SCHEME eq $MIN) {
     $score_loaded = $min/$sloc_loaded;
     $score_all    = $min/$sloc_all;
+    $rank_position= $min;
 } elsif ($SCHEME eq $MAX) {
     $score_loaded = $max/$sloc_loaded;
     $score_all    = $max/$sloc_all;
+    $rank_position= $max;
 } elsif ($SCHEME eq $MEAN) {
     $score_loaded = $mean/$sloc_loaded;
     $score_all    = $mean/$sloc_all;
+    $rank_position= $mean;
 } elsif ($SCHEME eq $MEDIAN) {
     $score_loaded = $median/$sloc_loaded;
     $score_all    = $median/$sloc_all;
+    $rank_position= $median;
 } else {
     die "Unexpected scoring scheme: $SCHEME!";
 }
@@ -263,7 +272,7 @@ if ($SCHEME eq $MIN) {
 # Write output to file
 close(IN);
 open(OUT, ">$OUT_FILE") or die "Cannot write output file!";
-    print(OUT "$score_all,$score_loaded\n");
+    print(OUT "$score_all,$score_loaded,$rank_position\n");
 close(OUT);
 
 
