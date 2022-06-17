@@ -10,8 +10,14 @@ if [ -z "$2" ] ; then
     exit 1
 fi
 
+if [ -z "$3" ] ; then
+    echo "Analysis type [sbfl,mlfl,all] is missing! Execution has been stopped."
+    exit 1
+fi
+
 repository_root_path=$1
 coverage_tool=$2
+analysis_type=$3
 
 for project_path in `find $repository_root_path -maxdepth 1 -mindepth 1 -type d`
 do
@@ -23,7 +29,7 @@ do
         project_version=${project_version_path_array[((index-1))]}
 
         if [ ${coverage_tool} == "gzoltar" ]; then
-            ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra gzoltar ../../reports/
+            ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra gzoltar $analysis_type ../../reports/
         fi
 
         if [ ${coverage_tool} == "jaguar" ] && [ "${project_version: -1}" == "b" ]; then

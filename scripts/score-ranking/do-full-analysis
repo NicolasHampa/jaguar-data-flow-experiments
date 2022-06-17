@@ -9,13 +9,13 @@ ensure-file-exists() {
   fi
 }
 
-USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL RESULT_DIR"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL ANALYSIS_TYPE RESULT_DIR"
 die() {
   echo "$@" >&2
   exit 1
 }
 
-if [ "$#" != 6 ]; then die "usage: $USAGE"; fi
+if [ "$#" != 7 ]; then die "usage: $USAGE"; fi
 export PROJECT=$1
 export BUG=$2
 COVERAGE_MATRIX=$(readlink --canonicalize "$3"); ensure-file-exists "$COVERAGE_MATRIX"
@@ -23,7 +23,8 @@ if [[ "$COVERAGE_MATRIX" = *.gz ]]; then COVERAGE_MATRIX=${COVERAGE_MATRIX%.gz};
 STATEMENT_NAMES=$(readlink --canonicalize "$4"); ensure-file-exists "$STATEMENT_NAMES"
 if [[ "$STATEMENT_NAMES" = *.gz ]]; then STATEMENT_NAMES=${STATEMENT_NAMES%.gz}; zcat <$STATEMENT_NAMES.gz >$STATEMENT_NAMES || die 'unable to unzip spectra'; fi
 COVERAGE_TOOL=$5
-RESULT_DIR=$6
+ANALYSIS_TYPE=$6
+RESULT_DIR=$7
 
 if [ ! -d "$HERE/source-code-lines" ]; then
   tar -zxf "$HERE/source-code-lines.tar.gz" -d "$HERE"
@@ -34,19 +35,23 @@ fi
 mkdir -p "$RESULT_DIR/$PROJECT/$BUG/"
 pushd "$RESULT_DIR/$PROJECT/$BUG/" >/dev/null
 
-mkdir -p sbfl
-pushd sbfl >/dev/null
+if [ ${ANALYSIS_TYPE} == "sbfl" ] || [ ${ANALYSIS_TYPE} == "all" ]; then
+  mkdir -p sbfl
+  pushd sbfl >/dev/null
 
-do-sbfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
+  do-sbfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
 
-popd >/dev/null
+  popd >/dev/null
+fi
 
-mkdir -p mlfl
-pushd mlfl >/dev/null
+if [ ${ANALYSIS_TYPE} == "mlfl" ] || [ ${ANALYSIS_TYPE} == "all" ]; then
+  mkdir -p mlfl
+  pushd mlfl >/dev/null
 
-do-mlfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
+  do-mlfl-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" "$STATEMENT_NAMES" || exit 1
 
-popd >/dev/null
+  popd >/dev/null
+fi
 
 popd >/dev/null
 
