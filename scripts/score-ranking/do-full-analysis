@@ -9,13 +9,13 @@ ensure-file-exists() {
   fi
 }
 
-USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL ANALYSIS_TYPE RESULT_DIR"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX STATEMENT_NAMES COVERAGE_TOOL ANALYSIS_TYPE LOGGING RESULT_DIR"
 die() {
   echo "$@" >&2
   exit 1
 }
 
-if [ "$#" != 7 ]; then die "usage: $USAGE"; fi
+if [ "$#" != 8 ]; then die "usage: $USAGE"; fi
 export PROJECT=$1
 export BUG=$2
 COVERAGE_MATRIX=$(readlink --canonicalize "$3"); ensure-file-exists "$COVERAGE_MATRIX"
@@ -24,7 +24,8 @@ STATEMENT_NAMES=$(readlink --canonicalize "$4"); ensure-file-exists "$STATEMENT_
 if [[ "$STATEMENT_NAMES" = *.gz ]]; then STATEMENT_NAMES=${STATEMENT_NAMES%.gz}; zcat <$STATEMENT_NAMES.gz >$STATEMENT_NAMES || die 'unable to unzip spectra'; fi
 COVERAGE_TOOL=$5
 ANALYSIS_TYPE=$6
-RESULT_DIR=$7
+LOGGING=$7
+RESULT_DIR=$8
 
 if [ ! -d "$HERE/source-code-lines" ]; then
   tar -zxf "$HERE/source-code-lines.tar.gz" -d "$HERE"
@@ -58,7 +59,7 @@ popd >/dev/null
 find ../../reports/$PROJECT/$BUG/{sbfl,mlfl} -name score.txt | \
   python3 "$HERE/gather-scores-into-master-scoring-file.py" \
     --project "$PROJECT" --bug "$BUG" --test-suite "developer" \
-    --coverage_tool "gzoltar" \
+    --coverage_tool "gzoltar" --logging "$LOGGING" \
   > "../../reports/$PROJECT/$BUG/scores.csv" || exit 1
 
 echo "DONE!"

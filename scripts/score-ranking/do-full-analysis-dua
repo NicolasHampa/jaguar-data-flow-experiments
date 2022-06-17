@@ -9,19 +9,20 @@ ensure-file-exists() {
   fi
 }
 
-USAGE="$0 PROJECT BUG COVERAGE_MATRIX COVERAGE_TOOL ANALYSIS_TYPE RESULT_DIR"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX COVERAGE_TOOL ANALYSIS_TYPE LOGGING RESULT_DIR"
 die() {
   echo "$@" >&2
   exit 1
 }
 
-if [ "$#" != 6 ]; then die "usage: $USAGE"; fi
+if [ "$#" != 7 ]; then die "usage: $USAGE"; fi
 export PROJECT=$1
 export BUG=$2
 COVERAGE_MATRIX=$3
 COVERAGE_TOOL=$4
 ANALYSIS_TYPE=$5
-RESULT_DIR=$6
+LOGGING=$6
+RESULT_DIR=$7
 
 if [ ! -d "$HERE/source-code-lines" ]; then
   tar -zxf "$HERE/source-code-lines.tar.gz" -d "$HERE"
@@ -54,7 +55,7 @@ popd >/dev/null
 find ../../reports/$PROJECT/$BUG/{sbfl-dua,mlfl-dua} -name score.txt | \
   python3 "$HERE/gather-scores-into-master-scoring-file.py" \
     --project "$PROJECT" --bug "$BUG" --test-suite "developer" \
-    --coverage_tool "jaguar" \
+    --coverage_tool "jaguar" --logging "$LOGGING" \
   > "../../reports/$PROJECT/$BUG/scores.csv" || exit 1
 
 echo "DONE!"

@@ -69,11 +69,13 @@ parser.add_argument('--project', required=True, choices=['Chart', 'Closure', 'La
 parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
 parser.add_argument('--coverage_tool', required=True, choices=['gzoltar', 'jaguar'])
+parser.add_argument('--logging', required=True, choices=['1','0'])
 args = parser.parse_args()
 
-logging.basicConfig(format='%(message)s',
-                    level = logging.INFO,
-                    filename = '/var/log/fl-score.log')
+if (logging == '1'):
+  logging.basicConfig(format='%(message)s',
+                      level = logging.INFO,
+                      filename = '/var/log/fl-score.log')
 
 with sys.stdout as f:
   writer = csv.DictWriter(f, fieldnames=CSV_COLUMNS)
@@ -91,4 +93,5 @@ fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bu
 sorted_scores = fl_scores.sort_values(by=['Score'], ascending=True)
 sorted_scores.to_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores-sorted.csv', sep=',', index=False)
 
-logging.info(format(sorted_scores.to_string(index=False)))
+if (logging == '1'):
+  logging.info(format(sorted_scores.to_string(index=False)))

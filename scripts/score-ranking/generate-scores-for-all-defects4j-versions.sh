@@ -15,6 +15,26 @@ if [ -z "$3" ] ; then
     exit 1
 fi
 
+logs=0
+warnings=0
+while getopts 'lw' OPTION; do
+  case "$OPTION" in
+    l)
+      echo "logging enabled!"
+      logs=1
+      ;;
+    w)
+      echo "print warnings to file enabled!"
+      warnings=1
+      ;;
+    ?)
+      echo "script usage: $(basename \$0) [-l] [-w]" >&2
+      exit 1
+      ;;
+  esac
+done
+shift $((OPTIND-1))
+
 repository_root_path=$1
 coverage_tool=$2
 analysis_type=$3
@@ -29,12 +49,12 @@ do
         project_version=${project_version_path_array[((index-1))]}
 
         if [ ${coverage_tool} == "gzoltar" ]; then
-            ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra gzoltar $analysis_type ../../reports/
+            ./do-full-analysis $project_name $project_version $project_version_path/matrix $project_version_path/spectra gzoltar $analysis_type $logs ../../reports/
         fi
 
         if [ ${coverage_tool} == "jaguar" ] && [ "${project_version: -1}" == "b" ]; then
             project_version=${project_version%"b"}
-            ./do-full-analysis-dua $project_name $project_version $project_version_path jaguar $analysis_type ../../reports/
+            ./do-full-analysis-dua $project_name $project_version $project_version_path jaguar $analysis_type $logs ../../reports/
         fi
     done
 done
