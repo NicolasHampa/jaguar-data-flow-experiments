@@ -9,18 +9,19 @@ ensure-file-exists() {
   fi
 }
 
-USAGE="$0 PROJECT BUG COVERAGE_MATRIX COVERAGE_TOOL RESULT_DIR"
+USAGE="$0 PROJECT BUG COVERAGE_MATRIX COVERAGE_TOOL ANALYSIS_TYPE RESULT_DIR"
 die() {
   echo "$@" >&2
   exit 1
 }
 
-if [ "$#" != 5 ]; then die "usage: $USAGE"; fi
+if [ "$#" != 6 ]; then die "usage: $USAGE"; fi
 export PROJECT=$1
 export BUG=$2
 COVERAGE_MATRIX=$3
 COVERAGE_TOOL=$4
-RESULT_DIR=$5
+ANALYSIS_TYPE=$5
+RESULT_DIR=$6
 
 if [ ! -d "$HERE/source-code-lines" ]; then
   tar -zxf "$HERE/source-code-lines.tar.gz" -d "$HERE"
@@ -29,19 +30,24 @@ fi
 mkdir -p "$RESULT_DIR/$PROJECT/$BUG/"
 pushd "$RESULT_DIR/$PROJECT/$BUG/" >/dev/null
 
-mkdir -p sbfl-dua
-pushd sbfl-dua >/dev/null
 
-do-sbfl-dua-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
+if [ ${ANALYSIS_TYPE} == "sbfl" ] || [ ${ANALYSIS_TYPE} == "all" ]; then
+  mkdir -p sbfl-dua
+  pushd sbfl-dua >/dev/null
+  
+  do-sbfl-dua-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
 
-popd >/dev/null
+  popd >/dev/null
+fi
 
-mkdir -p mlfl-dua
-pushd mlfl-dua >/dev/null
+if [ ${ANALYSIS_TYPE} == "mlfl" ] || [ ${ANALYSIS_TYPE} == "all" ]; then
+  mkdir -p mlfl-dua
+  pushd mlfl-dua >/dev/null
 
-do-mlfl-dua-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
+  do-mlfl-dua-analysis "$PROJECT" "$BUG" "$COVERAGE_MATRIX" || exit 1
 
-popd >/dev/null
+  popd >/dev/null
+fi
 
 popd >/dev/null
 
