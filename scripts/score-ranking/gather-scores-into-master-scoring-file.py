@@ -72,7 +72,7 @@ parser.add_argument('--coverage_tool', required=True, choices=['gzoltar', 'jagua
 parser.add_argument('--logging', required=True, choices=['1','0'])
 args = parser.parse_args()
 
-if (logging == '1'):
+if (args.logging == '1'):
   logging.basicConfig(format='%(message)s',
                       level = logging.INFO,
                       filename = '/var/log/fl-score.log')
@@ -93,5 +93,5 @@ fl_scores = pd.read_csv('../../reports/' + str(args.project) + '/' + str(args.bu
 sorted_scores = fl_scores.sort_values(by=['Score'], ascending=True)
 sorted_scores.to_csv('../../reports/' + str(args.project) + '/' + str(args.bug) + '/scores-sorted.csv', sep=',', index=False)
 
-if (logging == '1'):
+if (args.logging == '1'):
   logging.info(format(sorted_scores.to_string(index=False)))

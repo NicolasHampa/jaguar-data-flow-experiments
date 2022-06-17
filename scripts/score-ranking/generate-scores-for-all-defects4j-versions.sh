@@ -16,19 +16,14 @@ if [ -z "$3" ] ; then
 fi
 
 logs=0
-warnings=0
-while getopts 'lw' OPTION; do
+while getopts 'l' OPTION; do
   case "$OPTION" in
     l)
       echo "logging enabled!"
       logs=1
       ;;
-    w)
-      echo "print warnings to file enabled!"
-      warnings=1
-      ;;
     ?)
-      echo "script usage: $(basename \$0) [-l] [-w]" >&2
+      echo "script usage: [-l]" >&2
       exit 1
       ;;
   esac
