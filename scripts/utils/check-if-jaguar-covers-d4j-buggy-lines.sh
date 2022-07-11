@@ -31,16 +31,18 @@ do
                 all_jaguar_lines+=($line)
             done < $JAGUAR_LINES_FILE
 
-            echo $project_name" / "$project_version >> "$HOME/d4j-buggy-lines-not-covered-by-jaguar.txt"
+            echo $project_name" / "$project_version >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
 
             while read buggy_line; do
                 IFS='#' read -ra line_array <<< "$buggy_line"
                 buggy_line=${line_array[((0))]}"#"${line_array[((1))]}
 
                 if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
-                    echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-buggy-lines-not-covered-by-jaguar.txt"
+                    echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
                 fi 
             done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".buggy.lines"
+
+            rm -rf $JAGUAR_LINES_FILE
         fi
     done
 done
