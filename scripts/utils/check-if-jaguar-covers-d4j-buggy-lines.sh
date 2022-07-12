@@ -36,10 +36,29 @@ do
             while read buggy_line; do
                 IFS='#' read -ra line_array <<< "$buggy_line"
                 buggy_line=${line_array[((0))]}"#"${line_array[((1))]}
+                faulty_code=${line_array[(2)]}
 
-                if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
-                    echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
-                fi 
+                if [ "$faulty_code" == "FAULT_OF_OMISSION" ]; then                    
+                    bug_covered=0
+                    while read candidate_line; do
+                        IFS=',' read -ra candidate_array <<< "$candidate_line"
+                        candidate_line=${candidate_array[((1))]}
+                        if [ "$buggy_line" == "${candidate_array[((0))]}" ]; then
+                            if [[ "${all_jaguar_lines[*]}" =~ "${candidate_line}" ]]; then
+                                bug_covered=1
+                                break
+                            fi 
+                        fi
+                    done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".candidates"
+
+                    if [ "$bug_covered" == 0 ]; then
+                        echo "[FAULT_OF_OMISSION] Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                    fi
+                else
+                    if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
+                        echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                    fi
+                fi
             done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".buggy.lines"
 
             rm -rf $JAGUAR_LINES_FILE
