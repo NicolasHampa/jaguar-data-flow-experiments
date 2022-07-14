@@ -4,8 +4,8 @@ import subprocess
 import collections
 import argparse
 
-PROJECTS = ['Chart', 'Closure', 'Lang', 'Math', 'Time']
-N_BUGS = {'Chart':26, 'Closure':133, 'Lang':65, 'Math':106, 'Time':27}
+PROJECTS = ['Chart', 'Codec', 'Cli', 'Closure', 'Lang', 'Math', 'Time']
+N_BUGS = {'Chart':26, 'Cli':40, 'Codec':18, 'Closure':133, 'Lang':65, 'Math':106, 'Time':27}
 
 def parse_buggy_line(buggy_line_info):
   path, lno, source = buggy_line_info.split(b'#', 2)

@@ -1,0 +1,4 @@
+org/apache/commons/codec/language/bm/Rule.java#158#FAULT_OF_OMISSION
+src/main/resources/org/apache/commons/codec/language/bm/sep_lang/txt.java#158#FAULT_OF_OMISSION
+src/main/resources/org/apache/commons/codec/language/bm/ash_lang/txt.java#158#FAULT_OF_OMISSION
+src/main/resources/org/apache/commons/codec/language/bm/gen_lang/txt.java#158#FAULT_OF_OMISSION
