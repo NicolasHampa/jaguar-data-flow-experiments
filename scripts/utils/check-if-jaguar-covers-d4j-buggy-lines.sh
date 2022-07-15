@@ -33,6 +33,7 @@ do
 
             echo $project_name" / "$project_version >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
 
+            covers_at_least_one_buggy_line=0
             while read buggy_line; do
                 IFS='#' read -ra line_array <<< "$buggy_line"
                 buggy_line=${line_array[((0))]}"#"${line_array[((1))]}
@@ -53,13 +54,21 @@ do
 
                     if [ "$bug_covered" == 0 ]; then
                         echo "[FAULT_OF_OMISSION] Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                    else
+                        covers_at_least_one_buggy_line=1
                     fi
                 else
                     if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
                         echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                    else
+                        covers_at_least_one_buggy_line=1
                     fi
                 fi
             done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".buggy.lines"
+
+            if [ "$covers_at_least_one_buggy_line" == 0 ]; then
+                echo "[WARNING] None of the buggy or candidates lines has been covered by Jaguar!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+            fi
 
             rm -rf $JAGUAR_LINES_FILE
         fi
