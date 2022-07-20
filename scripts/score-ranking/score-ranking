@@ -21,7 +21,7 @@ use List::Util qw(sum);
 use List::Util qw[min];
 use POSIX qw(ceil);
 
-my $DEBUG = 1;
+my $DEBUG = 0;
 
 my $PID;
 my $BID;

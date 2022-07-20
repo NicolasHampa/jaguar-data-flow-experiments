@@ -15,7 +15,7 @@ BUG=$2
 COVERAGE_MATRIX_PATH=$3"/jaguar/.jaguar/matrix/relevant/filtered"
 
 #for FORMULA in tarantula ochiai ochiai2 opt1 opt2 barinel dstar2 muse jaccard gp02 gp03 gp13 gp19 anderberg dice sorensen_dice goodman qe cbi_inc cbi_sqrt cbi_log wong1 wong2 wong3 hamann simple_matching sokal rogers_tanimoto hamming euclid russell_rao binary scott rogot1 rogot2 kulczynski1 kulczynski2 m1 m2 ample ample2 arithmetic_mean geometric_mean harmonic_mean cohen fleiss braun_banquet mountford gower michael pierce baroni_urbani_buser zoltar overlap; do
-for FORMULA in tarantula ochiai ochiai2 opt1 opt2 barinel dstar2; do
+for FORMULA in tarantula ochiai opt1 barinel dstar2 muse jaccard; do
   DIR="formula-$FORMULA"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
 
   for TOTAL_DEFN in tests elements; do
