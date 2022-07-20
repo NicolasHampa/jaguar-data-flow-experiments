@@ -1,4 +1,10 @@
 #! /bin/bash
+#
+# Most of the Jaguar matrix files contains compressed lines that
+# are not relevant for the execution of the scoring pipeline
+# 
+# Removes compressed Jaguar lines from previous filtered matrix files
+#
 
 if [ -z "$1" ] ; then
     echo "Jaguar repository root path is missing! Execution has been stopped."
