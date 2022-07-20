@@ -1,4 +1,8 @@
 #! /bin/bash
+#
+# For a given Jaguar dataset, checks for which D4J projects versions
+# the spectra files covers the buggy or candidates lines 
+#
 
 if [ -z "$1" ] ; then
     echo "Path containing Jaguar data for D4J programs is missing! Execution has been stopped."
