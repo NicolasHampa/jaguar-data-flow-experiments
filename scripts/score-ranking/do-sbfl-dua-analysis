@@ -45,8 +45,7 @@ for FORMULA in tarantula ochiai opt1 barinel dstar2 muse jaccard; do
     dua-susps-to-line-susps --dua-susps "$DUA_SUSPS_FILE_UNIFIED" \
                             --output "$LINE_SUSPS_FILE"
 
-    #for SCORING_SCHEME in first last mean median; do
-    for SCORING_SCHEME in median; do
+    for SCORING_SCHEME in first last mean median; do
       DIR="scoring-$SCORING_SCHEME"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
       DEST="$(pwd)/score.txt"
       score-ranking --project "$PROJECT" --bug "$BUG" \

@@ -33,8 +33,7 @@ for FORMULA in tarantula ochiai opt1 barinel dstar2 muse jaccard; do
     stmt-susps-to-line-susps --stmt-susps "$STMT_SUSPS_FILE" \
                              --source-code-lines "$HERE/source-code-lines/$PROJECT-${BUG}b.source-code.lines" \
                              --output "$LINE_SUSPS_FILE"
-    #for SCORING_SCHEME in first last mean median; do
-    for SCORING_SCHEME in first; do
+    for SCORING_SCHEME in first last mean median; do
       DIR="scoring-$SCORING_SCHEME"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
       DEST="$(pwd)/score.txt"
       score-ranking --project "$PROJECT" --bug "$BUG" \
