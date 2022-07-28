@@ -1,0 +1,4 @@
+org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java#22,org/apache/commons/jxpath/ri/model/dom/DOMAttributeIterator.java#111
+org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#23,org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#52
+org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#52,org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#52
+org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#58,org/apache/commons/jxpath/ri/model/jdom/JDOMAttributeIterator.java#52
