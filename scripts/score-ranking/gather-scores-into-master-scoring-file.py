@@ -65,7 +65,7 @@ def match_to_csv_row(project, bug, test_suite, coverage_tool, match):
   return result
 
 parser = argparse.ArgumentParser()
-parser.add_argument('--project', required=True, choices=['Chart', 'Cli', 'Closure', 'Codec', 'Collections', 'Compress', 'Csv', 'Lang', 'Math', 'Mockito', 'Time', 'ToyExample'])
+parser.add_argument('--project', required=True, choices=['Chart', 'Cli', 'Closure', 'Codec', 'Collections', 'Compress', 'Csv', 'Gson', 'JacksonCore', 'JxPath', 'Lang', 'Math', 'Mockito', 'Time', 'ToyExample'])
 parser.add_argument('--bug', required=True, type=int)
 parser.add_argument('--test-suite', required=True, choices=['developer', 'evosuite', 'randoop', 'user'])
 parser.add_argument('--coverage_tool', required=True, choices=['gzoltar', 'jaguar'])
