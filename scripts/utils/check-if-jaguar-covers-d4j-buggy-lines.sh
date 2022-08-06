@@ -57,13 +57,29 @@ do
                     done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".candidates"
 
                     if [ "$bug_covered" == 0 ]; then
-                        echo "[FAULT_OF_OMISSION] Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                        while read source_code_line; do
+                            IFS=':' read -ra source_code_line_array <<< "$source_code_line"
+                            key_line=${source_code_line_array[((0))]}
+                            entry_line=${source_code_line_array[((1))]}
+                            echo $key_line
+                        done < "/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/source-code-lines/"$project_name"-"$project_version".source-code.lines"
                     else
                         covers_at_least_one_buggy_line=1
                     fi
                 else
                     if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
-                        echo "Jaguar data-flow coverage for $buggy_line not found!" >> "$HOME/d4j-$project_name-buggy-lines-not-covered-by-jaguar.txt"
+                        while read source_code_line; do
+                            IFS=':' read -ra source_code_line_array <<< "$source_code_line"
+                            key_line=${source_code_line_array[((0))]}
+                            entry_line=${source_code_line_array[((1))]}
+
+                            if [ "$buggy_line" == "$entry_line" ]; then
+                                if [[ "${all_jaguar_lines[*]}" =~ "${key_line}" ]]; then
+                                    covers_at_least_one_buggy_line=1
+                                    break
+                                fi
+                            fi
+                        done < "/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/source-code-lines/"$project_name"-"$project_version".source-code.lines"
                     else
                         covers_at_least_one_buggy_line=1
                     fi
