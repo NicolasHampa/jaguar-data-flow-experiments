@@ -43,29 +43,30 @@ do
                 buggy_line=${line_array[((0))]}"#"${line_array[((1))]}
                 faulty_code=${line_array[(2)]}
 
-                if [ "$faulty_code" == "FAULT_OF_OMISSION" ]; then                    
-                    bug_covered=0
+                if [ "$faulty_code" == "FAULT_OF_OMISSION" ]; then
                     while read candidate_line; do
                         IFS=',' read -ra candidate_array <<< "$candidate_line"
                         candidate_line=${candidate_array[((1))]}
                         if [ "$buggy_line" == "${candidate_array[((0))]}" ]; then
                             if [[ "${all_jaguar_lines[*]}" =~ "${candidate_line}" ]]; then
-                                bug_covered=1
+                                covers_at_least_one_buggy_line=1
                                 break
-                            fi 
+                            else
+                                while read source_code_line; do
+                                    IFS=':' read -ra source_code_line_array <<< "$source_code_line"
+                                    key_line=${source_code_line_array[((0))]}
+                                    entry_line=${source_code_line_array[((1))]}
+                                    
+                                    if [ "$buggy_line" == "$entry_line" ]; then
+                                        if [[ "${all_jaguar_lines[*]}" =~ "${key_line}" ]]; then
+                                            covers_at_least_one_buggy_line=1
+                                            break
+                                        fi
+                                    fi
+                                done < ../score-ranking/source-code-lines/$project_name"-"$project_version".source-code.lines"
+                            fi
                         fi
                     done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".candidates"
-
-                    if [ "$bug_covered" == 0 ]; then
-                        while read source_code_line; do
-                            IFS=':' read -ra source_code_line_array <<< "$source_code_line"
-                            key_line=${source_code_line_array[((0))]}
-                            entry_line=${source_code_line_array[((1))]}
-                            echo $key_line
-                        done < "/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/source-code-lines/"$project_name"-"$project_version".source-code.lines"
-                    else
-                        covers_at_least_one_buggy_line=1
-                    fi
                 else
                     if [[ ! "${all_jaguar_lines[*]}" =~ "${buggy_line}" ]]; then
                         while read source_code_line; do
@@ -79,9 +80,10 @@ do
                                     break
                                 fi
                             fi
-                        done < "/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/source-code-lines/"$project_name"-"$project_version".source-code.lines"
+                        done < ../score-ranking/source-code-lines/$project_name"-"$project_version".source-code.lines"
                     else
                         covers_at_least_one_buggy_line=1
+                        break
                     fi
                 fi
             done < ../score-ranking/buggy-lines/$project_name"-"${project_version%"b"}".buggy.lines"
