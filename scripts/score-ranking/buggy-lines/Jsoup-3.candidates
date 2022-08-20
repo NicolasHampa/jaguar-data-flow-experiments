@@ -1,0 +1,14 @@
+org/jsoup/parser/Parser.java#26,org/jsoup/parser/Parser.java#22
+org/jsoup/parser/Parser.java#26,org/jsoup/parser/Parser.java#23
+org/jsoup/parser/Parser.java#26,org/jsoup/parser/Parser.java#24
+org/jsoup/parser/Parser.java#26,org/jsoup/parser/Parser.java#25
+org/jsoup/parser/Parser.java#73,org/jsoup/nodes/Element.java#270
+org/jsoup/parser/Parser.java#73,org/jsoup/nodes/Element.java#287
+org/jsoup/parser/Parser.java#73,org/jsoup/nodes/Element.java#314
+org/jsoup/parser/Parser.java#253,org/jsoup/parser/Parser.java#255
+org/jsoup/parser/Tag.java#99,org/jsoup/parser/Tag.java#100
+org/jsoup/parser/Tag.java#155,org/jsoup/parser/Tag.java#156
+org/jsoup/parser/Tag.java#157,org/jsoup/parser/Tag.java#158
+org/jsoup/parser/Tag.java#158,org/jsoup/parser/Tag.java#158
+org/jsoup/parser/Tag.java#379,org/jsoup/parser/Tag.java#224
+org/jsoup/parser/Tag.java#379,org/jsoup/parser/Tag.java#225
