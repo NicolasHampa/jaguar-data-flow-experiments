@@ -1,0 +1,8 @@
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#25,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#579
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#25,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#580
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#25,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#582
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#63,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#579
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#25,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#580
+com/fasterxml/jackson/databind/introspect/ObjectIdInfo.java#25,com/fasterxml/jackson/databind/introspect/JacksonAnnotationIntrospector.java#582
+com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java#435,com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java#432
+com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java#435,com/fasterxml/jackson/databind/ser/std/BeanSerializerBase.java#433
