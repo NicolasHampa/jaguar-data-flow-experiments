@@ -2,15 +2,15 @@
 
 import argparse
 import torch
+import csv
 
 import pandas as pd
+import numpy as np
 import torch.nn as neural_network
 import torch.nn.functional as function
 import matplotlib.pyplot as plot
 
-from torch.utils.data import DataLoader
 from torch.optim import Adam
-from torchvision import datasets, transforms
 from sklearn.metrics import confusion_matrix
 
 class MultilayerPerceptron(neural_network.Module):
@@ -24,7 +24,7 @@ class MultilayerPerceptron(neural_network.Module):
         X = function.relu(self.fc_layer_1(X))
         X = function.relu(self.fc_layer_2(X))
         X = self.fc_layer_3(X)
-        return function.sigmoid(X)   
+        return torch.sigmoid(X)   
 
 if __name__ == '__main__':
     torch.manual_seed(101)
@@ -38,28 +38,29 @@ if __name__ == '__main__':
 
     args = parser.parse_args()
     
+    # Read Coverage Data
     coverage_matrix = pd.read_csv(args.matrix, sep=" ", header=None)
     total_elements = coverage_matrix.shape[1] - 1
     
+    # Training Data
     coverage_matrix.iloc[:, total_elements] = coverage_matrix.iloc[:, total_elements].replace(['+','-'],[1,0])
-    
     test_coverage_data = torch.tensor(coverage_matrix.iloc[:, 0:total_elements].values)
     test_execution_results = torch.tensor(coverage_matrix.iloc[:, total_elements].values)
-    #train_data = coverage_matrix.to_numpy()
 
-    with open(args.element_names) as name_file:
-        element_names = {i: name.strip() for i, name in enumerate(name_file)}
+    # Testing Data
+    virtual_coverage_matrix = np.zeros((total_elements, total_elements), dtype=int)
+    for element in range(total_elements):
+        virtual_coverage_matrix[element][element] = 1
+    virtual_coverage_tensor = torch.tensor(virtual_coverage_matrix)
     
     # Prepare Model
     model = MultilayerPerceptron(total_elements)
     criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001)
     
-    epochs = 10
+    epochs = 20
     train_losses = []
-    test_losses = []
     train_correct = []
-    test_correct = []
     
     # Run Model
     for epoch in range(epochs):
@@ -67,15 +68,12 @@ if __name__ == '__main__':
         test_corr = 0
     
         # Train Model
-        #X_train_flat = X_train.view(100,-1)
-        #test_coverage_data = torch.transpose(test_coverage_data, 0, 1)
         y_pred = model(test_coverage_data.float())
         loss = criterion(y_pred.squeeze(), test_execution_results.float())
             
         #predicted = torch.max(y_pred.data, 1)
         predicted = torch.round(y_pred.data).long().squeeze()
-        batch_corr = (predicted == test_execution_results).sum()
-        train_corr += batch_corr
+        train_corr = (predicted == test_execution_results).sum()
             
         optimizer.zero_grad()
         loss.backward()
@@ -84,25 +82,30 @@ if __name__ == '__main__':
         train_losses.append(loss)
         train_correct.append(train_corr)
         
-        # Test Model
-        with torch.no_grad():
-            for b, (X_test, y_test) in enumerate(test_loader):
-                X_test_flat = X_test.view(500,-1)
-                y_eval=model(X_test_flat)
-                
-                predicted = torch.max(y_eval.data, 1)[1]
-                test_corr += (predicted == y_test).sum()
+    # Test Model
+    with torch.no_grad():
+        y_eval=model(virtual_coverage_tensor.float())    
+        predictions = y_eval.cpu().detach().numpy()
         
-            loss = criterion(y_eval, y_test)
-            test_losses.append(loss)
-            test_correct.append(test_corr)
-    
-            print('Test accuracy:', test_correct[-1].item()/10000*100)
+    # Set Calculated Suspiciousness To Each Element  
+    with open(args.element_names) as name_file:
+      element_names = {i: name.strip() for i, name in enumerate(name_file)}
+      
+    with open(args.output, 'w') as output_file:
+        writer = csv.DictWriter(output_file, [args.element_type,'Suspiciousness'])
+        writer.writeheader()
+        for element in range(total_elements):
+            writer.writerow({
+                args.element_type: element_names[element],
+                'Suspiciousness': float(predictions[element][0])
+            })
+            
+    #fl_scores = pd.read_csv(args.output, sep=",")
+    #sorted_scores = fl_scores.sort_values(by=['Suspiciousness'], ascending=False)
         
     # Plot results
-    plot.subplot(3, 1, 3)
-    plot.plot([t/600 for t in train_correct], label='training accuracy')
-    plot.plot([t/100 for t in test_correct], label='testing accuracy')
-    plot.title('Accuracy per epoch')
-    plot.legend()
-    plot.show()
+    #plot.subplot(3, 1, 3)
+    #plot.plot([t for t in train_losses], label='training loss')
+    #plot.title('Training loss per epoch')
+    #plot.legend()
+    #plot.show()
