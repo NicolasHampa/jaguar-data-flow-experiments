@@ -18,11 +18,12 @@ STATEMENT_NAMES="$(readlink --canonicalize "$4")"; if [ ! -f "$STATEMENT_NAMES" 
 DIR="model-neural-network"; mkdir -p "$DIR"; pushd "$DIR" >/dev/null
 
 STMT_SUSPS_FILE="$(pwd)/stmt-susps.txt"
-echo $HERE
-python3 $HERE/neural-network-fl-analysis.py --matrix "$COVERAGE_MATRIX" \
-                                            --element-names "$STATEMENT_NAMES" \
-                                            --element-type 'Statement' \
-                                            --output "$STMT_SUSPS_FILE" || exit 1
+
+python3 $HERE/mlp-network-fl-analysis.py \
+  --matrix "$COVERAGE_MATRIX" \
+  --element-names "$STATEMENT_NAMES" \
+  --element-type 'Statement' \
+  --output "$STMT_SUSPS_FILE" || exit 1
 
 LINE_SUSPS_FILE=$(pwd)/line-susps.txt
 stmt-susps-to-line-susps --stmt-susps "$STMT_SUSPS_FILE" \

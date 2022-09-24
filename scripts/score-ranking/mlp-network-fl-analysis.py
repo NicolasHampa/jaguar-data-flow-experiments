@@ -14,16 +14,23 @@ from torch.optim import Adam
 from sklearn.metrics import confusion_matrix
 
 class MultilayerPerceptron(neural_network.Module):
-    def __init__(self, input_size, output_size=1, layers=[120,84]):
+    def __init__(self, input_size, output_size=1):
         super(MultilayerPerceptron, self).__init__()
-        self.fc_layer_1 = neural_network.Linear(input_size, layers[0])
-        self.fc_layer_2 = neural_network.Linear(layers[0], layers[1])
-        self.fc_layer_3 = neural_network.Linear(layers[1], output_size)
+        hidden_layer_1=round((input_size/30)*10)
+        self.fc_layer_1 = neural_network.Linear(input_size, hidden_layer_1)
+        hidden_layer_2=round((hidden_layer_1/30)*10)
+        self.fc_layer_2 = neural_network.Linear(hidden_layer_1, hidden_layer_2)
+        hidden_layer_3=round((hidden_layer_2/30)*10)
+        self.fc_layer_3 = neural_network.Linear(hidden_layer_2, hidden_layer_3)
+        self.fc_layer_4 = neural_network.Linear(hidden_layer_3, output_size)
+        #self.dropout = neural_network.Dropout(0.1)
         
     def forward(self, X):
         X = function.relu(self.fc_layer_1(X))
         X = function.relu(self.fc_layer_2(X))
-        X = self.fc_layer_3(X)
+        X = function.relu(self.fc_layer_3(X))
+        #X = self.dropout(X)
+        X = self.fc_layer_4(X)
         return torch.sigmoid(X)   
 
 if __name__ == '__main__':
@@ -43,7 +50,7 @@ if __name__ == '__main__':
     total_elements = coverage_matrix.shape[1] - 1
     
     # Training Data
-    coverage_matrix.iloc[:, total_elements] = coverage_matrix.iloc[:, total_elements].replace(['+','-'],[1,0])
+    coverage_matrix.iloc[:, total_elements] = coverage_matrix.iloc[:, total_elements].replace(['+','-'],[0,1])
     test_coverage_data = torch.tensor(coverage_matrix.iloc[:, 0:total_elements].values)
     test_execution_results = torch.tensor(coverage_matrix.iloc[:, total_elements].values)
 
@@ -58,7 +65,7 @@ if __name__ == '__main__':
     criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001)
     
-    epochs = 20
+    epochs = 200
     train_losses = []
     train_correct = []
     
