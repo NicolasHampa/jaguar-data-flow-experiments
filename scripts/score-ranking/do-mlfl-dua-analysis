@@ -37,6 +37,7 @@ join-dua-susps-files --dua-susps-path "$DUA_SUSPS_FILE_UNIFIED"
 
 LINE_SUSPS_FILE=$(pwd)/line-susps.txt
 dua-susps-to-line-susps --dua-susps "$DUA_SUSPS_FILE_UNIFIED" \
+                        --source-code-lines "$HERE/source-code-lines/$PROJECT-${BUG}b.source-code.lines" \
                         --output "$LINE_SUSPS_FILE"
                               
 DEST="$(pwd)/score.txt"
