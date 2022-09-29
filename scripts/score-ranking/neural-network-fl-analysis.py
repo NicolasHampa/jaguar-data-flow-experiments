@@ -31,14 +31,13 @@ if __name__ == '__main__':
   test_coverage_data = coverage_matrix.iloc[:, 0:total_elements].values
   test_execution_results = coverage_matrix.iloc[:, total_elements].values
 
+  hidden_layer_neurons=round((total_elements/30)*10)
   classifier = MLPClassifier(verbose=True,
-                            max_iter=300,
-                            tol=0.0001,
-                            alpha=1.5,
+                            max_iter=200,
                             solver='adam',
                             learning_rate_init=0.01,
-                            hidden_layer_sizes=(3),
-                            activation='relu')
+                            hidden_layer_sizes=(hidden_layer_neurons,3),
+                            activation='logistic')
 
   classifier.fit(test_coverage_data, test_execution_results)
 
