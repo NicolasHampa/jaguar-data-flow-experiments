@@ -10,6 +10,7 @@ import torch.nn as neural_network
 import torch.nn.functional as function
 import matplotlib.pyplot as plot
 
+from torch.utils.data import DataLoader
 from torch.optim import Adam
 from sklearn.metrics import confusion_matrix
 
@@ -53,6 +54,9 @@ if __name__ == '__main__':
     coverage_matrix.iloc[:, total_elements] = coverage_matrix.iloc[:, total_elements].replace(['+','-'],[0,1])
     test_coverage_data = torch.tensor(coverage_matrix.iloc[:, 0:total_elements].values)
     test_execution_results = torch.tensor(coverage_matrix.iloc[:, total_elements].values)
+    
+    test_coverage_loader = DataLoader(test_coverage_data, batch_size=128, shuffle=False)
+    test_results_loader = DataLoader(test_execution_results, batch_size=128, shuffle=False)
 
     # Testing Data
     virtual_coverage_matrix = np.zeros((total_elements, total_elements), dtype=int)
@@ -72,22 +76,24 @@ if __name__ == '__main__':
     # Run Model
     for epoch in range(epochs):
         train_corr = 0
-        test_corr = 0
     
         # Train Model
-        y_pred = model(test_coverage_data.float())
-        loss = criterion(y_pred.squeeze(), test_execution_results.float())
-            
-        #predicted = torch.max(y_pred.data, 1)
-        predicted = torch.round(y_pred.data).long().squeeze()
-        train_corr = (predicted == test_execution_results).sum()
-            
-        optimizer.zero_grad()
-        loss.backward()
-        optimizer.step()
-            
-        train_losses.append(loss)
-        train_correct.append(train_corr)
+        test_results_iter = iter(test_results_loader)
+        for b, test_coverage_batch in enumerate(test_coverage_loader):
+            test_result_batch = next(test_results_iter)
+            y_pred = model(test_coverage_batch.float())
+            loss = criterion(y_pred.squeeze(), test_result_batch.float())
+                
+            #predicted = torch.max(y_pred.data, 1)
+            predicted = torch.round(y_pred.data).long().squeeze()
+            train_corr = (predicted == test_result_batch).sum()
+                
+            optimizer.zero_grad()
+            loss.backward()
+            optimizer.step()
+                
+            train_losses.append(loss)
+            train_correct.append(train_corr)
         
     # Test Model
     with torch.no_grad():
