@@ -12,6 +12,7 @@ import matplotlib.pyplot as plot
 
 from torch.utils.data import DataLoader
 from torch.optim import Adam
+from pytorchtools import EarlyStopping
 from sklearn.metrics import confusion_matrix
 
 class MultilayerPerceptron(neural_network.Module):
@@ -39,7 +40,7 @@ if __name__ == '__main__':
     
     # Load Data    
     parser = argparse.ArgumentParser()
-    parser.add_argument('--matrix', required=True, help='path to the coverage/kill-matrix')
+    parser.add_argument('--matrix', required=True, help='path to the coverage-matrix')
     parser.add_argument('--element-names', required=True, help='file enumerating names for matrix columns')
     parser.add_argument('--element-type', required=True, choices=['Statement', 'DUA'], help='file enumerating names for matrix columns')
     parser.add_argument('--output', required=True, help='file to write suspiciousness vector to')
@@ -68,6 +69,7 @@ if __name__ == '__main__':
     model = MultilayerPerceptron(total_elements)
     criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001)
+    early_stopping = EarlyStopping(patience=20, delta=0.01, verbose=True)
     
     epochs = 200
     train_losses = []
@@ -92,8 +94,24 @@ if __name__ == '__main__':
             loss.backward()
             optimizer.step()
                 
-            train_losses.append(loss)
+            train_losses.append(loss.item())
             train_correct.append(train_corr)
+            
+        # Calculate average loss over an epoch
+        train_loss = np.average(train_losses)
+        # clear lists to track next epoch
+        train_losses = []
+        
+        epoch_len = len(str(epochs))
+        print_msg = (f'[{epoch:>{epoch_len}}/{epochs:>{epoch_len}}] ' +
+                     f'train_loss: {train_loss:.5f}')
+        print(print_msg)
+        
+        # early_stopping uses the training loss to check if it has decresed
+        early_stopping(train_loss, model)
+        if early_stopping.early_stop:
+            print("Early stopping")
+            break
         
     # Test Model
     with torch.no_grad():
