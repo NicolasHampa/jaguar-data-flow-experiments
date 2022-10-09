@@ -12,6 +12,7 @@ import matplotlib.pyplot as plot
 
 from torch.utils.data import DataLoader
 from torch.optim import Adam
+from torch.optim.lr_scheduler import ReduceLROnPlateau
 from pytorchtools import EarlyStopping
 from sklearn.metrics import confusion_matrix
 
@@ -70,6 +71,7 @@ if __name__ == '__main__':
     criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001)
     early_stopping = EarlyStopping(patience=20, delta=0.01, verbose=True)
+    scheduler=ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     
     epochs = 200
     train_losses = []
@@ -112,6 +114,8 @@ if __name__ == '__main__':
         if early_stopping.early_stop:
             print("Early stopping")
             break
+        
+        scheduler.step(train_loss)
         
     # Test Model
     with torch.no_grad():
