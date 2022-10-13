@@ -131,3 +131,6 @@ dmypy.json
 
 # Pyre type checker
 .pyre/
+
+model-fold-*.pth
+checkpoint.pt
