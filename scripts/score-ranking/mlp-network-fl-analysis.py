@@ -57,8 +57,9 @@ if __name__ == '__main__':
     test_execution_results = coverage_matrix.iloc[:, total_elements].values
     
     # Split (train)
-    x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, 
-                                                        train_size=0.7, stratify=test_execution_results)
+    # x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, 
+    #                                                     train_size=0.7, stratify=test_execution_results)
+    x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, train_size=0.7)
     train_set = np.c_[x_train, y_train]
     test_set = np.c_[x_test, y_test]
     
@@ -71,13 +72,15 @@ if __name__ == '__main__':
     
     # Prepare Model
     model = MultilayerPerceptron(total_elements)
-    criterion = neural_network.CrossEntropyLoss()
+    criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001)
-    early_stopping = EarlyStopping(patience=20, delta=0.01, verbose=True)
-    scheduler=ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
-        
+    early_stopping = EarlyStopping(patience=10, delta=0.01, verbose=True)
+    #scheduler=ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
+    
+    # to track the training loss as the model trains
     train_losses = []
-    train_correct = []
+    # to track the validation loss as the model trains
+    valid_losses = []
         
     # Run Model
     for epoch in range(epochs):
@@ -101,25 +104,6 @@ if __name__ == '__main__':
             optimizer.step()
                 
             train_losses.append(loss.item())
-            train_correct.append(train_corr)
-                
-        # Calculate average loss over an epoch
-        train_loss = np.average(train_losses)
-        # clear lists to track next epoch
-        train_losses = []
-        
-        epoch_len = len(str(epochs))
-        print_msg = (f'[{epoch:>{epoch_len}}/{epochs:>{epoch_len}}] ' +
-                    f'train_loss: {train_loss:.5f}')
-        print(print_msg)
-        
-        # early_stopping uses the training loss to check if it has decresed
-        early_stopping(train_loss, model)
-        if early_stopping.early_stop:
-            print("Early stopping")
-            break
-            
-        scheduler.step(train_loss)
         
         # Test Model
         correct, total = 0, 0
@@ -132,6 +116,12 @@ if __name__ == '__main__':
 
                 # Generate outputs
                 outputs = model(inputs.float())
+                
+                # calculate the loss
+                loss = criterion(outputs.squeeze(), targets.float())
+                
+                # record validation loss
+                valid_losses.append(loss.item())
 
                 # Set total and correct
                 predicted = torch.round(outputs.data).long().squeeze()
@@ -141,6 +131,33 @@ if __name__ == '__main__':
             # Print accuracy
             print('Accuracy: %d %%' % (100.0 * correct / total))
             print('--------------------------------')
+            
+            #scheduler.step(np.average(valid_losses))
+        
+        # print training/validation statistics 
+        # calculate average loss over an epoch
+        train_loss = np.average(train_losses)
+        valid_loss = np.average(valid_losses)
+        
+        epoch_len = len(str(epochs))
+        
+        print_msg = (f'[{epoch:>{epoch_len}}/{epochs:>{epoch_len}}] ' +
+                     f'train_loss: {train_loss:.5f} ' +
+                     f'valid_loss: {valid_loss:.5f}')
+        
+        print(print_msg)
+        
+        # clear lists to track next epoch
+        train_losses = []
+        valid_losses = []
+        
+        # early_stopping needs the validation loss to check if it has decresed, 
+        # and if it has, it will make a checkpoint of the current model
+        early_stopping(valid_loss, model)
+        
+        if early_stopping.early_stop:
+            print("Early stopping")
+            break
          
     # Build Virtual Coverage Matrix For Fault Prediction
     virtual_coverage_matrix = np.zeros((total_elements, total_elements), dtype=int)
