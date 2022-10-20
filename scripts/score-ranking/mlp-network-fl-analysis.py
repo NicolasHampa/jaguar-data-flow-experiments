@@ -53,13 +53,24 @@ if __name__ == '__main__':
     coverage_matrix = pd.read_csv(args.matrix, sep=" ", header=None)
     total_elements = coverage_matrix.shape[1] - 1
     coverage_matrix.iloc[:, total_elements] = coverage_matrix.iloc[:, total_elements].replace(['+','-'],[0,1])
+
+    # Oversampling of failing test executions
+    failed_test_cases = []
+    for test_case_coverage in coverage_matrix.values:
+        if test_case_coverage[-1] == 1:
+            failed_test_cases.append(test_case_coverage)      
+
+    index = coverage_matrix.index.size
+    for test_case_coverage in failed_test_cases:
+        coverage_matrix.loc[index] = test_case_coverage
+        index += 1
+
     test_coverage_data = coverage_matrix.iloc[:, 0:total_elements].values
     test_execution_results = coverage_matrix.iloc[:, total_elements].values
     
     # Split (train)
-    # x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, 
-    #                                                     train_size=0.7, stratify=test_execution_results)
-    x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, train_size=0.7)
+    x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, 
+                                                        train_size=0.7, stratify=test_execution_results)
     train_set = np.c_[x_train, y_train]
     test_set = np.c_[x_test, y_test]
     
@@ -67,8 +78,8 @@ if __name__ == '__main__':
     epochs = 200
         
     # Define data loaders for training and testing data in this fold
-    trainloader = DataLoader(train_set, batch_size=128)
-    testloader = DataLoader(test_set, batch_size=32)
+    trainloader = DataLoader(train_set, batch_size=10000)
+    testloader = DataLoader(test_set, batch_size=10000)
     
     # Prepare Model
     model = MultilayerPerceptron(total_elements)
