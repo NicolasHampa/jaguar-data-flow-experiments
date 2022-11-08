@@ -13,7 +13,6 @@ import matplotlib.pyplot as plot
 from pytorchtools import EarlyStopping
 from torch.utils.data import DataLoader
 from torch.optim import Adam
-from torch.optim.lr_scheduler import ReduceLROnPlateau
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import confusion_matrix
 
@@ -62,7 +61,7 @@ if __name__ == '__main__':
     test_set = np.c_[x_test, y_test]
     
     # Max epochs to iterate
-    epochs = 250
+    epochs = 200
         
     # Define data loaders for training and testing data in this fold
     trainloader = DataLoader(train_set, batch_size=10000)
@@ -71,14 +70,12 @@ if __name__ == '__main__':
     # Prepare Model
     model = MultilayerPerceptron(total_elements)
     criterion = neural_network.MSELoss()
-    optimizer = Adam(model.parameters(), lr = 0.0001) # 0.001
-    early_stopping = EarlyStopping(patience=20, delta=0.001, verbose=True) #0.0001
+    optimizer = Adam(model.parameters(), lr = 0.001) # 0.001
+    early_stopping = EarlyStopping(patience=10, delta=0.001, verbose=True) #0.0001
     #scheduler=ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     
     # to track the training loss as the model trains
     train_losses = []
-    # to track the validation loss as the model trains
-    valid_losses = []
         
     # Run Model
     for epoch in range(epochs):
@@ -117,6 +114,10 @@ if __name__ == '__main__':
         early_stopping(train_loss, model)
         
         if early_stopping.early_stop:
+            print("Early stopping")
+            break
+        
+        if train_loss < 0.001:
             print("Early stopping")
             break
          
