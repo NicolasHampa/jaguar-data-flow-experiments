@@ -54,24 +54,14 @@ if __name__ == '__main__':
     test_coverage_data = torch.tensor(coverage_matrix.iloc[:, 0:total_elements].values)
     test_execution_results = torch.tensor(coverage_matrix.iloc[:, total_elements].values)
     
-    # Split (train)
-    x_train, x_test, y_train, y_test = train_test_split(test_coverage_data, test_execution_results, 
-                                                        train_size=0.7) #, stratify=test_execution_results)
-    train_set = np.c_[x_train, y_train]
-    test_set = np.c_[x_test, y_test]
-    
     # Max epochs to iterate
     epochs = 200
-        
-    # Define data loaders for training and testing data in this fold
-    trainloader = DataLoader(train_set, batch_size=10000)
-    testloader = DataLoader(test_set, batch_size=10000)
     
     # Prepare Model
     model = MultilayerPerceptron(total_elements)
     criterion = neural_network.MSELoss()
     optimizer = Adam(model.parameters(), lr = 0.001) # 0.001
-    early_stopping = EarlyStopping(patience=10, delta=0.001, verbose=True) #0.0001
+    early_stopping = EarlyStopping(patience=40, delta=0.0001, verbose=True) #0.0001
     #scheduler=ReduceLROnPlateau(optimizer, mode='min', factor=0.1, patience=10, verbose=True)
     
     # to track the training loss as the model trains
