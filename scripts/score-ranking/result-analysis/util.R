@@ -24,7 +24,8 @@ total_defs     <- c("elements", "tests")
 hybrid_schemes <- c("mirror", "constant", "numerator")
 kill_defs      <- c("passfail", "exact", "type+message", "type", "all", "type+message+location")
 agg_defs       <- c("avg", "max")
-scoring_schemes<- c("first", "last", "median")
+#scoring_schemes<- c("first", "last", "median")
+scoring_schemes<- c("first")
 scoring_metrics<- c("ScoreWRTLoadedClasses", "RANK")
 agg_functions  <- c("mean")
 
@@ -121,8 +122,9 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
 # technique, using '_' as separator.
 #
 getAllTechniques <- function(df) {
-    techniques <- unique(paste(df$Family,df$Formula,df$TotalDefn,df$KillDefn,df$HybridScheme,df$AggregationDefn,sep="_"))
-
+    #techniques <- unique(paste(df$Family,df$Formula,df$TotalDefn,df$KillDefn,df$HybridScheme,df$AggregationDefn,sep="_"))
+    techniques <- unique(paste(df$Family,df$Formula,df$TotalDefn,sep="_"))
+  
     return(techniques)
 }
 
@@ -144,10 +146,16 @@ aggColumn <- function(df, agg_column, agg_function) {
         stop(paste("Aggregate column", agg_column, "doesn't exist in provided data frame!"))
     }
     # Dynamically generate formula for given agg_column
+    #formula <- as.formula(paste(agg_column,
+    #                            "TestSuite + ScoringScheme + Family + FamilyMacro +
+    #                             Technique + FLT + Formula + TotalDefn + KillDefn +
+    #                             HybridScheme + AggregationDefn + FormulaMacro",
+    #                            sep=" ~ "))
+    
+    # Dynamically generate formula for given agg_column
     formula <- as.formula(paste(agg_column,
-                                "TestSuite + ScoringScheme + Family + FamilyMacro +
-                                 Technique + FLT + Formula + TotalDefn + KillDefn +
-                                 HybridScheme + AggregationDefn + FormulaMacro",
+                                "TestSuite + ScoringScheme + Family +
+                                 Technique + FLT + Formula + TotalDefn",
                                 sep=" ~ "))
 
     agg_data <- aggregate(formula,
@@ -199,13 +207,16 @@ getFormulaMacro <- function(formula) {
 # Helper function to format a FL technique (to be used in a LaTex table)
 #
 formatTechnique <- function(df) {
+    #return(gsub("none", "\\\\defNone",
+    #    (paste(df[["FamilyMacro"]],
+    #           df[["FormulaMacro"]],
+    #           df[["TotalDefn"]],
+    #           getKillDefnMacro(df[["KillDefn"]]),
+    #           df[["AggregationDefn"]],
+    #           df[["HybridScheme"]], sep=" & "))))
+  
     return(gsub("none", "\\\\defNone",
-        (paste(df[["FamilyMacro"]],
-               df[["FormulaMacro"]],
-               df[["TotalDefn"]],
-               getKillDefnMacro(df[["KillDefn"]]),
-               df[["AggregationDefn"]],
-               df[["HybridScheme"]], sep=" & "))))
+              (paste(df[["TotalDefn"]], sep=" & "))))
 }
 
 #
@@ -214,56 +225,56 @@ formatTechnique <- function(df) {
 formatRow <- function(row, col) {
     # The two techniques used in all hybrid techniques (MBFL + SBFL)
     # TODO: This should not be hard coded but rather inferred.
-    bestMBFL <- c(FamilyMacro=row[["FamilyMacro"]], FormulaMacro=getFormulaMacro("jaccard"),
-            TotalDefn="tests", KillDefn="type", AggregationDefn="avg", HybridScheme="none")
-    bestSBFL <- c(FamilyMacro=" ", FormulaMacro=getFormulaMacro("dstar2"),
-            TotalDefn="tests", KillDefn="none", AggregationDefn="none", HybridScheme="none")
+    #bestMBFL <- c(FamilyMacro=row[["FamilyMacro"]], FormulaMacro=getFormulaMacro("jaccard"),
+    #        TotalDefn="tests", KillDefn="type", AggregationDefn="avg", HybridScheme="none")
+    #bestSBFL <- c(FamilyMacro=" ", FormulaMacro=getFormulaMacro("dstar2"),
+    #        TotalDefn="tests", KillDefn="none", AggregationDefn="none", HybridScheme="none")
 
     # New hybrid techniques
-    if(isHybridFLT(row)) {
-        return(cat(
-            gsub("none", "\\\\defNone",
-                paste(
-                    row[["n"]],
-                    formatTechnique(bestMBFL),
-                    row[[col]],
-                    sep=" & ")),
-                "\\\\",
-                "\n",
-            gsub("none", "\\\\defNone",
-                paste(
-                    " ",
-                    formatTechnique(bestSBFL),
-                    " ",
-                    sep=" & ")),
-                "\\\\",
-                "\n")
-        )
-    }
+    #if(isHybridFLT(row)) {
+    #    return(cat(
+    #        gsub("none", "\\\\defNone",
+    #            paste(
+    #                row[["n"]],
+    #                formatTechnique(bestMBFL),
+    #                row[[col]],
+    #                sep=" & ")),
+    #            "\\\\",
+    #            "\n",
+    #        gsub("none", "\\\\defNone",
+    #            paste(
+    #                " ",
+    #                formatTechnique(bestSBFL),
+    #                " ",
+    #                sep=" & ")),
+    #            "\\\\",
+    #            "\n")
+    #    )
+    #}
     # Non-hybrid MCBFL and MRSBFL techniques
-    else if(isNewMutationFLT(row)) {
-        return(cat(
-            gsub("none", "\\\\defNone",
-                paste(
-                    row[["n"]],
-                    formatTechnique(bestMBFL),
-                    row[[col]],
-                    sep=" & ")),
-                "\\\\",
-                "\n"))
-    }
+    #else if(isNewMutationFLT(row)) {
+    #    return(cat(
+    #        gsub("none", "\\\\defNone",
+    #            paste(
+    #                row[["n"]],
+    #                formatTechnique(bestMBFL),
+    #                row[[col]],
+    #                sep=" & ")),
+    #            "\\\\",
+    #            "\n"))
+    #}
     # Traditional SBFL and MBFL techniques
-    else {
-        return(cat(
-            gsub("none", "\\\\defNone",
-                paste(
-                    row[["n"]],
-                    formatTechnique(row),
-                    row[[col]],
-                    sep=" & ")),
-                "\\\\",
-                "\n"))
-    }
+    #else {
+    return(cat(
+        gsub("none", "\\\\defNone",
+            paste(
+                row[["n"]],
+                formatTechnique(row),
+                row[[col]],
+                sep=" & ")),
+            "\\\\",
+            "\n"))
+    #}
 }
 
 #
@@ -349,7 +360,8 @@ printTukeyResultsMatrix <- function(tukeyTab, factors, alpha=0.05) {
 # Cast data representation from long to wide, i.e., one column per technique.
 #
 castAll <- function(df, agg_column) {
-    casted <- dcast(setDT(df), Project + Bug ~ TestSuite + ScoringScheme + Family + Formula + TotalDefn + KillDefn + HybridScheme + AggregationDefn, value.var=agg_column)
+    #casted <- dcast(setDT(df), Project + Bug ~ TestSuite + ScoringScheme + Family + Formula + TotalDefn + KillDefn + HybridScheme + AggregationDefn, value.var=agg_column)
+    casted <- dcast(setDT(df), Project + Bug ~ TestSuite + ScoringScheme + Family + Formula + TotalDefn, value.var=agg_column)  
     return(casted)
 }
 
