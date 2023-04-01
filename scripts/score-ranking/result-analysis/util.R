@@ -974,8 +974,8 @@ averageTopN <- function(ScoreAbs) {
 # columns: ScoringScheme, Real, FLT, AvgTopN
 #
 rankTopN <- function(df) {
-    agg <- aggregate(ScoreAbs ~ ScoringScheme + Real + FLT, data=df, FUN=function(x) averageTopN(x))
-    agg <- agg[with(agg, order(Real, ScoringScheme, -ScoreAbs)),]
+    agg <- aggregate(ScoreAbs ~ ScoringScheme + Real + Family + FLT, data=df, FUN=function(x) averageTopN(x))
+    agg <- agg[with(agg, order(Real, Family, ScoringScheme, -ScoreAbs)),]
     names(agg)[names(agg) == "ScoreAbs"] <- "AvgTopN"
 
     return(agg)

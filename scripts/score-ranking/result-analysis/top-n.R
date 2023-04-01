@@ -6,7 +6,7 @@
 
 # Read file name of the data file and the output directory
 #data_file <- "/home/nicolas/GitRepo/fault-localization-data/data/scores_real_exploration.csv"
-data_file <- "/home/nicolas/GitRepo/scores-gzoltar-ochiai-tarantula.csv"
+data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
 out_dir <- "/home/nicolas/GitRepo/"
 
 source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/util.R")
@@ -33,9 +33,21 @@ df <- df[df$FLT %in% flts,]
 df$ScoringScheme <- "first"
 
 rank <- rankTopN(df)
-for (scheme in c("first", "last", "median")) {
-    sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T,]$FLT
-    cat("FLTs sorted (", scheme, "): ", sorted, "\n", file=stderr())
+#for (scheme in c("first", "last", "median")) {
+for (scheme in c("first")) {
+    #sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T,]$FLT
+    sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T, c("FLT", "Family")]
+    families <- levels(rank[rank$ScoringScheme==scheme & rank$Real==T,]$Family)
+    #cat("FLTs sorted (", scheme, "): ", sorted, "\n", file=stderr())
+    
+    for (row in 1:nrow(sorted)) {
+      flt <- sorted[row, "FLT"]
+      family <- sorted[row, "Family"]
+      
+      cat("FLTs sorted (", scheme, "): ", flt, " - ", levels(family)[family], "\n", file=stderr())
+    }
+    
+    cat("FLTs sorted (", scheme, "): ", families, "\n", file=stderr())
 }
 
 num_real_bugs <- length(unique(df[df$Real,ID]))
@@ -64,17 +76,25 @@ sink()
 ################################################################################
 #for (scheme in c("first", "last", "median")) {
 for (scheme in c("first")) {
-    sink(paste(out_dir, "/", "top-n", initialCap(scheme), ".tex", sep=""))
-    sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T,]$FLT
-    for (flt in sorted) {
-        cat(sprintf("%20s", unique(df[df$FLT==flt,]$TechniqueMacro)))
-        mask <- df$ScoringScheme==scheme & df$Real & df$FLT==flt
-        #top5   <- nrow(df[mask & df$ScoreAbs<=5,])/num_real_bugs*100
-        #top10  <- nrow(df[mask & df$ScoreAbs<=10,])/num_real_bugs*100
-        #top200 <- nrow(df[mask & df$ScoreAbs<=200,])/num_real_bugs*100
-        top5   <- nrow(df[mask & df$ScoreAbs<=5,])
-        top10  <- nrow(df[mask & df$ScoreAbs<=10,])
-        top200 <- nrow(df[mask & df$ScoreAbs<=200,])
+    sink(paste(out_dir, "/", "top-n-", initialCap(scheme), ".tex", sep=""))
+    #sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T,]$FLT
+    sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T, c("FLT", "Family")]
+    #for (flt in sorted) {
+    for (row in 1:nrow(sorted)) {
+        flt <- sorted[row, "FLT"]
+        family <- sorted[row, "Family"]
+      
+        cat(sprintf("%20s", unique(df[df$FLT==flt & df$Family==family,]$TechniqueMacro)))
+        mask <- df$ScoringScheme==scheme & df$Real & df$FLT==flt & df$Family==family
+        top5   <- nrow(df[mask & df$ScoreAbs<=5,])/num_real_bugs*100
+        top10  <- nrow(df[mask & df$ScoreAbs<=10,])/num_real_bugs*100
+        top200 <- nrow(df[mask & df$ScoreAbs<=200,])/num_real_bugs*100
+        #top5   <- nrow(df[mask & df$ScoreAbs<=5,])
+        #top10  <- nrow(df[mask & df$ScoreAbs<=10,])
+        #top200 <- nrow(df[mask & df$ScoreAbs<=200,])
+        cat(flt, "\\%", sep="")
+        cat(" & ")
+        cat(levels(family)[family], "\\%", sep="")
         cat(" & ")
         cat(round(top5, digits=0), "\\%", sep="")
         cat(" & ")
