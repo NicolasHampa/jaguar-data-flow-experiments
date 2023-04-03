@@ -9,7 +9,7 @@ source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking
 library(ggplot2)
 library(extrafont)
 
-data_file <- "/home/nicolas/GitRepo/scores-jaguar-ochiai-tarantula-all.csv"
+data_file <- "/home/nicolas/GitRepo/scores-gzoltar-ochiai-tarantula-neural-net.csv"
 out_dir <- "/home/nicolas/GitRepo"
 
 # Read data file and add two columns
@@ -30,7 +30,7 @@ df <- df[df$FLT %in% flts,]
 metric <- "ScoreWRTLoadedClasses"
 
 # ONLY FOR MLFL!!
-#df$ScoringScheme <- "first"
+df$ScoringScheme <- "first"
 
 ################################################################################
 # Generate plots
@@ -108,24 +108,30 @@ wide <- dcast(setDT(df), "ID + Real ~ Technique", value.var=scoring_metrics)
 #
 # Comparisons made by prior studies
 #
+# comparisons <- data.frame(
+#     Better=   c("ochiai",    "barinel", "barinel",   "opt2",   "opt2",     "dstar2", "dstar2",    "ochiai",  "jaccard",   "barinel", "opt2",    "metallaxis", "muse", "muse",      "muse"),
+#     Worse=    c("tarantula", "ochiai",  "tarantula", "ochiai", "tarantula","ochiai", "tarantula", "jaccard", "tarantula", "jaccard", "jaccard", "ochiai",     "opt2", "tarantula", "jaccard"),
+#     Citations=c("\\cite{naish2011model,LeTL2013,WongDGL2014,Xuan2014,Le2015}",
+#                 "\\cite{abreu2009spectrum}",
+#                 "\\cite{abreu2009spectrum}",
+#                 "\\cite{naish2011model}",
+#                 "\\cite{naish2011model,MoonKKY2014}",
+#                 "\\cite{WongDGL2014,Le2015}",
+#                 "\\cite{WongDGL2014,Ju2014,Le2015}",
+#                 "\\cite{PapadakisLT2015}",
+#                 "\\cite{MoonKKY2014}",
+#                 "\\cite{MoonKKY2014}",
+#                 "\\cite{abreu2007accuracy,abreu2009practical,abreu2009spectrum,naish2011model,MoonKKY2014,Xuan2014}",
+#                 "\\cite{abreu2007accuracy,abreu2009practical,abreu2009spectrum,naish2011model,Xuan2014}",
+#                 "\\cite{abreu2009spectrum}",
+#                 "\\cite{naish2011model,MoonKKY2014}",
+#                 "\\cite{MoonKKY2014}"))
+
 comparisons <- data.frame(
-    Better=   c("ochiai",    "barinel", "barinel",   "opt2",   "opt2",     "dstar2", "dstar2",    "ochiai",  "jaccard",   "barinel", "opt2",    "metallaxis", "muse", "muse",      "muse"),
-    Worse=    c("tarantula", "ochiai",  "tarantula", "ochiai", "tarantula","ochiai", "tarantula", "jaccard", "tarantula", "jaccard", "jaccard", "ochiai",     "opt2", "tarantula", "jaccard"),
-    Citations=c("\\cite{naish2011model,LeTL2013,WongDGL2014,Xuan2014,Le2015}",
-                "\\cite{abreu2009spectrum}",
-                "\\cite{abreu2009spectrum}",
-                "\\cite{naish2011model}",
-                "\\cite{naish2011model,MoonKKY2014}",
-                "\\cite{WongDGL2014,Le2015}",
-                "\\cite{WongDGL2014,Ju2014,Le2015}",
-                "\\cite{PapadakisLT2015}",
-                "\\cite{MoonKKY2014}",
-                "\\cite{MoonKKY2014}",
-                "\\cite{abreu2007accuracy,abreu2009practical,abreu2009spectrum,naish2011model,MoonKKY2014,Xuan2014}",
-                "\\cite{abreu2007accuracy,abreu2009practical,abreu2009spectrum,naish2011model,Xuan2014}",
-                "\\cite{abreu2009spectrum}",
-                "\\cite{naish2011model,MoonKKY2014}",
-                "\\cite{MoonKKY2014}"))
+  Better=   c("ochiai"),
+  Worse=    c("tarantula"),
+  Citations=c("\\cite{naish2011model,LeTL2013,WongDGL2014,Xuan2014,Le2015}"))
+
 
 # Output file for the generated table
 sink(paste(out_dir, "table_replication.tex", sep="/"))
@@ -164,7 +170,8 @@ for (i in 1:length(comparisons$Better)) {
             citation))
 
     # Perform the same test for artificial and real faults
-    for (real in c(FALSE, TRUE)) {
+    #for (real in c(FALSE, TRUE)) {
+    for (real in c(TRUE)) {
         mask       <- if (real) wide$Real else !wide$Real
         flt1_score <- paste(metric, prior_winner, sep="_")
         flt2_score <- paste(metric, prior_loser, sep="_")
@@ -243,7 +250,8 @@ sink()
 sink(paste(out_dir, "macros_replication.tex", sep="/"))
 cat("\\def\\nPriorComparisons{", nrow(comparisons), "\\xspace}\n", sep="")
 
-for (real in c(TRUE, FALSE)) {
+#for (real in c(TRUE, FALSE)) {
+for (real in c(TRUE)) {
   fault_type <- ifelse(real, "Real", "Artificial")
   cat("\\def\\fractionOfPriorComparisonsWithStatSigOn", fault_type, "Faults{",
     round(100*ifelse(real, n_stat_sig_real, n_stat_sig_artf)/nrow(comparisons)),

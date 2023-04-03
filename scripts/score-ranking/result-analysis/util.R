@@ -493,7 +493,8 @@ getScoringSchemes <- function(df) {
 #######################################################################
 
 # TODO should we consider all of them or only these ones
-techniques <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "metallaxis", "jaccard")
+#techniques <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "metallaxis", "jaccard")
+techniques <- c("ochiai", "tarantula")
 
 getReal <- function(df) {
   return(df$Bug < 1000)
@@ -506,7 +507,8 @@ getCorrespondingArtificial <- function(df, project, real_bug) {
 }
 
 getTechniques <- function(df) {
-  return(as.factor(ifelse(df$KillDefn=="exact", "metallaxis", ifelse(df$KillDefn=="passfail", "muse", levels(df$Formula)[df$Formula]))))
+  #return(as.factor(ifelse(df$KillDefn=="exact", "metallaxis", ifelse(df$KillDefn=="passfail", "muse", levels(df$Formula)[df$Formula]))))
+  return(as.factor(levels(df$Formula)[df$Formula]))
 }
 
 prettifyTechniqueName <- function(techniques) {
