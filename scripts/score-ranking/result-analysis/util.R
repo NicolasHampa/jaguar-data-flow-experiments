@@ -81,9 +81,9 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data$FLT <- prettifyTechniqueName(data$Technique)
 
     # Add macros for family, formula, technique, and kill definition
-    #data$FamilyMacro  <- getFamilyMacro(data$Family)
-    #data$FormulaMacro <- getFormulaMacro(data$Formula)
-    #data$TechniqueMacro <- getTechniqueMacro(data$Technique)
+    data$FamilyMacro  <- getFamilyMacro(data$Family)
+    data$FormulaMacro <- getFormulaMacro(data$Formula)
+    data$TechniqueMacro <- getTechniqueMacro(data$Technique)
     #data$KillDefnMacro  <- getKillDefnMacro(data$KillDefn)
 
     # Explicitly set the type of factor columns to be a factor as some tests don't
@@ -91,8 +91,8 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data$TestSuite     <- as.factor(data$TestSuite)
     data$ScoringScheme <- as.factor(data$ScoringScheme)
     data$Family        <- as.factor(data$Family)
-    #data$FamilyMacro   <- as.factor(data$FamilyMacro)
-    #data$FormulaMacro  <- as.factor(data$FormulaMacro)
+    data$FamilyMacro   <- as.factor(data$FamilyMacro)
+    data$FormulaMacro  <- as.factor(data$FormulaMacro)
     #data$KillDefnMacro <- as.factor(data$KillDefnMacro)
     data$Formula       <- as.factor(data$Formula)
     data$TotalDefn     <- as.factor(data$TotalDefn)
@@ -289,6 +289,7 @@ printTechniqueTable <- function(df, col) {
 # Helper function to print anova table in LaTex format
 #
 printAnovaTable <- function(anova, factors, alpha=0.05) {
+    #browser()
     df <- data.frame(factors, anova$Df, anova$"Sum Sq", anova$"F value", anova$"Pr(>F)")
 
     colnames(df) <- c("Factor", "Df", "Sum Sq", "F", "p")
