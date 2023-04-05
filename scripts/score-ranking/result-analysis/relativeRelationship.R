@@ -37,7 +37,7 @@
 
 # Output directory for all generated files
 #out_dir <- args[6]
-out_dir <- "/home/nicolas/GitRepo/latex"
+out_dir <- "/home/nicolas/GitRepo/latex/generated"
 
 source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/util.R")
 
@@ -68,7 +68,8 @@ tournamentPointsMean <- function(wide, techniques, metric) {
 }
 
 #generateTable <- function(name, header, techniques, valuesReal, valuesArtf, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
-generateTable <- function(name, header, techniques, valuesReal, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
+#generateTable <- function(name, header, techniques, valuesReal, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
+generateTable <- function(name, header, techniques, valuesReal, valuesDF, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
     #browser()
     if(nchar(suffix) > 0) {
         name = paste(name, suffix, sep="_")
@@ -79,21 +80,26 @@ generateTable <- function(name, header, techniques, valuesReal, suffix = "", dec
     sink(TABLE, append=TRUE, split=FALSE)
     cat("\\begin{tabular}{lC{20mm}@{\\hspace{2em}}lC{20mm}}\\toprule", "\n")
     #cat("\\multicolumn{2}{c}{\\textbf{Artificial Faults}} & \\multicolumn{2}{c}{\\textbf{Real Faults}} \\\\", "\n")
-    cat("\\multicolumn{2}{c}{\\textbf{Real Faults}} \\\\", "\n")
-    #cat("\\cmidrule(r){1-2} \n")
-    #cat("\\cmidrule{3-4} \n")
-    #cat("Technique & ", header, " & Technique & ", header, "\\\\ \n")
-    cat("Technique & ", header, "\\\\ \n")
+    #cat("\\multicolumn{2}{c}{\\textbf{Real Faults}} \\\\", "\n")
+    cat("\\multicolumn{2}{c}{\\textbf{Data Flow}} & \\multicolumn{2}{c}{\\textbf{Control Flow}} \\\\", "\n")
+    cat("\\cmidrule(r){1-2} \n")
+    cat("\\cmidrule{3-4} \n")
+    cat("Technique & ", header, " & Technique & ", header, "\\\\ \n")
+    #cat("Technique & ", header, "\\\\ \n")
     cat("\\midrule","\n")
     realSorted = sort.int(valuesReal, index.return=TRUE, decreasing=decreasing)$ix
     #artfSorted = sort.int(valuesArtf, index.return=TRUE, decreasing=decreasing)$ix
+    dataFlowSorted = sort.int(valuesDF, index.return=TRUE, decreasing=decreasing)$ix
     format_char = ifelse(integer, "d", "f")
     for (i in 1:length(techniques)) {
         indexReal = realSorted[i]
         #indexArtf = artfSorted[i]
+        indexDF = dataFlowSorted[i]
         cat(
             #prettifyTechniqueName(techniques[indexArtf]), " & ",
             #formatC(valuesArtf[indexArtf], digits=digits, format=format_char), " & ",
+            prettifyTechniqueName(techniques[indexDF]), " & ",
+            formatC(valuesDF[indexDF], digits=digits, format=format_char), " & ",
             prettifyTechniqueName(techniques[indexReal]), " & ",
             formatC(valuesReal[indexReal], digits=digits, format=format_char),
             "\\\\ \n")
@@ -143,6 +149,7 @@ data_num_bugs <- list()
 #browser()
 for(data_index in 1:length(fault_type_suffix)) {
     data_name = fault_type_suffix[data_index]
+    
     # TODO: We currently shoehorn all multi-line and single-line results into
     # the tables with the rbind hack below. Make sure that the args indices are
     # correct.
@@ -154,7 +161,7 @@ for(data_index in 1:length(fault_type_suffix)) {
         # data_file = args[ifelse(data_index>4, data_index-2,
         #                  ifelse(data_index>1, data_index-1,
         #                  data_index))]
-        data_file <- "/home/nicolas/GitRepo/scores-gzoltar-ochiai-tarantula-neural-net.csv"
+        data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
         df <- readCsv(data_file)
     }
     df$Real <- getReal(df)
@@ -167,7 +174,8 @@ for(data_index in 1:length(fault_type_suffix)) {
     df$ScoringScheme <- "first"
     
     # Cast data to wide format
-    wide <- dcast(setDT(df), "ID + Real ~ Technique", value.var=scoring_metrics)
+    #wide <- dcast(setDT(df), "ID + Real ~ Technique", value.var=scoring_metrics)
+    wide <- dcast(setDT(df), "ID + Real ~ Family + Technique", value.var=scoring_metrics)
 
     real_points_mean = tournamentPointsMean(wide[wide$Real,], techniques, "ScoreWRTLoadedClasses")
     #artificial_points_mean = tournamentPointsMean(wide[!wide$Real,], techniques, "ScoreWRTLoadedClasses")
@@ -190,7 +198,8 @@ for(data_index in 1:length(fault_type_suffix)) {
 
     for (i in 1:length(techniques)) {
         real <- df[df$Real & (df$Technique==techniques[i]),]
-        artf <- df[(!df$Real) & (df$Technique==techniques[i]),]
+        real <- df[!df$Family%like%"dua",]
+        #artf <- df[(!df$Real) & (df$Technique==techniques[i]),]
         technique_summaries$RealMean[i] = mean(real$ScoreWRTLoadedClasses)
         #technique_summaries$ArtfMean[i] = mean(artf$ScoreWRTLoadedClasses)
         technique_summaries$RealRankMean[i] = mean(real$RANK)
@@ -200,20 +209,39 @@ for(data_index in 1:length(fault_type_suffix)) {
         technique_summaries$RealTopN[i] <- nrow(real[real$RANK<=5,])/num_real
         #technique_summaries$ArtfTopN[i] <- nrow(artf[artf$RANK<=5,])/num_artf
     }
+    
+    technique_summaries_df <- data.frame(
+        Technique=techniques,
+        RealPoints=real_points_mean,
+        #ArtfPoints=artificial_points_mean,
+        RealMean=rep(0, length(techniques)),
+        #ArtfMean=rep(0, length(techniques)),
+        RealRankMean=rep(0, length(techniques)),
+        #ArtfRankMean=rep(0, length(techniques)),
+        RealTopN=rep(0, length(techniques))
+        #ArtfTopN=rep(0, length(techniques))
+    )
+    
+    for (i in 1:length(techniques)) {
+        real <- df[df$Real & (df$Technique==techniques[i]),]
+        real <- df[df$Family%like%"dua",]
+        technique_summaries_df$RealMean[i] = mean(real$ScoreWRTLoadedClasses)
+        technique_summaries_df$RealRankMean[i] = mean(real$RANK)
+        num_real <- length(unique(real$ID))
+        technique_summaries_df$RealTopN[i] <- nrow(real[real$RANK<=5,])/num_real
+    }
 
-    data_all_types[[data_index]] <- technique_summaries
+    #data_all_types[[data_index]] <- technique_summaries
+    #num_bugs <- nrow(wide[wide$Real,])
+    #data_num_bugs[[data_index]] <- num_bugs
 
-    num_bugs <- nrow(wide[wide$Real,])
-    data_num_bugs[[data_index]] <- num_bugs
+    #generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, suffix = data_name, decreasing = TRUE, integer = TRUE)
+    #generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, suffix = data_name, decreasing = TRUE, integer = TRUE)
 
-    #generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, artificial_points_mean, suffix = data_name, decreasing = TRUE, integer = TRUE)
-    generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, suffix = data_name, decreasing = TRUE, integer = TRUE)
-    #generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, artificial_points_rank, suffix = data_name, decreasing = TRUE, integer = TRUE)
-    generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, suffix = data_name, decreasing = TRUE, integer = TRUE)
-    #generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, technique_summaries$ArtfMean, suffix = data_name, decreasing = FALSE)
-    generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, suffix = data_name, decreasing = FALSE)
-    #generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, technique_summaries$ArtfRankMean, digits=2, suffix = data_name, decreasing = FALSE)
-    generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, digits=2, suffix = data_name, decreasing = FALSE)
+    generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, technique_summaries_df$RealMean, suffix = data_name, decreasing = FALSE)
+    generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, technique_summaries_df$RealRankMean, digits=2, suffix = data_name, decreasing = FALSE)
+    #generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, suffix = data_name, decreasing = FALSE)
+    #generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, digits=2, suffix = data_name, decreasing = FALSE)
 }
 
 # Print a summary table, indicting which scores show a significant correlation

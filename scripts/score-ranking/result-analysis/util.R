@@ -495,7 +495,7 @@ getScoringSchemes <- function(df) {
 
 # TODO should we consider all of them or only these ones
 #techniques <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "metallaxis", "jaccard")
-techniques <- c("ochiai", "tarantula")
+techniques <- c("ochiai", "tarantula", "neural-network")
 
 getReal <- function(df) {
   return(df$Bug < 1000)

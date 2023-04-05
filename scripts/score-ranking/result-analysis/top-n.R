@@ -7,7 +7,7 @@
 # Read file name of the data file and the output directory
 #data_file <- "/home/nicolas/GitRepo/fault-localization-data/data/scores_real_exploration.csv"
 data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
-out_dir <- "/home/nicolas/GitRepo/"
+out_dir <- "/home/nicolas/GitRepo/latex/generated"
 
 source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/util.R")
 library(ggplot2)
@@ -76,6 +76,7 @@ sink()
 ################################################################################
 #for (scheme in c("first", "last", "median")) {
 for (scheme in c("first")) {
+    #browser()
     sink(paste(out_dir, "/", "top-n-", initialCap(scheme), ".tex", sep=""))
     #sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T,]$FLT
     sorted <- rank[rank$ScoringScheme==scheme & rank$Real==T, c("FLT", "Family")]
@@ -84,7 +85,7 @@ for (scheme in c("first")) {
         flt <- sorted[row, "FLT"]
         family <- sorted[row, "Family"]
       
-        cat(sprintf("%20s", unique(df[df$FLT==flt & df$Family==family,]$TechniqueMacro)))
+        #cat(sprintf("%20s", unique(df[df$FLT==flt & df$Family==family,]$TechniqueMacro)))
         mask <- df$ScoringScheme==scheme & df$Real & df$FLT==flt & df$Family==family
         top5   <- nrow(df[mask & df$ScoreAbs<=5,])/num_real_bugs*100
         top10  <- nrow(df[mask & df$ScoreAbs<=10,])/num_real_bugs*100

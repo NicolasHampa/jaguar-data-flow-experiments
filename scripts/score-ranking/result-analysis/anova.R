@@ -11,8 +11,8 @@ source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking
 #data_file <- args[1]
 #out_dir <- args[2]
 
-data_file <- "/home/nicolas/GitRepo/scores-gzoltar-ochiai-tarantula-neural-net.csv"
-out_dir <- "/home/nicolas/GitRepo/latex"
+data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
+out_dir <- "/home/nicolas/GitRepo/latex/generated"
 
 # Check number of arguments
 # if (length(args)!=2) {
@@ -30,8 +30,16 @@ sbfl <- subset(both, Family=="sbfl")
 #mbfl <- subset(both, Family=="mbfl")
 mlfl <- subset(both, Family=="mlfl")
 
+both_dua <- subset(data, (Family=="sbfl-dua"|Family=="mlfl-dua") & ScoringScheme!="mean")
+both_dua$Family <- droplevels(both_dua$Family)
+both_dua$Comb <- as.factor(paste(both_dua$Family))
+
+sbfl_dua <- subset(both_dua, Family=="sbfl-dua")
+mlfl_dua <- subset(both_dua, Family=="mlfl-dua")
+
 # ONLY FOR MLFL!!
 mlfl$ScoringScheme <- "first"
+mlfl_dua$ScoringScheme <- "first"
 
 isSigP <- function(p) {
     if(is.na(p)) {
@@ -90,6 +98,27 @@ doAnova <- function(family, df, formula, factors) {
     return(tuk_df)
 }
 
+doAnova2 <- function(family, df, formula, factors) {
+  #browser()
+  # Fit regression model and determine R^2
+  #model <- lm(formula, data=df)
+  #r2  <- signif(summary(model)$r.squared, digits=2)
+  
+  # Perfrom anova and a post-hoc test for the factor "Formula"
+  aov <- aov(formula, data=df)
+  
+  # Obtain the anova table
+  anova <- anova(aov)
+  
+  # Write the anova table    
+  #sink(paste(out_dir, "anova_R2.tex", sep="/"), append=TRUE)
+  #cat(paste("\\def\\", gsub("_", "", family), "Rsqr", sep=""), "{", r2, "}", "\n")
+  #sink()
+  sink(paste(out_dir, paste(family, "anova.tex", sep="_"), sep="/"))
+  printAnovaTable(anova, factors)
+  sink()
+}
+
 # Write file that defines the macros for the R^2 values
 sink(paste(out_dir, "anova_R2.tex", sep="/"), append=FALSE)
 
@@ -101,21 +130,39 @@ sink(paste(out_dir, "anova_R2.tex", sep="/"), append=FALSE)
 facSbfl  <- c("Defect", "Formula", "Total definition", "Residuals")
 #formSbfl <- ScoreWRTLoadedClasses ~ ID + ScoringScheme + FormulaMacro + TotalDefn
 formSbfl <- ScoreWRTLoadedClasses ~ ID + FormulaMacro + TotalDefn
-tuk_sbfl <- doAnova("sbfl", sbfl, formSbfl, facSbfl)
+#tuk_sbfl <- doAnova("sbfl", sbfl, formSbfl, facSbfl)
+doAnova2("sbfl", sbfl, formSbfl, facSbfl)
 
 #facMbfl  <- c("Defect", "\\DebuggingScenario", "Formula", "Total definition", "Interaction definition", "Aggregation definition", "Residuals")
 #formMbfl <- ScoreWRTLoadedClasses ~ ID + ScoringScheme + FormulaMacro + TotalDefn + KillDefn + AggregationDefn
 #tuk_mbfl <- doAnova("mbfl", mbfl, formMbfl, facMbfl)
 
-#facMlfl  <- c("Defect", "Residuals", "Formula")
-#formMlfl <- ScoreWRTLoadedClasses ~ ID + FormulaMacro
-#tuk_mlfl<- doAnova("mlfl", mlfl, formMlfl, facMlfl)
+facMlfl  <- c("Defect", "Residuals")
+formMlfl <- ScoreWRTLoadedClasses ~ ID
+doAnova2("mlfl", mlfl, formMlfl, facMlfl)
 
 #facAll  <- c("Defect", "\\DebuggingScenario", "Family", "Formula", "Total definition", "Residuals")
 facAll  <- c("Defect", "Family", "Formula", "Total definition", "Residuals")
 # formAll <- ScoreWRTLoadedClasses ~ ID + ScoringScheme + Comb + FormulaMacro + TotalDefn
 formAll <- ScoreWRTLoadedClasses ~ ID + Comb + FormulaMacro + TotalDefn
-tuk_both<- doAnova("sbfl_mlfl", both, formAll, facAll)
+#tuk_both<- doAnova("sbfl_mlfl", both, formAll, facAll)
+doAnova2("sbfl_mlfl", both, formAll, facAll)
+
+# ========================== #
+
+facSbfl  <- c("Defect", "Formula", "Total definition", "Residuals")
+formSbfl <- ScoreWRTLoadedClasses ~ ID + FormulaMacro + TotalDefn
+doAnova2("sbfl_dua", sbfl_dua, formSbfl, facSbfl)
+
+facMlfl  <- c("Defect", "Residuals", "Formula")
+formMlfl <- ScoreWRTLoadedClasses ~ ID + FormulaMacro
+doAnova2("mlfl_dua", mlfl_dua, formMlfl, facMlfl)
+
+facAll  <- c("Defect", "Family", "Formula", "Total definition", "Residuals")
+formAll <- ScoreWRTLoadedClasses ~ ID + Comb + FormulaMacro + TotalDefn
+doAnova2("sbfl_mlfl_dua", both_dua, formAll, facAll)
+
+# ========================== #
 
 sink(paste(out_dir, "tukey_formula_all.tex", sep="/"))
 #row <- paste(paste(gsub("-", " & ", tuk_both$Pair), tuk_sbfl$p, tuk_mbfl$p, tuk_both$p, sep=" & "), "\\\\ \n")
