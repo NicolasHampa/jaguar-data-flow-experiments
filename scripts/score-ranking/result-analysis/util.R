@@ -216,55 +216,19 @@ formatTechnique <- function(df) {
     #           df[["HybridScheme"]], sep=" & "))))
   
     return(gsub("none", "\\\\defNone",
-              (paste(df[["TotalDefn"]], sep=" & "))))
+         (paste(df[["Family"]],
+                df[["Formula"]],
+                df[["TotalDefn"]], sep=" & "))))
+
+    # return(gsub("none", "\\\\defNone",
+    #           (paste(df[["TotalDefn"]], sep=" & "))))
 }
 
 #
 # Helper function to format a complete LaTex row, showing a FL technique
 #
 formatRow <- function(row, col) {
-    # The two techniques used in all hybrid techniques (MBFL + SBFL)
-    # TODO: This should not be hard coded but rather inferred.
-    #bestMBFL <- c(FamilyMacro=row[["FamilyMacro"]], FormulaMacro=getFormulaMacro("jaccard"),
-    #        TotalDefn="tests", KillDefn="type", AggregationDefn="avg", HybridScheme="none")
-    #bestSBFL <- c(FamilyMacro=" ", FormulaMacro=getFormulaMacro("dstar2"),
-    #        TotalDefn="tests", KillDefn="none", AggregationDefn="none", HybridScheme="none")
-
-    # New hybrid techniques
-    #if(isHybridFLT(row)) {
-    #    return(cat(
-    #        gsub("none", "\\\\defNone",
-    #            paste(
-    #                row[["n"]],
-    #                formatTechnique(bestMBFL),
-    #                row[[col]],
-    #                sep=" & ")),
-    #            "\\\\",
-    #            "\n",
-    #        gsub("none", "\\\\defNone",
-    #            paste(
-    #                " ",
-    #                formatTechnique(bestSBFL),
-    #                " ",
-    #                sep=" & ")),
-    #            "\\\\",
-    #            "\n")
-    #    )
-    #}
-    # Non-hybrid MCBFL and MRSBFL techniques
-    #else if(isNewMutationFLT(row)) {
-    #    return(cat(
-    #        gsub("none", "\\\\defNone",
-    #            paste(
-    #                row[["n"]],
-    #                formatTechnique(bestMBFL),
-    #                row[[col]],
-    #                sep=" & ")),
-    #            "\\\\",
-    #            "\n"))
-    #}
-    # Traditional SBFL and MBFL techniques
-    #else {
+    # SBFL and MLFL techniques
     return(cat(
         gsub("none", "\\\\defNone",
             paste(
@@ -274,7 +238,6 @@ formatRow <- function(row, col) {
                 sep=" & ")),
             "\\\\",
             "\n"))
-    #}
 }
 
 #

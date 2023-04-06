@@ -10,9 +10,8 @@
 #data_file <- args[1]
 #out_dir <- args[2]
 
-#data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
-data_file <- "/home/nicolas/GitRepo/scores-gzoltar-ochiai-tarantula.csv"
-out_dir <- "/home/nicolas/GitRepo/"
+data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
+out_dir <- "/home/nicolas/GitRepo/latex/generated"
 
 # Optional parameter: output the top-n techniques
 N <- ifelse(length(args)==3, as.numeric(args[3]), 25)
@@ -179,9 +178,6 @@ data_long$ScoringScheme <- "first"
 
 # Compute best technique for all families
 get_top_n(data_long, N)
-compare_best(data_long)
 
-# Compute best technique for all sbfl and mbfl only
-data_long <- data_long[Family=='sbfl'|Family=='mbfl']
-get_top_n(data_long, N, "sbfl_mbfl_")
-compare_best(data_long, "sbfl_mbfl_")
+#TODO: sanityCheck scoring files
+compare_best(data_long)
