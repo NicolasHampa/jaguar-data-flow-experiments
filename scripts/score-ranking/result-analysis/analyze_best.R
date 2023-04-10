@@ -6,12 +6,15 @@
 #
 
 # Read file name of the data file and the output directory
-#args <- commandArgs(trailingOnly = TRUE)
-#data_file <- args[1]
-#out_dir <- args[2]
+args <- commandArgs(trailingOnly = TRUE)
 
-data_file <- "/home/nicolas/GitRepo/scores-gzoltar-jaguar-ochiai-tarantula-neural-net.csv"
-out_dir <- "/home/nicolas/GitRepo/latex/generated"
+if (length(args)!=2) {
+  stop("usage: Rscript analyze_best.R <data_file> <out_dir>")
+}
+
+data_file <- args[1]
+out_dir <- args[2]
+
 
 # Optional parameter: output the top-n techniques
 N <- ifelse(length(args)==3, as.numeric(args[3]), 25)
@@ -173,11 +176,11 @@ compare_best <- function(data_long, prefix="") {
 # Read the data file into a data frame
 data_long <- readCsv(data_file, getArtificial=FALSE)
 
-# ONLY FOR MLFL!!
-data_long$ScoringScheme <- "first"
+# TODO: Fix ScoringScheme for mlfl family
+data_long$ScoringScheme[data_long$Family%like%"mlfl"] <- "first"
 
 # Compute best technique for all families
 get_top_n(data_long, N)
 
 #TODO: sanityCheck scoring files
-compare_best(data_long)
+#compare_best(data_long)
