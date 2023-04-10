@@ -6,13 +6,14 @@
 
 # Read file name of the data file and the output directory
 args <- commandArgs(trailingOnly = TRUE)
-data_file <- args[1]
-out_dir <- args[2]
 
 # Check number of arguments
 if (length(args)!=2) {
   stop("usage: Rscript replication.R <data_file> <out_dir>")
 }
+
+data_file <- args[1]
+out_dir <- args[2]
 
 source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/util.R")
 library(ggplot2)
