@@ -10,19 +10,7 @@ require(data.table)
 require(effsize)
 
 # Levels for all FL technique features and considered scoring schemes
-# formulas       <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "jaccard")
-formulas       <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "jaccard",
-                    "ochiai2", "opt1", "gp02", "gp03", "gp13", "gp19", "anderberg", "dice",
-                    "sorensen_dice", "goodman", "qe", "cbi_inc", "cbi_sqrt", "cbi_log",
-                    "wong1", "wong2", "wong3", "hamann", "simple_matching", "sokal",
-                    "rogers_tanimoto", "hamming", "euclid", "russell_rao", "binary",
-                    "scott", "rogot1", "rogot2", "kulczynski1", "kulczynski2", "m1", "m2",
-                    "ample", "ample2", "arithmetic_mean", "geometric_mean", "harmonic_mean",
-                    "cohen", "fleiss", "braun_banquet", "mountford", "gower", "michael",
-                    "pierce", "baroni_urbani_buser", "zoltar", "overlap")
 total_defs     <- c("elements", "tests")
-hybrid_schemes <- c("mirror", "constant", "numerator")
-kill_defs      <- c("passfail", "exact", "type+message", "type", "all", "type+message+location")
 agg_defs       <- c("avg", "max")
 #scoring_schemes<- c("first", "last", "median")
 scoring_schemes<- c("first")
@@ -43,7 +31,6 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data <- fread(file_name)
     stopifnot(nrow(data) > 0)
     mask <- if(getReal) data$Bug<1000 else FALSE
-    mask <- mask | if (getArtificial) data$Bug>1000 else FALSE
     data <- data[mask,]
     data$RealBugId <- as.integer(lapply(data$Bug, getRealBugId))
     # Add sloc information and recover the absolute score
@@ -65,10 +52,6 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     ochiai              <- data$Family%like%"sbfl" & data$Formula=="ochiai"              & data$TotalDefn=="tests"
     tarantula           <- data$Family%like%"sbfl" & data$Formula=="tarantula"           & data$TotalDefn=="tests"
     
-    # Existing MBFL techniques
-    metallaxis <- data$Family=="mbfl" & data$Formula=="ochiai"   & data$TotalDefn=="tests"    & data$KillDefn=="exact"    & data$AggregationDefn=="max"
-    muse       <- data$Family=="mbfl" & data$Formula=="muse"     & data$TotalDefn=="elements" & data$KillDefn=="passfail" & data$AggregationDefn=="avg"
-    
     # Existing MLFL techniques
     neuralnetwork              <- data$Family%like%"mlfl" & data$Formula=="neural-network"
     
@@ -84,7 +67,6 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data$FamilyMacro  <- getFamilyMacro(data$Family)
     data$FormulaMacro <- getFormulaMacro(data$Formula)
     data$TechniqueMacro <- getTechniqueMacro(data$Technique)
-    #data$KillDefnMacro  <- getKillDefnMacro(data$KillDefn)
 
     # Explicitly set the type of factor columns to be a factor as some tests don't
     # automatically convert character columns.
@@ -93,12 +75,8 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data$Family        <- as.factor(data$Family)
     data$FamilyMacro   <- as.factor(data$FamilyMacro)
     data$FormulaMacro  <- as.factor(data$FormulaMacro)
-    #data$KillDefnMacro <- as.factor(data$KillDefnMacro)
     data$Formula       <- as.factor(data$Formula)
     data$TotalDefn     <- as.factor(data$TotalDefn)
-    #data$KillDefn      <- as.factor(data$KillDefn)
-    #data$AggregationDefn <- as.factor(data$AggregationDefn)
-    #data$HybridScheme  <- as.factor(data$HybridScheme)
 
     # Rank the EXAM scores.
     # TODO: which of the following tie breakers makes the most sense:
@@ -110,9 +88,6 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     # Add a unique bug ID -> "Project Bug"
     data$ID <- as.factor(paste(data$Project,data$Bug))
 
-    # Indicate whether the fault is a real fault
-    #data$IS_REAL <- getReal(data)
-
     return(data)
 }
 
@@ -122,7 +97,6 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
 # technique, using '_' as separator.
 #
 getAllTechniques <- function(df) {
-    #techniques <- unique(paste(df$Family,df$Formula,df$TotalDefn,df$KillDefn,df$HybridScheme,df$AggregationDefn,sep="_"))
     techniques <- unique(paste(df$Family,df$Formula,df$TotalDefn,sep="_"))
   
     return(techniques)
@@ -145,12 +119,6 @@ aggColumn <- function(df, agg_column, agg_function) {
     if (! agg_column %in% colnames(df)) {
         stop(paste("Aggregate column", agg_column, "doesn't exist in provided data frame!"))
     }
-    # Dynamically generate formula for given agg_column
-    #formula <- as.formula(paste(agg_column,
-    #                            "TestSuite + ScoringScheme + Family + FamilyMacro +
-    #                             Technique + FLT + Formula + TotalDefn + KillDefn +
-    #                             HybridScheme + AggregationDefn + FormulaMacro",
-    #                            sep=" ~ "))
     
     # Dynamically generate formula for given agg_column
     formula <- as.formula(paste(agg_column,
@@ -207,21 +175,10 @@ getFormulaMacro <- function(formula) {
 # Helper function to format a FL technique (to be used in a LaTex table)
 #
 formatTechnique <- function(df) {
-    #return(gsub("none", "\\\\defNone",
-    #    (paste(df[["FamilyMacro"]],
-    #           df[["FormulaMacro"]],
-    #           df[["TotalDefn"]],
-    #           getKillDefnMacro(df[["KillDefn"]]),
-    #           df[["AggregationDefn"]],
-    #           df[["HybridScheme"]], sep=" & "))))
-  
     return(gsub("none", "\\\\defNone",
          (paste(df[["Family"]],
                 df[["Formula"]],
                 df[["TotalDefn"]], sep=" & "))))
-
-    # return(gsub("none", "\\\\defNone",
-    #           (paste(df[["TotalDefn"]], sep=" & "))))
 }
 
 #
@@ -252,7 +209,6 @@ printTechniqueTable <- function(df, col) {
 # Helper function to print anova table in LaTex format
 #
 printAnovaTable <- function(anova, factors, alpha=0.05) {
-    #browser()
     df <- data.frame(factors, anova$Df, anova$"Sum Sq", anova$"F value", anova$"Pr(>F)")
 
     colnames(df) <- c("Factor", "Df", "Sum Sq", "F", "p")
@@ -324,7 +280,6 @@ printTukeyResultsMatrix <- function(tukeyTab, factors, alpha=0.05) {
 # Cast data representation from long to wide, i.e., one column per technique.
 #
 castAll <- function(df, agg_column) {
-    #casted <- dcast(setDT(df), Project + Bug ~ TestSuite + ScoringScheme + Family + Formula + TotalDefn + KillDefn + HybridScheme + AggregationDefn, value.var=agg_column)
     casted <- dcast(setDT(df), Project + Bug ~ TestSuite + ScoringScheme + Family + Formula + TotalDefn, value.var=agg_column)  
     return(casted)
 }
@@ -430,17 +385,6 @@ typesetCI <- function(lwr, upr) {
 }
 
 #
-# Retain only artificial and real faults that can be paired on a real fault.
-#
-getPairedRealBugIds <- function(df) {
-    tmp <- df
-    tmp$REAL_ID <- paste(tmp$Project, tmp$RealBugId, sep="-")
-    paired <- intersect(unique(tmp[tmp$IS_REAL,]$REAL_ID),
-                        unique(tmp[!tmp$IS_REAL,]$REAL_ID))
-    return(paired)
-}
-
-#
 # Returns descriptive names for the three scoring schemes (first, median, last)
 #
 getScoringSchemes <- function(df) {
@@ -453,25 +397,16 @@ getScoringSchemes <- function(df) {
 }
 
 #######################################################################
-## Less well-documented stuff from the replication using artificial faults
+## Less well-documented stuff from the replication
 #######################################################################
 
-# TODO should we consider all of them or only these ones
-#techniques <- c("ochiai", "barinel", "muse", "dstar2", "opt2", "tarantula", "metallaxis", "jaccard")
 techniques <- c("ochiai", "tarantula", "neural-network")
 
 getReal <- function(df) {
   return(df$Bug < 1000)
 }
 
-getCorrespondingArtificial <- function(df, project, real_bug) {
-  return((df$Project==project)
-         & (df$Bug > real_bug*1e5)
-         & (df$Bug < (real_bug+1)*1e5))
-}
-
 getTechniques <- function(df) {
-  #return(as.factor(ifelse(df$KillDefn=="exact", "metallaxis", ifelse(df$KillDefn=="passfail", "muse", levels(df$Formula)[df$Formula]))))
   return(as.factor(levels(df$Formula)[df$Formula]))
 }
 
@@ -481,130 +416,8 @@ prettifyTechniqueName <- function(techniques) {
 prettifyTechniqueNameX <- function(technique) {
   if (technique=="ochiai") { # SBFL
     return ("Ochiai")
-  } else if (technique=="barinel") {
-    return ("Barinel")
-  } else if (technique=="dstar2") {
-    return ("DStar")
-  } else if (technique=="opt2") {
-    return ("Op2")
   } else if (technique=="tarantula") {
     return ("Tarantula")
-  } else if (technique=="jaccard") {
-    return ("Jaccard")
-  } else if (technique=="ochiai2") {
-    return ("Ochiai2")
-  } else if (technique=="opt1") {
-    return ("Op1")
-  } else if (technique=="gp02") {
-    return ("GP02")
-  } else if (technique=="gp03") {
-    return ("GP03")
-  } else if (technique=="gp13") {
-    return ("GP13")
-  } else if (technique=="gp19") {
-    return ("GP19")
-  } else if (technique=="anderberg") {
-    return ("Anderberg")
-  } else if (technique=="dice") {
-    return ("Dice")
-  } else if (technique=="sorensen_dice") {
-    return ("Sorensen-Dice")
-  } else if (technique=="goodman") {
-    return ("Goodman")
-  } else if (technique=="qe") {
-    return ("Qe")
-  } else if (technique=="cbi_inc") {
-    return ("CBIInc.")
-  } else if (technique=="cbi_sqrt") {
-    return ("CBISqrt")
-  } else if (technique=="cbi_log") {
-    return ("CBILog")
-  } else if (technique=="wong1") {
-    return ("Wong1")
-  } else if (technique=="wong2") {
-    return ("Wong2")
-  } else if (technique=="wong3") {
-    return ("Wong3")
-  } else if (technique=="hamann") {
-    return ("Hamann")
-  } else if (technique=="simple_matching") {
-    return ("SimpleMatching")
-  } else if (technique=="sokal") {
-    return ("Sokal")
-  } else if (technique=="rogers_tanimoto") {
-    return ("Rogers-Tanimoto")
-  } else if (technique=="hamming") {
-    return ("Hamming")
-  } else if (technique=="euclid") {
-    return ("Euclid")
-  } else if (technique=="russell_rao") {
-    return ("Russell-Rao")
-  } else if (technique=="binary") {
-    return ("Binary")
-  } else if (technique=="scott") {
-    return ("Scott")
-  } else if (technique=="rogot1") {
-    return ("Rogot1")
-  } else if (technique=="rogot2") {
-    return ("Rogot2")
-  } else if (technique=="kulczynski1") {
-    return ("Kulczynski1")
-  } else if (technique=="kulczynski2") {
-    return ("Kulczynski2")
-  } else if (technique=="m1") {
-    return ("M1")
-  } else if (technique=="m2") {
-    return ("M2")
-  } else if (technique=="ample") {
-    return ("Ample")
-  } else if (technique=="ample2") {
-    return ("Ample2")
-  } else if (technique=="arithmetic_mean") {
-    return ("ArithmeticMean")
-  } else if (technique=="geometric_mean") {
-    return ("GeometricMean")
-  } else if (technique=="harmonic_mean") {
-    return ("HarmonicMean")
-  } else if (technique=="cohen") {
-    return ("Cohen")
-  } else if (technique=="fleiss") {
-    return ("Fleiss")
-  } else if (technique=="braun_banquet") {
-    return ("Braun-Banquet")
-  } else if (technique=="mountford") {
-    return ("Mountford")
-  } else if (technique=="gower") {
-    return ("Gower")
-  } else if (technique=="michael") {
-    return ("Michael")
-  } else if (technique=="pierce") {
-    return ("Pierce")
-  } else if (technique=="baroni_urbani_buser") {
-    return ("Baroni-Urbani-Buser")
-  } else if (technique=="zoltar") {
-    return ("Zoltar")
-  } else if (technique=="overlap") {
-    return ("Overlap")
-  } else if (technique=="metallaxis") { # MBFL
-    return ("Metallaxis")
-  } else if (technique=="muse") {
-    return ("MUSE")
-  } else if (technique=="mcbfl") { # MCBFL (MKill + MCov)
-    return ("MCBFL")
-  } else if (technique=="failover") { # MCBFL-hybrid (MKill + MCov + SCov)
-    return ("MCBFL-hybrid-failover")
-  } else if (technique=="susp-maxing") {
-    return ("MCBFL-hybrid-max")
-  } else if (technique=="susp-averaging") {
-    return ("MCBFL-hybrid-avg")
-  } else if (technique=="mbfl-coverage-only") { # MRSBFL (MCov)
-    return ("MRSBFL")
-  } else if (technique=="mrsbfl-failover") { # MRSBFL-hybrid (MCov + SCov)
-    return ("MRSBFL-hybrid-failover")
-  } else if (technique=="mrsbfl-susp-maxing") {
-    return ("MRSBFL-hybrid-max")
-  } else if (technique=="mrsbfl-susp-averaging") {
-    return ("MRSBFL-hybrid-avg")
   } else if (technique=="neural-network") { # MLFL
     return ("Neural Network")
   } else {
@@ -618,130 +431,10 @@ getTechniqueMacro <- function(techniques) {
 getTechniqueMacroX <- function(technique) {
   if (technique=="ochiai") { # SBFL
     return ("Ochiai")
-  } else if (technique=="barinel") {
-    return ("Barinel")
-  } else if (technique=="dstar2") {
-    return ("DStar")
-  } else if (technique=="opt2") {
-    return ("Op2")
   } else if (technique=="tarantula") {
     return ("Tarantula")
-  } else if (technique=="jaccard") {
-    return ("Jaccard")
-  } else if (technique=="ochiai2") {
-    return ("Ochiai2")
-  } else if (technique=="opt1") {
-    return ("Op1")
-  } else if (technique=="gp02") {
-    return ("GP02")
-  } else if (technique=="gp03") {
-    return ("GP03")
-  } else if (technique=="gp13") {
-    return ("GP13")
-  } else if (technique=="gp19") {
-    return ("GP19")
-  } else if (technique=="anderberg") {
-    return ("Anderberg")
-  } else if (technique=="dice") {
-    return ("Dice")
-  } else if (technique=="sorensen_dice") {
-    return ("SorensenDice")
-  } else if (technique=="goodman") {
-    return ("Goodman")
-  } else if (technique=="qe") {
-    return ("Qe")
-  } else if (technique=="cbi_inc") {
-    return ("CBIInc")
-  } else if (technique=="cbi_sqrt") {
-    return ("CBISqrt")
-  } else if (technique=="cbi_log") {
-    return ("CBILog")
-  } else if (technique=="wong1") {
-    return ("Wong1")
-  } else if (technique=="wong2") {
-    return ("Wong2")
-  } else if (technique=="wong3") {
-    return ("Wong3")
-  } else if (technique=="hamann") {
-    return ("Hamann")
-  } else if (technique=="simple_matching") {
-    return ("SimpleMatching")
-  } else if (technique=="sokal") {
-    return ("Sokal")
-  } else if (technique=="rogers_tanimoto") {
-    return ("RogersTanimoto")
-  } else if (technique=="hamming") {
-    return ("Hamming")
-  } else if (technique=="euclid") {
-    return ("Euclid")
-  } else if (technique=="russell_rao") {
-    return ("RussellRao")
-  } else if (technique=="binary") {
-    return ("Binary")
-  } else if (technique=="scott") {
-    return ("Scott")
-  } else if (technique=="rogot1") {
-    return ("Rogot1")
-  } else if (technique=="rogot2") {
-    return ("Rogot2")
-  } else if (technique=="kulczynski1") {
-    return ("Kulczynski1")
-  } else if (technique=="kulczynski2") {
-    return ("Kulczynski2")
-  } else if (technique=="m1") {
-    return ("M1")
-  } else if (technique=="m2") {
-    return ("M2")
-  } else if (technique=="ample") {
-    return ("Ample")
-  } else if (technique=="ample2") {
-    return ("Ample2")
-  } else if (technique=="arithmetic_mean") {
-    return ("ArithmeticMean")
-  } else if (technique=="geometric_mean") {
-    return ("GeometricMean")
-  } else if (technique=="harmonic_mean") {
-    return ("HarmonicMean")
-  } else if (technique=="cohen") {
-    return ("Cohen")
-  } else if (technique=="fleiss") {
-    return ("Fleiss")
-  } else if (technique=="braun_banquet") {
-    return ("BraunBanquet")
-  } else if (technique=="mountford") {
-    return ("Mountford")
-  } else if (technique=="gower") {
-    return ("Gower")
-  } else if (technique=="michael") {
-    return ("Michael")
-  } else if (technique=="pierce") {
-    return ("Pierce")
-  } else if (technique=="baroni_urbani_buser") {
-    return ("BaroniUrbaniBuser")
-  } else if (technique=="zoltar") {
-    return ("Zoltar")
-  } else if (technique=="overlap") {
-    return ("Overlap")
-  } else if (technique=="metallaxis") { # MBFL
-    return ("Metallaxis")
-  } else if (technique=="muse") {
-    return ("MUSE")
-  } else if (technique=="mcbfl") { # MCBFL (mbfl + mutation coverage)
-    return ("\\mcbfl")
-  } else if (technique=="failover") { # MCBFL-hybrid (mcbfl + sbfl)
-    return ("\\failover")
-  } else if (technique=="susp-maxing") {
-    return ("\\suspmaxing")
-  } else if (technique=="susp-averaging") {
-    return ("\\suspaveraging")
-  } else if (technique=="mbfl-coverage-only") { # MRSBFL (mutation coverage)
-    return ("\\mrsbfl")
-  } else if (technique=="mrsbfl-failover") { # MRSBFL-hybrid (mutation coverage + sbfl)
-    return ("\\mrsbflfailover")
-  } else if (technique=="mrsbfl-susp-maxing") {
-    return ("\\mrsbflsuspmaxing")
-  } else if (technique=="mrsbfl-susp-averaging") {
-    return ("\\mrsbflsuspaveraging")
+  } else if (technique=="neural-network") { # MLFL
+    return ("Neural Network")
   } else {
     return ("NA")
   }
@@ -751,26 +444,9 @@ getFamilyMacro <- function(family) {
   return(
          # SBFL
          ifelse(family=="sbfl",  "\\sbfl",
-         # MBFL
-         ifelse(family=="mbfl", "\\mbfl",
-         # MCBFL (mbfl + mutation coverage)
-         ifelse(family=="mcbfl",          "\\mcbfl",
-         # MCBFL-hybrid (mcbfl + sbfl)
-         ifelse(family=="failover",       "\\failover",
-         ifelse(family=="susp-maxing",    "\\suspmaxing",
-         ifelse(family=="susp-averaging", "\\suspaveraging",
-         # MRSBFL (mutation coverage)
-         ifelse(family=="mbfl-coverage-only",      "\\mrsbfl",
-         # MRSBFL-hybrid (mutation coverage + sbfl)
-         ifelse(family=="mrsbfl-failover",         "\\mrsbflfailover",
-         ifelse(family=="mrsbfl-susp-maxing",      "\\mrsbflsuspmaxing",
-         ifelse(family=="mrsbfl-susp-averaging",   "\\mrsbflsuspaveraging",
-    "NA")))))))))))
-}
-
-getKillDefnMacro <- function(killDefn) {
-  return(ifelse(killDefn=="none", "\\defNone",
-        paste("\\", "killDefn", initialCap(gsub("[+]", "", killDefn)), sep="")))
+         # MLFL
+         ifelse(family=="mlfl", "\\mlfl",
+    "NA")))
 }
 
 getType <- function(techniques) {
@@ -781,132 +457,10 @@ getTypeX <- function(technique) {
     return ("SBFL")
   } else if (technique=="ochiai") {
     return ("SBFL")
-  } else if (technique=="barinel") {
-    return ("SBFL")
-  } else if (technique=="dstar2") {
-    return ("SBFL")
-  } else if (technique=="opt2") {
-    return ("SBFL")
   } else if (technique=="tarantula") {
     return ("SBFL")
-  } else if (technique=="jaccard") {
-    return ("SBFL")
-  } else if (technique=="ochiai2") {
-    return ("SBFL")
-  } else if (technique=="opt1") {
-    return ("SBFL")
-  } else if (technique=="gp02") {
-    return ("SBFL")
-  } else if (technique=="gp03") {
-    return ("SBFL")
-  } else if (technique=="gp13") {
-    return ("SBFL")
-  } else if (technique=="gp19") {
-    return ("SBFL")
-  } else if (technique=="anderberg") {
-    return ("SBFL")
-  } else if (technique=="dice") {
-    return ("SBFL")
-  } else if (technique=="sorensen_dice") {
-    return ("SBFL")
-  } else if (technique=="goodman") {
-    return ("SBFL")
-  } else if (technique=="qe") {
-    return ("SBFL")
-  } else if (technique=="cbi_inc") {
-    return ("SBFL")
-  } else if (technique=="cbi_sqrt") {
-    return ("SBFL")
-  } else if (technique=="cbi_log") {
-    return ("SBFL")
-  } else if (technique=="wong1") {
-    return ("SBFL")
-  } else if (technique=="wong2") {
-    return ("SBFL")
-  } else if (technique=="wong3") {
-    return ("SBFL")
-  } else if (technique=="hamann") {
-    return ("SBFL")
-  } else if (technique=="simple_matching") {
-    return ("SBFL")
-  } else if (technique=="sokal") {
-    return ("SBFL")
-  } else if (technique=="rogers_tanimoto") {
-    return ("SBFL")
-  } else if (technique=="hamming") {
-    return ("SBFL")
-  } else if (technique=="euclid") {
-    return ("SBFL")
-  } else if (technique=="russell_rao") {
-    return ("SBFL")
-  } else if (technique=="binary") {
-    return ("SBFL")
-  } else if (technique=="scott") {
-    return ("SBFL")
-  } else if (technique=="rogot1") {
-    return ("SBFL")
-  } else if (technique=="rogot2") {
-    return ("SBFL")
-  } else if (technique=="kulczynski1") {
-    return ("SBFL")
-  } else if (technique=="kulczynski2") {
-    return ("SBFL")
-  } else if (technique=="m1") {
-    return ("SBFL")
-  } else if (technique=="m2") {
-    return ("SBFL")
-  } else if (technique=="ample") {
-    return ("SBFL")
-  } else if (technique=="ample2") {
-    return ("SBFL")
-  } else if (technique=="arithmetic_mean") {
-    return ("SBFL")
-  } else if (technique=="geometric_mean") {
-    return ("SBFL")
-  } else if (technique=="harmonic_mean") {
-    return ("SBFL")
-  } else if (technique=="cohen") {
-    return ("SBFL")
-  } else if (technique=="fleiss") {
-    return ("SBFL")
-  } else if (technique=="braun_banquet") {
-    return ("SBFL")
-  } else if (technique=="mountford") {
-    return ("SBFL")
-  } else if (technique=="gower") {
-    return ("SBFL")
-  } else if (technique=="michael") {
-    return ("SBFL")
-  } else if (technique=="pierce") {
-    return ("SBFL")
-  } else if (technique=="baroni_urbani_buser") {
-    return ("SBFL")
-  } else if (technique=="zoltar") {
-    return ("SBFL")
-  } else if (technique=="overlap") {
-    return ("SBFL")
-  } else if (technique=="mbfl") { # MBFL
-    return ("MBFL")
-  } else if (technique=="metallaxis") {
-    return ("MBFL")
-  } else if (technique=="muse") {
-    return ("MBFL")
-  } else if (technique=="mcbfl") { # MCBFL (mbfl + mutation coverage)
-    return ("MCBFL")
-  } else if (technique=="failover") { # MCBFL-hybrid (mcbfl + sbfl)
-    return ("MCBFL")
-  } else if (technique=="susp-maxing") {
-    return ("MCBFL")
-  } else if (technique=="susp-averaging") {
-    return ("MCBFL")
-  } else if (technique=="mbfl-coverage-only") { # MRSBFL (mutation coverage)
-    return ("MRSBFL")
-  } else if (technique=="mrsbfl-failover") { # MRSBFL-hybrid (mutation coverage + sbfl)
-    return ("MRSBFL")
-  } else if (technique=="mrsbfl-susp-maxing") {
-    return ("MRSBFL")
-  } else if (technique=="mrsbfl-susp-averaging") {
-    return ("MRSBFL")
+  } else if (technique=="neural-network") {
+    return ("MLFL")
   } else {
     return ("NA")
   }
@@ -916,22 +470,6 @@ prettifyPValue <- function(p) {
     return("<0.01")
   }
   return(sprintf("%.2f", p))
-}
-
-#
-# For each FLT in df, is the FLT a hybrid technique or a traditional technique.
-# Traditional techniques are sbfl and mbfl techniques.
-#
-isHybridFLT <- function(df) {
-    return(df[["Technique"]] %in% c("failover", "susp-maxing", "susp-averaging",
-            "mrsbfl-failover", "mrsbfl-susp-maxing", "mrsbfl-susp-averaging"))
-}
-
-#
-# For each FLT in df, is the FLT a new mutation-based technique.
-#
-isNewMutationFLT <- function(df) {
-    return(df[["Technique"]] %in% c("mcbfl", "mbfl-coverage-only"))
 }
 
 #
