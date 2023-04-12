@@ -182,5 +182,4 @@ data_long$ScoringScheme[data_long$Family%like%"mlfl"] <- "first"
 # Compute best technique for all families
 get_top_n(data_long, N)
 
-#TODO: sanityCheck scoring files
-#compare_best(data_long)
+compare_best(data_long)
