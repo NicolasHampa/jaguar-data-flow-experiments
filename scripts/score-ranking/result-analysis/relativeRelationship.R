@@ -91,8 +91,10 @@ fault_type_suffix <- "all_faults"
 # Cast data to wide format
 wide <- dcast(setDT(df), "ID + Real ~ Family + Technique", value.var=scoring_metrics)
 
-real_points_mean = tournamentPointsMean(wide[wide$Real,], techniques, "ScoreWRTLoadedClasses")
-real_points_rank = tournamentPointsMean(wide[wide$Real,], techniques, "RANK")
+real_points_mean = tournamentPointsMean(wide, control_flow_techniques, "ScoreWRTLoadedClasses")
+real_points_rank = tournamentPointsMean(wide, control_flow_techniques, "RANK")
+data_flow_points_mean = tournamentPointsMean(wide, data_flow_techniques, "ScoreWRTLoadedClasses")
+data_flow_points_rank = tournamentPointsMean(wide, data_flow_techniques, "RANK")
 
 # Compute all relevant rankings
 technique_summaries <- data.frame(
@@ -127,8 +129,8 @@ for (i in 1:length(techniques)) {
     technique_summaries_df$RealTopN[i] <- nrow(real[real$RANK<=5,])/num_real
 }
 
-#generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
-#generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, data_flow_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, data_flow_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
 
 generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, technique_summaries_df$RealMean, suffix = fault_type_suffix, decreasing = FALSE)
 generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, technique_summaries_df$RealRankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)
