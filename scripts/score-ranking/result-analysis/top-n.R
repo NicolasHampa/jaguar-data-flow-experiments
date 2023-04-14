@@ -21,7 +21,7 @@ library(ggplot2)
 # Read data file and add two columns
 df <- readCsv(data_file)
 
-df$Real <- getReal(df)
+#df$Real <- getReal(df)
 df$Scheme <- getScoringSchemes(df)
 
 # Show top-n rankings for all existing techniques
@@ -61,7 +61,7 @@ num_real_bugs <- length(unique(df[,ID]))
 # TODO: Use other schemes 
 #for (scheme in c("first", "last", "median")) {
 for (scheme in c("first")) {
-    sink(paste(out_dir, "/", "top-n-", initialCap(scheme), ".tex", sep=""))
+    sink(paste(out_dir, "/", "top-n2-", initialCap(scheme), ".tex", sep=""))
     filtered <- rank[rank$ScoringScheme==scheme, c("FLT", "Family")]
     for (row in 1:nrow(filtered)) {
         flt <- filtered[row, "FLT"]
