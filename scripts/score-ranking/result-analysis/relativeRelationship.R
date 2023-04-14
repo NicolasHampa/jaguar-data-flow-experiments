@@ -1,5 +1,5 @@
 # Script that computes the Spearman's rho correlation coefficient and associated
-# p-value for the following ranking metrics between artificial and real faults:
+# p-value for the following ranking metrics in real faults:
 # - EXAM score
 # - Tournament ranking (EXAM score)
 # - FLT rank
@@ -19,7 +19,6 @@ source("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking
 
 df <- readCsv(data_file)
 
-df$Real <- getReal(df)
 df$Technique <- getTechniques(df)
 
 flts <- c("Ochiai", "Tarantula", "Neural Network")
@@ -53,7 +52,7 @@ tournamentPointsMean <- function(wide, techniques, metric) {
   return(result)
 }
 
-generateTable <- function(name, header, techniques, valuesReal, valuesDF, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
+generateTable <- function(name, header, techniques, valuesCF, valuesDF, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
     if(nchar(suffix) > 0) {
         name = paste(name, suffix, sep="_")
     }
@@ -67,17 +66,17 @@ generateTable <- function(name, header, techniques, valuesReal, valuesDF, suffix
     cat("\\cmidrule{3-4} \n")
     cat("Technique & ", header, " & Technique & ", header, "\\\\ \n")
     cat("\\midrule","\n")
-    realSorted = sort.int(valuesReal, index.return=TRUE, decreasing=decreasing)$ix
+    controlFlowSorted = sort.int(valuesCF, index.return=TRUE, decreasing=decreasing)$ix
     dataFlowSorted = sort.int(valuesDF, index.return=TRUE, decreasing=decreasing)$ix
     format_char = ifelse(integer, "d", "f")
     for (i in 1:length(techniques)) {
-        indexReal = realSorted[i]
+        indexCF = controlFlowSorted[i]
         indexDF = dataFlowSorted[i]
         cat(
             prettifyTechniqueName(techniques[indexDF]), " & ",
             formatC(valuesDF[indexDF], digits=digits, format=format_char), " & ",
-            prettifyTechniqueName(techniques[indexReal]), " & ",
-            formatC(valuesReal[indexReal], digits=digits, format=format_char),
+            prettifyTechniqueName(techniques[indexCF]), " & ",
+            formatC(valuesCF[indexCF], digits=digits, format=format_char),
             "\\\\ \n")
     }
     cat("\\bottomrule","\n")
@@ -89,48 +88,48 @@ generateTable <- function(name, header, techniques, valuesReal, valuesDF, suffix
 fault_type_suffix <- "all_faults"
 
 # Cast data to wide format
-wide <- dcast(setDT(df), "ID + Real ~ Family + Technique", value.var=scoring_metrics)
+wide <- dcast(setDT(df), "ID ~ Family + Technique", value.var=scoring_metrics)
 
-real_points_mean = tournamentPointsMean(wide, control_flow_techniques, "ScoreWRTLoadedClasses")
-real_points_rank = tournamentPointsMean(wide, control_flow_techniques, "RANK")
+control_flow_points_mean = tournamentPointsMean(wide, control_flow_techniques, "ScoreWRTLoadedClasses")
+control_flow_points_rank = tournamentPointsMean(wide, control_flow_techniques, "RANK")
 data_flow_points_mean = tournamentPointsMean(wide, data_flow_techniques, "ScoreWRTLoadedClasses")
 data_flow_points_rank = tournamentPointsMean(wide, data_flow_techniques, "RANK")
 
 # Compute all relevant rankings
 technique_summaries <- data.frame(
     Technique=techniques,
-    RealPoints=real_points_mean,
-    RealMean=rep(0, length(techniques)),
-    RealRankMean=rep(0, length(techniques)),
-    RealTopN=rep(0, length(techniques))
+    Points=control_flow_points_mean,
+    Mean=rep(0, length(techniques)),
+    RankMean=rep(0, length(techniques)),
+    TopN=rep(0, length(techniques))
 )
 
 for (i in 1:length(techniques)) {
-    real <- df[df$Real & (df$Technique==techniques[i]) & (!df$Family%like%"dua"),]
-    technique_summaries$RealMean[i] = mean(real$ScoreWRTLoadedClasses)
-    technique_summaries$RealRankMean[i] = mean(real$RANK)
-    num_real <- length(unique(real$ID))
-    technique_summaries$RealTopN[i] <- nrow(real[real$RANK<=5,])/num_real
+    control_flow <- df[(df$Technique==techniques[i]) & (!df$Family%like%"dua"),]
+    technique_summaries$Mean[i] = mean(control_flow$ScoreWRTLoadedClasses)
+    technique_summaries$RankMean[i] = mean(control_flow$RANK)
+    num_cf <- length(unique(control_flow$ID))
+    technique_summaries$TopN[i] <- nrow(control_flow[control_flow$RANK<=5,])/num_cf
 }
     
 technique_summaries_df <- data.frame(
     Technique=techniques,
-    RealPoints=real_points_mean,
-    RealMean=rep(0, length(techniques)),
-    RealRankMean=rep(0, length(techniques)),
-    RealTopN=rep(0, length(techniques))
+    Points=data_flow_points_mean,
+    Mean=rep(0, length(techniques)),
+    RankMean=rep(0, length(techniques)),
+    TopN=rep(0, length(techniques))
 )
     
 for (i in 1:length(techniques)) {
-    real <- df[df$Real & (df$Technique==techniques[i]) & (df$Family%like%"dua"),]
-    technique_summaries_df$RealMean[i] = mean(real$ScoreWRTLoadedClasses)
-    technique_summaries_df$RealRankMean[i] = mean(real$RANK)
-    num_real <- length(unique(real$ID))
-    technique_summaries_df$RealTopN[i] <- nrow(real[real$RANK<=5,])/num_real
+    data_flow <- df[(df$Technique==techniques[i]) & (df$Family%like%"dua"),]
+    technique_summaries_df$Mean[i] = mean(data_flow$ScoreWRTLoadedClasses)
+    technique_summaries_df$RankMean[i] = mean(data_flow$RANK)
+    num_df <- length(unique(data_flow$ID))
+    technique_summaries_df$TopN[i] <- nrow(data_flow[data_flow$RANK<=5,])/num_df
 }
 
-generateTable("TournamentScore", "\\# Sig. worse",  techniques, real_points_mean, data_flow_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
-generateTable("TournamentRank", "\\# Sig. worse",  techniques, real_points_rank, data_flow_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTable("TournamentScore", "\\# Sig. worse",  techniques, control_flow_points_mean, data_flow_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTable("TournamentRank", "\\# Sig. worse",  techniques, control_flow_points_rank, data_flow_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
 
-generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$RealMean, technique_summaries_df$RealMean, suffix = fault_type_suffix, decreasing = FALSE)
-generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RealRankMean, technique_summaries_df$RealRankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)
+generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$Mean, technique_summaries_df$Mean, suffix = fault_type_suffix, decreasing = FALSE)
+generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RankMean, technique_summaries_df$RankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)

@@ -404,10 +404,6 @@ techniques <- c("ochiai", "tarantula", "neural-network")
 control_flow_techniques <- c("sbfl_ochiai", "sbfl_tarantula", "mlfl_neural-network")
 data_flow_techniques <- c("sbfl-dua_ochiai", "sbfl-dua_tarantula", "mlfl-dua_neural-network")
 
-getReal <- function(df) {
-  return(df$Bug < 1000)
-}
-
 getTechniques <- function(df) {
   return(as.factor(levels(df$Formula)[df$Formula]))
 }
