@@ -21,14 +21,14 @@ library(ggplot2)
 # Read data file and add two columns
 df <- readCsv(data_file)
 
+# TODO: Fix ScoringScheme for mlfl family
+df$ScoringScheme[df$Family%like%"mlfl"] <- "first"
+
 df$Scheme <- getScoringSchemes(df)
 
 # Show top-n rankings for all existing techniques
 flts <- c("Ochiai", "Tarantula", "Neural Network")
 df <- df[df$FLT %in% flts,]
-
-# TODO: Fix ScoringScheme for mlfl family
-df$ScoringScheme[df$Family%like%"mlfl"] <- "first"
 
 rank <- rankTopN(df)
 
