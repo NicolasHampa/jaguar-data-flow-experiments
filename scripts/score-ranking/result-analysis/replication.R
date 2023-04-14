@@ -30,9 +30,6 @@ df <- df[df$FLT %in% flts,]
 
 metric <- "ScoreWRTLoadedClasses"
 
-# TODO: Fix ScoringScheme for mlfl family
-df$ScoringScheme[df$Family%like%"mlfl"] <- "first"
-
 ################################################################################
 # Generate plots
 #

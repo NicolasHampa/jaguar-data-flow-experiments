@@ -24,9 +24,6 @@ df$Technique <- getTechniques(df)
 flts <- c("Ochiai", "Tarantula", "Neural Network")
 df <- df[df$FLT %in% flts,]
 
-# TODO: Fix ScoringScheme for mlfl family
-df$ScoringScheme[df$Family%like%"mlfl"] <- "first"
-
 tournamentPointsMean <- function(wide, techniques, metric) {
   result <- rep(0, length(techniques))
   for (i in 1:(length(techniques)-1)) {

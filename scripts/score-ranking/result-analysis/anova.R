@@ -31,10 +31,6 @@ both_dua$Comb <- as.factor(paste(both_dua$Family))
 sbfl_dua <- subset(both_dua, Family=="sbfl-dua")
 mlfl_dua <- subset(both_dua, Family=="mlfl-dua")
 
-# TODO: Fix ScoringScheme for mlfl family
-mlfl$ScoringScheme[mlfl$Family%like%"mlfl"] <- "first"
-mlfl_dua$ScoringScheme[mlfl_dua$Family%like%"mlfl"] <- "first"
-
 isSigP <- function(p) {
     if(is.na(p)) {
         return("NA")

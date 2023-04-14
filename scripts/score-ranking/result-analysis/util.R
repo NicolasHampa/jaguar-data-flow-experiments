@@ -37,12 +37,13 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     sloc <- fread("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/sloc.csv")
     data <- merge(data, sloc, by=c("Project", "RealBugId"))
     data$ScoreAbs <- data$Score*data$slocTotal
+    
+    # TODO: Fix ScoringScheme for mlfl family
+    data$ScoringScheme[data$Family%like%"mlfl"] <- "first"
 
     # Consistently use "none" as the NA level for all factors
     data[data$Formula   == ""]$Formula   <- "none"
     data[data$TotalDefn == ""]$TotalDefn <- "none"
-    data[data$KillDefn  == ""]$KillDefn  <- "none"
-    data[data$AggregationDefn == ""]$AggregationDefn <- "none"
 
     # Assign technique names
     # Use family name by default

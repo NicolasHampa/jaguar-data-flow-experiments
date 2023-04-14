@@ -15,7 +15,6 @@ if (length(args)!=2) {
 data_file <- args[1]
 out_dir <- args[2]
 
-
 # Optional parameter: output the top-n techniques
 N <- ifelse(length(args)==3, as.numeric(args[3]), 25)
 
@@ -108,9 +107,6 @@ compare_best <- function(data_long, prefix="") {
                 # Select column for the best technique
                 best_col <- data_wide[[paste(test_suite, scoring_scheme, best_technique_str, sep="_")]]
                 
-                #TO-DO: Validate data and remove NA's
-                #best_col<-best_col[!is.na(best_col)]
-                
                 sanityCheck(best_col, best_technique_str)
 
                 num_all_flts       <- 0
@@ -125,9 +121,6 @@ compare_best <- function(data_long, prefix="") {
                     if(t!=best_technique_str) {
                         num_all_flts <- num_all_flts + 1
                         other_col <- data_wide[[paste(test_suite, scoring_scheme, t, sep="_")]]
-                        
-                        #TO-DO: Validate data and remove NA's
-                        #other_col<-other_col[!is.na(other_col)]
                         
                         sanityCheck(other_col, t)
                         
@@ -175,9 +168,6 @@ compare_best <- function(data_long, prefix="") {
 
 # Read the data file into a data frame
 data_long <- readCsv(data_file, getArtificial=FALSE)
-
-# TODO: Fix ScoringScheme for mlfl family
-data_long$ScoringScheme[data_long$Family%like%"mlfl"] <- "first"
 
 # Compute best technique for all families
 get_top_n(data_long, N)
