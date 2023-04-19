@@ -97,14 +97,14 @@ embed_fonts(pdfname, options="-dSubsetFonts=true -dEmbedAllFonts=true -dCompatib
 # Generate table
 #
 # Cast all scoring metrics to wide format at once
-wide <- dcast(setDT(df), "ID ~ Technique", value.var=scoring_metrics)
+wide <- dcast(setDT(df), "ID ~ Technique + Family", value.var=scoring_metrics)
 
 #
 # Comparisons
 #
 comparisons <- data.frame(
-  Better=   c("ochiai",    "neural_network", "neural_network"),
-  Worse=    c("tarantula", "ochiai",  "tarantula"))
+  Better=   c("ochiai_sbfl", "tarantula_sbfl", "neural-network_mlfl", "ochiai_sbfl", "ochiai_sbfl-dua"),
+  Worse=    c("ochiai_sbfl-dua", "tarantula_sbfl-dua", "neural-network_mlfl-dua", "neural-network_mlfl", "neural-network_mlfl-dua"))
 
 # Output file for the generated table
 sink(paste(out_dir, "table_replication.tex", sep="/"))
@@ -114,9 +114,7 @@ for (i in 1:length(comparisons$Better)) {
   prior_loser  = comparisons$Worse[i]
   
   # Print the compared techniques
-  cat(sprintf("%12s > %12s",
-              prettifyTechniqueName(prior_winner),
-              prettifyTechniqueName(prior_loser)))
+  cat(sprintf("%12s $>$ %12s ", prior_winner, prior_loser))
   
   # Perform the same test for real faults
   flt1_score <- paste(metric, prior_winner, sep="_")
@@ -145,7 +143,7 @@ for (i in 1:length(comparisons$Better)) {
   equal  <- sum(wide[[flt1_score]] == wide[[flt2_score]])
   
   # Format the output
-  cat(sprintf("& (%d--%d--%d)", better, equal, worse))
+  cat(sprintf(" & (%d--%d--%d)", better, equal, worse))
   
   # Just to visually inspect the distribution of the exam score differences
   #plot(density(((wide[[flt1_score]]) - (wide[[flt2_score]]))),

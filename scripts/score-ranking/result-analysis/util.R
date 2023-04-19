@@ -330,11 +330,10 @@ getRealBugId <- function(bugId) {
 significanceText <- function(p, effect) {
   basically <- if (effect<0) "yes" else "no"
   return(
-    if (p < 0.01) paste("\\sigStrong{", basically, "}", sep="")
-    else if (p < 0.05) paste("\\sigModerate{", basically, "}", sep="")
-    else if (p < 0.1) paste("\\sigWeak{", basically, "}", sep="")
-    else "\\sigNone")
-
+    if (p < 0.01) paste("Strong[", basically, "]", sep="")
+    else if (p < 0.05) paste("Moderate[", basically, "]", sep="")
+    else if (p < 0.1) paste("Weak[", basically, "]", sep="")
+    else "(insig.)")
 }
 
 #
@@ -353,15 +352,14 @@ significanceNumber <- function(p) {
 #
 dText <- function(d) {
   abs <- abs(d)
-  dPrefix <- ifelse(d >= 0, "\\m", "")
   dPretty <- sprintf("%.2f", d)
 
   return(
-    if (abs == 0) paste(dPrefix, "\\effectNone{0.00}", sep="")
-    else if (abs < 0.2) paste(dPrefix, "\\effectNone{", dPretty, "}", sep="")
-    else if (abs < 0.5) paste(dPrefix, "\\effectSmall{", dPretty, "}", sep="")
-    else if (abs < 0.8) paste(dPrefix, "\\effectMedium{", dPretty, "}", sep="")
-    else paste(dPrefix, "\\effectLarge{", dPretty, "}", sep=""))
+    if (abs == 0) paste("None[0.00]", sep="")
+    else if (abs < 0.2) paste("None[", dPretty, "]", sep="")
+    else if (abs < 0.5) paste("Small[", dPretty, "]", sep="")
+    else if (abs < 0.8) paste("Medium[", dPretty, "]", sep="")
+    else paste("Large[", dPretty, "]", sep=""))
 }
 
 #
@@ -380,9 +378,7 @@ a12Text <- function(a12) {
 # Typeset a confidence interval
 #
 typesetCI <- function(lwr, upr) {
-    lwrPrefix <- ifelse(lwr>=0, "\\m", "")
-    uprPrefix <- ifelse(upr>=0, "\\m", "")
-    return(sprintf("[%s%.3f, %s%.3f]", lwrPrefix, lwr, uprPrefix, upr))
+    return(sprintf("[%.3f, %.3f]", lwr, upr))
 }
 
 #
