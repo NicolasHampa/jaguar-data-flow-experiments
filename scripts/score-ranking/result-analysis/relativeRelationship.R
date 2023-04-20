@@ -81,6 +81,33 @@ generateTable <- function(name, header, techniques, valuesCF, valuesDF, suffix =
     sink()
 }
 
+generateTableUnified <- function(name, header, techniques, values, suffix = "", decreasing = FALSE, digits = 4, integer=FALSE) {
+  if(nchar(suffix) > 0) {
+    name = paste(name, suffix, sep="_")
+  }
+  print(name)
+  TABLE = paste(out_dir, "/tableUnified_", name, ".tex", sep="")
+  unlink(TABLE)
+  sink(TABLE, append=TRUE, split=FALSE)
+  cat("\\begin{tabular}{p{50mm}@{\\hspace{2em}}p{20mm}}\\toprule", "\n")
+  cat("\\multicolumn{2}{c}{\\textbf{D4J Faults}} \\\\", "\n")
+  cat("\\cmidrule(r){1-2} \n")
+  cat("Technique & ", header, "\\\\ \n")
+  cat("\\midrule","\n")
+  sorted = sort.int(values, index.return=TRUE, decreasing=decreasing)$ix
+  format_char = ifelse(integer, "d", "f")
+  for (i in 1:length(techniques)) {
+    index = sorted[i]
+    cat(
+      techniques[index], " & ",
+      formatC(values[index], digits=digits, format=format_char),
+      "\\\\ \n")
+  }
+  cat("\\bottomrule","\n")
+  cat("\\end{tabular}","\n")
+  sink()
+}
+
 # The fault categories -- suffix for file names
 fault_type_suffix <- "all_faults"
 
@@ -91,6 +118,8 @@ control_flow_points_mean = tournamentPointsMean(wide, control_flow_techniques, "
 control_flow_points_rank = tournamentPointsMean(wide, control_flow_techniques, "RANK")
 data_flow_points_mean = tournamentPointsMean(wide, data_flow_techniques, "ScoreWRTLoadedClasses")
 data_flow_points_rank = tournamentPointsMean(wide, data_flow_techniques, "RANK")
+all_points_mean = tournamentPointsMean(wide, all_techniques, "ScoreWRTLoadedClasses")
+all_points_rank = tournamentPointsMean(wide, all_techniques, "RANK")
 
 # Compute all relevant rankings
 technique_summaries <- data.frame(
@@ -125,8 +154,32 @@ for (i in 1:length(techniques)) {
     technique_summaries_df$TopN[i] <- nrow(data_flow[data_flow$RANK<=5,])/num_df
 }
 
-generateTable("TournamentScore", "\\# Sig. worse",  techniques, control_flow_points_mean, data_flow_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
-generateTable("TournamentRank", "\\# Sig. worse",  techniques, control_flow_points_rank, data_flow_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+technique_summaries_all <- data.frame(
+  Technique=all_techniques,
+  Points=all_points_mean,
+  Mean=rep(0, length(all_techniques)),
+  RankMean=rep(0, length(all_techniques)),
+  TopN=rep(0, length(all_techniques))
+)
 
-generateTable("ScoreMean", "\\exam Score",  techniques, technique_summaries$Mean, technique_summaries_df$Mean, suffix = fault_type_suffix, decreasing = FALSE)
-generateTable("RankMean", "\\fltRank",  techniques, technique_summaries$RankMean, technique_summaries_df$RankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)
+for (i in 1:length(all_techniques)) {
+  technique_arr <- strsplit(all_techniques[i], "_")
+  technique_data <- df[(df$Technique==technique_arr[[1]][2]) & (df$Family==technique_arr[[1]][1]),]
+  technique_summaries_all$Mean[i] = mean(technique_data$ScoreWRTLoadedClasses)
+  technique_summaries_all$RankMean[i] = mean(technique_data$RANK)
+  num_df <- length(unique(technique_data$ID))
+  technique_summaries_all$TopN[i] <- nrow(technique_data[technique_data$RANK<=5,])/num_df
+}
+
+generateTable("TournamentScore", "\\# Worse",  techniques, control_flow_points_mean, data_flow_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTable("TournamentRank", "\\# Worse",  techniques, control_flow_points_rank, data_flow_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+
+generateTable("ScoreMean", "Exam Score",  techniques, technique_summaries$Mean, technique_summaries_df$Mean, suffix = fault_type_suffix, decreasing = FALSE)
+generateTable("RankMean", "Flt Rank",  techniques, technique_summaries$RankMean, technique_summaries_df$RankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)
+
+generateTableUnified("TournamentScore", "\\# Worse",  all_techniques, all_points_mean, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+generateTableUnified("TournamentRank", "\\# Worse",  all_techniques, all_points_rank, suffix = fault_type_suffix, decreasing = TRUE, integer = TRUE)
+
+generateTableUnified("ScoreMean", "Exam Score",  all_techniques, technique_summaries_all$Mean, suffix = fault_type_suffix, decreasing = FALSE)
+generateTableUnified("RankMean", "Flt Rank",  all_techniques, technique_summaries_all$RankMean, digits=2, suffix = fault_type_suffix, decreasing = FALSE)
+

@@ -400,6 +400,7 @@ getScoringSchemes <- function(df) {
 techniques <- c("ochiai", "tarantula", "neural-network")
 control_flow_techniques <- c("sbfl_ochiai", "sbfl_tarantula", "mlfl_neural-network")
 data_flow_techniques <- c("sbfl-dua_ochiai", "sbfl-dua_tarantula", "mlfl-dua_neural-network")
+all_techniques <- c("sbfl_ochiai", "sbfl_tarantula", "mlfl_neural-network", "sbfl-dua_ochiai", "sbfl-dua_tarantula", "mlfl-dua_neural-network")
 
 getTechniques <- function(df) {
   return(as.factor(levels(df$Formula)[df$Formula]))
