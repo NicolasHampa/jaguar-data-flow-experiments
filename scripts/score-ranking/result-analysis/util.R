@@ -32,10 +32,10 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     stopifnot(nrow(data) > 0)
     mask <- if(getReal) data$Bug<1000 else FALSE
     data <- data[mask,]
-    data$RealBugId <- as.integer(lapply(data$Bug, getRealBugId))
+    data$Bug <- as.integer(data$Bug)
     # Add sloc information and recover the absolute score
     sloc <- fread("/home/nicolas/GitRepo/jaguar-data-flow-experiments/scripts/score-ranking/result-analysis/sloc.csv")
-    data <- merge(data, sloc, by=c("Project", "RealBugId"))
+    data <- merge(data, sloc, by=c("Project", "Bug"))
     data$ScoreAbs <- data$Score*data$slocTotal
     
     # TODO: Fix ScoringScheme for mlfl family
@@ -104,15 +104,6 @@ getAllTechniques <- function(df) {
 }
 
 #
-# Return a list of unique <Project,Bug> pairs that exist in the provided data frame.
-#
-getAllBugs <- function(df) {
-    bugs <- unique(df$ID)
-
-    return(bugs)
-}
-
-#
 # Aggregate "agg_column" (e.g., Score or RANK) in the provided data frame, using
 # agg_function (e.g., mean or median).
 #
@@ -150,17 +141,6 @@ getTopN <- function(df, n, scoring_scheme, agg_column, agg_function) {
     sorted$n <- seq.int(nrow(sorted))
 
     return(head(sorted, n))
-}
-
-#
-# Convenience functions to return the top-n FL techniques for the EXAM score or
-# ranking.
-#
-getTopNScores <- function(df, n, scoring_scheme, agg_function) {
-    return(getTopN(df, n, scoring_scheme, "Score", agg_function))
-}
-getTopNRanks <- function(df, n, scoring_scheme, agg_function) {
-    return(getTopN(df, n, scoring_scheme, "RANK", agg_function))
 }
 
 #
@@ -207,77 +187,6 @@ printTechniqueTable <- function(df, col) {
 }
 
 #
-# Helper function to print anova table in LaTex format
-#
-printAnovaTable <- function(anova, factors, alpha=0.05) {
-    df <- data.frame(factors, anova$Df, anova$"Sum Sq", anova$"F value", anova$"Pr(>F)")
-
-    colnames(df) <- c("Factor", "Df", "Sum Sq", "F", "p")
-    # Sort factors by sum of squares and remove 'Residuals' row
-    df <- df[df$Factor != 'Residuals',]
-    df <- df[with(df, order(-df$"Sum Sq")),]
-
-    prettyP <- function(p) {prettifyP(p, alpha)}
-    roundF  <- function(f) {if(is.na(f)) return("NA") else return(round(f))}
-    roundSq <- function(sq) {return(format(sq, digits=3, scientific=FALSE))}
-
-    df$p  <- lapply(df$p, prettyP)
-    df$F  <- lapply(df$F, roundF)
-    df$"Sum Sq"  <- lapply(df$"Sum Sq", roundSq)
-
-    rows <- gsub("(\\DebuggingScenario.*)", "\\1\\\\midrule\n",
-        gsub("NA", "\\\\defNone", paste(paste(df$Factor,df$Df,df$"Sum Sq",df$F,df$p,sep=" & "), "\\\\ \n")))
-    cat(rows)
-}
-
-#
-# Helper function to print the results of a Tukey test in LaTex format
-#
-printTukeyResultsTable <- function(tukeyTab, alpha=0.05) {
-    df <- data.frame(tukeyTab)
-    # Convert data frame -> add column for row names, which indicate the compared pair
-    df <- setDT(df, keep.rownames = TRUE)[]
-    colnames(df) <- c("Pair", "Difference", "Lower", "Upper", "p")
-
-    prettyP <- function(p) {prettifyP(p, alpha)}
-    df$p  <- lapply(df$p, prettyP)
-
-    row <- paste(paste(gsub("-", " & ", df$Pair), df$p, sep=" & "), "\\\\ \n")
-    cat(row)
-}
-
-#
-# Helper function to print the results of a Tukey test as a matrix in LaTex format
-#
-printTukeyResultsMatrix <- function(tukeyTab, factors, alpha=0.05) {
-    df <- data.frame(tukeyTab)
-    # Convert data frame -> add column for row names, which indicate the compared pair
-    df <- setDT(df, keep.rownames = TRUE)[]
-    colnames(df) <- c("Pair", "Difference", "Lower", "Upper", "p")
-
-    prettyP <- function(p) {prettifyP(p, alpha)}
-    df$p  <- lapply(df$p, prettyP)
-
-    # Print header row
-    cat("& ", paste(factors, collapse=" & "), "\\\\ \n")
-    # Print the matrix
-    for(f1 in factors) {
-        cat(f1)
-        for(f2 in factors) {
-            if (f1==f2) {
-                cat(" & ", "\\symTukeyMatrixDiagonal", sep="")
-            } else {
-                mask <- df$Pair==paste(f1, f2, sep="-") | df$Pair==paste(f2, f1, sep="-")
-                p <- paste(unlist(df[mask,p]), collapse='')
-                cat(" & ", p, sep="")
-            }
-        }
-        cat("\\\\ \n")
-    }
-}
-
-
-#
 # Cast data representation from long to wide, i.e., one column per technique.
 #
 castAll <- function(df, agg_column) {
@@ -314,17 +223,6 @@ prettifyP <- function(p, alpha) {
 }
 
 #
-# Get the real bug id from an artificial bug id
-#
-getRealBugId <- function(bugId) {
-    if (bugId < 1000) {
-        return(bugId)
-    } else {
-        return(floor(bugId/100000))
-    }
-}
-
-#
 # Determine whether one FLT is statistically significantly better than another.
 #
 significanceText <- function(p, effect) {
@@ -334,17 +232,6 @@ significanceText <- function(p, effect) {
     else if (p < 0.05) paste("Moderate[", basically, "]", sep="")
     else if (p < 0.1) paste("Weak[", basically, "]", sep="")
     else "(insig.)")
-}
-
-#
-# Determine whether one FLT is statistically significantly better than another.
-#
-significanceNumber <- function(p) {
-  return(
-    if (p < 0.01) paste("\\sigStrong{<0.01}", sep="")
-    else if (p < 0.05) paste("\\sigModerate{<0.05}", sep="")
-    else if (p < 0.1) paste("\\sigWeak{<0.1}", sep="")
-    else "\\sigNone")
 }
 
 #
@@ -360,18 +247,6 @@ dText <- function(d) {
     else if (abs < 0.5) paste("Small[", dPretty, "]", sep="")
     else if (abs < 0.8) paste("Medium[", dPretty, "]", sep="")
     else paste("Large[", dPretty, "]", sep=""))
-}
-
-#
-# Determine magnitude of A12 effect size
-#
-a12Text <- function(a12) {
-  abs <- abs(a12 - 0.5)
-  return(
-    if (abs < 0.06) paste("\\effectNone{", a12, "}", sep="")
-    else if (abs < 0.14) paste("\\effectSmall{", a12, "}", sep="")
-    else if (abs < 0.21) paste("\\effectMedium{", a12, "}", sep="")
-    else paste("\\effectLarge{", a12, "}", sep=""))
 }
 
 #
@@ -409,6 +284,7 @@ getTechniques <- function(df) {
 prettifyTechniqueName <- function(techniques) {
   return(unlist(lapply(X=techniques, FUN=prettifyTechniqueNameX)))
 }
+
 prettifyTechniqueNameX <- function(technique) {
   if (technique=="ochiai") { # SBFL
     return ("Ochiai")
@@ -424,6 +300,7 @@ prettifyTechniqueNameX <- function(technique) {
 getTechniqueMacro <- function(techniques) {
   return(unlist(lapply(X=techniques, FUN=getTechniqueMacroX)))
 }
+
 getTechniqueMacroX <- function(technique) {
   if (technique=="ochiai") { # SBFL
     return ("Ochiai")
@@ -448,6 +325,7 @@ getFamilyMacro <- function(family) {
 getType <- function(techniques) {
   return(unlist(lapply(X=techniques, FUN=getTypeX)))
 }
+
 getTypeX <- function(technique) {
   if (technique=="sbfl") { # SBFL
     return ("SBFL")
@@ -460,12 +338,6 @@ getTypeX <- function(technique) {
   } else {
     return ("NA")
   }
-}
-prettifyPValue <- function(p) {
-  if (p < 0.01) {
-    return("<0.01")
-  }
-  return(sprintf("%.2f", p))
 }
 
 #
