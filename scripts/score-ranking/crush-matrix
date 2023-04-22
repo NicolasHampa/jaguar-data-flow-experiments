@@ -1,59 +1,36 @@
 #!/usr/bin/python2.7
 
-"""Turns a coverage/kill-matrix into a statement/mutant suspiciousness vector. Usage:
+"""Turns a coverage-matrix into a statement/dua suspiciousness vector. Usage:
 
     crush-matrix \
-      --formula (tarantula|ochiai|dstar2|barinel|opt2|muse|jaccard) \
+      --formula (tarantula|ochiai) \
       --matrix FILE \
       --element-type (Statement|DUA) \
       --element-names FILE \
-      --total-defn (tests|mutants) \
-      [--hybrid-scheme (numerator|constant|mirror|coverage-only) \
-       --hybrid-coverage-matrix FILE] \
+      --total-defn (tests|elements) \
       --output FILE
 
-where `--element-type` indicates whether the entries of the resulting vector correspond to statements or mutants;
+where `--element-type` indicates whether the entries of the resulting vector correspond to statements or dua(s);
 
-and `--element-names` is the path to a file whose nth line identifies the code element (statement/mutant) to which the nth matrix column refers
+and `--element-names` is the path to a file whose nth line identifies the code element (statement/dua) to which the nth matrix column refers
 
-and `--total-defn` indicates whether, in the formula, "totalpassed" should refer to the number of passing tests, or the number of times a passing test covers/kills an element. (And the same for "totalfailed".)
-
-`--hybrid-scheme` and `--hybrid-coverage-matrix` should come together or not at all. They should be present iff the FLT being performed belonged to the "hybrid" family; in this case,
-
-    * `--matrix` indicates the *mutant kill-matrix* (telling which tests kill which mutants),
-    * `--hybrid-coverage-matrix` indicates the *mutant coverage-matrix* (telling which tests cover which mutants), and
-    * `--hybrid-scheme` indicates how the two matrices are combined: if `numerator`, mutants covered by failing tests will have some small/moderate increase in suspiciousness (usually by incrementing the numerator of some fraction by 1); if `constant`, mutants covered by failing tests will have some large increase in suspiciousness (incrementing the whole suspiciousness by 1); if `mirror`, each mutant's suspiciousness will be the sum of (the formula applied to its column in the kill-matrix) and (the formula applied to its column in the coverage-matrix); if  `coverage-only`, the formula will *only* be applied to its column in the coverage-matrix, and the kill-matrix will be ignored.
-
+and `--total-defn` indicates whether, in the formula, "totalpassed" should refer to the number of passing tests, or the number of times a passing test covers an element/dua. (And the same for "totalfailed".)
 """
 
 from __future__ import division
 import collections
-import re
 import sys
 import traceback
 
 from formulas import *
 
-def crush_row(formula, hybrid_scheme, passed, failed, totalpassed, totalfailed, passed_covered=None, failed_covered=None, totalpassed_covered=0.0, totalfailed_covered=0.0):
-  '''Returns the suspiciousness of a statement or mutant.
+def crush_row(formula, passed, failed, totalpassed, totalfailed):
+  '''Returns the suspiciousness of a statement or dua.
 
   ``formula`` (a string) is the name of the formula to plug passed/failed/totalpassed/totalfailed into.
-
-  ``hybrid_scheme`` ("numerator", "constant", or "mirror"), useful for MBFL only, specifies how the formula should be modified to incorporate the number of passing/failing tests that *cover* the mutant (rather than kill it).
   '''
   try:
-    if hybrid_scheme is None:
-      return FORMULAS[formula](passed, failed, totalpassed, totalfailed)
-    elif hybrid_scheme == 'numerator':
-      return HYBRID_NUMERATOR_FORMULAS[formula](passed, failed, totalpassed, totalfailed, failed_covered > 0)
-    elif hybrid_scheme == 'constant':
-      return FORMULAS[formula](passed, failed, totalpassed, totalfailed) + (1 if failed_covered > 0 else 0)
-    elif hybrid_scheme == 'mirror':
-      return (FORMULAS[formula](passed, failed, totalpassed, totalfailed) +
-              FORMULAS[formula](passed_covered, failed_covered, totalpassed_covered, totalfailed_covered))/2.
-    elif hybrid_scheme == 'coverage-only':
-      return FORMULAS[formula](passed_covered, failed_covered, totalpassed_covered, totalfailed_covered)
-    raise ValueError('unrecognized hybrid scheme name: {!r}'.format(hybrid_scheme))
+    return FORMULAS[formula](passed, failed, totalpassed, totalfailed)
   except ZeroDivisionError as zeroDivisionError:
     sys.stderr.write("Warn: catch integer division or modulo by zero for " + formula + "\n")
     sys.stderr.write("Passed: " + str(passed) + "\nFailed: " + str(failed) + "\nTotalPassed: " + str(totalpassed) + "\nTotalFailed: " + str(totalfailed) + "\n")
@@ -63,25 +40,14 @@ def crush_row(formula, hybrid_scheme, passed, failed, totalpassed, totalfailed, 
     sys.stderr.write("Passed: " + str(passed) + "\nFailed: " + str(failed) + "\nTotalPassed: " + str(totalpassed) + "\nTotalFailed: " + str(totalfailed) + "\n")
     sys.exit(1)
 
-def suspiciousnesses_from_tallies(formula, hybrid_scheme, tally, hybrid_coverage_tally):
+def suspiciousnesses_from_tallies(formula, tally):
   '''Returns a dict mapping element-number to suspiciousness.
   '''
-  if hybrid_coverage_tally is None:
-    passed_covered = failed_covered = collections.defaultdict(lambda: None)
-    totalpassed_covered = totalfailed_covered = 0
-  else:
-    passed_covered = hybrid_coverage_tally.passed
-    failed_covered = hybrid_coverage_tally.failed
-    totalpassed_covered = hybrid_coverage_tally.totalpassed
-    totalfailed_covered = hybrid_coverage_tally.totalfailed
-
   return {
     element: crush_row(
-      formula=formula, hybrid_scheme=hybrid_scheme,
+      formula=formula,
       passed=float(tally.passed[element]), failed=float(tally.failed[element]),
-      totalpassed=float(tally.totalpassed), totalfailed=float(tally.totalfailed),
-      passed_covered=passed_covered[element], failed_covered=failed_covered[element],
-      totalpassed_covered=float(totalpassed_covered), totalfailed_covered=float(totalfailed_covered))
+      totalpassed=float(tally.totalpassed), totalfailed=float(tally.totalfailed))
     for element in range(tally.n_elements)}
 
 
@@ -128,18 +94,13 @@ if __name__ == '__main__':
 
   parser = argparse.ArgumentParser()
   parser.add_argument('--formula', required=True, choices=set(FORMULAS.keys()))
-  parser.add_argument('--matrix', required=True, help='path to the coverage/kill-matrix')
-  parser.add_argument('--hybrid-scheme', choices=['numerator', 'constant', 'mirror', 'coverage-only'])
-  parser.add_argument('--hybrid-coverage-matrix', help='optional coverage matrix for hybrid techniques')
+  parser.add_argument('--matrix', required=True, help='path to the coverage matrix')
   parser.add_argument('--element-type', required=True, choices=['Statement', 'DUA'], help='file enumerating names for matrix columns')
   parser.add_argument('--element-names', required=True, help='file enumerating names for matrix columns')
-  parser.add_argument('--total-defn', required=True, choices=['tests', 'elements'], help='whether totalpassed/totalfailed should counts tests or covered/killed elements')
+  parser.add_argument('--total-defn', required=True, choices=['tests', 'elements'], help='whether totalpassed/totalfailed should counts tests or covered elements/dua(s)')
   parser.add_argument('--output', required=True, help='file to write suspiciousness vector to')
 
   args = parser.parse_args()
-
-  if (args.hybrid_scheme is None) != (args.hybrid_coverage_matrix is None):
-    raise RuntimeError('--hybrid-scheme and --hybrid-coverage-matrix should come together or not at all')
 
   with open(args.element_names) as name_file:
     element_names = {i: name.strip() for i, name in enumerate(name_file)}
@@ -149,16 +110,7 @@ if __name__ == '__main__':
   with open(args.matrix) as matrix_file:
     tally = tally_matrix(matrix_file, args.total_defn, n_elements=n_elements)
 
-  if args.hybrid_scheme is None:
-    hybrid_coverage_tally = None
-  else:
-    with open(args.hybrid_coverage_matrix) as coverage_matrix_file:
-      hybrid_coverage_tally = tally_matrix(coverage_matrix_file, args.total_defn, n_elements)
-
-
-  suspiciousnesses = suspiciousnesses_from_tallies(
-    formula=args.formula, hybrid_scheme=args.hybrid_scheme,
-    tally=tally, hybrid_coverage_tally=hybrid_coverage_tally)
+  suspiciousnesses = suspiciousnesses_from_tallies(formula=args.formula, tally=tally)
 
   with open(args.output, 'w') as output_file:
     writer = csv.DictWriter(output_file, [args.element_type,'Suspiciousness'])
