@@ -52,23 +52,6 @@ get_top_n <- function(data_long, n, prefix="") {
                            sep="/"))
                 printTechniqueTable(top_n, val)
                 sink()
-
-                # Sort all FL techniques and determine the best technique for each family
-                all <- getTopN(data_long, length(getAllTechniques(data_long)), scheme, val, agg)
-                best_by_family <- all[match(unique(all$Family), all$Family),]
-                best_by_family <- best_by_family[order(best_by_family[val]),]
-
-                sink(paste(out_dir,
-                           paste(prefix, "bestInFamilyBy",
-                                 initialCap(val),
-                                 initialCap(agg),
-                                 initialCap(scheme),
-                                 ".tex",
-                                 sep=""),
-                           sep="/"))
-
-                printTechniqueTable(best_by_family, val)
-                sink()
             }
         }
     }
