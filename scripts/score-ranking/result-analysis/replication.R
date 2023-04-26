@@ -24,10 +24,6 @@ df <- readCsv(data_file, getReal=TRUE, getArtificial=TRUE)
 df$FaultType <- "Real faults"
 df$FLT <- prettifyTechniqueName(df$Technique)
 
-# Filter rankings only for desired techniques
-flts <- c("Ochiai", "Tarantula", "Neural Network")
-df <- df[df$FLT %in% flts,]
-
 metric <- "ScoreWRTLoadedClasses"
 
 ################################################################################

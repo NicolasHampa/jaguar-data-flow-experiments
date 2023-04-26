@@ -23,10 +23,6 @@ df <- readCsv(data_file)
 
 df$Scheme <- getScoringSchemes(df)
 
-# Show top-n rankings for all existing techniques
-flts <- c("Ochiai", "Tarantula", "Neural Network")
-df <- df[df$FLT %in% flts,]
-
 rank <- rankTopN(df)
 
 num_real_bugs <- length(unique(df[,ID]))

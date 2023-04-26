@@ -79,6 +79,10 @@ readCsv <- function(file_name, getReal=TRUE, getArtificial=TRUE) {
     data$Formula       <- as.factor(data$Formula)
     data$TotalDefn     <- as.factor(data$TotalDefn)
 
+    # Filter rankings only for desired techniques
+    flts <- c("Ochiai", "Tarantula", "Neural Network")
+    data <- data[data$FLT %in% flts,]
+    
     # Rank the EXAM scores.
     # TODO: which of the following tie breakers makes the most sense:
     # average, min, or max?
