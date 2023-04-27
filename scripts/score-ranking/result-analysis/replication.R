@@ -25,6 +25,7 @@ df$FaultType <- "Real faults"
 df$FLT <- prettifyTechniqueName(df$Technique)
 
 metric <- "ScoreWRTLoadedClasses"
+rank <- "ScoreAbs"
 
 ################################################################################
 # Generate plots
@@ -92,6 +93,8 @@ embed_fonts(pdfname, options="-dSubsetFonts=true -dEmbedAllFonts=true -dCompatib
 ################################################################################
 # Generate table
 #
+
+scoring_metrics <- c(scoring_metrics, "ScoreAbs")
 # Cast all scoring metrics to wide format at once
 wide <- dcast(setDT(df), "ID ~ Technique + Family", value.var=scoring_metrics)
 
@@ -151,7 +154,7 @@ sink()
 
 
 ##################################################################
-# Generate table comparations
+# Generate table comparisons
 #
 
 for (i in 1:length(comparisons$Better)) {
@@ -161,16 +164,26 @@ for (i in 1:length(comparisons$Better)) {
   # Perform the same test for real faults
   flt1_score <- paste(metric, prior_winner, sep="_")
   flt2_score <- paste(metric, prior_loser, sep="_")
+  flt1_rank <- paste(rank, prior_winner, sep="_")
+  flt2_rank <- paste(rank, prior_loser, sep="_")
   
   wide_comparation <- data.frame(
+    ID = wide[["ID"]],
     flt1_score = wide[[flt1_score]],
     flt2_score = wide[[flt2_score]],
+    flt1_rank = wide[[flt1_rank]],
+    flt2_rank = wide[[flt2_rank]],
     T1_wins = wide[[flt1_score]] < wide[[flt2_score]],
     T1_T2_Diff = wide[[flt1_score]] - wide[[flt2_score]]
   )
   names(wide_comparation)[names(wide_comparation) == "flt1_score"] <- flt1_score
   names(wide_comparation)[names(wide_comparation) == "flt2_score"] <- flt2_score
+  names(wide_comparation)[names(wide_comparation) == "flt1_rank"] <- flt1_rank
+  names(wide_comparation)[names(wide_comparation) == "flt2_rank"] <- flt2_rank
   
-  TABLE = paste(out_dir, "/table_comparation_", flt1_score, "_", flt2_score, ".csv", sep="")
+  wide_comparation[flt1_rank] <- round(wide_comparation[flt1_rank], 0)
+  wide_comparation[flt2_rank] <- round(wide_comparation[flt2_rank], 0)
+  
+  TABLE = paste(out_dir, "/table_comparison_", flt1_score, "_", flt2_score, ".csv", sep="")
   write.csv(wide_comparation, TABLE, row.names=FALSE)
 }
