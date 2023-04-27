@@ -148,3 +148,29 @@ for (i in 1:length(comparisons$Better)) {
   cat("\\\\ \n")
 }
 sink()
+
+
+##################################################################
+# Generate table comparations
+#
+
+for (i in 1:length(comparisons$Better)) {
+  prior_winner = comparisons$Better[i]
+  prior_loser  = comparisons$Worse[i]
+  
+  # Perform the same test for real faults
+  flt1_score <- paste(metric, prior_winner, sep="_")
+  flt2_score <- paste(metric, prior_loser, sep="_")
+  
+  wide_comparation <- data.frame(
+    flt1_score = wide[[flt1_score]],
+    flt2_score = wide[[flt2_score]],
+    T1_wins = wide[[flt1_score]] < wide[[flt2_score]],
+    T1_T2_Diff = wide[[flt1_score]] - wide[[flt2_score]]
+  )
+  names(wide_comparation)[names(wide_comparation) == "flt1_score"] <- flt1_score
+  names(wide_comparation)[names(wide_comparation) == "flt2_score"] <- flt2_score
+  
+  TABLE = paste(out_dir, "/table_comparation_", flt1_score, "_", flt2_score, ".csv", sep="")
+  write.csv(wide_comparation, TABLE, row.names=FALSE)
+}
